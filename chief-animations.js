@@ -445,16 +445,48 @@
     }
 
     function renderSlots() {
-      var wrap  = document.getElementById('calTimes');
-      var lbl   = document.getElementById('calTimesLabel');
-      var tgrid = document.getElementById('calTimeGrid');
+      var wrap    = document.getElementById('calTimes');
+      var lbl     = document.getElementById('calTimesLabel');
+      var tgrid   = document.getElementById('calTimeGrid');
+      var mnav    = document.querySelector('.cal-month-nav');
+      var mwdays  = document.querySelector('.cal-weekdays');
+      var mgrid   = document.getElementById('calDays');
+      var rtitle  = document.querySelector('.cal-right-title');
       if (!wrap) return;
-      if (!selDate) { wrap.style.display='none'; return; }
-      lbl.textContent = fmtDate(selDate) + ' — müsait saatler';
+      if (!selDate) {
+        wrap.style.display = 'none';
+        if (mnav)   mnav.style.display = '';
+        if (mwdays) mwdays.style.display = '';
+        if (mgrid)  mgrid.style.display = '';
+        if (rtitle) rtitle.textContent = 'Bir tarih seçin';
+        var bb = document.getElementById('calBackToCalBtn');
+        if (bb) bb.remove();
+        return;
+      }
+      /* Takvimi gizle — sadece slotları göster */
+      if (mnav)   mnav.style.display = 'none';
+      if (mwdays) mwdays.style.display = 'none';
+      if (mgrid)  mgrid.style.display = 'none';
+      if (rtitle) rtitle.textContent = fmtDate(selDate) + ' — saat seçin';
+      lbl.textContent = 'Müsait saatler';
       tgrid.innerHTML = slotsFor(selDate).map(function(t) {
         return '<button class="cal-time-btn'+(t===selTime?' selected':'')+'" data-time="'+t+'">'+t+'</button>';
       }).join('');
       wrap.style.display = 'block';
+      /* Geri butonu */
+      if (!document.getElementById('calBackToCalBtn')) {
+        var bb = document.createElement('button');
+        bb.id = 'calBackToCalBtn';
+        bb.className = 'cal-back-btn';
+        bb.innerHTML = '&#8249; Tarihi değiştir';
+        bb.style.cssText = 'display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--t-muted);background:none;border:none;cursor:pointer;padding:0;margin-bottom:14px;';
+        wrap.insertBefore(bb, wrap.firstChild);
+        bb.addEventListener('click', function() {
+          selDate = null; selTime = null;
+          renderMonth();
+          renderSlots();
+        });
+      }
       tgrid.querySelectorAll('.cal-time-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
           selTime = btn.getAttribute('data-time');
@@ -478,6 +510,17 @@
       showStep(1);
       var t=document.getElementById('calTimes'); if(t) t.style.display='none';
       var f=document.getElementById('calForm'); if(f) f.reset();
+      /* Geri butonu varsa temizle */
+      var bb=document.getElementById('calBackToCalBtn'); if(bb) bb.remove();
+      /* Takvimi geri göster */
+      var mnav=document.querySelector('.cal-month-nav');
+      var mwdays=document.querySelector('.cal-weekdays');
+      var mgrid=document.getElementById('calDays');
+      var rtitle=document.querySelector('.cal-right-title');
+      if(mnav)   mnav.style.display='';
+      if(mwdays) mwdays.style.display='';
+      if(mgrid)  mgrid.style.display='';
+      if(rtitle) rtitle.textContent='Bir tarih seçin';
       renderMonth();
       overlay.classList.add('open');
       document.body.style.overflow='hidden';
