@@ -1492,8 +1492,7 @@ function injectStickyContact() {
       '<div class="sc-body">' +
         // Calendar tab
         '<div id="scTabCal">' +
-          '<button class="sc-cal-btn" id="scCalBtn">' + ico('cal', 16) + ' 30 dk Keşif Görüşmesi</button>' +
-          '<p class="sc-cal-note">Ücretsiz · Satış toplantısı değil</p>' +
+          '<button class="sc-cal-btn" id="scCalBtn" data-cal="open">' + ico('cal', 16) + ' 30 dk Keşif Görüşmesi</button>' +
         '</div>' +
         // Quick question tab
         '<div id="scTabAsk" style="display:none">' +
@@ -1526,14 +1525,9 @@ function injectStickyContact() {
     });
   });
 
-  // Calendar button — opens cal-modal if on home page, else goes to demo page
+  // Calendar button — data-cal="open" ile chief-animations.js'in openCal()'ını tetikler
+  // scPanel'i kapat, gerisini global handler halleder
   document.getElementById('scCalBtn').addEventListener('click', function() {
-    var overlay = document.getElementById('calOverlay');
-    if (overlay) {
-      overlay.classList.add('open');
-    } else {
-      location.hash = '#/demo-talep-et';
-    }
     document.getElementById('scPanel').classList.remove('open');
   });
 
@@ -1566,6 +1560,5 @@ window.chiefDemoSubmit = function(e) {
    ================================================================ */
 fillFooter();
 injectStickyContact();
-document.addEventListener('DOMContentLoaded', initCalModal);
 window.addEventListener('hashchange', go);
-window.addEventListener('load', function() { go(); initCalModal(); });
+window.addEventListener('load', go);
