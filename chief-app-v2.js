@@ -1665,6 +1665,70 @@ const IS_SURECLERI_DATA = {
   },
 };
 
+/* ---- Müşteri hikayesi veritabanı ---- */
+const IS_SURECLERI_CS = {
+  'yonetimsel-dogal-dil': {
+    logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+    quote:'"Pazartesi toplantısına her hafta veri toplamak için Cuma günü başlardık — satıştan, sahadan, muhasebeden ayrı ayrı sorardık. Chief ile o toplantı hazırlığı tamamen ortadan kalktı. Pazar gecesi özet geliyor, Pazartesi toplantısı 12 dakika sürüyor."',
+  },
+  'talep-potansiyel-musteri': {
+    logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+    quote:'"Web formu, WhatsApp ve e-posta üzerinden gelen talepler farklı yerlerde kalıyordu. Chief ile her kanal tek akışta; artık sahipsiz fırsat kalmıyor, her talepte ilk temas SLA\'sı otomatik işliyor."',
+  },
+  'satis-ekibi-ziyaret': {
+    logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+    quote:'"Satış ekibimizin ziyaret notları farklı kişisel dosyalara dağılmış, doğru veriye anında ulaşmak güçleşmişti. Chief ile tüm satış hattı, toplantı çıktıları ve teklif süreçleri tek ekranda görünür. Artık müdür sahadan dönen temsilciyi arayıp sormak zorunda değil."',
+  },
+  'teklif-talebi-bilgi': {
+    logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+    quote:'"Eksik bilgi nedeniyle teklif ekibi defalarca yazışıyordu; süreç uzuyor, kapsam hatası riski artıyordu. Chief ile bilgi tamamlama akışı sayesinde teklif hazır dosyaya ilk günde ulaşıyoruz, revizyon oranı yarı yarıya düştü."',
+  },
+  'fiyatlama-marj-onay': {
+    logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+    quote:'"Aynı iş için farklı fiyatlar verilebiliyordu, marj dışı teklifler geç fark ediliyordu. Chief ile marj kontrolü ve onay zinciri otomatikleşti; yetki dışı fiyat artık çıkmıyor, her karar kayıt altında."',
+  },
+  'tekliften-siparise': {
+    logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+    quote:'"Onaylanan teklifin kapsamını operasyona aktarırken bilgi kaybı yaşanıyordu. Chief ile kapsam, fiyat ve termin kayıpsız geçiyor; operasyon ilk günden doğru bilgiyle başlıyor."',
+  },
+  'is-emri-saha-planlama': {
+    logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+    quote:'"Servis talepleri telefon, e-posta ve portaldan aynı anda geliyordu. Her birini manuel takibe almak ve belgelendirmek ekibe büyük yük bindiriyordu. Chief ile hiçbir talep kaybolmuyor, her iş emrinin durumu gerçek zamanlı görünüyor, kapanış belgesi otomatik oluşuyor."',
+  },
+  'bakim-ariza-teknik-servis': {
+    logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+    quote:'"Periyodik bakım tarihleri Excel\'de takip ediliyordu, arada kayıyor ve gecikiyordu. Arıza geldiğinde ise ekipman geçmişini bulmak için 3 farklı sisteme giriyorduk. Chief ile bakım takvimi otomatik, arıza geldiğinde iş emri dakikalar içinde hazır."',
+  },
+  'montaj-proje-uygulama': {
+    logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+    quote:'"Proje dosyaları, malzeme listeleri ve saha güncellemeleri farklı araçlardaydı. Chief ile teknik kapsam, uygulama planı ve kabul süreci tek akışta izleniyor; eksik iş kapanışa engel olmuyor."',
+  },
+  'uretim-planlama-kapasite': {
+    logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+    quote:'"Kapasite kısıtlarını görmeden sipariş alıyorduk; darboğazlar son anda ortaya çıkıyordu. Chief ile termin riski görünür hale geldi, sürpriz duruş kalmadı, müşteriye gerçekçi teslim tarihi veriyoruz."',
+  },
+  'stok-yedek-parca-tedarik': {
+    logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+    quote:'"Kritik yedek parça eksikliğini son anda öğreniyorduk. Chief ile stok hangi iş için kritik, ne zaman gerekli — bağlamıyla izleniyor; eksiklik oluşmadan tedarik aksiyonu başlıyor."',
+  },
+  'kalite-uygunsuzluk-duzeltici-faaliyet': {
+    logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+    quote:'"Uygunsuzlukları kayıt altına alıyorduk ama kök neden bulunana kadar aynı sorunlar tekrarlanıyordu. Chief ile kapalı döngüye aldık; her kayıt düzeltici aksiyona bağlı, tekrar oranı belirgin düştü."',
+  },
+  'fatura-tahsilat-is-kapanisi': {
+    logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+    quote:'"Faturalanmamış işleri bulmak için muhasebe ile satış arasında gidip geliyorduk. Chief ile iş kapandığında fatura zinciri otomatik başlıyor; geciken alacaklar görünür, tahsilat aksiyonu zamanında açılıyor."',
+  },
+  'musteri-geri-bildirimi-iyilestirme': {
+    logo:'logo-ikon.png', company:'İkon Araştırma', industry:'Pazar Araştırması & Danışmanlık',
+    quote:'"NPS skorlarımızın düştüğünü görüyorduk ama hangi sürecin neden etkilediğini anlayamıyorduk. Chief ile geri bildirim konu, sorumlu ve aksiyona bağlandı; artık skor raporu değil, kapalı döngü görüyoruz."',
+  },
+  'calisan-deneyimi-ik-aksiyonlari': {
+    logo:'logo-ikon.png', company:'İkon Araştırma', industry:'Pazar Araştırması & Danışmanlık',
+    quote:'"Çalışan anket sonuçları rapor olarak kalıyordu; İK hangi aksiyonu ne zaman alacak bilemiyordu. Chief ile tekrar eden temalar görünür hale geldi, her sinyal İK aksiyonuna bağlandı."',
+  },
+};
+
 /* ---- Kategori filtre ---- */
 window.isCatFilter = function(btn, cat) {
   document.querySelectorAll('.is-cat').forEach(function(b) { b.classList.remove('active'); });
@@ -1762,14 +1826,26 @@ function renderIsSureciPage(slug) {
   });
   h += '</div></div></section>';
 
-  // Metrikler + SSS
-  h += '<section style="padding:56px 0"><div class="container">' +
-    '<div class="sp-metrics" style="margin-bottom:32px">';
-  d.metrics.forEach(function(m) {
-    h += '<div class="sp-metric"><span class="sp-num">' + esc(m.n) + '</span><span class="sp-label">' + esc(m.l) + '</span></div>';
-  });
-  h += '</div>' +
-    '<div class="section-head" style="margin-top:0;margin-bottom:0"><span class="eyebrow">SSS</span></div>';
+  // Müşteri hikayesi
+  var cs = IS_SURECLERI_CS[slug];
+  if (cs) {
+    h += '<section class="bg-warm" style="padding:56px 0"><div class="container">' +
+      '<div class="cs-block">' +
+      '<div class="cs-header">' +
+      '<div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
+      '<div><div class="sp-company">' + esc(cs.company) + '</div><div class="sp-industry">' + esc(cs.industry) + '</div></div>' +
+      '</div>' +
+      '<blockquote class="sp-quote">' + esc(cs.quote) + '</blockquote>' +
+      '<div class="sp-metrics">' +
+      d.metrics.map(function(m) {
+        return '<div class="sp-metric"><span class="sp-num">' + esc(m.n) + '</span><span class="sp-label">' + esc(m.l) + '</span></div>';
+      }).join('') +
+      '</div></div></div></section>';
+  }
+
+  // SSS
+  h += '<section style="padding:56px 0"><div class="container narrow">' +
+    '<div class="section-head" style="margin-bottom:0"><span class="eyebrow">SSS</span></div>';
   d.faq.forEach(function(f) {
     h += '<details class="faq-item"><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>';
   });
