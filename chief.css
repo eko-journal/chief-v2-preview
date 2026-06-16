@@ -795,6 +795,72 @@ a.card { color: inherit; }
 @media(max-width:860px){ .omurga-grid{grid-template-columns:1fr 1fr} .yone-grid,.durumlar-grid,.kpi-grid{grid-template-columns:1fr} }
 @media(max-width:560px){ .omurga-grid{grid-template-columns:1fr} .ornek-akis{padding:22px 18px} .nl-chat-wrap{padding:22px 18px} }
 
+/* Fiyatlandırma sayfası v2 */
+.fiy-3kart { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.fiy-kart { background:var(--card); border:1px solid var(--border); border-radius:var(--r-lg); padding:26px 28px; display:flex; flex-direction:column; gap:10px; }
+.fiy-kart-ico { width:44px; height:44px; border-radius:var(--r-md); background:var(--clay-tint); color:var(--clay-deep); display:flex; align-items:center; justify-content:center; }
+.fiy-kart-ico.sage { background:var(--sage-tint); color:var(--sage-deep); }
+.fiy-kart h4 { font-size:16px; font-weight:700; margin:0; }
+.fiy-kart p { font-size:14px; color:var(--t-muted); margin:0; line-height:1.6; }
+.fiy-kart-alt { font-size:12px; color:var(--t-faint); margin-top:auto; }
+/* Kategori kartları */
+.fiy-kat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.fiy-kat-card { background:var(--card); border:1px solid var(--border); border-radius:var(--r-lg); padding:28px; }
+.fiy-kat-card.fiy-kat-orta { border-color:var(--clay); box-shadow:var(--sh-sm); }
+.fiy-kat-num { font-size:11px; font-weight:700; color:var(--clay); font-family:'JetBrains Mono',monospace; letter-spacing:.08em; margin-bottom:12px; }
+.fiy-kat-card h3 { font-size:17px; font-weight:700; margin:0 0 10px; }
+.fiy-kat-card p { font-size:14px; color:var(--t-muted); margin:0 0 14px; line-height:1.6; }
+.fiy-kat-ornekler { font-size:12.5px; color:var(--t-faint); line-height:1.7; }
+.fiy-kat-alt { display:block; font-size:12px; color:var(--clay); font-weight:600; margin-top:16px; }
+/* Simülatör */
+.sim-wrap { display:grid; grid-template-columns:1fr 380px; gap:40px; align-items:start; }
+.sim-sliders { display:flex; flex-direction:column; gap:28px; }
+.sim-slider-item { background:var(--card); border:1px solid var(--border); border-radius:var(--r-lg); padding:22px 24px; }
+.sim-slider-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.sim-slider-label { font-size:15px; font-weight:700; }
+.sim-slider-val { font-size:15px; font-weight:700; color:var(--clay); font-family:'JetBrains Mono',monospace; }
+.sim-slider-hint { font-size:13px; color:var(--t-muted); margin:0 0 14px; }
+.sim-range-wrap { display:flex; align-items:center; gap:10px; }
+.sim-range { flex:1; -webkit-appearance:none; height:6px; border-radius:3px; background:linear-gradient(to right, var(--clay) 0%, var(--clay) calc(var(--val,4)*1%), var(--border) calc(var(--val,4)*1%)); outline:none; cursor:pointer; }
+.sim-range::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--clay); box-shadow:0 2px 6px rgba(217,119,87,.4); }
+.sim-range::-moz-range-thumb { width:20px; height:20px; border-radius:50%; background:var(--clay); border:none; box-shadow:0 2px 6px rgba(217,119,87,.4); }
+.sim-range-lim { font-size:12px; color:var(--t-faint); white-space:nowrap; min-width:36px; }
+.sim-selects { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.sim-sel-label { display:block; font-size:13px; font-weight:600; color:var(--t-muted); margin-bottom:6px; }
+.sim-select { width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:var(--r-md); font-family:var(--f-ui); font-size:14px; background:var(--card); color:var(--ink); cursor:pointer; }
+/* Sonuç kartı */
+.sim-result-card { background:var(--ink); border-radius:var(--r-xl); padding:36px 32px; position:sticky; top:96px; display:flex; flex-direction:column; gap:0; }
+.sim-result-label { font-size:12px; font-weight:700; color:var(--clay-soft); text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px; }
+.sim-price { font-size:clamp(28px,3.5vw,38px); font-weight:800; color:var(--ivory); line-height:1.1; margin-bottom:8px; }
+.sim-price-sub { font-size:13px; color:rgba(250,249,245,.5); margin:0 0 20px; }
+.sim-segment-wrap { display:flex; flex-direction:column; gap:5px; margin-bottom:16px; }
+.sim-segment-lbl { font-size:12px; color:rgba(250,249,245,.45); }
+.sim-segment { font-size:14px; font-weight:700; color:var(--clay-soft); }
+.sim-integ-note { font-size:13px; color:rgba(250,249,245,.55); margin:0 0 24px; line-height:1.6; }
+.sim-cta { width:100%; justify-content:center; }
+.sim-disclaimer { font-size:11px; color:rgba(250,249,245,.3); margin:16px 0 0; line-height:1.6; }
+/* SaaS segment kartları */
+.fiy-saas-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.fiy-saas-card { background:var(--card); border:1px solid var(--border); border-radius:var(--r-xl); padding:28px; display:flex; flex-direction:column; gap:10px; min-height:220px; }
+.fiy-saas-card.fiy-saas-featured { border-color:var(--clay); box-shadow:var(--sh-md); }
+.fiy-saas-card h3 { font-size:17px; font-weight:700; margin:0; }
+.fiy-saas-fiyat { font-size:13px; font-weight:600; color:var(--clay-deep); margin:0; }
+.fiy-saas-kimler { font-size:14px; color:var(--t-muted); margin:0; line-height:1.6; flex:1; }
+/* Entegrasyon grid */
+.fiy-integ-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+.fiy-integ-item { background:var(--card); border:1px solid var(--border); border-radius:var(--r-lg); padding:18px; }
+.fiy-integ-item strong { font-size:14px; display:block; margin-bottom:8px; }
+.fiy-integ-item p { font-size:13px; color:var(--t-muted); margin:0 0 10px; line-height:1.5; }
+.fiy-integ-note { font-size:12px; color:var(--clay-deep); font-style:italic; }
+/* On-premise kart */
+.fiy-onprem { background:var(--warm); border:1px solid var(--border); border-radius:var(--r-xl); padding:36px 40px; display:flex; gap:28px; align-items:flex-start; }
+.fiy-onprem-icon { width:52px; height:52px; border-radius:var(--r-lg); background:var(--sage-tint); color:var(--sage-deep); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.fiy-onprem h3 { font-size:20px; font-weight:700; margin:0 0 12px; }
+.fiy-onprem p { font-size:15px; color:var(--t-body); margin:0; line-height:1.75; }
+@media(max-width:1100px){ .fiy-integ-grid{grid-template-columns:repeat(3,1fr)} }
+@media(max-width:900px){ .sim-wrap{grid-template-columns:1fr} .sim-result-card{position:static} .fiy-saas-grid{grid-template-columns:1fr 1fr} }
+@media(max-width:700px){ .fiy-3kart,.fiy-kat-grid,.fiy-saas-grid,.fiy-integ-grid{grid-template-columns:1fr} .sim-selects{grid-template-columns:1fr} .fiy-onprem{flex-direction:column} }
+
 /* pricing */
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
 .price-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 34px; }

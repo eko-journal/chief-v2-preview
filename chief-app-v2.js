@@ -1235,94 +1235,226 @@ function renderEntegrasyonlar() {
    FİYATLANDIRMA
    ================================================================ */
 function renderFiyatlandirma() {
-  var tiers = [
-    {
-      name: 'Başlangıç',
-      tag: null,
-      price: '₺4.990',
-      period: '/ay · yıllık faturalama',
-      desc: '1 akışla başlayın, sonuçları görün.',
-      features: [
-        '1 aktif akış',
-        '3 kanal (WA, e-posta, 1 ERP)',
-        '5 kullanıcı',
-        'Komuta merkezi',
-        'Standart entegrasyonlar',
-        'E-posta destek',
-      ],
-      cta: 'Görüşme Planla',
-      featured: false,
-    },
-    {
-      name: 'Büyüme',
-      tag: 'En çok tercih edilen',
-      price: '₺9.990',
-      period: '/ay · yıllık faturalama',
-      desc: 'Tüm kanallar, sınırsız akış, AI önerileri.',
-      features: [
-        'Sınırsız akış',
-        'Sınırsız kanal entegrasyonu',
-        '15 kullanıcı',
-        'AI öneri ve risk skorlaması',
-        'Haftalık yönetim özeti',
-        'Saha mobil uygulaması',
-        'Öncelikli destek',
-      ],
-      cta: 'Görüşme Planla',
-      featured: true,
-    },
-    {
-      name: 'Kurumsal',
-      tag: null,
-      price: 'Teklif alın',
-      period: 'Kuruma özel fiyatlandırma',
-      desc: 'On-prem, GDPR/KVKK belgesi, SLA garantisi.',
-      features: [
-        'On-prem ve hibrit kurulum',
-        'Sınırsız kullanıcı',
-        'Özel akış tasarımı',
-        'GDPR / KVKK uyumluluk belgesi',
-        'SLA garantisi (%99.5)',
-        'Dedicated partner desteği',
-        'ERP/CRM özel entegrasyon',
-      ],
-      cta: 'Görüşme Planla',
-      featured: false,
-    },
+  var h = '';
+
+  /* ---- HERO ---- */
+  h += '<section class="detail-hero"><div class="container">' +
+    crumb(["Fiyatlandırma"]) +
+    '<span class="eyebrow">KULLANIMA GÖRE SAAS FİYATLAMA</span>' +
+    '<h1 style="margin-top:16px;max-width:720px">Kullandığınız iş kadar ödeyin</h1>' +
+    '<p class="lead" style="max-width:680px">Chief, işletmenizdeki talep, teklif, saha işi, teknik doküman, görüntü analizi, rota planlama, tahmin ve yönetim brifingi gibi işleri yapay zekâ destekli süreçlere dönüştürür. Aylık 500 dolardan başlayan fiyatlarla kullanmaya başlayın; aylık iş/görev yoğunluğunuza göre kullanımınız ölçeklenir.</p>' +
+    '<p style="font-size:14px;color:var(--t-muted);margin:14px 0 0">Teknik token detayına girmeden, aylık iş hacminizi üç basit kategoriyle seçin; yaklaşık aylık toplam fiyatınızı görün.</p>' +
+    '<div class="cta-row" style="margin-top:28px">' +
+    '<a href="#simRef" class="btn btn-clay btn-lg" onclick="document.getElementById(\'chiefSim\').scrollIntoView({behavior:\'smooth\'});return false;">Kullanımınızı Simüle Edin</a>' +
+    '<a href="#/demo-talep-et" class="btn btn-ghost btn-lg">Randevu Talep Edin</a>' +
+    '</div></div></section>';
+
+  /* ---- HERO ALTI 3 KART ---- */
+  h += '<section class="bg-warm" style="padding:48px 0"><div class="container">' +
+    '<div class="fiy-3kart">' +
+    '<div class="fiy-kart"><div class="fiy-kart-ico">' + ico('bolt',22) + '</div><h4>Başlangıç seviyesinde SaaS</h4><p>Chief\'in temel platform kullanımı, görev/onay akışı, kullanıcı yönetimi ve dashboard erişimi başlangıç bedeliyle sunulur.</p><span class="fiy-kart-alt">Uzun entegrasyonlarla uğraşmadan; hemen başla</span></div>' +
+    '<div class="fiy-kart"><div class="fiy-kart-ico sage">' + ico('bars',22) + '</div><h4>Tükettiğiniz kadar ölçeklenir</h4><p>Düşük, orta ve yüksek yoğunluklu iş/görev adetlerinizi seçerek yaklaşık aylık toplam fiyatınızı görün.</p><span class="fiy-kart-alt">Öngörülebilir maliyetlerle işletmenizin tüm süreçlerini Chief yönetin</span></div>' +
+    '<div class="fiy-kart"><div class="fiy-kart-ico">' + ico('layers',22) + '</div><h4>Entegrasyon ayrı planlanır</h4><p>ERP, CRM, muhasebe, IoT, WhatsApp veya saha sistemleriyle bağlantılar kapsamına göre tekliflendirilir.</p><span class="fiy-kart-alt">On-premise ve özelleştirilmiş senaryolar için entegrasyon süreci planlanır</span></div>' +
+    '</div></div></section>';
+
+  /* ---- FİYATLAMA NASIL ÇALIŞIR? ---- */
+  h += '<section style="padding:52px 0"><div class="container">' +
+    '<div class="section-head"><span class="eyebrow">Fiyatlama nasıl çalışır?</span>' +
+    '<h2>Üç görev yoğunluğu, tek toplam fiyat</h2>' +
+    '<p class="lead">Chief fiyatlandırması yalnızca kullanıcı hesabı sayısına göre değil, platformun sizin için yürüttüğü iş hacmine göre şekillenir.</p></div>' +
+    '<div class="fiy-kat-grid">' +
+    '<div class="fiy-kat-card"><div class="fiy-kat-num">01</div><h3>Düşük yoğunluklu işler</h3><p>Dağınık mesaj, talep, not ve kısa takip işlerini Chief\'e taşıyın.</p><div class="fiy-kat-ornekler">Talep sınıflandırma · Mesajdan görev çıkarma · Görüşme notu özeti · Takip hatırlatması</div><span class="fiy-kat-alt">Aylık düşük yoğunluklu iş adedi</span></div>' +
+    '<div class="fiy-kat-card fiy-kat-orta"><div class="fiy-kat-num">02</div><h3>Orta yoğunluklu işler</h3><p>Teklif, onay, iş emri, saha kapanışı ve operasyon takibini tek akışta yönetin.</p><div class="fiy-kat-ornekler">Teklif taslağı · Fiyat/marj kontrolü · İş emri oluşturma · Saha kapanış raporu</div><span class="fiy-kat-alt">Aylık orta yoğunluklu iş adedi</span></div>' +
+    '<div class="fiy-kat-card"><div class="fiy-kat-num">03</div><h3>Yüksek yoğunluklu işler</h3><p>Teknik, görsel, planlama ve tahmin gerektiren ileri işleri Chief ile ölçeklendirin.</p><div class="fiy-kat-ornekler">Teknik resim okuma · Görüntü analizi · Rota/dispatch planlama · Talep tahmini</div><span class="fiy-kat-alt">Aylık yüksek yoğunluklu iş adedi</span></div>' +
+    '</div></div></section>';
+
+  /* ---- SİMÜLATÖR ---- */
+  h += '<section id="chiefSim" class="bg-warm" style="padding:60px 0"><div class="container">' +
+    '<div class="section-head"><span class="eyebrow">Kullanım Simülatörü</span>' +
+    '<h2>Aylık Chief kullanımınızı simüle edin</h2>' +
+    '<p class="lead" style="max-width:600px">Üç görev yoğunluğu için aylık adetleri seçin; temel SaaS bedeli dahil yaklaşık aylık toplam fiyatınızı görün.</p></div>' +
+    '<div class="sim-wrap">' +
+
+    /* Sol panel: sliderlar */
+    '<div class="sim-sliders">' +
+
+    /* Slider 1: Düşük */
+    '<div class="sim-slider-item">' +
+    '<div class="sim-slider-head"><span class="sim-slider-label">Düşük yoğunluklu işler</span><span class="sim-slider-val"><span id="simLowVal">400</span> / ay</span></div>' +
+    '<p class="sim-slider-hint">Kısa metin, sınıflandırma, özet ve takip işleri.</p>' +
+    '<div class="sim-range-wrap"><span class="sim-range-lim">0</span>' +
+    '<input type="range" id="simLow" class="sim-range" min="0" max="10000" step="50" value="400" oninput="window.chiefSimUpdate()">' +
+    '<span class="sim-range-lim">10.000</span></div>' +
+    '</div>' +
+
+    /* Slider 2: Orta */
+    '<div class="sim-slider-item">' +
+    '<div class="sim-slider-head"><span class="sim-slider-label">Orta yoğunluklu işler</span><span class="sim-slider-val"><span id="simMedVal">150</span> / ay</span></div>' +
+    '<p class="sim-slider-hint">Teklif, onay, iş emri, saha kapanış ve operasyon takip işleri.</p>' +
+    '<div class="sim-range-wrap"><span class="sim-range-lim">0</span>' +
+    '<input type="range" id="simMed" class="sim-range" min="0" max="5000" step="25" value="150" oninput="window.chiefSimUpdate()">' +
+    '<span class="sim-range-lim">5.000</span></div>' +
+    '</div>' +
+
+    /* Slider 3: Yüksek */
+    '<div class="sim-slider-item">' +
+    '<div class="sim-slider-head"><span class="sim-slider-label">Yüksek yoğunluklu işler</span><span class="sim-slider-val"><span id="simHighVal">25</span> / ay</span></div>' +
+    '<p class="sim-slider-hint">Teknik resim, görüntü analizi, rota planlama, tahmin ve optimizasyon işleri.</p>' +
+    '<div class="sim-range-wrap"><span class="sim-range-lim">0</span>' +
+    '<input type="range" id="simHigh" class="sim-range" min="0" max="2000" step="10" value="25" oninput="window.chiefSimUpdate()">' +
+    '<span class="sim-range-lim">2.000</span></div>' +
+    '</div>' +
+
+    /* Entegrasyon + Deploy */
+    '<div class="sim-selects">' +
+    '<div><label class="sim-sel-label">Entegrasyon kapsamı</label>' +
+    '<select id="simInteg" class="sim-select" onchange="window.chiefSimUpdate()">' +
+    '<option value="Yok">Yok / Manuel başlangıç</option>' +
+    '<option value="Temel" selected>Temel</option>' +
+    '<option value="Standart">Standart</option>' +
+    '<option value="Gelişmiş">Gelişmiş</option>' +
+    '<option value="Özel">Özel / On-Premise</option>' +
+    '</select></div>' +
+    '<div><label class="sim-sel-label">Kurulum tipi</label>' +
+    '<select id="simDeploy" class="sim-select" onchange="window.chiefSimUpdate()">' +
+    '<option value="SaaS" selected>SaaS</option>' +
+    '<option value="PrivateCloud">Private Cloud</option>' +
+    '<option value="OnPremise">On-Premise</option>' +
+    '</select></div>' +
+    '</div>' +
+    '</div>' + /* /sim-sliders */
+
+    /* Sağ panel: sonuç kartı */
+    '<div class="sim-result-card">' +
+    '<span class="sim-result-label">Yaklaşık aylık toplam</span>' +
+    '<div class="sim-price" id="simPrice">667 USD / ay</div>' +
+    '<p class="sim-price-sub" id="simPriceSub">Temel başlangıç bedeli dahildir.</p>' +
+    '<div class="sim-segment-wrap"><span class="sim-segment-lbl">Önerilen profil</span><span class="sim-segment" id="simSegment">Mikro İşletme / Girişim</span></div>' +
+    '<p class="sim-integ-note" id="simIntegNote">Tek seferlik temel kurulum bedeli ayrıca planlanır.</p>' +
+    '<a href="#/demo-talep-et" class="btn btn-clay btn-lg sim-cta" id="simCTA">Bu kullanımı birlikte doğrulayalım</a>' +
+    '<p class="sim-disclaimer">Simülasyon ve fiyatlandırma değerleri örnektir; gerçek bedel kurulum kapsamı, entegrasyon ihtiyacı, kullanım hacmi, veri yoğunluğu, güvenlik gereksinimleri ve sözleşme şartlarına göre değişkenlik gösterebilir.</p>' +
+    '</div>' +
+
+    '</div></div></section>'; /* /sim-wrap /container /section */
+
+  /* ---- SAAS PAKET KARTLARI ---- */
+  var saasSegments = [
+    { name:'Mikro İşletme / Girişim', fiyatDili:'Başlangıç seviyesinde temel SaaS', kimler:'Freelance, yeni kurulanlar, 1-5 çalışan mikro KOBİ veya ilk süreçlerini Chief\'e taşımak isteyen küçük ekipler.', cta:'Kullanımı Simüle Et', ctaHref:'#chiefSim', featured:false },
+    { name:'Küçük İşletme / KOBİ', fiyatDili:'Kullanıma göre ölçeklenir', kimler:'İşini otutmuş, büyüyen ekipler; 5-20 çalışan yapılar. Düzenli satış, teklif, takip ve temel operasyon akışı olan işletmeler.', cta:'Randevu Talep Et', ctaHref:'#/demo-talep-et', featured:true },
+    { name:'Orta Ölçekli İşletme', fiyatDili:'Ciddi hacim ve çoklu süreç kullanımı', kimler:'20-100 çalışan, satış + operasyon + saha/servis/üretim süreçlerini birlikte yöneten ticari şirketler.', cta:'Sürecinizi Birlikte Modelleyelim', ctaHref:'#/demo-talep-et', featured:false },
+    { name:'Büyük Kurumsal / Grup Şirketleri', fiyatDili:'Kurumsal kullanım ve ileri entegrasyon', kimler:'100+ çalışan, çok lokasyonlu, global yapılar, holdingler veya gelişmiş güvenlik/entegrasyon ihtiyacı olan kurumlar.', cta:'Kurumsal Görüşme Planla', ctaHref:'#/demo-talep-et', featured:false },
   ];
 
-  var h = '<section class="detail-hero"><div class="container">' +
-    crumb(['Fiyatlandırma']) +
-    '<span class="eyebrow">Fiyatlandırma</span>' +
-    '<h1 style="margin-top:16px;max-width:700px">Bir akışla başlayın. Büyüdükçe genişleyin.</h1>' +
-    '<p class="lead" style="max-width:560px">TAK-Umwelt 3 haftada tek akışla başladı, 3 ayda 4 akışa geçti. Büyük başlangıç yatırımı yok — sonucu görünce ölçeklendirin.</p>' +
-    '</div></section>';
-
-  h += '<section><div class="container">' +
-    '<div class="pricing-grid">' +
-    tiers.map(function(t) {
-      var cls = 'price-card' + (t.featured ? ' featured' : '');
-      return '<div class="' + cls + '">' +
-        '<h3>' + esc(t.name) + '</h3>' +
-        '<p style="font-size:13.5px;color:var(--t-muted);margin:6px 0 0">' + esc(t.desc) + '</p>' +
-        '<div class="price">' + esc(t.price) + '</div>' +
-        '<div class="price-sub">' + esc(t.period) + '</div>' +
-        '<ul>' + t.features.map(function(f) { return '<li>' + esc(f) + '</li>'; }).join('') + '</ul>' +
-        '<button class="btn ' + (t.featured ? 'btn-clay' : 'btn-ghost') + ' btn-lg" style="width:100%;justify-content:center" onclick="document.getElementById(\'scPanel\').classList.add(\'open\')">' + esc(t.cta) + '</button>' +
+  h += '<section style="padding:60px 0"><div class="container">' +
+    '<div class="section-head"><span class="eyebrow">SaaS Paketleri</span>' +
+    '<h2>İşletme ölçeğinize göre başlayın</h2></div>' +
+    '<div class="fiy-saas-grid">' +
+    saasSegments.map(function(s) {
+      return '<div class="fiy-saas-card' + (s.featured ? ' fiy-saas-featured' : '') + '">' +
+        '<h3>' + esc(s.name) + '</h3>' +
+        '<p class="fiy-saas-fiyat">' + esc(s.fiyatDili) + '</p>' +
+        '<p class="fiy-saas-kimler">' + esc(s.kimler) + '</p>' +
+        '<a href="' + s.ctaHref + '" class="btn ' + (s.featured ? 'btn-clay' : 'btn-ghost') + '" style="width:100%;justify-content:center;margin-top:auto" onclick="if(this.href.indexOf(\'#chiefSim\')>-1){document.getElementById(\'chiefSim\').scrollIntoView({behavior:\'smooth\'});return false;}">' + esc(s.cta) + '</a>' +
         '</div>';
     }).join('') +
     '</div></div></section>';
 
-  h += '<section class="bg-warm"><div class="container narrow">' +
-    '<div class="section-head center"><span class="eyebrow">SSS</span></div>' +
-    '<details class="faq-item"><summary>Yıllık yerine aylık faturalama mümkün mü?</summary><p>Evet, aylık faturalama seçeneği mevcuttur — %15 daha yüksek ücretle. Keşif görüşmesinde detaylandırıyoruz.</p></details>' +
-    '<details class="faq-item"><summary>Başlangıç paketinden Büyüme\'ye geçiş ne zaman yapılabilir?</summary><p>İstediğiniz zaman. Geçiş anında aktif olur, fiyat farkı kalan süre için oranlanarak hesaplanır.</p></details>' +
-    '<details class="faq-item"><summary>Pilot veya deneme süresi var mı?</summary><p>Satın almadan önce 30 dakikalık keşif görüşmesiyle gerçek operasyonunuz üzerinden demo yapıyoruz. Ticari taahhüt olmadan neyin mümkün olduğunu görürsünüz.</p></details>' +
-    '<details class="faq-item"><summary>Fiyata entegrasyon kurulumu dahil mi?</summary><p>Standart entegrasyonlar (WA, e-posta, Logo/Netsis/SAP) dahildir. Özel geliştirme gerektiren entegrasyonlar ayrıca fiyatlandırılır.</p></details>' +
+  /* ---- ENTEGRASYon KAPSAMI ---- */
+  h += '<section class="bg-warm" style="padding:52px 0"><div class="container">' +
+    '<div class="section-head"><span class="eyebrow">Entegrasyon Kapsamı</span><h2>SaaS kullanımı ile entegrasyon kurulumu ayrıdır</h2>' +
+    '<p class="lead">Chief mevcut sistemlerinizi değiştirmeden ERP, CRM, muhasebe, e-posta, WhatsApp, Dendy, saha uygulamaları, doküman yönetimi ve raporlama altyapılarıyla birlikte çalışabilir. Aylık SaaS kullanımı ile entegrasyon kurulumu ayrı değerlendirilir.</p></div>' +
+    '<div class="fiy-integ-grid">' +
+    [
+      ['Yok / Manuel', 'Sınırlı veri girişi, manuel yükleme veya veri kullanımı.', 'Aylık SaaS tahmini fiyat gösterilir; entegrasyon seçilmedi.'],
+      ['Temel', 'E-posta, web formu, Excel/CSV, tek yönlü basit veri aktarımı.', 'Tek seferlik temel kurulum bedeli ayrıca planlanır.'],
+      ['Standart', 'CRM/ERP okuma-yazma, görev/süreç kayıtları, temel webhook.', 'Kapsam analizi sonrası entegrasyon teklifi gerekir.'],
+      ['Gelişmiş', 'Birden fazla sistem, çift yönlü senkronizasyon, Dendy, SSO, özel iş kuralları.', 'Teknik keşif görüşmesi önerilir.'],
+      ['Özel / On-Premise', 'Private network, kurum içi sistem, özel güvenlik, veri ambarı, özel API.', 'Fiyat simülasyonu yerine randevu gerekir.'],
+    ].map(function(r) {
+      return '<div class="fiy-integ-item"><strong>' + esc(r[0]) + '</strong><p>' + esc(r[1]) + '</p><span class="fiy-integ-note">' + esc(r[2]) + '</span></div>';
+    }).join('') +
+    '</div>' +
+    '<div style="margin-top:32px;text-align:center"><a href="#/demo-talep-et" class="btn btn-clay">Entegrasyon Kapsamını Görüşelim</a></div>' +
     '</div></section>';
 
-  return h;
+  /* ---- ON-PREMISE KARTI ---- */
+  h += '<section style="padding:52px 0"><div class="container narrow">' +
+    '<div class="fiy-onprem">' +
+    '<div class="fiy-onprem-icon">' + ico('shield', 28) + '</div>' +
+    '<div>' +
+    '<h3>Özel güvenlik ve kurum içi kurulum ihtiyacınız mı var?</h3>' +
+    '<p>Kamu kurumları, finansal kuruluşlar, büyük kurumsal yapılar, holdingler veya verisini kendi altyapısında tutmak isteyen işletmeler için Chief private cloud, hybrid veya on-premise mimariyle konumlandırılabilir. Bu kurulumlarda fiyat; altyapı, kullanıcı, süreç hacmi, model tercihi, entegrasyon ve bakım kapsamına göre proje bazlı belirlenir.</p>' +
+    '<a href="#/demo-talep-et" class="btn btn-clay" style="margin-top:18px">Özel Kurulum İçin Randevu Talep Et</a>' +
+    '<p style="font-size:13px;color:var(--t-muted);margin-top:10px">On-premise kurulumlar standart SaaS fiyat simülasyonundan bağımsız değerlendirilir.</p>' +
+    '</div></div></div></section>';
+
+  /* ---- SSS ---- */
+  var faqItems = [
+    ['Chief fiyatı nasıl hesaplanır?', 'Chief temel SaaS bedeliyle başlar. Aylık düşük, orta ve yüksek yoğunluklu iş/görev adetleri arka planda hesaplanır ve kullanıcıya tek bir yaklaşık aylık toplam fiyat gösterilir.'],
+    ['Düşük, orta ve yüksek yoğunluklu iş ne demek?', 'Düşük yoğunluklu işler kısa metin, sınıflandırma ve takip işleridir. Orta yoğunluklu işler teklif, onay, iş emri ve süreç yürütme gibi daha fazla bağlam gerektiren işlerdir. Yüksek yoğunluklu işler teknik resim, görüntü analizi, rota planlama, talep tahmini ve optimizasyon gibi ileri işlemlerdir.'],
+    ['Simülatör sonucu kesin fiyat mı?', 'Hayır. Simülatör yaklaşık aylık toplam fiyat verir. Simülasyon ve fiyatlandırma değerleri örnektir; net fiyat, kullanım doğrulaması, entegrasyon kapsamı, kurulum ihtiyaçları ve sözleşme şartları görüşüldükten sonra belirlenir.'],
+    ['Entegrasyon ücretleri aylık fiyata dahil mi?', 'Hayır. SaaS aylık toplam fiyatı ile entegrasyon kurulum bedeli ayrı değerlendirilir. ERP, CRM, muhasebe, WhatsApp, Dendy veya saha sistemleri kapsamına göre ayrıca tekliflendirilir.'],
+    ['Teknik resim okuma ve görüntü analizi neden yüksek yoğunluklu?', 'Bu işler daha fazla bağlam, görsel/doküman analizi, kontrol adımı ve işlem kapasitesi gerektirir. Bu nedenle yüksek yoğunluklu işler kategorisinde simüle edilir.'],
+    ['On-premise için neden fiyat gösterilmiyor?', 'On-premise ve private kurulumlarda altyapı, güvenlik, veri yerleşimi, model tercihi, bakım ve entegrasyon kapsamı projeye göre değişir. Bu nedenle randevu ile değerlendirilmelidir.'],
+    ['Mikro işletme, KOBİ, orta ölçekli ve büyük kurumsal ayrımı neye göre belirlenir?', 'Bu ayrım ziyaretçiye kendi şirket profilini hızlı eşleştirmesi için verilir. Çalışan sayısı rehberdir: Mikro İşletme / Girişim 1-5, Küçük İşletme / KOBİ 5-20, Orta Ölçekli İşletme 20-100, Büyük Kurumsal / Grup Şirketleri 100+ çalışan yapılar için düşünülür. Simülatörün fiyat hesabı ise çalışan sayısından değil, aylık düşük, orta ve yüksek yoğunluklu iş/görev hacminden oluşur.'],
+  ];
+
+  h += '<section class="bg-warm" style="padding:52px 0"><div class="container narrow">' +
+    '<div class="section-head"><span class="eyebrow">SSS</span></div>' +
+    faqItems.map(function(f) {
+      return '<details class="faq-item"><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>';
+    }).join('') +
+    '</div></section>';
+
+  return h + finalCTA();
 }
+
+/* Simulator hesaplama fonksiyonu */
+window.chiefSimUpdate = function() {
+  var low = parseInt((document.getElementById('simLow') || {}).value) || 0;
+  var med = parseInt((document.getElementById('simMed') || {}).value) || 0;
+  var high = parseInt((document.getElementById('simHigh') || {}).value) || 0;
+  var intScope = (document.getElementById('simInteg') || {}).value || 'Temel';
+  var deploy = (document.getElementById('simDeploy') || {}).value || 'SaaS';
+
+  var lowVal = document.getElementById('simLowVal');
+  var medVal = document.getElementById('simMedVal');
+  var highVal = document.getElementById('simHighVal');
+  if (lowVal) lowVal.textContent = low.toLocaleString('tr-TR');
+  if (medVal) medVal.textContent = med.toLocaleString('tr-TR');
+  if (highVal) highVal.textContent = high.toLocaleString('tr-TR');
+
+  var baseFee = 500;
+  var total = Math.round(baseFee + low * 0.09 + med * 0.63 + high * 1.46);
+
+  var segment = 'Mikro İşletme / Girişim';
+  if (total > 900 && total <= 2500) segment = 'Küçük İşletme / KOBİ';
+  if (total > 2500 && total <= 6000) segment = 'Orta Ölçekli İşletme';
+  if (total > 6000) segment = 'Büyük Kurumsal / Grup Şirketleri';
+
+  var showRandevu = deploy !== 'SaaS' || intScope === 'Özel';
+
+  var priceEl = document.getElementById('simPrice');
+  var subEl = document.getElementById('simPriceSub');
+  var ctaEl = document.getElementById('simCTA');
+  var segEl = document.getElementById('simSegment');
+  var noteEl = document.getElementById('simIntegNote');
+
+  if (priceEl) priceEl.textContent = showRandevu ? 'Randevu Talep Et' : (total.toLocaleString('tr-TR') + ' USD / ay');
+  if (subEl) subEl.textContent = showRandevu ? 'Özel kurulum için fiyat proje bazlı belirlenir.' : 'Temel başlangıç bedeli dahildir.';
+  if (ctaEl) ctaEl.textContent = showRandevu ? 'Randevu Talep Edin' : 'Bu kullanımı birlikte doğrulayalım';
+  if (segEl) segEl.textContent = segment;
+
+  var notes = {
+    'Yok': 'Entegrasyon seçilmedi; manuel başlangıç.',
+    'Temel': 'Tek seferlik temel kurulum bedeli ayrıca planlanır.',
+    'Standart': 'Kapsam analizi sonrası entegrasyon teklifi gerekir.',
+    'Gelişmiş': 'Teknik keşif görüşmesi önerilir.',
+    'Özel': 'Fiyat simülasyonu yerine randevu gerekir.'
+  };
+  if (noteEl) noteEl.textContent = notes[intScope] || '';
+};
+
 function renderGuvenlik() {
   var data = PLATFORM_DATA['guvenlik'];
   if (!data) return _stub('Güvenlik');
