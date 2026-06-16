@@ -57,21 +57,40 @@ const MEGA = {
       ]},
     ],
   },
-  cozumler: {
+  'is-surecleri': {
     cols: [
-      { label: 'Departman', items: [
-        { href: '#/cozumler/satis-ve-teklif', title: 'Satış & Teklif',           desc: 'Talepten onaya, tekliften takibe' },
-        { href: '#/cozumler/saha-operasyon',  title: 'Saha Operasyon & Servis',  desc: 'İş emri, arıza ve kapanış akışı' },
-        { href: '#/cozumler/imalat-bakim',    title: 'İmalat & Bakım',           desc: 'Periyodik bakım ve servis operasyonu' },
-        { href: '#/cozumler/yonetim-kpi',     title: 'Yönetim & KPI',            desc: 'Haftalık özet, gerçek zamanlı gösterge' },
+      { label: 'Satış & Teklif', items: [
+        { href: '#/is-surecleri/talep-potansiyel-musteri', title: 'Talep ve Fırsat Yönetimi',     desc: 'Gelen ilgiyi nitelikli fırsata çevirin' },
+        { href: '#/is-surecleri/satis-ekibi-ziyaret',      title: 'Satış Ekibi ve Ziyaret',       desc: 'Ziyareti fırsata ve teklife bağlayın' },
+        { href: '#/is-surecleri/teklif-talebi-bilgi',      title: 'Teklif Talebi ve Bilgi',       desc: 'Eksik talebi teklife hazır dosyaya çevirin' },
+        { href: '#/is-surecleri/fiyatlama-marj-onay',      title: 'Fiyatlama, Marj ve Onay',      desc: 'Fiyat kararı kontrollü ve izlenebilir' },
+        { href: '#/is-surecleri/tekliften-siparise',        title: 'Tekliften Siparişe Geçiş',     desc: 'Onaylı teklifi operasyona kayıpsız taşıyın' },
       ]},
-      { label: 'Sektör', items: [
-        { href: '#/sektorler/endustriyel-saha', title: 'Endüstriyel Saha Hizmetleri', desc: 'İş emri ve saha kapanışı' },
-        { href: '#/sektorler/imalat-uretim',    title: 'İmalat & Üretim',              desc: 'Üretim, bakım ve kalite operasyonu' },
-        { href: '#/sektorler/b2b-dagitim',      title: 'B2B Satış & Dağıtım',          desc: 'Satış ekibi ve ziyaret yönetimi' },
+      { label: 'Operasyon & Üretim', items: [
+        { href: '#/is-surecleri/is-emri-saha-planlama',             title: 'İş Emri ve Saha Planlama',       desc: 'Doğru ekip, SLA, kanıtlı kapanış' },
+        { href: '#/is-surecleri/bakim-ariza-teknik-servis',          title: 'Bakım, Arıza ve Teknik Servis',  desc: 'Ekipman geçmişi, kök neden, iyileştirme' },
+        { href: '#/is-surecleri/uretim-planlama-kapasite',           title: 'Üretim Planlama ve Kapasite',    desc: 'Gerçekçi termin, görünür darboğaz' },
+        { href: '#/is-surecleri/stok-yedek-parca-tedarik',           title: 'Stok ve Tedarik',                desc: 'Kritik stok bağlamıyla izlenir' },
+        { href: '#/is-surecleri/fatura-tahsilat-is-kapanisi',         title: 'Fatura ve Tahsilat',             desc: 'İşten faturaya, tahsilata tek zincir' },
       ]},
     ],
   },
+};
+/* Eski cozumler mega menü verisi — yönlendirme için korunuyor */
+const _MEGA_COZUMLER_LEGACY = {
+  cols: [
+    { label: 'Departman', items: [
+      { href: '#/cozumler/satis-ve-teklif', title: 'Satış & Teklif',          desc: '' },
+      { href: '#/cozumler/saha-operasyon',  title: 'Saha Operasyon & Servis', desc: '' },
+      { href: '#/cozumler/imalat-bakim',    title: 'İmalat & Bakım',          desc: '' },
+      { href: '#/cozumler/yonetim-kpi',     title: 'Yönetim & KPI',           desc: '' },
+    ]},
+    { label: 'Sektör', items: [
+      { href: '#/sektorler/endustriyel-saha', title: 'Endüstriyel Saha', desc: '' },
+      { href: '#/sektorler/imalat-uretim',    title: 'İmalat & Üretim',  desc: '' },
+      { href: '#/sektorler/b2b-dagitim',      title: 'B2B Satış',        desc: '' },
+    ]},
+  ],
 };
 
 /* ================================================================
@@ -85,12 +104,12 @@ const FOOTER_COLS = {
     ['#/platform/guvenlik',       'Güvenlik & Uyumluluk'],
     ['#/platform/devreye-alma',   'Devreye Alma'],
   ]],
-  'fc-cozumler': ['Çözümler & Sektörler', [
-    ['#/cozumler/satis-ve-teklif',    'Satış & Teklif'],
-    ['#/cozumler/saha-operasyon',     'Saha Operasyon'],
-    ['#/cozumler/imalat-bakim',       'İmalat & Bakım'],
-    ['#/sektorler/endustriyel-saha',  'Endüstriyel Saha'],
-    ['#/sektorler/b2b-dagitim',       'B2B Satış & Dağıtım'],
+  'fc-is-surecleri': ['İş Süreçleri', [
+    ['#/is-surecleri/yonetimsel-dogal-dil',    'Yönetim Katmanı'],
+    ['#/is-surecleri/talep-potansiyel-musteri','Talep ve Fırsat'],
+    ['#/is-surecleri/is-emri-saha-planlama',   'İş Emri & Saha'],
+    ['#/is-surecleri/bakim-ariza-teknik-servis','Bakım & Teknik Servis'],
+    ['#/is-surecleri/fatura-tahsilat-is-kapanisi','Fatura & Tahsilat'],
   ]],
   'fc-kaynaklar': ['Kaynaklar', [
     ['#/entegrasyonlar', 'Entegrasyonlar'],
@@ -211,7 +230,7 @@ let _drawerGoBack  = false;
 
 function _drawerRoot() {
   return '<button class="m-nav-btn" data-panel="platform">Platform <span class="m-chev">›</span></button>' +
-    '<button class="m-nav-btn" data-panel="cozumler">Çözümler <span class="m-chev">›</span></button>' +
+    '<button class="m-nav-btn" data-panel="is-surecleri">İş Süreçleri <span class="m-chev">›</span></button>' +
     '<a class="m-flat" href="#/entegrasyonlar">Entegrasyonlar</a>' +
     '<a class="m-flat" href="#/fiyatlandirma">Fiyatlandırma</a>' +
     '<a class="m-flat" href="#/blog">Blog</a>' +
@@ -220,7 +239,7 @@ function _drawerRoot() {
 
 function _drawerPanel(key) {
   const m = MEGA[key];
-  const label = key === 'platform' ? 'Platform' : 'Çözümler';
+  const label = key === 'platform' ? 'Platform' : 'İş Süreçleri';
   let h = '<button class="m-back" id="mDrawerBack">' +
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>' +
     label + '</button>';
@@ -302,12 +321,14 @@ function go() {
   const sec = parts[0], slug = parts[1];
   let html, label;
 
-  if      (sec === 'platform'     && slug) { html = renderPlatformPage(slug);  label = 'Platform'; }
-  else if (sec === 'platform')             { html = renderPlatformListing();   label = 'Platform'; }
-  else if (sec === 'cozumler'     && slug) { html = renderCozumlerPage(slug);  label = 'Çözümler'; }
-  else if (sec === 'cozumler')             { html = renderCozumlerListing();   label = 'Çözümler'; }
-  else if (sec === 'sektorler'    && slug) { html = renderSektorlerPage(slug); label = 'Sektörler'; }
-  else if (sec === 'sektorler')            { html = renderSektorlerListing();  label = 'Sektörler'; }
+  if      (sec === 'platform'      && slug) { html = renderPlatformPage(slug);     label = 'Platform'; }
+  else if (sec === 'platform')              { html = renderPlatformListing();      label = 'Platform'; }
+  else if (sec === 'is-surecleri'  && slug) { html = renderIsSureciPage(slug);     label = 'İş Süreçleri'; }
+  else if (sec === 'is-surecleri')          { html = renderIsSureciListing();      label = 'İş Süreçleri'; }
+  else if (sec === 'cozumler'      && slug) { html = renderCozumlerPage(slug);     label = 'Çözümler'; }
+  else if (sec === 'cozumler')              { html = renderCozumlerListing();      label = 'Çözümler'; }
+  else if (sec === 'sektorler'     && slug) { html = renderSektorlerPage(slug);    label = 'Sektörler'; }
+  else if (sec === 'sektorler')             { html = renderSektorlerListing();     label = 'Sektörler'; }
   else if (sec === 'entegrasyonlar')       { html = renderEntegrasyonlar();    label = 'Entegrasyonlar'; }
   else if (sec === 'fiyatlandirma')        { html = renderFiyatlandirma();     label = 'Fiyatlandırma'; }
   else if (sec === 'guvenlik')             { html = renderGuvenlik();          label = 'Güvenlik'; }
@@ -1231,6 +1252,535 @@ function renderSektorlerListing() {
       ['b2b-dagitim','B2B Satış & Dağıtım','truck','Satış ekibi ve ziyaret yönetimi'],
       ['imalat-uretim','İmalat & Üretim','factory','Üretim, bakım ve kalite operasyonu'],
     ], 'sektorler');
+}
+
+/* ================================================================
+   İŞ SÜREÇLERİ — VERİ + RENDER
+   ================================================================ */
+const IS_SURECLERI_DATA = {
+  'yonetimsel-dogal-dil': {
+    featured: true, cat: 'YÖNETİM', catKey: 'yonetim', icon: 'spark',
+    eyebrow: 'Yönetim Katmanı',
+    cardTitle: 'Yönetimsel Doğal Dil, Veri ve Stratejik Aksiyon',
+    cardDesc: 'Yönetim seviyesinde doğal dille veriye ulaşın, strateji geliştirin ve ilgili alanlarda aksiyon başlatın.',
+    cardSub: 'Chief; veriyi kaynak kayıtlarıyla açıklar, karar seçenekleri üretir, görev/onay/bilgi talebi açar.',
+    h1: 'Yönetim kararı sormakla başlar.',
+    lead: 'Chief\'e iş diliyle soru sorun; veriyi kaynak kayıtlarıyla açıklasın, strateji seçenekleri üretsin, ilgili ekiplere görev açsın.',
+    problem: 'Yönetim çoğu zaman raporları, ERP ekranlarını, toplantı notlarını ve saha verilerini ayrı ayrı inceler. Kararlar gecikmez, sorumluluk dağılır, stratejik konular aksiyona dönüşmez. Chief yönetim katmanı — doğal dil sorgusundan görev açmaya kadar her adımı aynı akışta birleştirir.',
+    steps: [
+      { num: '01', title: 'Soru sor', body: 'Yönetici doğal dilde sorar: "Satış neden hedefin altında?" veya "Hangi saha işleri tahsilatı geciktiriyor?"' },
+      { num: '02', title: 'Chief veriyi bulur', body: 'Yetki sınırları içinde ilgili teklif, iş emri, fatura, stok ve geri bildirim kayıtları getirilir; iş diliyle özetlenir.' },
+      { num: '03', title: 'Açıklar ve önerir', body: 'KPI sapması, trend veya risk kaynak kayıtlarıyla açıklanır. Strateji seçenekleri ve senaryo önerileri üretilir.' },
+      { num: '04', title: 'Aksiyon başlatır', body: 'Yönetici karar verdiğinde Chief ilgili ekibe görev/onay açar veya bilgi talebi başlatır. Her adım denetim izine bağlanır.' },
+    ],
+    nlQueries: [
+      'Bu ay satış neden hedefin altında kaldı? Kanal, bölge ve temsilci bazında açıkla.',
+      'Geciken saha işlerinin müşteri memnuniyetine ve tahsilata etkisini göster.',
+      'Bu hafta yönetim toplantısı için karar bekleyen ilk 10 konuyu hazırla.',
+    ],
+    metrics: [{ n:'Anlık', l:'Veri erişimi' },{ n:'%100', l:'Kaynak kayıt bağlantısı' },{ n:'< 1 saat', l:'KPI\'dan aksiyona' },{ n:'Tam', l:'Denetim izi' }],
+    faq: [
+      ['Hangi veriye erişilebilir?', 'ERP, CRM, finans, üretim, saha, stok, geri bildirim — yetki sınırları içinde tüm bağlı sistemler. Her kullanıcı yalnızca kendi alanını görür.'],
+      ['AI karar veriyor mu?', 'Hayır. Chief açıklanabilir öneri ve senaryo üretir; karar, görev başlatma ve onay her zaman insan tarafından verilir.'],
+      ['Toplantı notları nasıl yönetiliyor?', 'Toplantı içerikleri, kararlar ve aksiyon durumları Chief\'te aranabilir. Kapanmayan aksiyonlar otomatik takip listesine girer.'],
+    ],
+  },
+  'talep-potansiyel-musteri': {
+    featured: false, cat: 'SATIŞ VE TEKLİF', catKey: 'satis', icon: 'target',
+    eyebrow: 'Satış & Teklif',
+    cardTitle: 'Talep, Potansiyel Müşteri ve Fırsat Yönetimi',
+    cardDesc: 'Gelen ilgiyi doğru müşteri, ihtiyaç ve fırsatla eşleştirin.',
+    cardSub: 'Web formu, e-posta, WhatsApp veya CRM — Chief içinde nitelikli fırsata ve izlenebilir aksiyona dönüşür.',
+    h1: 'Hiçbir fırsat kaybolmadan satış hattına girer.',
+    lead: 'Farklı kanallardan gelen müşteri ilgisini kaybetmeden yakalayın; gerçek ihtiyacı, satış potansiyelini ve bir sonraki doğru aksiyonu görünür kılın.',
+    problem: 'Web formu, e-posta, WhatsApp ve fuar gibi kanallardan gelen talepler farklı yerlerde kaldığında fırsatlar geç işlenir, sahiplik belirsizleşir ve satış ekibi düşük öncelikli kayıtlarla zaman kaybeder.',
+    steps: [
+      { num: '01', title: 'Sinyali yakala', body: 'Bağlı kanaldan gelen talep kayıt altına alınır; müşteri, kanal ve niyet bağlamı eşleştirilir.' },
+      { num: '02', title: 'Sınıflandır', body: 'Talep niyeti belirlenir: yeni teklif, bilgi alma, fiyat güncelleme, servis veya şikayet.' },
+      { num: '03', title: 'Eksik bilgiyi tamamla', body: 'Karar verici, bütçe, ihtiyaç veya teknik kapsam eksikse doğal diyalogla tamamlanır.' },
+      { num: '04', title: 'Atama ve aksiyon', body: 'Fırsat önceliği ve segmentine göre sorumluya atanır; ilk temas veya ziyaret görevi başlatılır.' },
+    ],
+    nlQueries: [
+      'Bu hafta kaynağı web formu olan yüksek potansiyelli fırsatlar hangileri?',
+      'İlk temas SLA dışına çıkan potansiyel müşterileri listele ve ilgili yöneticiye takip görevi aç.',
+      'Kaybedilen fırsatlarda en sık tekrar eden nedenleri özetle.',
+    ],
+    metrics: [{ n:'< 2 saat', l:'İlk yanıt SLA' },{ n:'%0', l:'Sahipsiz talep' },{ n:'Her kanal', l:'Tek akışta' },{ n:'Anlık', l:'Fırsat skoru' }],
+    faq: [
+      ['Hangi kanallardan talep gelir?', 'Web formu, e-posta, WhatsApp, SMS, telefon özeti, fuar kaydı, saha notu ve CRM kaydı — tüm kanallar tek akışta izlenir.'],
+      ['Mevcut CRM\'imizdeki fırsatlar çakışır mı?', 'Chief CRM\'inizin üzerinde çalışır; veriyi oraya yazar ve oradan okur. Mevcut fırsat kayıtlarınız değişmez.'],
+      ['Öncelik nasıl belirleniyor?', 'Potansiyel tutar, aciliyet, müşteri segmenti ve stratejik değer — Chief bir öncelik skoru üretir, son karar satış yöneticisine aittir.'],
+    ],
+  },
+  'satis-ekibi-ziyaret': {
+    featured: false, cat: 'SATIŞ VE TEKLİF', catKey: 'satis', icon: 'map',
+    eyebrow: 'Satış & Teklif',
+    cardTitle: 'Satış Ekibi ve Ziyaret Yönetimi',
+    cardDesc: 'Hedefleri, müşteri temaslarını ve saha ziyaretlerini aynı satış akışında yönetin.',
+    cardSub: 'Ziyaret sayısını değil, ziyaretin fırsata, teklife ve müşteri aksiyonuna etkisini görünür kılar.',
+    h1: 'Ziyaret verisi satış kararına dönüşür.',
+    lead: 'Saha satış ziyaretlerini yalnızca raporlanan aktivite olmaktan çıkarın; fırsat üreten, takip edilen ve sonuçla ölçülen satış ritmine dönüştürün.',
+    problem: 'Satış hedefleri, müşteri görüşmeleri, ziyaret notları ve takip görevleri farklı araçlarda tutulduğunda yöneticiler yalnızca sonuçları görür; geciken temasları, zayıflayan fırsatları ve destek gereken temsilcileri zamanında fark edemez.',
+    steps: [
+      { num: '01', title: 'Ziyaret planla', body: 'Açık fırsatlar ve geçmiş temaslara göre öncelikli müşteri listesi ve rota önerisi oluşturulur.' },
+      { num: '02', title: 'Görüşmeyi kaydet', body: 'Satış temsilcisi görüşme notunu doğal dille kaydeder; Chief not içinden ihtiyaç, itiraz ve sonraki adımı ayrıştırır.' },
+      { num: '03', title: 'Aksiyonu aç', body: 'Takip görevi, teklif ihtiyacı veya yönetici destek uyarısı otomatik açılır.' },
+      { num: '04', title: 'Yönetimi bilgilendir', body: 'Ziyaret sonucu satış hattına işlenir; yönetim fırsat ilerleme etkisini görür.' },
+    ],
+    nlQueries: [
+      'Bu hafta ziyaret edilmesi gereken ama temassız kalan yüksek değerli müşterileri göster.',
+      'Rakip tehdidi geçen görüşmeleri özetle ve satış yöneticisine aksiyon listesi hazırla.',
+      'Bu ay ziyaretlerden kaç tanesi teklif veya siparişe dönüştü?',
+    ],
+    metrics: [{ n:'%98+', l:'Görüşme kayıt oranı' },{ n:'Anlık', l:'Satış hattı görünürlüğü' },{ n:'-%40', l:'Raporlama hazırlık süresi' },{ n:'Sıfır', l:'Kayıp ziyaret notu' }],
+    faq: [
+      ['Görüşme notları nasıl kaydediliyor?', 'Satış temsilcisi serbest metin veya WhatsApp ile kaydeder. Chief içerikten ihtiyaç, taahhüt ve sonraki adımı otomatik ayrıştırır.'],
+      ['Rota optimizasyonu nasıl çalışıyor?', 'Açık fırsat değeri, lokasyon, müşteri önceliği ve takvim müsaitliği birlikte değerlendirilir. Öneri sunulur, son karar temsilciye aittir.'],
+      ['Yönetici neler görüyor?', 'Ekip bazlı ziyaret sayısı, fırsata dönüşüm oranı, temassız yüksek değerli müşteriler ve destek gerektiren temsilciler — tek panelde.'],
+    ],
+  },
+  'teklif-talebi-bilgi': {
+    featured: false, cat: 'SATIŞ VE TEKLİF', catKey: 'satis', icon: 'doc',
+    eyebrow: 'Satış & Teklif',
+    cardTitle: 'Teklif Talebi ve Bilgi Tamamlama',
+    cardDesc: 'Eksik veya dağınık talebi, teklif hazırlanabilir nitelikte doğrulanmış iş tanımına dönüştürün.',
+    cardSub: 'Chief gerekli teknik, ticari, lokasyon ve belge alanlarını kontrol eder; eksik bilgiyi doğal diyalogla tamamlatır.',
+    h1: 'Eksik talep teklif hazırlanabilir dosyaya dönüşür.',
+    lead: 'Eksik veya dağınık teklif taleplerini; teknik, ticari ve operasyonel açıdan teklif hazırlanabilir nitelikte doğrulanmış iş dosyasına dönüştürün.',
+    problem: 'Teklif talepleri çoğu zaman teknik özellik, miktar, teslim yeri, takvim veya ticari koşullar bakımından eksik gelir. Teklif ekibi bilgi toplamak için tekrar tekrar yazışır; süre uzar, kapsam hatası ve yanlış fiyat riski artar.',
+    steps: [
+      { num: '01', title: 'Talebi yakala', body: 'Mesaj, form, belge veya görüşme özetinden talep alınır; ürün, hizmet ve niyet sınıflandırılır.' },
+      { num: '02', title: 'Eksikleri tespit et', body: 'Chief talep türüne göre zorunlu bilgi setini belirler; eksik veya çelişkili alanlar tespit edilir.' },
+      { num: '03', title: 'Tamamlat', body: 'Chief müşteriye veya iç kullanıcıya hedefli sorular yöneltir; yanıtlar kayıt altına alınır.' },
+      { num: '04', title: 'Devret', body: 'Teknik değerlendirme gerekiyorsa görev açılır; doğrulanan talep fiyatlama sürecine devredilir.' },
+    ],
+    nlQueries: [
+      'Teklife hazır bekleyen talepleri ve eksik bilgi nedenlerini göster.',
+      'Teknik değerlendirme bekleyen talepler için ilgili ekiplerden bilgi talep et.',
+      'Bu hafta bilgi tamamlama nedeniyle geciken teklifleri listele.',
+    ],
+    metrics: [{ n:'-%60', l:'Yazışma süresi' },{ n:'%0', l:'Eksik bilgiyle açılan teklif' },{ n:'Anlık', l:'Hazır olma durumu' },{ n:'Tam', l:'Kaynak bağlantısı' }],
+    faq: [
+      ['Hangi bilgiler zorunlu olarak kontrol ediliyor?', 'Talep türüne göre değişir: ürün/hizmet, miktar, lokasyon, tarih, kalite standardı ve teknik kapsam. Chief sektöre göre özelleştirilebilir.'],
+      ['Müşteriye otomatik soru sorulabiliyor mu?', 'Evet. WhatsApp, e-posta veya web formu üzerinden müşteriye yönlendirilmiş soru gönderilir; yanıt otomatik teklif dosyasına eklenir.'],
+      ['Benzer geçmiş tekliflerden yararlanabiliyor mu?', 'Evet. Benzer kapsam veya müşteri segmentinden geçmiş teklifler referans olarak teklif ekibine sunulur.'],
+    ],
+  },
+  'fiyatlama-marj-onay': {
+    featured: false, cat: 'SATIŞ VE TEKLİF', catKey: 'satis', icon: 'target',
+    eyebrow: 'Satış & Teklif',
+    cardTitle: 'Fiyatlama, Marj ve Onay',
+    cardDesc: 'Fiyat kurallarını, kârlılık sınırlarını ve yetkili onaylarını kontrollü biçimde çalıştırın.',
+    cardSub: 'Teklif fiyatı yalnızca tabloyla değil; maliyet, marj, stok, müşteri koşulu ve yetki matrisiyle birlikte değerlendirilir.',
+    h1: 'Doğru fiyat, doğru onay, kayıt altında.',
+    lead: 'Fiyat kararlarını hızlandırırken kârlılık sınırlarını, iskonto yetkilerini, riskleri ve onay gerekçelerini izlenebilir şekilde yönetin.',
+    problem: 'Fiyatlar tablo, e-posta ve kişisel deneyim üzerinden belirlendiğinde aynı işe farklı fiyatlar verilebilir; maliyet değişimleri gözden kaçar, marj dışı teklifler geç fark edilir ve onay süreci kişiye bağlı kalır.',
+    steps: [
+      { num: '01', title: 'Bileşenleri belirle', body: 'Teklif kapsamı ürün, hizmet, işçilik, malzeme ve lojistik bileşenlerine ayrılır.' },
+      { num: '02', title: 'Fiyat ve marj hesapla', body: 'Chief fiyat listesi, maliyet, stok ve müşteri koşulunu getirir; önerilen fiyat ve beklenen marj hesaplanır.' },
+      { num: '03', title: 'Kontrol et', body: 'Marj sınırı, iskonto eşiği, kredi riski ve özel koşullar kontrol edilir; uyarılar görünür hale gelir.' },
+      { num: '04', title: 'Onayla ve belgele', body: 'Yetki sınırı aşılırsa onay zinciri başlatılır; gerekçe ve onay kararı kayıt altında tutulur.' },
+    ],
+    nlQueries: [
+      'Marj sınırının altında bekleyen teklifleri göster ve ilgili yöneticilere onay görevi aç.',
+      'Bu ay en çok iskonto kullanılan ürün/hizmet gruplarını özetle.',
+      'Kazandığımız ve kaybettiğimiz tekliflerde marj farkını göster.',
+    ],
+    metrics: [{ n:'-%45', l:'Onay bekleme süresi' },{ n:'%100', l:'Marj görünürlüğü' },{ n:'Sıfır', l:'Yetki dışı fiyat' },{ n:'Tam', l:'Karar izi' }],
+    faq: [
+      ['Onay seviyeleri nasıl tanımlanıyor?', 'Marj eşiği, iskonto oranı ve teklif tutarına göre özelleştirilebilir onay zincirleri kurulur. Her seviye için onaylayan kişi veya rol tanımlanır.'],
+      ['Kur veya maliyet değişince ne oluyor?', 'Chief bekleyen teklifleri değişen maliyet parametrelerine göre uyarır. Revizyon ihtiyacı olan teklifler için güncelleme görevi açılır.'],
+      ['Müşterinin kredi riski fiyatlamayı etkiliyor mu?', 'Cari bakiye, vade gecikmesi ve müşteri segment kurallarına göre uyarı üretilir. Blokaj kararı her zaman insan onayıyla çalışır.'],
+    ],
+  },
+  'tekliften-siparise': {
+    featured: false, cat: 'SATIŞ VE TEKLİF', catKey: 'satis', icon: 'arrow',
+    eyebrow: 'Satış & Teklif',
+    cardTitle: 'Tekliften Siparişe Geçiş',
+    cardDesc: 'Onaylanan teklifi siparişe, üretime veya saha operasyonuna kayıpsız aktarın.',
+    cardSub: 'Kapsam, fiyat, termin, kalite ve müşteri taahhütleri operasyon başlamadan önce doğrulanır.',
+    h1: 'Onaylanan teklif bilgi kaybı olmadan operasyona geçer.',
+    lead: 'Onaylanan teklifin kapsamını, terminini, fiyatını ve müşteri taahhütlerini kaybetmeden siparişe, üretime veya saha iş emrine dönüştürün.',
+    problem: 'Teklif onaylandıktan sonra kapsam, termin, fiyat ve teknik detaylar operasyon sistemlerine manuel aktarıldığında bilgi kaybı, gecikme ve yanlış üretim ya da uygulama riski oluşur.',
+    steps: [
+      { num: '01', title: 'Kabulü doğrula', body: 'Müşteri kabulü alınır; kabul edilen kayıt teklif sürümüyle eşleştirilir.' },
+      { num: '02', title: 'Kapsamı kontrol et', body: 'Kapsam, miktar, fiyat, teslimat ve ödeme koşulları doğrulanır; eksik veya uyumsuz bilgi varsa tamamlanır.' },
+      { num: '03', title: 'Akış seç', body: 'İşin niteliğine göre üretim, montaj, proje, saha servis veya standart sipariş akışı seçilir.' },
+      { num: '04', title: 'Operasyonu başlat', body: 'Sorumlular, kritik tarihler ve kontrol noktaları atanır; üretim/saha/servis süreci başlatılır.' },
+    ],
+    nlQueries: [
+      'Onaylanmış ama operasyona aktarılmamış teklifleri listele.',
+      'Kapsam uyumsuzluğu nedeniyle bekleyen siparişler için sorumlulara bilgi talebi aç.',
+      'Başlatılamayan işlerin ana nedenlerini yönetim brifingine ekle.',
+    ],
+    metrics: [{ n:'%0', l:'Manuel veri aktarımı' },{ n:'Sıfır', l:'Kapsam kaybı' },{ n:'< 1 gün', l:'Devir süresi' },{ n:'%100', l:'Taahhüt görünürlüğü' }],
+    faq: [
+      ['Kapsam değişikliği olursa ne oluyor?', 'Kabul aşamasında kapsam farkı tespit edilirse yeni onay veya fiyat revizyonu akışı başlatılır. Fark kayıt altına alınır.'],
+      ['Kısmi sipariş kabulü yönetilebiliyor mu?', 'Evet. Kısmi kabul bildirilirse ilgili iş paketi operasyona geçerken kalan kısım takipte kalır.'],
+      ['Finansal ön bilgi ne zaman oluşuyor?', 'Operasyon başlatıldığında fatura ve faturalama için ön kapanış bilgisi otomatik oluşturulur.'],
+    ],
+  },
+  'is-emri-saha-planlama': {
+    featured: false, cat: 'OPERASYON VE SAHA', catKey: 'operasyon', icon: 'wrench',
+    eyebrow: 'Operasyon & Saha',
+    cardTitle: 'İş Emri ve Saha Planlama',
+    cardDesc: 'İşi doğru ekibe atayın; öncelik, rota, SLA ve kapanışı birlikte yönetin.',
+    cardSub: 'Saha işi; lokasyon, ekip yetkinliği, malzeme, zaman penceresi ve kapanış kanıtıyla birlikte planlanır.',
+    h1: 'Doğru iş, doğru ekip, kanıtlı kapanış.',
+    lead: 'Saha işlerini doğru ekip, doğru zaman, doğru lokasyon ve gerekli kanıt koşullarıyla planlayın; gecikmeleri ve açık işleri tek görünümde izleyin.',
+    problem: 'Saha işleri telefon ve mesajlarla dağıtıldığında öncelikler karışır; ekiplerin konumu, yetkinliği, malzeme ihtiyacı ve SLA süreleri birlikte değerlendirilemez. Kapanışta işin gerçekten yapıldığını kanıtlayan bilgi eksik kalabilir.',
+    steps: [
+      { num: '01', title: 'İş emri oluştur', body: 'Talep veya onaylı sipariş iş emrine dönüştürülür; iş türü, aciliyet ve SLA belirlenir.' },
+      { num: '02', title: 'Ekip ve rota ata', body: 'Yetkinlik, bölge, iş yükü, takvim ve malzeme ihtiyacı değerlendirilir; atama ve rota önerilir.' },
+      { num: '03', title: 'Sahayı izle', body: 'İlerleme, gecikme ve istisnalar izlenir; gerektiğinde öncelik veya atama güncellenir.' },
+      { num: '04', title: 'Kanıtlı kapat', body: 'Fotoğraf, form, imza, ölçüm veya müşteri onayıyla iş belgelenmiş kapanır.' },
+    ],
+    nlQueries: [
+      'Bugün SLA riski taşıyan açık saha işlerini göster.',
+      'Eksik parça nedeniyle bekleyen iş emirlerini listele ve satın almaya görev aç.',
+      'Kanıtı eksik kapatılmaya çalışılan işleri göster.',
+    ],
+    metrics: [{ n:'%100', l:'SLA takibi' },{ n:'-%65', l:'Manuel veri girişi' },{ n:'Anlık', l:'Saha görünürlüğü' },{ n:'Sıfır', l:'Kanıtsız kapanış' }],
+    faq: [
+      ['Teknisyenler mobil cihazdan kullanabilir mi?', 'Evet. iOS ve Android saha uygulaması üzerinden iş emri alma, durum güncelleme ve kapanış belgesi yükleme yapılabilir.'],
+      ['Müşteriye otomatik bildirim gidiyor mu?', 'Evet. İş emri oluşturulduğunda, teknisyen yola çıktığında ve iş tamamlandığında müşteriye SMS veya e-posta gönderilebilir.'],
+      ['Birden fazla lokasyonda çalışıyor mu?', 'Evet. TAK-Umwelt 40+ lokasyonu tek Chief kurulumundan yönetiyor.'],
+    ],
+  },
+  'bakim-ariza-teknik-servis': {
+    featured: false, cat: 'OPERASYON VE SAHA', catKey: 'operasyon', icon: 'clock',
+    eyebrow: 'Operasyon & Saha',
+    cardTitle: 'Bakım, Arıza ve Teknik Servis',
+    cardDesc: 'Planlı bakım ve arıza taleplerini ekip, parça, kanıt ve servis geçmişiyle yönetin.',
+    cardSub: 'Tekil arıza ile tekrar eden kök sorun ayrılır; servis kararı ekipman geçmişiyle desteklenir.',
+    h1: 'Bakım takviminden kök neden analizine tek süreç.',
+    lead: 'Planlı bakım, arıza bildirimi, IoT uyarısı ve servis müdahalesini aynı yaşam döngüsünde yönetin; tekrar eden sorunları kök neden aksiyonuna bağlayın.',
+    problem: 'Bakım takvimleri ve arıza kayıtları ayrık tutulduğunda aynı sorunlar tekrarlanır, kritik ekipman riski görünmez ve servis ekipleri geçmiş müdahaleye ulaşamaz. Öncelik yanlış belirlenebilir ve ekip sahaya eksik bilgiyle çıkabilir.',
+    steps: [
+      { num: '01', title: 'Süreci başlat', body: 'Bakım zamanı, arıza bildirimi veya IoT alarmı süreci başlatır. Chief ekipman geçmişi ve SLA\'ya göre öncelik belirler.' },
+      { num: '02', title: 'Ekip ve parça hazırla', body: 'Teknisyen, zaman ve parça ihtiyacı önerilir; servis iş emri mobil saha akışına aktarılır.' },
+      { num: '03', title: 'Müdahale et ve kaydet', body: 'Teknisyen teşhis, işlem, parça, süre, fotoğraf ve ölçüm bilgilerini kaydeder.' },
+      { num: '04', title: 'Kapat veya iyileştir', body: 'Servis raporu oluşturulur. Tekrar eden arıza varsa kök neden analizi ve iyileştirme görevi başlatılır.' },
+    ],
+    nlQueries: [
+      'Kritik ekipmanlarda tekrar eden arızaları kök nedenleriyle özetle.',
+      'Parça beklediği için SLA riski taşıyan servisleri listele.',
+      'Tekrar eden arıza için kalite ve bakım ekiplerine ortak aksiyon aç.',
+    ],
+    metrics: [{ n:'-%71', l:'Plansız arıza süresi' },{ n:'%100', l:'Zamanında bakım' },{ n:'9 dk', l:'Arızadan iş emirine' },{ n:'Tam', l:'Ekipman geçmişi' }],
+    faq: [
+      ['IoT sensör verisi entegre edilebilir mi?', 'Evet. Makine verisinden gelen anormal okumalar Chief\'e sinyal olarak iletilir, önleyici bakım önerisi üretilir.'],
+      ['Tekrar eden arıza nasıl tespit ediliyor?', 'Chief benzer ekipman, semptom ve lokasyondaki geçmiş arızaları ilişkilendirir. Tekrar eşiği aşılınca kök neden vakası açılır.'],
+      ['ERP\'deki bakım planları aktarılıyor mu?', 'Evet. SAP, Logo ve Netsis entegrasyonu ile mevcut bakım takvimleriniz otomatik senkronize edilir.'],
+    ],
+  },
+  'montaj-proje-uygulama': {
+    featured: false, cat: 'OPERASYON VE SAHA', catKey: 'operasyon', icon: 'layers',
+    eyebrow: 'Operasyon & Saha',
+    cardTitle: 'Montaj ve Proje Uygulama',
+    cardDesc: 'Teknik resim, malzeme, ekipman ve işçilik gereksinimlerini sahadaki uygulamayla birleştirin.',
+    cardSub: 'Teknik kapsam; iş paketi, kaynak, kontrol listesi, kanıt, eksik iş ve kabul akışına bağlanır.',
+    h1: 'Kapsam sahada kaybolmaz.',
+    lead: 'Teknik kapsamı; malzeme, ekipman, işçilik, saha koşulları ve kabul kriterleriyle kontrollü bir uygulama planına dönüştürün.',
+    problem: 'Montaj ve proje işlerinde teknik resim, malzeme tedariki, ekipman ve işçilik birbirinden kopuk yönetildiğinde teslim süresi uzar, kalite riski artar ve ek işlerin etkisi geç fark edilir.',
+    steps: [
+      { num: '01', title: 'Projeyi kur', body: 'Onaylı teknik doküman ve teslim kriterleri proje dosyasında birleştirilir; iş paketleri oluşturulur.' },
+      { num: '02', title: 'Kaynakları kontrol et', body: 'Chief tedarik, ekip, saha ve ekipman uygunluğunu kontrol eder; uygulama planı belirlenir.' },
+      { num: '03', title: 'Sahayı izle', body: 'Kontrol listeleri, fotoğraf, ölçüm ve tutanaklarla ilerleme takip edilir; eksiklikler hemen görünür olur.' },
+      { num: '04', title: 'Kapat', body: 'Geçici/kesin kabul süreci yönetilir; kapanış finans, garanti ve müşteri geri bildirimiyle bağlanır.' },
+    ],
+    nlQueries: [
+      'Planlanan-gerçekleşen ilerleme sapmalarını proje bazında göster.',
+      'Ek iş talebi açılan projelerde marj etkisini özetle.',
+      'Kabul bekleyen işlerin eksiklerini ilgili ekiplere görev olarak aç.',
+    ],
+    metrics: [{ n:'Anlık', l:'Proje görünürlüğü' },{ n:'%0', l:'Kapsam kaybı' },{ n:'Otomatik', l:'Kabul takibi' },{ n:'Tam', l:'Kanıt arşivi' }],
+    faq: [
+      ['Teknik revizyon nasıl yönetiliyor?', 'Revizyon sinyali geldiğinde Chief etkilenen iş paketlerini tespit eder; onay ve fiyat etkisi sorulur, güncel dokümanla devam edilir.'],
+      ['Hakediş süreci destekleniyor mu?', 'Evet. Aşamalı hakediş takibi, tamamlanan iş paketi bazında ilerler ve fatura sürecine otomatik bilgi aktarır.'],
+      ['Eksik iş nasıl takip ediliyor?', 'Kabul aşamasında eksik iş listesi oluşturulur; her madde sorumlu ve kapanış tarihiyle izlenir.'],
+    ],
+  },
+  'uretim-planlama-kapasite': {
+    featured: false, cat: 'ÜRETİM, TEDARİK VE KALİTE', catKey: 'uretim', icon: 'factory',
+    eyebrow: 'Üretim, Tedarik & Kalite',
+    cardTitle: 'Üretim Planlama ve Kapasite',
+    cardDesc: 'Siparişleri kapasite, termin, malzeme ve iş yüküyle uyumlu üretim planına dönüştürün.',
+    cardSub: 'Chief ERP/MRP/MES verilerinin yerine geçmez; üretim kararlarını görev, risk ve yönetim içgörüsüne bağlar.',
+    h1: 'Gerçekçi teslim tarihi, görünür darboğaz.',
+    lead: 'Onaylı siparişleri kapasite, termin, malzeme, makine, vardiya ve kalite koşullarıyla uyumlu uygulanabilir üretim planına dönüştürün.',
+    problem: 'Sipariş, kapasite, stok ve termin bilgisi birlikte değerlendirilmediğinde gerçekçi olmayan teslim sözleri verilir; darboğazlar geç fark edilir ve üretim planı sık sık bozulur.',
+    steps: [
+      { num: '01', title: 'Üretim ihtiyacını belirle', body: 'Onaylı sipariş; ürün ağacı, operasyon, miktar ve kalite koşullarıyla eşleştirilir.' },
+      { num: '02', title: 'Kapasiteyi kontrol et', body: 'Makine, hat, vardiya, personel ve malzeme uygunluğu değerlendirilir.' },
+      { num: '03', title: 'Planı öner', body: 'Kapasite kısıtlarına göre üretim sırası ve alternatif planlar önerilir; darboğaz varsa aksiyon başlatılır.' },
+      { num: '04', title: 'Gerçekleşeni izle', body: 'Üretim ilerlemesi, fire, duruş ve kalite sonuçları plana geri beslenir; sapmalar yönetim için görünür hale getirilir.' },
+    ],
+    nlQueries: [
+      'Termin riski taşıyan siparişleri nedenleriyle göster.',
+      'Malzeme açığı nedeniyle bekleyen üretim emirleri için satın almaya görev aç.',
+      'Kapasite artışı, dış kaynak veya termin revizyonu senaryolarını karşılaştır.',
+    ],
+    metrics: [{ n:'Anlık', l:'Kapasite görünürlüğü' },{ n:'-%30', l:'Plansız duruş' },{ n:'%0', l:'Sürpriz darboğaz' },{ n:'Gerçek zamanlı', l:'Plan-gerçekleşen' }],
+    faq: [
+      ['Chief ERP/MRP sisteminin yerine geçiyor mu?', 'Hayır. Chief ERP/MRP verilerini okur; üretim kararlarını görev, risk ve yönetim görünürlüğüne bağlar. Mevcut sisteminiz değişmez.'],
+      ['IoT/makine verileri entegre edilebilir mi?', 'Evet. OEE, duruş ve üretim hızı gibi makine verileri Chief\'e sinyal olarak iletilir; sapma oluştuğunda ilgili ekibe görev açılır.'],
+      ['Termin değişikliği müşteriye nasıl yansıyor?', 'Termin riski tespit edildiğinde satış ekibine uyarı ve müşteri iletişim görevi açılır. Karar insan onayıyla ilerler.'],
+    ],
+  },
+  'stok-yedek-parca-tedarik': {
+    featured: false, cat: 'ÜRETİM, TEDARİK VE KALİTE', catKey: 'uretim', icon: 'db',
+    eyebrow: 'Üretim, Tedarik & Kalite',
+    cardTitle: 'Stok, Yedek Parça ve Tedarik',
+    cardDesc: 'Kritik stokları görünür kılın; ihtiyaç, rezervasyon ve tedarik aksiyonlarını zamanında başlatın.',
+    cardSub: 'Stok miktarı tek başına değil, hangi iş için kritik olduğu ve ne zaman gerekli olduğu bağlamıyla izlenir.',
+    h1: 'Stok miktarı değil, bağlamı yönetilir.',
+    lead: 'Üretim, servis, bakım ve saha operasyonlarının ihtiyaç duyduğu malzeme ve parçaları zamanında görünür kılın; eksiklik oluşmadan tedarik, transfer veya rezervasyon aksiyonu başlatın.',
+    problem: 'Stok miktarı tek başına yeterli değildir. Hangi parçanın hangi iş, bakım veya sipariş için gerekli olduğu bilinmediğinde kritik eksikler son anda ortaya çıkar; gereksiz stok ve operasyon kesintisi birlikte oluşur.',
+    steps: [
+      { num: '01', title: 'İhtiyacı bağla', body: 'Üretim, servis ve bakım ihtiyaçları stok kodlarıyla ilişkilendirilir; hangi parçanın hangi iş için kritik olduğu belirlenir.' },
+      { num: '02', title: 'Riski hesapla', body: 'Mevcut, rezerve ve yoldaki stok; minimum seviye, tüketim hızı ve teslim süresiyle birlikte değerlendirilir.' },
+      { num: '03', title: 'Aksiyonu öner', body: 'Transfer, rezervasyon, satın alma veya alternatif parça aksiyonu önerilir; yetki gerektiriyorsa onay akışı başlatılır.' },
+      { num: '04', title: 'Tedariki izle', body: 'Tedarik süreci izlenir; malzeme geldiğinde ilgili iş emri veya üretim planı güncellenir.' },
+    ],
+    nlQueries: [
+      'Stok nedeniyle bekleyen işleri önem sırasına göre göster.',
+      'Tedarikçi gecikmelerinin üretim ve servis üzerindeki etkisini özetle.',
+      'Fazla ve yavaş hareket eden stokları finansal etkiyle göster.',
+    ],
+    metrics: [{ n:'%0', l:'Son anda eksiklik' },{ n:'Anlık', l:'Kritik stok görünürlüğü' },{ n:'Proaktif', l:'Tedarik aksiyonu' },{ n:'-%28', l:'Stok fazlası' }],
+    faq: [
+      ['ERP stok verileriyle nasıl entegre oluyor?', 'Chief ERP\'deki stok, rezervasyon ve sipariş verilerini okur; ihtiyaçla bağlamı kurar. Stok güncellemesi ERP\'de yapılmaya devam eder.'],
+      ['Alternatif parça önerisi nasıl çalışıyor?', 'Uyumlu parça veritabanı tanımlanmışsa Chief alternatifi önerir; teknik onay gerektiren durumlarda görev açılır.'],
+      ['Minimum stok seviyeleri nasıl ayarlanıyor?', 'ERP\'deki min/max seviyeleri okunur veya Chief içinde tanımlanabilir. Eşik yaklaşınca uyarı ve satın alma talebi oluşturulur.'],
+    ],
+  },
+  'kalite-uygunsuzluk-duzeltici-faaliyet': {
+    featured: false, cat: 'ÜRETİM, TEDARİK VE KALİTE', catKey: 'uretim', icon: 'check',
+    eyebrow: 'Üretim, Tedarik & Kalite',
+    cardTitle: 'Kalite Uygunsuzluk ve Düzeltici Faaliyet',
+    cardDesc: 'Uygunsuzluğu kanıtıyla kaydedin; kök neden, sorumluluk ve düzeltici aksiyonu izleyin.',
+    cardSub: 'Kalite kaydı raporda kalmaz; kök neden, düzeltici faaliyet, doğrulama ve tekrar riskine bağlanır.',
+    h1: 'Uygunsuzluk raporda değil, kapalı döngüde.',
+    lead: 'Üretim, saha, tedarikçi veya müşteri kaynaklı uygunsuzlukları kök neden, sorumlu aksiyon ve etkinlik doğrulamasıyla kapalı döngüye alın.',
+    problem: 'Uygunsuzluklar yalnızca kayıt altına alındığında gerçek nedenler tekrarlanır. Kaynak netleşmezse düzeltici faaliyet geç kalır ve müşteri etkisi büyür.',
+    steps: [
+      { num: '01', title: 'Uygunsuzluğu kaydet', body: 'Sinyal üretim, saha, müşteri veya denetim kanalından gelir; ürün, iş emri ve lot ile ilişkilendirilir.' },
+      { num: '02', title: 'Sınıflandır ve eskalasyonu başlat', body: 'Etki, aciliyet, güvenlik riski ve tekrar ihtimali değerlendirilir; durdurma veya eskalasyon görevi açılır.' },
+      { num: '03', title: 'Kök neden analizi yap', body: 'Sorumlu atanır; kök neden analizi ve düzeltici faaliyet gerçekleştirilir.' },
+      { num: '04', title: 'Doğrula ve kapat', body: 'Kanıt toplanır, etkinlik kontrol edilir. Tekrar eden uygunsuzluk yönetim içgörüsüne dönüşür.' },
+    ],
+    nlQueries: [
+      'Tekrar eden uygunsuzlukları kök neden ve sorumlularıyla göster.',
+      'Müşteri şikayetiyle bağlantılı kalite kayıtlarını özetle.',
+      'Etkinliği doğrulanmamış düzeltici faaliyetleri listele.',
+    ],
+    metrics: [{ n:'-%60', l:'Tekrar eden uygunsuzluk' },{ n:'%100', l:'Kök neden bağlantısı' },{ n:'Anlık', l:'Açık CAPA sayısı' },{ n:'Kapalı döngü', l:'Her uygunsuzluk' }],
+    faq: [
+      ['ISO 9001 gerekliliklerini karşılıyor mu?', 'Chief uygunsuzluk kaydı, kök neden, düzeltici faaliyet, doğrulama ve etkinlik takibi adımlarını ISO 9001 çerçevesiyle destekler. Denetim izi tamamen korunur.'],
+      ['Tedarikçi kaynaklı uygunsuzluklar nasıl yönetiliyor?', 'Tedarikçi aksiyonu ayrı bir alt vaka olarak açılır; bağlantılı sipariş, lot ve fatura kayıtlarıyla ilişkilendirilir.'],
+      ['Müşteriye telafi süreci entegre mi?', 'Evet. Kritik uygunsuzluklarda telafi onay süreci ve müşteri geri dönüş görevi otomatik tetiklenebilir.'],
+    ],
+  },
+  'fatura-tahsilat-is-kapanisi': {
+    featured: false, cat: 'FİNANSAL KAPANIŞ', catKey: 'finans', icon: 'doc',
+    eyebrow: 'Finansal Kapanış',
+    cardTitle: 'Fatura, Tahsilat ve İş Kapanışı',
+    cardDesc: 'Teslim ve hakedişten faturaya, tahsilattan mali kapanışa kadar süreci izleyin.',
+    cardSub: 'İşin yapılması, fatura kesilmesi ve tahsil edilmesi aynı zincirde görünür olur.',
+    h1: 'İş yapıldı — fatura, tahsilat, kapanış.',
+    lead: 'Operasyonun kapanışını fatura, vade, tahsilat ve nakit riski görünürlüğüyle birlikte yönetin.',
+    problem: 'Satış gerçekleşir ve iş yapılır; ancak fatura, hakediş, tahsilat, gecikme ve kapanış bilgisi farklı ekiplerde kalabilir. Bu durum nakit akışını, kârlılığı ve müşteri yönetimini etkiler.',
+    steps: [
+      { num: '01', title: 'Kapanış sinyalini al', body: 'İş, servis veya üretim kapanış sinyali alınır; faturaya hazır olma kontrol edilir.' },
+      { num: '02', title: 'Eksik tamamla', body: 'Kapanış kanıtı, müşteri onayı, miktar veya fiyat eksikse görev açılır; ilgili ekipten bilgi istenir.' },
+      { num: '03', title: 'Vadeyi izle', body: 'Fatura muhasebe sistemiyle ilişkilendirilir; vade ve tahsilat durumu izlenir.' },
+      { num: '04', title: 'Gecikmede eskalasyon', body: 'Vade yaklaşınca otomatik takip başlatılır; gecikme satış/finans/yönetici kanalına eskalasyon edilir.' },
+    ],
+    nlQueries: [
+      'Faturalanmamış işleri tutar ve sorumlu ekip bazında göster.',
+      'Vadesi yaklaşan ve yüksek riskli alacaklar için satış/finans ekiplerine takip görevi aç.',
+      'Tahsilat gecikmelerinin müşteri segmentine göre nedenlerini özetle.',
+    ],
+    metrics: [{ n:'Anlık', l:'Faturalanmamış iş' },{ n:'-%35', l:'Fatura kesme süresi' },{ n:'%100', l:'Vade görünürlüğü' },{ n:'Proaktif', l:'Tahsilat uyarısı' }],
+    faq: [
+      ['Muhasebe/e-fatura sistemiyle entegrasyon var mı?', 'Evet. Logo, Netsis, SAP ve e-fatura sistemlerine bağlanır; fatura tetikleyicisi ve onay akışı Chief\'ten yönetilir.'],
+      ['Kısmi hakediş nasıl işleniyor?', 'Hakediş aşamaları ayrı ayrı takip edilir; her aşama kapandığında ilgili tutar fatura sürecine aktarılır.'],
+      ['Nakit riski nasıl görünüyor?', 'Vadesi geçmiş alacaklar, müşteri segmenti ve geçmiş gecikme geçmişiyle birlikte yönetim özeti olarak sunulur.'],
+    ],
+  },
+  'musteri-geri-bildirimi-iyilestirme': {
+    featured: false, cat: 'PAYDAŞ DENEYİMİ', catKey: 'paydas', icon: 'star',
+    eyebrow: 'Paydaş Deneyimi',
+    cardTitle: 'Müşteri Geri Bildirimi ve İyileştirme',
+    cardDesc: 'Geri bildirimi yalnızca skor olarak değil, sorumlusu ve sonucu olan iyileştirme aksiyonuna dönüştürün.',
+    cardSub: 'Dendy gibi geri bildirim kanallarından gelen içgörü, Chief içinde görev ve kapanış takibine bağlanır.',
+    h1: 'Müşteri sesi aksiyona dönüşür.',
+    lead: 'Müşteri sesini skorla sınırlamayın; konu, duygu, kök neden, sorumlu aksiyon ve kapanış etkisiyle yönetin.',
+    problem: 'Memnuniyet anketleri, NPS, şikayetler ve açık uçlu yorumlar çoğu zaman rapor olarak kalır. Hangi konunun acil olduğu, kimin aksiyon alacağı ve kapanışın nasıl ölçüleceği netleşmez.',
+    steps: [
+      { num: '01', title: 'Geri bildirimi topla', body: 'NPS, CSAT, WhatsApp, e-posta veya Dendy kanalından geri bildirim alınır.' },
+      { num: '02', title: 'Analiz et', body: 'Chief skor, duygu, tema, konu ve müşteri segmentine göre değerlendirir; ilgili sipariş veya servis kaydıyla ilişkilendirir.' },
+      { num: '03', title: 'Aksiyon aç', body: 'Kritik kayıt varsa eskalasyon başlatılır; geri dönüş, telafi, inceleme veya süreç iyileştirme görevi atanır.' },
+      { num: '04', title: 'Ölç ve kapat', body: 'Aksiyon kapanışı izlenir; tekrar eden temalar yönetim içgörüsüne dönüşür.' },
+    ],
+    nlQueries: [
+      'Düşen NPS\'in operasyonel nedenlerini müşteri segmentine göre özetle.',
+      'Kritik şikayetleri ilgili süreç sahiplerine görev olarak aç.',
+      'Riskli müşteriler için iyileştirme planı öner.',
+    ],
+    metrics: [{ n:'Anlık', l:'Kritik şikayet uyarısı' },{ n:'%100', l:'Aksiyon takibi' },{ n:'-%50', l:'Şikayet kapanış süresi' },{ n:'Kapalı döngü', l:'Her geri bildirim' }],
+    faq: [
+      ['Dendy entegrasyonu nasıl çalışıyor?', 'Dendy\'den gelen NPS, CSAT ve açık uçlu yanıtlar Chief\'e otomatik aktarılır. Tema analizi, kritik uyarı ve aksiyon takibi Chief içinde yönetilir.'],
+      ['Şikayet hangi süreçlere dallanabiliyor?', 'Chief şikayeti konu ve kaynağa göre teknik servis, kalite, satış veya finans sürecine bağlar. Her süreç kendi sorumlusuna taşınır.'],
+      ['Anonimlik korunuyor mu?', 'Evet. Anket tasarımına göre kimlik bilgisi maskelenir; yönetim tema ve trend analizini anonim görür.'],
+    ],
+  },
+  'calisan-deneyimi-ik-aksiyonlari': {
+    featured: false, cat: 'PAYDAŞ DENEYİMİ', catKey: 'paydas', icon: 'users',
+    eyebrow: 'Paydaş Deneyimi',
+    cardTitle: 'Çalışan Deneyimi ve İK Aksiyonları',
+    cardDesc: 'Çalışan sesini güvenli biçimde analiz edin; tekrar eden sorunları ve gelişim alanlarını aksiyona bağlayın.',
+    cardSub: 'Geri bildirim anonimlik, minimum örneklem ve yetki kurallarıyla yönetimsel aksiyona dönüştürülür.',
+    h1: 'Çalışan geri bildirimi gerçek aksiyona dönüşür.',
+    lead: 'Çalışan geri bildirimlerini güvenli, anlamlı ve aksiyon alınabilir şekilde yönetin; tekrar eden sorunları İK ve yönetim aksiyonlarına bağlayın.',
+    problem: 'Çalışan memnuniyeti, bağlılık, eğitim ihtiyacı ve iç iletişim problemleri çoğu zaman periyodik anketlerde kalır. Yönetim gerçek sinyali geç görür; İK aksiyonlarının etkisi düzenli takip edilemez.',
+    steps: [
+      { num: '01', title: 'Geri bildirimi topla', body: 'Periyodik veya olay bazlı geri bildirim akışı başlatılır; çalışan yanıtları uygun kanallardan alınır.' },
+      { num: '02', title: 'Güvenli analiz et', body: 'Chief tema, duygu, ihtiyaç ve risk konularını analiz eder; gizlilik ve minimum örneklem kuralları korunur.' },
+      { num: '03', title: 'Aksiyon öner', body: 'İK veya yönetim için eğitim, iletişim, iş yükü veya liderlik aksiyonları önerilir.' },
+      { num: '04', title: 'İzle ve ölç', body: 'Aksiyonların kapanışı ve etkisi izlenir; sonraki ölçümle iyileşme değerlendirilir.' },
+    ],
+    nlQueries: [
+      'Çalışan bağlılığı düşen ekiplerde tekrar eden temaları anonim şekilde özetle.',
+      'İş yükü ve vardiya kaynaklı riskleri operasyon verisiyle birlikte göster.',
+      'Son nabız ölçümüne göre yönetim toplantısı için öncelikli 5 konuyu hazırla.',
+    ],
+    metrics: [{ n:'Anonim', l:'Gizlilik koruması' },{ n:'Anlık', l:'Kritik tema uyarısı' },{ n:'%100', l:'Aksiyon takibi' },{ n:'Kapalı döngü', l:'Her sinyal' }],
+    faq: [
+      ['Anonimlik nasıl sağlanıyor?', 'Minimum örneklem kuralları aktif olduğunda bireysel yanıt tanımlanamaz. Hassas konular anonim vaka olarak özel yetkili kanala yönlenebilir.'],
+      ['Dendy entegrasyonu var mı?', 'Evet. Dendy çalışan deneyimi verisi Chief\'e aktarılır; tema analizi, kritik uyarı ve İK aksiyon takibi Chief içinde yönetilir.'],
+      ['İSG ve etik bildirimler nasıl ele alınıyor?', 'Bu bildirimler ayrı yetkili kanala yönlendirilir; normal yönetim görünümünden izole edilir.'],
+    ],
+  },
+};
+
+/* ---- Kategori filtre ---- */
+window.isCatFilter = function(btn, cat) {
+  document.querySelectorAll('.is-cat').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('#isSureciGrid .card').forEach(function(card) {
+    card.style.display = (cat === '*' || card.getAttribute('data-cat') === cat) ? '' : 'none';
+  });
+};
+
+/* ---- Listing ---- */
+function renderIsSureciListing() {
+  var CAT_LABELS = [
+    { key: 'satis',    label: 'Satış & Teklif' },
+    { key: 'operasyon',label: 'Operasyon & Saha' },
+    { key: 'uretim',   label: 'Üretim, Tedarik & Kalite' },
+    { key: 'finans',   label: 'Finansal Kapanış' },
+    { key: 'paydas',   label: 'Paydaş Deneyimi' },
+  ];
+  var feat = IS_SURECLERI_DATA['yonetimsel-dogal-dil'];
+  var slugs = Object.keys(IS_SURECLERI_DATA).filter(function(k) { return !IS_SURECLERI_DATA[k].featured; });
+
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['İş Süreçleri']) +
+    '<span class="eyebrow">AI-NATIVE SÜREÇ KATMANI</span>' +
+    '<h1 style="margin-top:16px;max-width:720px">İş Süreçlerinizi Sinyalden Sonuca Yönetin</h1>' +
+    '<p class="lead" style="max-width:620px">Yönetimsel doğal dil veri erişiminden satışa, operasyondan üretime, finansal kapanıştan paydaş deneyimine — 15 süreç, tek işletme akışında.</p>' +
+    '</div></section>';
+
+  h += '<section><div class="container">';
+
+  // Featured card
+  h += '<a class="is-feat" href="#/is-surecleri/yonetimsel-dogal-dil">' +
+    '<span class="eyebrow on-dark">' + esc(feat.cat) + '</span>' +
+    '<h3>' + esc(feat.cardTitle) + '</h3>' +
+    '<p>' + esc(feat.cardDesc) + '</p>' +
+    '<p class="is-feat-sub">' + esc(feat.cardSub) + '</p>' +
+    '<span class="btn-link">İncele ' + ico('arrow', 15) + '</span>' +
+    '</a>';
+
+  // Category filter
+  h += '<div class="is-cats">' +
+    '<button class="is-cat active" onclick="window.isCatFilter(this,\'*\')">Tümü</button>';
+  CAT_LABELS.forEach(function(c) {
+    h += '<button class="is-cat" onclick="window.isCatFilter(this,\'' + c.key + '\')">' + esc(c.label) + '</button>';
+  });
+  h += '</div>';
+
+  // Cards
+  h += '<div class="cards-grid" id="isSureciGrid">';
+  slugs.forEach(function(slug, n) {
+    var d = IS_SURECLERI_DATA[slug];
+    h += '<a class="card" href="#/is-surecleri/' + slug + '" data-cat="' + d.catKey + '">' +
+      '<div class="card-ico ' + (n%3===1?'sage':n%3===2?'blue':'') + '">' + ico(d.icon, 22) + '</div>' +
+      '<span style="font-size:11px;font-weight:600;color:var(--t-muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:10px">' + esc(d.cat) + '</span>' +
+      '<h4>' + esc(d.cardTitle) + '</h4>' +
+      '<p>' + esc(d.cardDesc) + '</p>' +
+      '<span class="card-foot btn-link">İncele ' + ico('arrow', 15) + '</span>' +
+      '</a>';
+  });
+  h += '</div></div></section>' + finalCTA();
+  return h;
+}
+
+/* ---- Detay sayfası ---- */
+function renderIsSureciPage(slug) {
+  var d = IS_SURECLERI_DATA[slug];
+  if (!d) return renderNotFound();
+
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['İş Süreçleri', '#/is-surecleri'], [d.cardTitle]) +
+    '<span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
+    '<h1 style="margin-top:16px;max-width:760px">' + esc(d.h1) + '</h1>' +
+    '<p class="lead" style="max-width:640px">' + esc(d.lead) + '</p>' +
+    '</div></section>';
+
+  // Problem
+  h += '<section class="bg-warm"><div class="container narrow">' +
+    '<div class="section-head"><span class="eyebrow">Bu süreç neyi çözer?</span></div>' +
+    '<p style="font-size:17px;line-height:1.75;color:var(--t-body)">' + esc(d.problem) + '</p>' +
+    '</div></section>';
+
+  // Akış adımları
+  h += '<section><div class="container">' +
+    '<div class="section-head"><span class="eyebrow">Chief bu süreci nasıl yönetir?</span></div>' +
+    '<div class="proc-steps-grid">';
+  d.steps.forEach(function(s) {
+    h += '<div class="proc-step">' +
+      '<div class="proc-step-num">' + esc(s.num) + '</div>' +
+      '<div><h4>' + esc(s.title) + '</h4><p>' + esc(s.body) + '</p></div>' +
+      '</div>';
+  });
+  h += '</div></div></section>';
+
+  // NL Queries
+  h += '<section class="bg-warm"><div class="container">' +
+    '<div class="nl-block">' +
+    '<div class="nl-block-label">' + ico('chat', 14) + ' Yönetici Chief\'e sorar</div>';
+  d.nlQueries.forEach(function(q) {
+    h += '<div class="nl-item"><div class="nl-dot"></div><p>' + esc(q) + '</p></div>';
+  });
+  h += '</div></div></section>';
+
+  // Metrikler + SSS
+  h += '<section><div class="container">' +
+    '<div class="sp-metrics" style="margin-bottom:56px">';
+  d.metrics.forEach(function(m) {
+    h += '<div class="sp-metric"><span class="sp-num">' + esc(m.n) + '</span><span class="sp-label">' + esc(m.l) + '</span></div>';
+  });
+  h += '</div>' +
+    '<div class="section-head" style="margin-top:0"><span class="eyebrow">SSS</span></div>';
+  d.faq.forEach(function(f) {
+    h += '<details class="faq-item"><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>';
+  });
+  h += '</div></section>';
+
+  return h + finalCTA();
 }
 
 function _stub(label, slug) {
