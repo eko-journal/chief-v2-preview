@@ -121,31 +121,39 @@ const _MEGA_COZUMLER_LEGACY = {
    ================================================================ */
 const FOOTER_COLS = {
   'fc-platform': ['Platform', [
-    ['#/platform/chief-nasil-calisir',          'Chief Nasıl Çalışır?'],
-    ['#/platform/sinyalden-aksiyona',            'Sinyalden Aksiyona'],
-    ['#/platform/ai-ajanlar-ve-gorev-yonetimi',        'AI Süreç Orkestrasyonu'],
-    ['#/platform/gorev-onay-ve-takip',           'Görev, Onay ve Takip'],
-    ['#/platform/devreye-alma',                  'Devreye Alma'],
+    ['#/platform/chief-nedir',                   'Chief Nedir?'],
+    ['#/platform/chief-nasil-calisir',           'Chief Nasıl Çalışır?'],
+    ['#/platform/akilli-isletme-katmani',        'Akıllı İşletme Katmanı'],
+    ['#/platform/yonetim-paneli-ve-dashboard',   'Yönetim Paneli'],
+    ['#/platform/guvenlik-ve-veri-yaklasimi',    'Güvenlik ve Veri'],
   ]],
-  'fc-is-surecleri': ['İş Süreçleri', [
-    ['#/kullanim-alanlari/is-sureclerine-gore/yonetim-katmani',    'Yönetim Katmanı'],
-    ['#/kullanim-alanlari/is-sureclerine-gore/talep-potansiyel-musteri-firsat-yonetimi','Talep ve Fırsat'],
-    ['#/kullanim-alanlari/is-sureclerine-gore/is-emri-saha-planlama',   'İş Emri & Saha'],
-    ['#/kullanim-alanlari/is-sureclerine-gore/bakim-ariza-teknik-servis','Bakım & Teknik Servis'],
-    ['#/kullanim-alanlari/is-sureclerine-gore/finans','Fatura & Tahsilat'],
+  'fc-kullanim-alanlari': ['Kullanım Alanları', [
+    ['#/kullanim-alanlari/is-sureclerine-gore',      'İş Süreçlerine Göre'],
+    ['#/kullanim-alanlari/sektorlere-gore',           'Sektörlere Göre'],
+    ['#/kullanim-alanlari/isletme-olcegine-gore',     'İşletme Ölçeğine Göre'],
+    ['#/kullanim-alanlari/kullanim-senaryolari',      'Kullanım Senaryoları'],
+    ['#/fiyatlandirma',                               'Fiyatlandırma'],
   ]],
-  'fc-kaynaklar': ['Kaynaklar', [
-    ['#/entegrasyonlar', 'Entegrasyonlar'],
-    ['#/fiyatlandirma',  'Fiyatlandırma'],
-    ['#/blog',           'Blog'],
-    ['#/guvenlik',       'Güvenlik'],
-    ['#/hakkimizda',     'Hakkımızda'],
+  'fc-entegrasyonlar': ['Entegrasyonlar', [
+    ['#/entegrasyonlar',                              'Tüm Entegrasyonlar'],
+    ['#/entegrasyonlar/erp',                          'ERP'],
+    ['#/entegrasyonlar/crm',                          'CRM'],
+    ['#/entegrasyonlar/e-posta-ve-whatsapp',          'E-posta ve WhatsApp'],
+    ['#/entegrasyonlar/api-ve-veri-tabani',           'API ve Veri Tabanı'],
   ]],
-  'fc-kurum': ['İletişim', [
-    ['#/demo-talep-et',               'Demo Talep Et'],
-    ['tel:+902166062209',             '+90 216 606 22 09'],
-    ['mailto:info@chiefai.com.tr',    'info@chiefai.com.tr'],
-    ['#/hakkimizda',                  'Kandilli Teknopark'],
+  'fc-sirket': ['Şirket', [
+    ['#/partnerlik',                              'Partnerlik'],
+    ['#/demo-talep-et',                           'Demo Talep Et'],
+    ['https://app.chiefai.com.tr',                'Giriş'],
+    ['#/kaynaklar',                               'Kaynaklar'],
+    ['#/hakkimizda',                              'Hakkımızda'],
+  ]],
+  'fc-yasal': ['Yasal', [
+    ['#/platform/guvenlik-ve-veri-yaklasimi',     'Güvenlik'],
+    ['#/kaynaklar',                               'KVKK'],
+    ['#/kaynaklar',                               'Gizlilik Politikası'],
+    ['#/kaynaklar',                               'Çerez Politikası'],
+    ['mailto:info@chiefai.com.tr',               'İletişim'],
   ]],
 };
 
