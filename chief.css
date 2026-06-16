@@ -906,6 +906,17 @@ a.card { color: inherit; }
 .price-card li::before { content: ''; flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; border-radius: 50%;
   background: var(--sage-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23788C5D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/12px no-repeat; }
 
+/* Blog içerik */
+.blog-body { font-size:16px; line-height:1.8; color:var(--t-body); }
+.blog-body h2 { font-size:clamp(20px,2.4vw,24px); font-weight:700; margin:40px 0 16px; color:var(--ink); }
+.blog-body p { margin:0 0 18px; }
+.blog-body p:last-child { margin-bottom:0; }
+.blog-body ul { padding-left:0; list-style:none; display:flex; flex-direction:column; gap:10px; margin:0 0 20px; }
+.blog-body li { padding-left:22px; position:relative; }
+.blog-body li::before { content:'—'; position:absolute; left:0; color:var(--clay); font-weight:700; }
+.blog-body strong { color:var(--ink); font-weight:600; }
+.blog-body blockquote { border-left:3px solid var(--clay); padding:14px 20px; background:var(--warm); border-radius:0 var(--r-md) var(--r-md) 0; margin:24px 0; font-style:italic; color:var(--t-body); }
+
 /* forms */
 .form-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 40px; max-width: 720px; margin: 0 auto; }
 .form-card h2 { margin-bottom: 8px; }
