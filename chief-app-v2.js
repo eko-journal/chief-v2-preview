@@ -645,20 +645,20 @@ function renderRichPage(data, parentLabel, parentHref, slug) {
   var sc  = PAGE_SCENARIOS[slug] || null;
   var h   = '';
 
-  // Hero — eyebrow + h1 + lead + senaryo
-  h += '<section class="detail-hero hero-overlap"><div class="container">' +
+  // Hero — sol: metin, sağ: müşteri kartı
+  h += '<section class="detail-hero"><div class="container">' +
     crumb([parentLabel, parentHref], [data.h1]) +
+    '<div class="hero-split">' +
+    '<div class="hero-split-left">' +
     '<span class="eyebrow">' + esc(data.eyebrow) + '</span>' +
-    '<h1 style="margin-top:16px;max-width:760px">' + esc(data.h1) + '</h1>' +
-    '<p class="lead" style="max-width:620px">' + esc(data.lead) + '</p>';
+    '<h1 style="margin-top:16px">' + esc(data.h1) + '</h1>' +
+    '<p class="lead">' + esc(data.lead) + '</p>';
   if (sc) {
-    h += '<blockquote class="rp-scenario">' + esc(sc.text) +
+    h += '<blockquote class="rp-scenario" style="margin-top:20px">' + esc(sc.text) +
       '<cite>' + esc(sc.cite) + '</cite></blockquote>';
   }
-  h += '</div></section>';
-
-  // Müşteri hikayesi — hero'ya yaslanıyor
-  h += '<div class="cs-overlap-wrap"><div class="container">' +
+  h += '</div>' +
+    '<div class="hero-split-right">' +
     '<div class="cs-block">' +
     '<div class="cs-header">' +
     '<div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
@@ -669,7 +669,10 @@ function renderRichPage(data, parentLabel, parentHref, slug) {
     cs.results.map(function(r) {
       return '<div class="sp-metric"><span class="sp-num">' + esc(r.n) + '</span><span class="sp-label">' + esc(r.l) + '</span></div>';
     }).join('') +
-    '</div></div></div></div>';
+    '</div></div>' +
+    '</div>' +
+    '</div>' +
+    '</div></section>';
 
   // 3 temel nokta
   h += '<section><div class="container">' +
@@ -871,15 +874,16 @@ function renderPlatformV2Page(slug) {
   var d = PLATFORM_V2_DATA[slug];
   if (!d) return renderPlatformPage(slug);
 
-  var h = '<section class="detail-hero hero-overlap"><div class="container">' +
-    crumb(['Platform', '#/platform'], [d.h1]) +
-    '<span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
-    '<h1 style="margin-top:16px;max-width:760px">' + esc(d.h1) + '</h1>' +
-    '<p class="lead" style="max-width:640px">' + esc(d.lead) + '</p>' +
-    '</div></section>';
-
   var cs = d.caseStudy;
-  h += '<div class="cs-overlap-wrap"><div class="container">' +
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['Platform', '#/platform'], [d.h1]) +
+    '<div class="hero-split">' +
+    '<div class="hero-split-left">' +
+    '<span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
+    '<h1 style="margin-top:16px">' + esc(d.h1) + '</h1>' +
+    '<p class="lead">' + esc(d.lead) + '</p>' +
+    '</div>' +
+    '<div class="hero-split-right">' +
     '<div class="cs-block">' +
     '<div class="cs-header">' +
     '<div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
@@ -890,7 +894,10 @@ function renderPlatformV2Page(slug) {
     cs.results.map(function(r) {
       return '<div class="sp-metric"><span class="sp-num">' + esc(r.n) + '</span><span class="sp-label">' + esc(r.l) + '</span></div>';
     }).join('') +
-    '</div></div></div></div>';
+    '</div></div>' +
+    '</div>' +
+    '</div>' +
+    '</div></section>';
 
   h += '<section style="padding:56px 0"><div class="container">' +
     '<div class="rich-points" style="grid-template-columns:repeat(2,1fr);gap:36px 64px">' +
@@ -2045,19 +2052,18 @@ function renderIsSureciPage(slug) {
   var d = IS_SURECLERI_DATA[slug];
   if (!d) return renderNotFound();
 
-  var h = '<section class="detail-hero hero-overlap"><div class="container">' +
-    crumb(['İş Süreçleri', '#/is-surecleri'], [d.cardTitle]) +
-    '<span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
-    '<h1 style="margin-top:16px;max-width:760px">' + esc(d.h1) + '</h1>' +
-    '<p class="lead" style="max-width:640px">' + esc(d.lead) + '</p>' +
-    '<p class="rp-scenario" style="font-style:normal;background:rgba(0,0,0,.04)">' + esc(d.problem) + '</p>' +
-    '</div></section>';
-
-  // Müşteri hikayesi — hero'ya yaslanıyor
   var cs = IS_SURECLERI_CS[slug];
-  if (cs) {
-    h += '<div class="cs-overlap-wrap"><div class="container">' +
-      '<div class="cs-block">' +
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['İş Süreçleri', '#/is-surecleri'], [d.cardTitle]) +
+    '<div class="hero-split">' +
+    '<div class="hero-split-left">' +
+    '<span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
+    '<h1 style="margin-top:16px">' + esc(d.h1) + '</h1>' +
+    '<p class="lead">' + esc(d.lead) + '</p>' +
+    '<p class="rp-scenario" style="font-style:normal;background:rgba(0,0,0,.04);margin-top:20px">' + esc(d.problem) + '</p>' +
+    '</div>' +
+    '<div class="hero-split-right">' +
+    (cs ? '<div class="cs-block">' +
       '<div class="cs-header">' +
       '<div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
       '<div><div class="sp-company">' + esc(cs.company) + '</div><div class="sp-industry">' + esc(cs.industry) + '</div></div>' +
@@ -2067,8 +2073,10 @@ function renderIsSureciPage(slug) {
       d.metrics.map(function(m) {
         return '<div class="sp-metric"><span class="sp-num">' + esc(m.n) + '</span><span class="sp-label">' + esc(m.l) + '</span></div>';
       }).join('') +
-      '</div></div></div></div>';
-  }
+      '</div></div>' : '') +
+    '</div>' +
+    '</div>' +
+    '</div></section>';
 
   // Akış adımları
   h += '<section style="padding:52px 0"><div class="container">' +
