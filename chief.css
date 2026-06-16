@@ -727,6 +727,16 @@ a.card { color: inherit; }
 .nl-item p { font-size: 14.5px; color: rgba(250,249,245,.78); margin: 0; line-height: 1.65; font-style: italic; }
 @media (max-width: 700px) { .is-feat { padding: 26px 22px; } .proc-steps-grid { grid-template-columns: 1fr; } .nl-block { padding: 22px 20px; } }
 
+/* Platform bölüm sayfaları */
+.platform-bolum h3 { font-size: clamp(17px,2vw,21px); font-weight: 700; margin:0 0 16px; }
+.platform-bolum p { font-size:16px; color:var(--t-body); line-height:1.8; margin-bottom:14px; }
+.platform-bolum p:last-child { margin-bottom:0; }
+.platform-bolum ul { display:flex; flex-direction:column; gap:8px; padding:0; list-style:none; margin-top:12px; }
+.platform-bolum li { font-size:15px; color:var(--t-body); display:flex; gap:10px; line-height:1.6; }
+.platform-bolum li::before { content:'—'; color:var(--clay); font-weight:700; flex-shrink:0; }
+.platform-intro-paras { display:flex; flex-direction:column; gap:16px; max-width:800px; }
+.platform-intro-paras p { font-size:16px; color:var(--t-body); line-height:1.8; margin:0; }
+
 /* İş Süreçleri — omurga grid */
 .omurga-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
 .omurga-item { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 22px 24px; }
