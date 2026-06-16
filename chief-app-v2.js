@@ -54,12 +54,12 @@ const MEGA = {
         { href: '#/platform/is-nesnesi-ve-veri-katmani',  title: 'İş Nesnesi ve Veri Katmanı',   desc: 'Müşteri, teklif, iş emri tek modelde' },
       ]},
       { label: 'Yetenekler', items: [
-        { href: '#/platform/ai-ajanlar-ve-gorev-yonetimi', title: 'AI Ajanlar ve Görev Yönetimi', desc: 'Koordineli ajanlar, insan kontrolü' },
+        { href: '#/platform/ai-ajanlar-ve-gorev-yonetimi', title: 'AI Süreç Orkestrasyonu', desc: 'Koordineli ajanlar, insan kontrolü' },
         { href: '#/platform/gorev-onay-ve-takip',           title: 'Görev, Onay ve Takip',         desc: 'SLA, sorumlu ve kapanış kriteri' },
         { href: '#/platform/surecler-arasi-devir-teslim',   title: 'Süreçler Arası Devir Teslim',  desc: 'Satıştan sahaya bilgi kayıpsız' },
         { href: '#/platform/yonetim-paneli-ve-dashboard',   title: 'Yönetim Paneli ve Dashboard',  desc: 'Risk ve ilerleme gerçek zamanlı' },
         { href: '#/platform/rol-bazli-yetkilendirme',        title: 'Rol Bazlı Yetkilendirme',      desc: 'Granüler erişim, denetim izi' },
-        { href: '#/platform/guvenlik-ve-veri-yaklasimi',     title: 'Güvenlik ve Veri Yaklaşımı',   desc: 'KVKK, GDPR, on-prem seçenekleri' },
+        { href: '#/platform/guvenlik-ve-veri-yaklasimi', title: 'Karar Destek, Güvenlik ve Öğrenme', desc: 'Yönetim içgörüsü, güvenlik, denetim' },
       ]},
     ],
   },
@@ -917,7 +917,7 @@ const PLATFORM_V2_DATA = {
   },
   'ai-ajanlar-ve-gorev-yonetimi': {
     eyebrow: 'Platform · AI Tabanlı',
-    cardTitle: 'AI Ajanlar ve Görev Yönetimi',
+    cardTitle: 'AI Süreç Orkestrasyonu',
     cardDesc: 'Chief\'in AI ajanları talebi sınıflandırır, eksik bilgiyi bulur, öneri üretir ve süreci ilgili ekip veya onay noktasına yönlendirir.',
     h1: 'AI Ajanlar ve Görev Yönetimi',
     lead: 'Chief\'in AI ajanları işletme süreçlerini uçtan uca anlamak, yönlendirmek ve takip etmek için birlikte çalışır. AI önerir, sınıflandırır ve hazırlar; kritik kararlarda kontrol insanda kalır.',
@@ -971,8 +971,8 @@ const PLATFORM_V2_DATA = {
   },
   'guvenlik-ve-veri-yaklasimi': {
     eyebrow: 'Platform',
-    cardTitle: 'Güvenlik ve Veri Yaklaşımı',
-    cardDesc: 'Veri erişimi, denetim izi, insan onayı, AI çıktılarının izlenebilirliği ve özel kurulum yaklaşımını açıklar.',
+    cardTitle: 'Karar Destek, Güvenlik ve Öğrenme',
+    cardDesc: 'Chief, yönetim için riskleri, gecikmeleri, fırsatları ve performans göstergelerini görünür kılar; her aksiyondan öğrenir.',
     h1: 'Güvenlik ve Veri Yaklaşımı',
     lead: 'Chief, işletme yönetimine yalnızca veri sunmaz; gecikmeleri, riskleri, fırsatları ve süreç iyileştirme alanlarını açıklanabilir şekilde gösterir.',
     bolumler: [
@@ -1042,8 +1042,8 @@ function renderPlatformV2Page(slug) {
 }
 
 function renderPlatformV2Listing() {
-  var slugOrder = ['chief-nedir','chief-nasil-calisir','akilli-isletme-katmani','sinyalden-aksiyona','mevcut-sistemlerle-calisir','is-nesnesi-ve-veri-katmani','ai-ajanlar-ve-gorev-yonetimi','gorev-onay-ve-takip','surecler-arasi-devir-teslim','yonetim-paneli-ve-dashboard','rol-bazli-yetkilendirme','guvenlik-ve-veri-yaklasimi'];
-  var icons = {'chief-nedir':'spark','chief-nasil-calisir':'flow','akilli-isletme-katmani':'layers','sinyalden-aksiyona':'bolt','mevcut-sistemlerle-calisir':'cpu','is-nesnesi-ve-veri-katmani':'db','ai-ajanlar-ve-gorev-yonetimi':'cpu','gorev-onay-ve-takip':'check','surecler-arasi-devir-teslim':'arrow','yonetim-paneli-ve-dashboard':'bars','rol-bazli-yetkilendirme':'users','guvenlik-ve-veri-yaklasimi':'shield'};
+  var slugOrder = ['chief-nasil-calisir','sinyalden-aksiyona','mevcut-sistemlerle-calisir','is-nesnesi-ve-veri-katmani','ai-ajanlar-ve-gorev-yonetimi','gorev-onay-ve-takip','surecler-arasi-devir-teslim','guvenlik-ve-veri-yaklasimi'];
+  var icons = {'chief-nasil-calisir':'flow','sinyalden-aksiyona':'bolt','mevcut-sistemlerle-calisir':'layers','is-nesnesi-ve-veri-katmani':'db','ai-ajanlar-ve-gorev-yonetimi':'cpu','gorev-onay-ve-takip':'check','surecler-arasi-devir-teslim':'arrow','guvenlik-ve-veri-yaklasimi':'shield'};
 
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['Platform']) +
