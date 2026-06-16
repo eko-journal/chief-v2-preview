@@ -1672,24 +1672,24 @@ const IS_SURECLERI_CS = {
     quote:'"Pazartesi toplantısına her hafta veri toplamak için Cuma günü başlardık — satıştan, sahadan, muhasebeden ayrı ayrı sorardık. Chief ile o toplantı hazırlığı tamamen ortadan kalktı. Pazar gecesi özet geliyor, Pazartesi toplantısı 12 dakika sürüyor."',
   },
   'talep-potansiyel-musteri': {
-    logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
-    quote:'"Web formu, WhatsApp ve e-posta üzerinden gelen talepler farklı yerlerde kalıyordu. Chief ile her kanal tek akışta; artık sahipsiz fırsat kalmıyor, her talepte ilk temas SLA\'sı otomatik işliyor."',
+    logo:'logo-ikon.png', company:'İkon Araştırma', industry:'Pazar Araştırması & Danışmanlık',
+    quote:'"Pazar araştırması projelerine gelen ilgi talepleri e-posta, web formu ve referanslar üzerinden dağılıyordu. Chief ile her kanal tek akışta toplanıyor; hangi talebin öncelikli, kimin sorumlusu — anında görünür, hiçbir fırsat sessiz kapanmıyor."',
   },
   'satis-ekibi-ziyaret': {
     logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
     quote:'"Satış ekibimizin ziyaret notları farklı kişisel dosyalara dağılmış, doğru veriye anında ulaşmak güçleşmişti. Chief ile tüm satış hattı, toplantı çıktıları ve teklif süreçleri tek ekranda görünür. Artık müdür sahadan dönen temsilciyi arayıp sormak zorunda değil."',
   },
   'teklif-talebi-bilgi': {
-    logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
-    quote:'"Eksik bilgi nedeniyle teklif ekibi defalarca yazışıyordu; süreç uzuyor, kapsam hatası riski artıyordu. Chief ile bilgi tamamlama akışı sayesinde teklif hazır dosyaya ilk günde ulaşıyoruz, revizyon oranı yarı yarıya düştü."',
+    logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+    quote:'"Teknik servis teklifleri çoğu zaman eksik bilgiyle geliyordu — lokasyon, ekipman tipi, erişim koşulları. Chief ile bilgi tamamlama akışı sayesinde teklif ekibimiz ilk mesajdan doğrulanmış iş dosyasına geçiyor, yeniden yazışma neredeyse kalmadı."',
   },
   'fiyatlama-marj-onay': {
     logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
     quote:'"Aynı iş için farklı fiyatlar verilebiliyordu, marj dışı teklifler geç fark ediliyordu. Chief ile marj kontrolü ve onay zinciri otomatikleşti; yetki dışı fiyat artık çıkmıyor, her karar kayıt altında."',
   },
   'tekliften-siparise': {
-    logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
-    quote:'"Onaylanan teklifin kapsamını operasyona aktarırken bilgi kaybı yaşanıyordu. Chief ile kapsam, fiyat ve termin kayıpsız geçiyor; operasyon ilk günden doğru bilgiyle başlıyor."',
+    logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+    quote:'"Onaylanan saha servis kapsamını iş emrine aktarırken teknik detaylar kayboluyordu. Chief ile kapsam, ekipman bilgisi ve müşteri taahhütleri operasyona kayıpsız geçiyor; teknisyen sahaya doğru brief ile çıkıyor."',
   },
   'is-emri-saha-planlama': {
     logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
@@ -1700,20 +1700,20 @@ const IS_SURECLERI_CS = {
     quote:'"Periyodik bakım tarihleri Excel\'de takip ediliyordu, arada kayıyor ve gecikiyordu. Arıza geldiğinde ise ekipman geçmişini bulmak için 3 farklı sisteme giriyorduk. Chief ile bakım takvimi otomatik, arıza geldiğinde iş emri dakikalar içinde hazır."',
   },
   'montaj-proje-uygulama': {
-    logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
-    quote:'"Proje dosyaları, malzeme listeleri ve saha güncellemeleri farklı araçlardaydı. Chief ile teknik kapsam, uygulama planı ve kabul süreci tek akışta izleniyor; eksik iş kapanışa engel olmuyor."',
+    logo:'logo-ikon.png', company:'İkon Araştırma', industry:'Pazar Araştırması & Danışmanlık',
+    quote:'"Saha araştırması projelerinde anketör planlaması, veri toplama adımları ve müşteri kabul kriterleri farklı araçlardaydı. Chief ile uygulama planı, saha ilerlemesi ve kabul süreci tek akışta izleniyor."',
   },
   'uretim-planlama-kapasite': {
     logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
     quote:'"Kapasite kısıtlarını görmeden sipariş alıyorduk; darboğazlar son anda ortaya çıkıyordu. Chief ile termin riski görünür hale geldi, sürpriz duruş kalmadı, müşteriye gerçekçi teslim tarihi veriyoruz."',
   },
   'stok-yedek-parca-tedarik': {
-    logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
-    quote:'"Kritik yedek parça eksikliğini son anda öğreniyorduk. Chief ile stok hangi iş için kritik, ne zaman gerekli — bağlamıyla izleniyor; eksiklik oluşmadan tedarik aksiyonu başlıyor."',
+    logo:'logo-ikon.png', company:'İkon Araştırma', industry:'Pazar Araştırması & Danışmanlık',
+    quote:'"Saha projelerinde anket materyali, ekipman ve araç ihtiyacını son anda öğreniyorduk. Chief ile hangi projenin ne zaman neye ihtiyacı var — bağlamıyla görünür; eksiklik oluşmadan rezervasyon ve tedarik aksiyonu başlıyor."',
   },
   'kalite-uygunsuzluk-duzeltici-faaliyet': {
-    logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
-    quote:'"Uygunsuzlukları kayıt altına alıyorduk ama kök neden bulunana kadar aynı sorunlar tekrarlanıyordu. Chief ile kapalı döngüye aldık; her kayıt düzeltici aksiyona bağlı, tekrar oranı belirgin düştü."',
+    logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+    quote:'"Isıl işlem hatalarını kayıt altına alıyorduk ama kök neden bulunana kadar aynı sorunlar tekrarlanıyordu. Chief ile her uygunsuzluk düzeltici aksiyona ve doğrulama adımına bağlandı; tekrar oranı belirgin düştü."',
   },
   'fatura-tahsilat-is-kapanisi': {
     logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
