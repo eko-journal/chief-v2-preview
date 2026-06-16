@@ -45,15 +45,17 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;',
 const MEGA = {
   platform: {
     cols: [
-      { label: 'Ürün', items: [
-        { href: '#/platform/nasil-calisir',  title: 'Nasıl Çalışır',       desc: 'Sinyalden aksiyona 5 adım' },
-        { href: '#/platform/komuta-merkezi', title: 'Komuta Merkezi',      desc: 'Tüm işler tek ekranda, gerçek zamanlı' },
-        { href: '#/platform/ai-yetenekleri', title: 'AI Yetenekleri',      desc: 'Açıklanabilir, insan denetimli karar desteği' },
+      { label: 'Platform', items: [
+        { href: '#/platform/chief-nasil-calisir',       title: 'Chief Nasıl Çalışır?',        desc: 'Sinyalden aksiyona 5 temel adım' },
+        { href: '#/platform/sinyalden-aksiyona',         title: 'Sinyalden Aksiyona',           desc: 'Her sinyal takip edilebilir iş akışına' },
+        { href: '#/platform/mevcut-sistemlerle-calisir', title: 'Mevcut Sistemlerle Çalışır',   desc: 'ERP/CRM üzerinde süreç katmanı' },
+        { href: '#/platform/is-nesnesi-ve-veri-katmani', title: 'İş Nesnesi ve Veri Katmanı',   desc: 'Müşteri, teklif, iş emri tek modelde' },
       ]},
-      { label: 'Kurumsal', items: [
-        { href: '#/platform/guvenlik',   title: 'Güvenlik & Uyumluluk', desc: 'KVKK, GDPR, rol bazlı erişim' },
-        { href: '#/platform/devreye-alma', title: 'Devreye Alma',         desc: '4 haftada canlıya alın' },
-        { href: '#/platform/partnerler',  title: 'Partner Ekosistemi',   desc: 'Sertifikalı çözüm ortakları' },
+      { label: 'Yetenekler', items: [
+        { href: '#/platform/ai-surec-orkestrasyonu',        title: 'AI Süreç Orkestrasyonu',       desc: 'Koordineli ajanlar, insan kontrolü' },
+        { href: '#/platform/gorev-onay-ve-takip',           title: 'Görev, Onay ve Takip',         desc: 'SLA, sorumlu ve kapanış kriteri' },
+        { href: '#/platform/surecler-arasi-devir-teslim',   title: 'Süreçler Arası Devir Teslim',  desc: 'Satıştan sahaya bilgi kayıpsız' },
+        { href: '#/platform/karar-destek-guvenlik-ogrenme', title: 'Karar Destek ve Güvenlik',     desc: 'Açıklanabilir öneriler, rol bazlı erişim' },
       ]},
     ],
   },
@@ -98,11 +100,11 @@ const _MEGA_COZUMLER_LEGACY = {
    ================================================================ */
 const FOOTER_COLS = {
   'fc-platform': ['Platform', [
-    ['#/platform/nasil-calisir',  'Nasıl Çalışır'],
-    ['#/platform/komuta-merkezi', 'Komuta Merkezi'],
-    ['#/platform/ai-yetenekleri', 'AI Yetenekleri'],
-    ['#/platform/guvenlik',       'Güvenlik & Uyumluluk'],
-    ['#/platform/devreye-alma',   'Devreye Alma'],
+    ['#/platform/chief-nasil-calisir',          'Chief Nasıl Çalışır?'],
+    ['#/platform/sinyalden-aksiyona',            'Sinyalden Aksiyona'],
+    ['#/platform/ai-surec-orkestrasyonu',        'AI Süreç Orkestrasyonu'],
+    ['#/platform/gorev-onay-ve-takip',           'Görev, Onay ve Takip'],
+    ['#/platform/devreye-alma',                  'Devreye Alma'],
   ]],
   'fc-is-surecleri': ['İş Süreçleri', [
     ['#/is-surecleri/yonetimsel-dogal-dil',    'Yönetim Katmanı'],
@@ -321,8 +323,8 @@ function go() {
   const sec = parts[0], slug = parts[1];
   let html, label;
 
-  if      (sec === 'platform'      && slug) { html = renderPlatformPage(slug);     label = 'Platform'; }
-  else if (sec === 'platform')              { html = renderPlatformListing();      label = 'Platform'; }
+  if      (sec === 'platform'      && slug) { html = PLATFORM_V2_DATA[slug] ? renderPlatformV2Page(slug) : renderPlatformPage(slug); label = 'Platform'; }
+  else if (sec === 'platform')              { html = renderPlatformV2Listing();    label = 'Platform'; }
   else if (sec === 'is-surecleri'  && slug) { html = renderIsSureciPage(slug);     label = 'İş Süreçleri'; }
   else if (sec === 'is-surecleri')          { html = renderIsSureciListing();      label = 'İş Süreçleri'; }
   else if (sec === 'cozumler'      && slug) { html = renderCozumlerPage(slug);     label = 'Çözümler'; }
@@ -692,7 +694,253 @@ function renderRichPage(data, parentLabel, parentHref, slug) {
 }
 
 /* ================================================================
-   PLATFORM SAYFALARI
+   PLATFORM V2 — VERİ + RENDER
+   ================================================================ */
+const PLATFORM_V2_DATA = {
+  'chief-nasil-calisir': {
+    eyebrow: 'Platform',
+    h1: 'Yakala. Anla. Bağla. Yürüt. Öğren.',
+    lead: 'Chief, işletmedeki dağınık bilgi ve sinyalleri tek akışta yönetilir hale getirir — e-postadan iş emrine, toplantı notundan yönetim kararına.',
+    benefits: [
+      { icon:'mail',   title:'Her sinyali yakalar',    body:'E-posta, WhatsApp, web formu, saha bildirimi, ERP kaydı — Chief hepsini tek akışa alır. Kritik bilgi kişisel hafızada veya takipsiz dosyalarda kaybolmaz.' },
+      { icon:'cpu',    title:'Niyeti anlar',            body:'Gelen mesaj teklif talebi mi, servis ihtiyacı mı, şikayet mi? Chief içeriği analiz eder, doğru sürece yönlendirir.' },
+      { icon:'layers', title:'Veriyle bağlar',          body:'Talep ilgili müşteriye, teklife, iş emrine, sözleşmeye bağlanır. Ekipler aynı konuya farklı sistemlerden değil, ortak iş nesnesinden bakar.' },
+      { icon:'spark',  title:'Öğrenerek iyileşir',      body:'Her tamamlanan iş bir veri noktasıdır. Hangi süreçler gecikiyor, nerede eksik bilgi tekrar ediyor — Chief bunları görünür kılar ve iyileştirme önerir.' },
+    ],
+    caseStudy: {
+      logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+      quote:'"Servis talepleri telefon, e-posta ve portaldan aynı anda geliyordu. Her birini manuel takibe almak ekibe büyük yük bindiriyordu. Chief ile hiçbir talep kaybolmuyor, her iş emrinin durumu gerçek zamanlı görünüyor, kapanış belgesi otomatik oluşuyor."',
+      results:[{n:'-%65',l:'Manuel veri girişi'},{n:'%100',l:'Talep takip görünürlüğü'},{n:'3 hafta',l:'Devreye alma süresi'},{n:'0',l:'Kayıp talep'}],
+    },
+    faq:[
+      ['Chief öğrenmesi ne kadar sürer?','Pilot akışta Chief mevcut sistemlerinizdeki veriden öğrenir. Sıfırdan eğitim gerekmez — kurulum gününden itibaren anlamlı sonuçlar üretir.'],
+      ['Kaç kanalı aynı anda yönetebilir?','E-posta, WhatsApp, web formu, ERP, CRM, saha uygulaması ve REST API — tüm kanallar birlikte çalışır, öncelik ve bağlam süreç seviyesinde yönetilir.'],
+      ['Chief karar mı veriyor?','Hayır. Chief öneri üretir, bağlamı gösterir, eksik bilgiyi tespit eder. Her uygulama kararı insan tarafından verilir.'],
+    ],
+  },
+  'sinyalden-aksiyona': {
+    eyebrow: 'Platform',
+    h1: 'Her sinyal bir aksiyon adayıdır.',
+    lead: 'Toplantı notu, müşteri mesajı, saha bildirimi — Chief bunları raporlamaz. Takip edilebilir, sorumlusu belli iş akışına dönüştürür.',
+    benefits: [
+      { icon:'bolt',   title:'Sinyal gelir, kaybolmaz',                  body:'Müşteri talebi, servis ihtiyacı, fiyat onayı, stok uyarısı — hepsi Chief\'e sinyal olarak gelir. Kişisel mesajlarda ve takipsiz dosyalarda kaybolmaz.' },
+      { icon:'cpu',    title:'Sınıflandırılır ve önceliklendirilir',      body:'Chief gelen sinyalin ne olduğunu anlar: hangi süreçle ilgili, ne kadar acil, kimin aksiyon alması gerektiği — doğru akışa girer.' },
+      { icon:'check',  title:'Aksiyona dönüşür',                          body:'Teklif hazırlığı, saha görevi, onay isteği, yönetim uyarısı — her sinyal somut aksiyona çevrilir. Kim yapacak, ne zaman, neyle kapanacak: net.' },
+      { icon:'bars',   title:'Yönetim görür',                             body:'Kaç sinyal aksiyona döndü, kaçı bekliyor, nerede darboğaz var? Yönetim rapor değil, gerçek zamanlı aksiyon görünürlüğü kazanır.' },
+    ],
+    caseStudy: {
+      logo:'logo-ikon.png', company:'İkon Araştırma', industry:'Pazar Araştırması & Danışmanlık',
+      quote:'"Saha ekibinin anket süreçleri, proje ilerlemeleri ve verilen tekliflerin takibi e-posta ve WhatsApp karmaşasındaydı. Chief ile saha koordinasyonu ve teklif yönetimi tek platforma taşındı; artık hangi sinyalin aksiyona döndüğünü anlık görüyoruz."',
+      results:[{n:'7/24',l:'Saha ekibi görünürlüğü'},{n:'%100',l:'Teklif takip oranı'},{n:'-%55',l:'Koordinasyon e-postası'},{n:'2 hafta',l:'Devreye alma süresi'}],
+    },
+    faq:[
+      ['Hangi kanallardan sinyal gelir?','E-posta, WhatsApp, web formu, SMS, ERP/CRM kaydı, saha bildirimi, doküman, IoT uyarısı ve REST API — tümü Chief\'e sinyal kaynağı olarak bağlanabilir.'],
+      ['Öncelik nasıl belirleniyor?','Müşteri değeri, SLA süresi, aciliyet ve risk skoru — Chief önceliği otomatik değerlendirir. Son karar her zaman kullanıcıya aittir.'],
+      ['Sinyal işleme süresi ne kadar?','Çoğu sinyal saniyeler içinde sınıflandırılır ve ilgili sürece yönlendirilir. Eksik bilgili sinyaller tamamlanma adımına girer.'],
+    ],
+  },
+  'mevcut-sistemlerle-calisir': {
+    eyebrow: 'Platform',
+    h1: 'ERP\'nizi değiştirmezsiniz. Chief üstüne gelir.',
+    lead: 'SAP, Logo, Netsis, Salesforce, WhatsApp Business — Chief bunların üzerinde çalışan süreç ve karar katmanıdır. Entegrasyon değil, işletme aklı.',
+    benefits: [
+      { icon:'layers', title:'Sistemler olduğu gibi kalır',         body:'ERP finansalı yönetir, CRM müşteriyi izler, saha uygulaması operasyonu taşır. Chief bunları değiştirmez — aralarında anlam ve süreç köprüsü kurar.' },
+      { icon:'cpu',    title:'Hangi kayıt aksiyon gerektiriyor?',   body:'ERP\'deki bekleyen sipariş, CRM\'deki temassız fırsat, e-postadaki onaysız teklif — Chief bunları tespit eder, doğru kişiye zamanında taşır.' },
+      { icon:'mail',   title:'İletişim sürece bağlanır',             body:'Toplantı notları, WhatsApp mesajları, e-postalar çoğu zaman sistemlere tam yansımaz. Chief bu iletişimleri süreçlerle bağlayarak kişisel takip yükünü kaldırır.' },
+      { icon:'spark',  title:'Entegrasyon değil, işletme aklı',     body:'Chief\'in değeri API bağlantısı değil; farklı kaynaklardan gelen veriyi işletmenin süreç mantığına göre yorumlaması ve aksiyona çevirmesidir.' },
+    ],
+    caseStudy: {
+      logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+      quote:'"Almanya operasyonumuz için GDPR uyumluluğu kritikti. Chief\'in on-prem kurulumu ve veri izolasyonu, hukuk biriminin onayını ilk görüşmede aldı. Mevcut ERP projemize dokunmadan Chief\'i 3 haftada devreye aldık."',
+      results:[{n:'GDPR',l:'Almanya operasyonu onaylı'},{n:'%100',l:'On-prem veri izolasyonu'},{n:'3 hafta',l:'Devreye alma süresi'},{n:'0',l:'Sistem değişikliği'}],
+    },
+    faq:[
+      ['Chief hangi ERP sistemleriyle çalışır?','SAP, Logo, Netsis, Microsoft Dynamics ve diğer ERP sistemleriyle REST API veya doğrudan entegrasyon üzerinden bağlanır. Kapsam kurulum sırasında belirlenir.'],
+      ['Mevcut veri Chief\'e aktarılıyor mu?','Hayır — Chief verileri okur ve işler, kopyalamaz. Tüm veri kaynak sistemde kalır, Chief sadece süreç katmanını yönetir.'],
+      ['Kurulum sırasında sistem değişikliği gerekiyor mu?','Hayır. Chief mevcut sistemlerin üzerinde konumlanır. ERP veya CRM yapınızda değişiklik yapmak gerekmez.'],
+    ],
+  },
+  'is-nesnesi-ve-veri-katmani': {
+    eyebrow: 'Platform',
+    h1: 'Müşteri, teklif, iş emri — hepsi birbirine bağlı.',
+    lead: 'Chief, işletmedeki temel kayıtları ortak bir iş modelinde birleştirir. Aynı konu için farklı sistemlerde arama biter.',
+    benefits: [
+      { icon:'users',  title:'Herkes farklı bakar, Chief birleştirir', body:'Satış için fırsat, operasyon için iş emri, finans için tahsilat riski, yönetim için KPI sapması. Chief bu farklı bakışları ortak iş nesnesi üzerinden birleştirir.' },
+      { icon:'doc',    title:'İş nesnesi nedir?',                       body:'Müşteri, lokasyon, teklif, iş emri, proje, görev, sözleşme, makine — takip edilmesi ve yönetilmesi gereken her kayıt bir iş nesnesidir. Chief bunları birbirine bağlar.' },
+      { icon:'layers', title:'Veri bağlamıyla anlam kazanır',           body:'Teklif hangi müşteriye bağlı, hangi lokasyonda uygulanacak, hangi ekip yürütecek? Chief bunu tek sorguda gösterir — ayrı sistemlerde arama biter.' },
+      { icon:'bars',   title:'Tek görünüm, tam bağlam',                 body:'İlgili işin geçmişi, açık görevleri, bekleyen onayları, belgeleri ve riskleri — tek ekranda. Farklı sistemler arasında gezinti ortadan kalkar.' },
+    ],
+    caseStudy: {
+      logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+      quote:'"Satış ekibimizin ziyaret notları farklı kişisel dosyalara dağılmış, doğru veriye anında ulaşmak güçleşmişti. Chief ile tüm satış hattı, toplantı çıktıları ve teklif süreçleri tek ekranda görünür. Artık müdür sahadan dönen temsilciyi arayıp sormak zorunda değil."',
+      results:[{n:'%98',l:'Ziyaret notu kayıt oranı'},{n:'7/24',l:'Satış hattı görünürlüğü'},{n:'-%40',l:'Raporlama hazırlık süresi'},{n:'1 ekran',l:'Tüm operasyon'}],
+    },
+    faq:[
+      ['Chief hangi iş nesnelerini destekliyor?','Müşteri, lokasyon, teklif, sipariş, iş emri, proje, görev, sözleşme, servis kaydı, makine, ekip ve finansal kayıtlar — sektöre göre özelleştirilebilir.'],
+      ['Mevcut CRM\'imizdeki kayıtlar korunuyor mu?','Evet. Chief CRM\'inizdeki müşteri ve fırsat kayıtlarını okur, yeni kayıt oluşturmaz. Veri CRM\'de yaşamaya devam eder.'],
+      ['Farklı lokasyonlardaki veriler birleştirilebilir mi?','Evet. Chief çok lokasyonlu operasyonlarda her lokasyonun verisini ayrı yönetirken yönetim toplu görünüme erişebilir.'],
+    ],
+  },
+  'ai-surec-orkestrasyonu': {
+    eyebrow: 'Platform · AI Native',
+    h1: 'Tek chatbot değil. Koordineli ajan yapısı.',
+    lead: 'Chief\'in AI ajanları sınıflandırır, eksik bilgiyi bulur, öneri üretir, süreci yönlendirir. Kritik kararlarda kontrol her zaman insanda.',
+    benefits: [
+      { icon:'cpu',   title:'Çoklu ajan, tek amaç',           body:'Farklı görevleri üstlenen ajanlar birlikte çalışır: talep sınıflandırma, bilgi tamamlama, veri eşleme, onay yönlendirme — her adım için doğru ajan devrede.' },
+      { icon:'check', title:'Eksik bilgi bulunur, tamamlanır', body:'Teklif için teknik detay eksik mi? İş emri için lokasyon bilgisi yok mu? Chief bunu tespit eder, ilgili kişiden tamamlanmasını ister. Süreç bilgi beklemeden ilerler.' },
+      { icon:'spark', title:'AI önerir, insan karar verir',   body:'Fiyat onayı, kritik müşteri kararı, finansal kabul — bu noktalarda Chief öneri sunar, karar her zaman insana kalır. Her öneri gerekçesiyle gelir.' },
+      { icon:'flow',  title:'Süreçler koordine edilir',        body:'Satış, operasyon, saha, üretim, finans — Chief farklı ekipler arasında işin nerede olduğunu ve ne zaman kime geçeceğini takip eder.' },
+    ],
+    caseStudy: {
+      logo:'logo-ikon.png', company:'İkon Araştırma', industry:'Pazar Araştırması & Danışmanlık',
+      quote:'"Chief\'in AI katmanı saha ekibinin verdiği açık uçlu notları yapılandırıyor, proje aksiyonlarını otomatik çıkarıyor ve teklif sürecindeki eksik bilgileri tespit ediyor. Koordinasyon e-postası %55 azaldı, her öneri gerekçesiyle geliyor."',
+      results:[{n:'-%55',l:'Koordinasyon e-postası'},{n:'%100',l:'Açıklanabilir öneri'},{n:'7/24',l:'Ajan orkestrasyonu'},{n:'0',l:'Kara kutu karar'}],
+    },
+    faq:[
+      ['Chief hangi AI modelini kullanıyor?','Operasyonel bağlam için özelleştirilmiş büyük dil modelleri kullanır. Model tercihini ve bağlam sınırlarını kurulum sırasında birlikte belirliyoruz.'],
+      ['Verilerimiz AI eğitimi için kullanılıyor mu?','Hayır. Kurumsal veriniz yalnızca kendi operasyonunuz için kullanılır, asla üçüncü taraflarla paylaşılmaz veya genel model eğitimine katılmaz.'],
+      ['AI önerileri ne kadar doğru?','Doğruluk zamanla artar — Chief kendi kurulumunuzda gördüğü verilerden öğrenir. Başlangıçtan itibaren bağlamlı, gerekçeli öneriler üretir.'],
+    ],
+  },
+  'gorev-onay-ve-takip': {
+    eyebrow: 'Platform',
+    h1: 'Her işin sahibi belli. Her onay izlenebilir.',
+    lead: 'Chief, sorumlusu, SLA\'sı ve kapanış kriteri olmayan iş bırakmaz. Kişisel hatırlatıcı değil, kurumsal süreç disiplini.',
+    benefits: [
+      { icon:'users', title:'Sahipsiz iş kalmaz',         body:'Her aksiyon için sorumlu, öncelik ve durum tanımlanır. "Takip edilecek" diye kalan işler Chief\'te görünür ve izlenebilir hale gelir.' },
+      { icon:'check', title:'Onay zincirleri netleşir',   body:'Kim hangi seviyeye kadar onay verebilir, hangi durumda yöneticiye çıkılmalı? Chief bu kuralları sürecin içine gömer, kişiye bağımlılığı kaldırır.' },
+      { icon:'clock', title:'SLA ve kapanış kriteri',     body:'"Yapıldı" demek yeterli değil. Chief için kapanış: belge, fotoğraf, müşteri onayı, fatura veya teknik kontrol ile tamamlanır. Eksik kanıt açık iş bırakmaz.' },
+      { icon:'bars',  title:'Yönetilebilir operasyon',    body:'Kaç iş açık, kaçı SLA riski taşıyor, kaçı onay bekliyor? Yönetim bu tabloyu gerçek zamanlı görür — haftalık rapor beklemeye son.' },
+    ],
+    caseStudy: {
+      logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+      quote:'"40+ lokasyondaki saha işlerinin takibini tek Chief kurulumundan yönetiyoruz. Her iş emrinin durumu, sahibi ve kapanış kanıtı gerçek zamanlı görünür — kimse artık telefon açıp sormak zorunda değil."',
+      results:[{n:'40+',l:'Lokasyon tek akışta'},{n:'%100',l:'İş emri görünürlüğü'},{n:'-%38',l:'Yanıt süresi'},{n:'0',l:'Kanıtsız kapanış'}],
+    },
+    faq:[
+      ['Onay seviyeleri nasıl tanımlanıyor?','Tutar, risk skoru, departman ve iş tipine göre özelleştirilebilir onay zincirleri kurulur. Değişiklikler kurulum sırasında ve sonrasında güncellenebilir.'],
+      ['SLA ihlali olduğunda ne oluyor?','Chief SLA riski taşıyan işleri önceden tespit eder ve sorumluya/yöneticiye uyarı gönderir. İhlal sonrası eskalasyon akışı otomatik çalışır.'],
+      ['Kapanış kriteri nasıl belirleniyor?','Her iş tipi için ayrı kapanış kriteri tanımlanır. Fotoğraf, form, müşteri onayı, fatura, teknik ölçüm — kriterin tamamlanmaması işi açık bırakır.'],
+    ],
+  },
+  'surecler-arasi-devir-teslim': {
+    eyebrow: 'Platform',
+    h1: 'Satıştan sahaya. Ofisten üretime. Bilgi kaybolmaz.',
+    lead: 'En çok hata devir teslimde olur. Chief, işin bağlamını ekipler arasında taşır — kapsam, koşullar, belgeler, taahhütler kayıpsız geçer.',
+    benefits: [
+      { icon:'arrow',  title:'Geçişte bilgi kaybolur',              body:'Satış teklif alır, operasyon planlar, saha uygular, finans faturalandırır. Her geçişte bağlam eksilir, süreç yavaşlar, hata riski artar.' },
+      { icon:'layers', title:'Chief bağlamı da taşır',              body:'Görevi devretmekle kalmaz — müşteri beklentisi, teknik detay, onaylar, saha notları ve belgeler aynı iş akışında korunur. Sonraki ekip doğru brief ile başlar.' },
+      { icon:'users',  title:'Ofis, saha ve yönetim aynı akışta',  body:'Her ekip kendi rolüne uygun bilgiyi alır. Saha teknisyeni iş briefini görür, satış kapanış durumunu görür, yönetim tabloyu görür.' },
+      { icon:'spark',  title:'Kapanış da sürece dahil',             body:'İş bittiğinde müşteri geri bildirimi, ek maliyet, gecikme ve kalite bilgisi sürece bağlanır. Yalnızca iş yapılmaz — süreç öğrenir.' },
+    ],
+    caseStudy: {
+      logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+      quote:'"Satış ekibinin müşteriyle mutabık kaldığı koşullar operasyona aktarılırken kayboluyordu. Tekrar yazışma, gecikme ve yanlış uygulama riski vardı. Chief ile tekliften siparişe, siparişten üretime geçiş kayıpsız oluyor."',
+      results:[{n:'%0',l:'Manuel aktarım hatası'},{n:'-%42',l:'Teklif-operasyon geçiş süresi'},{n:'%100',l:'Bağlam görünürlüğü'},{n:'1 akış',l:'Satıştan finansala'}],
+    },
+    faq:[
+      ['Kaç ekip arasında devir teslim yönetilebilir?','Sınırsız. Satış, operasyon, saha, üretim, teknik servis, finans ve yönetim — hepsi aynı iş akışında farklı adımlarda yer alabilir.'],
+      ['Devir teslimde onay gerekiyor mu?','Konfigüre edilebilir. Bazı geçişler otomatik, bazıları onay bekler. Hangi koşulda onay gerektiği süreç tasarımında belirlenir.'],
+      ['Bir önceki ekibin notlarına sonraki ekip erişebilir mi?','Evet, rol bazlı yetki çerçevesinde. Her ekip kendi alanını görür; iş geçmişi ve bağlam korunur.'],
+    ],
+  },
+  'karar-destek-guvenlik-ogrenme': {
+    eyebrow: 'Platform',
+    h1: 'Rapor değil, aksiyon görünürlüğü.',
+    lead: 'Chief yönetim ekranlarında gecikmeleri, riskleri ve fırsatları gösterir. Her öneri açıklanabilir — kara kutu yok, her karar denetlenebilir.',
+    benefits: [
+      { icon:'bars',   title:'Yönetim görünürlük kazanır',    body:'Hangi işler açık, hangi süreçler gecikiyor, hangi ekiplerde yoğunluk var? Chief bunu aksiyon seviyesinde gösterir — yönetici gerektiğinde ilgili işe inebilir.' },
+      { icon:'spark',  title:'Öneriler açıklanabilir',         body:'Gecikme, SLA ihlali, eksik bilgi, riskli teklif — Chief bunları neden önerdiğini gösterir. "Sistem öyle dedi" değil, "bu veride şu görüldü" der.' },
+      { icon:'shield', title:'Rol bazlı erişim ve denetim',   body:'Her kullanıcı yalnızca yetkili bilgi ve aksiyonlara erişir. Kim, ne zaman, hangi kararı verdi — her işlem değiştirilemez kayıt altında.' },
+      { icon:'doc',    title:'Süreç olgunluğu artar',          body:'Tekrarlayan eksikler, sık geciken adımlar, manuel takip edilen akışlar — Chief bunları görünür kılar ve iyileştirme önerir. İşletme süreçleri zamanla olgunlaşır.' },
+    ],
+    caseStudy: {
+      logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+      quote:'"Pazartesi toplantısına her hafta veri toplamak için Cuma günü başlardık. Chief ile o toplantı hazırlığı tamamen ortadan kalktı. Pazar gecesi özet geliyor, Pazartesi toplantısı 12 dakika sürüyor."',
+      results:[{n:'-%80',l:'Rapor hazırlama süresi'},{n:'12 dk',l:'Ort. yönetim toplantısı'},{n:'7/24',l:'Gerçek zamanlı KPI erişimi'},{n:'3 gün',l:'Risk öncesi uyarı süresi'}],
+    },
+    faq:[
+      ['KVKK ve GDPR uyumu nasıl sağlanıyor?','Veri işleme sözleşmesi, saklama süreleri ve silme politikaları kurulum sırasında yapılandırılır. TAK-Umwelt Almanya operasyonu GDPR referans kurulum olarak kullanılabilir.'],
+      ['SSO entegrasyonu var mı?','Evet. Azure AD, Okta ve SAML 2.0 desteklenir. Rol ve yetki tanımları SSO ile senkronize edilebilir.'],
+      ['Denetim kaydına kimler erişebilir?','Sistem yöneticisi ve yetkili denetçiler. Erişim logları da kayıt altına alınır — denetim kaydının kendisi de denetlenebilir.'],
+    ],
+  },
+};
+
+function renderPlatformV2Page(slug) {
+  var d = PLATFORM_V2_DATA[slug];
+  if (!d) return renderPlatformPage(slug);
+
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['Platform', '#/platform'], [d.h1]) +
+    '<span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
+    '<h1 style="margin-top:16px;max-width:760px">' + esc(d.h1) + '</h1>' +
+    '<p class="lead" style="max-width:640px">' + esc(d.lead) + '</p>' +
+    '</div></section>';
+
+  h += '<section><div class="container">' +
+    '<div class="rich-points" style="grid-template-columns:repeat(2,1fr);gap:36px 64px">' +
+    d.benefits.map(function(b, n) {
+      return '<div class="rp-item">' +
+        '<div class="rp-icon ' + (n===1||n===3?'sage':'') + '">' + ico(b.icon, 22) + '</div>' +
+        '<div><h3>' + esc(b.title) + '</h3><p>' + esc(b.body) + '</p></div>' +
+        '</div>';
+    }).join('') +
+    '</div></div></section>';
+
+  var cs = d.caseStudy;
+  h += '<section class="bg-warm"><div class="container">' +
+    '<div class="cs-block">' +
+    '<div class="cs-header">' +
+    '<div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
+    '<div><div class="sp-company">' + esc(cs.company) + '</div><div class="sp-industry">' + esc(cs.industry) + '</div></div>' +
+    '</div>' +
+    '<blockquote class="sp-quote">' + esc(cs.quote) + '</blockquote>' +
+    '<div class="sp-metrics">' +
+    cs.results.map(function(r) {
+      return '<div class="sp-metric"><span class="sp-num">' + esc(r.n) + '</span><span class="sp-label">' + esc(r.l) + '</span></div>';
+    }).join('') +
+    '</div></div></div></section>';
+
+  h += '<section><div class="container narrow">' +
+    '<div class="section-head"><span class="eyebrow">SSS</span></div>' +
+    d.faq.map(function(f) {
+      return '<details class="faq-item"><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>';
+    }).join('') +
+    '</div></section>';
+
+  return h + finalCTA();
+}
+
+function renderPlatformV2Listing() {
+  var items = [
+    ['chief-nasil-calisir',          'Chief Nasıl Çalışır?',             'flow',    'Sinyalden aksiyona — 5 temel adım'],
+    ['sinyalden-aksiyona',            'Sinyalden Aksiyona',               'bolt',    'Her sinyal takip edilebilir iş akışına dönüşür'],
+    ['mevcut-sistemlerle-calisir',    'Mevcut Sistemlerle Çalışır',       'layers',  'ERP/CRM üzerinde akıllı süreç katmanı'],
+    ['is-nesnesi-ve-veri-katmani',    'İş Nesnesi ve Veri Katmanı',       'db',      'Müşteri, teklif, iş emri tek modelde bağlı'],
+    ['ai-surec-orkestrasyonu',        'AI Süreç Orkestrasyonu',           'cpu',     'Koordineli ajanlar, kararı insan verir'],
+    ['gorev-onay-ve-takip',           'Görev, Onay ve Takip',             'check',   'SLA, sorumlu ve kapanış kriteri'],
+    ['surecler-arasi-devir-teslim',   'Süreçler Arası Devir Teslim',      'arrow',   'Satıştan sahaya bilgi kayıpsız geçer'],
+    ['karar-destek-guvenlik-ogrenme', 'Karar Destek, Güvenlik ve Öğrenme','shield',  'Açıklanabilir öneriler, denetlenebilir kararlar'],
+  ];
+  return '<section class="detail-hero"><div class="container">' +
+    crumb(['Platform']) +
+    '<span class="eyebrow">AI-NATIVE İŞLETME ZEKASI KATMANI</span>' +
+    '<h1 style="margin-top:16px;max-width:720px">Chief Platformu</h1>' +
+    '<p class="lead" style="max-width:620px">Dağınık iş bilgisini yönetilebilir süreçlere, görevlere, onaylara ve kararlara dönüştüren AI-native işletme zekası.</p>' +
+    '</div></section>' +
+    '<section class="tight"><div class="container"><div class="cards-grid">' +
+    items.map(function(it, n) {
+      return '<a class="card" href="#/platform/' + it[0] + '">' +
+        '<div class="card-ico ' + (n%3===1?'sage':n%3===2?'blue':'') + '">' + ico(it[2], 22) + '</div>' +
+        '<h4>' + esc(it[1]) + '</h4><p>' + esc(it[3]) + '</p>' +
+        '<span class="card-foot btn-link">İncele ' + ico('arrow',15) + '</span></a>';
+    }).join('') +
+    '</div></div></section>' + finalCTA();
+}
+
+/* ================================================================
+   PLATFORM SAYFALARI (eski — gizli, URL\'ler çalışmaya devam eder)
    ================================================================ */
 function renderPlatformPage(slug) {
   var data = PLATFORM_DATA[slug];
