@@ -74,12 +74,12 @@ const MEGA = {
         { href: '#/is-surecleri',                                              title: 'Paydaş Deneyimi',              desc: '' },
       ]},
       { label: 'Sektörlere Göre', items: [
-        { href: '#/sektorler', title: 'Üretim ve Sanayi',               desc: '' },
-        { href: '#/sektorler', title: 'Hizmet ve Saha Operasyonları',   desc: '' },
-        { href: '#/sektorler', title: 'Perakende ve Dağıtım',           desc: '' },
-        { href: '#/sektorler', title: 'Kamu ve Yerel Yönetimler',       desc: '' },
-        { href: '#/sektorler', title: 'Kurumsal Hizmetler',             desc: '' },
-        { href: '#/sektorler', title: 'KOBİ ve Büyüyen İşletmeler',    desc: '' },
+        { href: '#/kullanim-alanlari/sektorlere-gore/uretim-ve-sanayi', title: 'Üretim ve Sanayi',               desc: '' },
+        { href: '#/kullanim-alanlari/sektorlere-gore/hizmet-ve-saha-operasyonlari', title: 'Hizmet ve Saha Operasyonları',   desc: '' },
+        { href: '#/kullanim-alanlari/sektorlere-gore/perakende-ve-dagitim', title: 'Perakende ve Dağıtım',           desc: '' },
+        { href: '#/kullanim-alanlari/sektorlere-gore/kamu-ve-yerel-yonetimler', title: 'Kamu ve Yerel Yönetimler',       desc: '' },
+        { href: '#/kullanim-alanlari/sektorlere-gore/kurumsal-hizmetler', title: 'Kurumsal Hizmetler',             desc: '' },
+        { href: '#/kullanim-alanlari/sektorlere-gore/kobi-ve-buyuyen-isletmeler', title: 'KOBİ ve Büyüyen İşletmeler',    desc: '' },
       ]},
       { label: 'İşletme Ölçeğine Göre', items: [
         { href: '#', title: 'Mikro İşletme / Girişim',           desc: '' },
@@ -257,7 +257,7 @@ function _drawerRoot() {
     '<button class="m-nav-btn" data-panel="kullanim-alanlari">Kullanım Alanları <span class="m-chev">›</span></button>' +
     '<a class="m-flat" href="#/entegrasyonlar">Entegrasyonlar</a>' +
     '<a class="m-flat" href="#/fiyatlandirma">Fiyatlandırma</a>' +
-    '<a class="m-flat" href="#/blog">Kaynaklar</a>' +
+    '<a class="m-flat" href="#/kaynaklar">Kaynaklar</a>' +
     '<a class="m-flat" href="#/partnerlik">Partnerlik</a>' +
     '<div style="margin-top:22px;display:flex;flex-direction:column;gap:10px">' +
     '<a href="https://app.chiefai.com.tr" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center">Giriş</a>' +
@@ -361,8 +361,11 @@ function go() {
     var subSec = parts[1], subSlug = parts[2];
     if (subSec === 'is-sureclerine-gore' && subSlug) { html = renderIsSureciPage(_kuSlug(subSlug)); label = 'İş Süreçlerine Göre'; }
     else if (subSec === 'is-sureclerine-gore')        { html = renderIsSureciListing();              label = 'İş Süreçlerine Göre'; }
-    else if (subSec === 'sektorlere-gore' && subSlug) { html = renderSektorlerPage(subSlug);         label = 'Sektörlere Göre'; }
-    else if (subSec === 'sektorlere-gore')             { html = renderSektorlerListing();             label = 'Sektörlere Göre'; }
+    else if (subSec === 'sektorlere-gore' && subSlug) {
+      html = SEKTORLER_V2_DATA[subSlug] ? renderSektorlerV2Page(subSlug) : renderSektorlerPage(subSlug);
+      label = 'Sektörlere Göre';
+    }
+    else if (subSec === 'sektorlere-gore')             { html = renderSektorlerV2Listing();          label = 'Sektörlere Göre'; }
     else if (subSec === 'isletme-olcegine-gore')       { html = _stub('İşletme Ölçeğine Göre', subSlug); label = 'İşletme Ölçeğine Göre'; }
     else if (subSec === 'kullanim-senaryolari')        { html = _stub('Kullanım Senaryoları', subSlug);  label = 'Kullanım Senaryoları'; }
     else                                               { html = renderKullanimAlanlariListing();     label = 'Kullanım Alanları'; }
@@ -378,6 +381,7 @@ function go() {
   else if (sec === 'fiyatlandirma')        { html = renderFiyatlandirma();     label = 'Fiyatlandırma'; }
   else if (sec === 'guvenlik')             { html = renderGuvenlik();          label = 'Güvenlik'; }
   else if (sec === 'partnerler')           { html = renderPartnerler();        label = 'Partner Ağı'; }
+  else if (sec === 'kaynaklar')             { html = renderKaynaklar();         label = 'Kaynaklar'; }
   else if (sec === 'hakkimizda')           { html = renderHakkimizda();        label = 'Hakkımızda'; }
   else if (sec === 'blog' && slug)         { html = renderBlogPost(slug);      label = 'Blog'; }
   else if (sec === 'blog')                 { html = renderBlog();              label = 'Blog'; }
@@ -1675,6 +1679,37 @@ function renderPartnerler() {
 }
 
 /* ================================================================
+   KAYNAKLAR
+   ================================================================ */
+function renderKaynaklar() {
+  var sections = [
+    { icon:'doc',    title:'Blog / İçgörüler',             desc:'Kurumsal AI, süreç yönetimi, operasyon görünürlüğü, entegrasyon ve yönetim karar desteği üzerine içerikler.',              href:'#/blog' },
+    { icon:'flow',   title:'Kullanım Senaryoları',          desc:'Chief\'e hangi iş akışından başlayabileceğinizi gösteren örnek senaryolar.',                                               href:'#/kullanim-alanlari/kullanim-senaryolari' },
+    { icon:'chat',   title:'Sık Sorulan Sorular',           desc:'Chief\'in konumlandırması, entegrasyon, fiyatlandırma, güvenlik, on-premise ve kullanım yoğunluğu hakkında yanıtlar.',      href:'#/kaynaklar/sss' },
+    { icon:'layers', title:'Dokümanlar',                    desc:'Ürün broşürleri, teknik açıklamalar, entegrasyon notları ve kurulum rehberleri.',                                           href:'#/kaynaklar/dokumanlar' },
+    { icon:'shield', title:'Güvenlik ve Veri Yaklaşımı',   desc:'Rol bazlı yetkilendirme, veri erişimi, denetim izi, insan onayı ve özel kurulum yaklaşımı.',                               href:'#/platform/guvenlik-ve-veri-yaklasimi' },
+    { icon:'phone',  title:'İletişim',                     desc:'Chief ekibiyle görüşmek, demo talep etmek veya partnerlik başvurusu yapmak için iletişim.',                                  href:'#/demo-talep-et' },
+  ];
+
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['Kaynaklar']) +
+    '<span class="eyebrow">KAYNAKLAR</span>' +
+    '<h1 style="margin-top:16px;max-width:720px">Chief\'i daha yakından tanıyın</h1>' +
+    '<p class="lead" style="max-width:660px">Kullanım senaryoları, sık sorulan sorular, güvenlik ve veri yaklaşımı, ürün dokümanları ve iş süreçleri içgörüleriyle Chief\'in işletmenizde nasıl değer üretebileceğini keşfedin.</p>' +
+    '</div></section>';
+
+  h += '<section class="tight"><div class="container"><div class="cards-grid">';
+  sections.forEach(function(s, n) {
+    h += '<a class="card" href="' + s.href + '">' +
+      '<div class="card-ico ' + (n%3===1?'sage':n%3===2?'blue':'') + '">' + ico(s.icon, 22) + '</div>' +
+      '<h4>' + esc(s.title) + '</h4>' +
+      '<p>' + esc(s.desc) + '</p>' +
+      '<span class="card-foot btn-link">İncele ' + ico('arrow',15) + '</span></a>';
+  });
+  h += '</div></div></section>' + finalCTA();
+  return h;
+}
+/* ================================================================
    HAKKIMIZDA
    ================================================================ */
 function renderHakkimizda() {
@@ -1813,6 +1848,170 @@ function renderDemo() {
   return h;
 }
 function renderNotFound()          { return _stub('Sayfa Bulunamadı'); }
+
+
+const SEKTORLER_V2_DATA = {
+  'uretim-ve-sanayi': {
+    eyebrow: 'Sektörlere Göre',
+    cardTitle: 'Üretim ve Sanayi',
+    cardDesc: 'Üretim ve sanayi işletmelerinde teklif, sipariş, teknik doküman, kapasite, malzeme, kalite, termin ve finansal kapanış farklı sistemlerde dağılabilir.',
+    h1: 'Üretim ve Sanayi',
+    lead: 'Chief, üretim ve sanayi işletmelerinde dağınık sinyalleri mevcut ERP/MRP/MES yapısını değiştirmeden ortak süreç, görev ve yönetim görünürlüğüne bağlar.',
+    bolumler: [
+      { baslik: 'Tekliften üretime kesintisiz akış', metin: 'Onaylanan teklif, teknik gereksinimleri ve müşteri taahhütleriyle birlikte üretim planına aktarılır. Kapsam kaybı, yeniden veri girişi ve iletişim kopukluğu azalır. Her aşamanın sorumlusu, SLA\'sı ve kapanış kriteri belirlenir.' },
+      { baslik: 'Kapasite ve termin görünürlüğü', metin: 'Makine, hat, vardiya ve personel kapasitesi sipariş yüküyle birlikte değerlendirilir. Termin riski önceden tespit edilir; darboğaz oluşmadan aksiyon başlatılır. Üretim ilerlemesi, sapma ve kök neden yönetim ekranında izlenir.' },
+      { baslik: 'Kalite ve tedarik takibi', metin: 'Kalite uygunsuzlukları kayıt altına alınır, kök neden belirlenir ve düzeltici faaliyet sürece bağlanır. Kritik malzeme ve yedek parça eksiklikleri oluşmadan tedarik aksiyonu başlatılır.' },
+      { baslik: 'Yönetim görünürlüğü', metin: 'Üretim performansı, termin uyumu, fire oranı, kapasite kullanımı ve malzeme durumu yönetim ekranında gerçek zamanlı izlenir. Haftalık brifing otomatik hazırlanır.' },
+    ],
+    caseStudy: {
+      logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+      quote:'"Periyodik bakım tarihleri Excel\'de takip ediliyordu, arada kayıyor ve gecikiyordu. Chief ile bakım takvimi otomatik, arıza geldiğinde iş emri dakikalar içinde hazır, ekipman geçmişiyle."',
+      results:[{n:'-%71',l:'Plansız arıza süresi'},{n:'%100',l:'Zamanında bakım'},{n:'9 dk',l:'Arızadan iş emirine'},{n:'Tam',l:'Ekipman geçmişi'}],
+    },
+  },
+  'hizmet-ve-saha-operasyonlari': {
+    eyebrow: 'Sektörlere Göre',
+    cardTitle: 'Hizmet ve Saha Operasyonları',
+    cardDesc: 'Saha ekiplerini, teknik servis kayıtlarını, bakım takvimlerini ve kapanış kanıtlarını tek akışta yönetin.',
+    h1: 'Hizmet ve Saha Operasyonları',
+    lead: 'Chief, sahadan gelen her sinyali iş emrine, her iş emrini kanıtlı kapanışa dönüştürür. Ekip konumu, yetkinlik, malzeme ve SLA birlikte değerlendirilir.',
+    bolumler: [
+      { baslik: 'Talep gelir, kaybolmaz', metin: 'WhatsApp, e-posta, telefon veya portal üzerinden gelen servis talepleri tek akışa alınır. Öncelik, lokasyon, ekipman geçmişi ve SLA\'ya göre iş emri oluşturulur; doğru teknisyene atanır.' },
+      { baslik: 'Ekip ve rota optimizasyonu', metin: 'Yetkinlik, bölge, iş yükü, takvim ve malzeme ihtiyacı birlikte değerlendirilir. Rota önerisi sunulur; son karar koordinatöre aittir. Müşteriye otomatik bildirim gönderilir.' },
+      { baslik: 'Kanıtlı kapanış', metin: 'Fotoğraf, form, imza, ölçüm veya müşteri onayıyla her iş emri belgelenmiş kapanır. Eksik kanıt açık iş bırakmaz. Servis raporu otomatik oluşturulur.' },
+      { baslik: 'Tekrar eden sorunlar görünür olur', metin: 'Aynı ekipman, semptom veya lokasyondaki tekrar eden arızalar tespit edilir. Kök neden analizi ve iyileştirme aksiyonu sürece bağlanır.' },
+    ],
+    caseStudy: {
+      logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+      quote:'"Servis talepleri telefon, e-posta ve portaldan aynı anda geliyordu. Her birini manuel takibe almak ekibe büyük yük bindiriyordu. Chief ile hiçbir talep kaybolmuyor, her iş emrinin durumu gerçek zamanlı görünüyor."',
+      results:[{n:'-%65',l:'Manuel veri girişi'},{n:'%100',l:'Talep takip görünürlüğü'},{n:'-%38',l:'Yanıt süresi'},{n:'0',l:'Kayıp talep'}],
+    },
+  },
+  'perakende-ve-dagitim': {
+    eyebrow: 'Sektörlere Göre',
+    cardTitle: 'Perakende ve Dağıtım',
+    cardDesc: 'Müşteri taleplerini, tedarik zincirini, stok yönetimini ve lokasyon operasyonlarını birleştirin.',
+    h1: 'Perakende ve Dağıtım',
+    lead: 'Chief, perakende ve dağıtım işletmelerinde satıştan teslikata, müşteri talebinden tedarike uzanan akışları mevcut sistemleri değiştirmeden tek görünüme bağlar.',
+    bolumler: [
+      { baslik: 'Satış ve teklif akışı', metin: 'Farklı kanallardan gelen talepler — web, telefon, saha, bayi — tek akışta toplanır. Fırsat önceliklendirilir, teklif hazırlanır, onay zinciri işler. Kayıp fırsat ve sahipsiz talep azalır.' },
+      { baslik: 'Stok ve tedarik görünürlüğü', metin: 'Hangi ürünün hangi lokasyonda, ne zaman kritik olacağı önceden görülür. Tedarik aksiyonu erken başlatılır; son anda eksiklik ve operasyon kesintisi önlenir.' },
+      { baslik: 'Teslimat ve saha koordinasyonu', metin: 'Sipariş teyidinden teslimat planlamasına, saha ekibi görevlendirmesinden kapanış kanıtına kadar tüm süreç izlenebilir. Müşteriye otomatik bildirim, teslimat belgesi ve fatura hazırlığı bağlantılıdır.' },
+      { baslik: 'Müşteri deneyimi ve geri bildirim', metin: 'Servis sonrası memnuniyet takip edilir. Kritik şikayetler anında tespit edilir; aksiyon sürece bağlanır. Tekrar eden tema ve kök nedenler yönetim içgörüsüne dönüşür.' },
+    ],
+    caseStudy: {
+      logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+      quote:'"Satış ekibimizin ziyaret notları farklı kişisel dosyalara dağılmıştı. Chief ile tüm satış hattı, toplantı çıktıları ve teklif süreçleri tek ekranda görünür. Artık müdür sahadan dönen temsilciyi arayıp sormak zorunda değil."',
+      results:[{n:'%98',l:'Ziyaret notu kayıt oranı'},{n:'7/24',l:'Satış hattı görünürlüğü'},{n:'-%40',l:'Raporlama hazırlık süresi'},{n:'1 ekran',l:'Tüm operasyon'}],
+    },
+  },
+  'kamu-ve-yerel-yonetimler': {
+    eyebrow: 'Sektörlere Göre',
+    cardTitle: 'Kamu ve Yerel Yönetimler',
+    cardDesc: 'Kurumsal süreçleri, başvuru takibini, onay akışlarını ve hizmet kapanışını mevzuat uyumuyla yönetin.',
+    h1: 'Kamu ve Yerel Yönetimler',
+    lead: 'Chief, kamu kurumları ve yerel yönetimlerde vatandaş başvurularını, iç onay süreçlerini, saha hizmetlerini ve yönetim görünürlüğünü KVKK ve GDPR uyumuyla birlikte yönetir.',
+    bolumler: [
+      { baslik: 'Başvuru ve talep yönetimi', metin: 'Vatandaş veya kurum başvuruları farklı kanallardan tek akışa alınır. Her başvurunun türü, önceliği, sorumlu birimi ve hedef yanıt süresi belirlenir. Geç yanıt ve sahipsiz talep azalır.' },
+      { baslik: 'Onay ve imza süreçleri', metin: 'İç onay zincirleri Chief içinde tanımlanabilir. Kim hangi belgeyi, hangi seviyede onaylar? SLA dışına çıkan onaylar eskalasyona alınır. Tüm işlemler denetim izine bağlanır.' },
+      { baslik: 'Saha hizmetleri ve altyapı', metin: 'Bakım, onarım ve altyapı işleri iş emriyle planlanır. Ekip ataması, zaman penceresi ve kapanış kanıtı (fotoğraf, form, imza) ile her iş belgelenir. Yönetim hangi işin ne durumda olduğunu anlık görür.' },
+      { baslik: 'Güvenlik ve KVKK uyumu', metin: 'On-premise ve private cloud kurulum seçenekleri mevcuttur. Veri kamu altyapısında kalır. Rol bazlı erişim, denetim kayıtları ve veri maskeleme kurumsal uyumluluk gereksinimlerini karşılar.' },
+    ],
+    caseStudy: {
+      logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+      quote:'"Almanya operasyonumuz için GDPR uyumluluğu kritikti. Chief\'in on-prem kurulumu ve veri izolasyonu, hukuk biriminin onayını ilk görüşmede aldı."',
+      results:[{n:'GDPR',l:'Almanya operasyonu onaylı'},{n:'%100',l:'On-prem veri izolasyonu'},{n:'3 hafta',l:'Devreye alma süresi'},{n:'0',l:'Sistem değişikliği'}],
+    },
+  },
+  'kurumsal-hizmetler': {
+    eyebrow: 'Sektörlere Göre',
+    cardTitle: 'Kurumsal Hizmetler',
+    cardDesc: 'Proje yönetimini, müşteri onay süreçlerini, zaman takibini ve faturalamayı tek platformda birleştirin.',
+    h1: 'Kurumsal Hizmetler',
+    lead: 'Chief, danışmanlık, hukuk, finans ve diğer kurumsal hizmet firmalarında müşteri projelerini, onay süreçlerini, kaynak planlamasını ve finansal kapanışı tek akışta yönetir.',
+    bolumler: [
+      { baslik: 'Müşteri talebi ve proje başlangıcı', metin: 'Yeni müşteri talebi veya proje başlangıcı farklı kanallardan geldiğinde Chief ihtiyacı sınıflandırır, eksik bilgiyi tamamlar ve ilgili ekibe atama başlatır. Sahipsiz fırsat ve yavaş ilk yanıt azalır.' },
+      { baslik: 'Proje yönetimi ve onay akışı', metin: 'Proje kapsamı, dönüm noktaları, sorumlu ekip ve müşteri onay adımları Chief içinde izlenir. Teklif, sözleşme, kapanış ve hakediş belgeleri aynı proje dosyasında toplanır.' },
+      { baslik: 'Zaman ve kaynak takibi', metin: 'Ekip çalışma saatleri, uzman yoğunluğu ve proje bazlı karlılık görünür olur. Overcapacity ve beklenen gecikme önceden tespit edilir; müşteri iletişimi zamanında planlanır.' },
+      { baslik: 'Faturalama ve tahsilat', metin: 'Tamamlanan proje adımları, müşteri onayları ve hakediş dönümleri otomatik olarak fatura hazırlığına bağlanır. Vadesi yaklaşan alacaklar ve tahsilat riskleri yönetim ekranında görünür.' },
+    ],
+    caseStudy: {
+      logo:'logo-ikon.png', company:'İkon Araştırma', industry:'Pazar Araştırması & Danışmanlık',
+      quote:'"Saha ekibinin anket süreçleri, proje ilerlemeleri ve verilen tekliflerin takibi e-posta ve WhatsApp karmaşasındaydı. Chief ile saha koordinasyonu ve teklif yönetimi tek platforma taşındı."',
+      results:[{n:'7/24',l:'Saha ekibi görünürlüğü'},{n:'%100',l:'Teklif takip oranı'},{n:'-%55',l:'Koordinasyon e-postası'},{n:'2 hafta',l:'Devreye alma süresi'}],
+    },
+  },
+  'kobi-ve-buyuyen-isletmeler': {
+    eyebrow: 'Sektörlere Göre',
+    cardTitle: 'KOBİ ve Büyüyen İşletmeler',
+    cardDesc: 'Büyük ERP yatırımı yapmadan operasyonel görünürlük, süreç disiplini ve yönetim kontrolü kazanın.',
+    h1: 'KOBİ ve Büyüyen İşletmeler',
+    lead: 'Chief, büyüyen işletmelerin mevcut araçlarını değiştirmeden operasyonel görünürlük, süreç disiplini ve ölçeklenebilir yönetim altyapısı kazanmasını sağlar.',
+    bolumler: [
+      { baslik: 'Hızlı başlangıç, ölçeklenebilir yapı', metin: 'Chief, büyük ERP projesi veya uzun kurulum süreci olmadan 3-4 haftada devreye alınabilir. Tek bir akışla başlanır; işletme büyüdükçe yeni süreçler eklenir. Başlangıç maliyeti düşük, büyüme hızlı.' },
+      { baslik: 'Mevcut araçlarla çalışır', metin: 'WhatsApp, e-posta, Excel, web formu ve varsa CRM veya ERP sistemiyle birlikte çalışır. Araçlar değişmez; Chief aralarında süreç ve karar katmanı oluşturur. Ekip alıştığı kanalları kullanmaya devam eder.' },
+      { baslik: 'Sahipsiz iş kalmaz', metin: 'Her talep, görev ve onayın sahibi, önceliği ve hedef tarihi belirlenir. SLA dışına çıkan işler görünür olur. Yönetici haftalık rapor beklemeden ne durumda olduğunu anlık görür.' },
+      { baslik: 'Büyüdükçe güçlenir', metin: 'Ekip sayısı arttıkça, süreç karmaşıklığı büyüdükçe Chief daha fazla değer üretir. Yeni departman, yeni kanal veya yeni entegrasyon; büyük sistem değişikliği olmadan eklenebilir.' },
+    ],
+    caseStudy: {
+      logo:'logo-ikon.png', company:'İkon Araştırma', industry:'Pazar Araştırması & Danışmanlık',
+      quote:'"NPS skorlarımızın düştüğünü görüyorduk ama hangi sürecin neden etkilediğini anlayamıyorduk. Chief ile geri bildirim konu, sorumlu ve aksiyona bağlandı; artık skor raporu değil, kapalı döngü görüyoruz."',
+      results:[{n:'Anlık',l:'Kritik şikayet uyarısı'},{n:'%100',l:'Aksiyon takibi'},{n:'-%50',l:'Şikayet kapanış süresi'},{n:'Kapalı döngü',l:'Her geri bildirim'}],
+    },
+  },
+};
+
+function renderSektorlerV2Page(slug) {
+  var d = SEKTORLER_V2_DATA[slug];
+  if (!d) return _stub('Sektörler', slug);
+
+  var cs = d.caseStudy;
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['Sektörlere Göre', '#/kullanim-alanlari/sektorlere-gore'], [d.cardTitle]) +
+    '<div style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px 56px;align-items:start">' +
+    '<div><span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
+    '<h1 style="margin-top:16px">' + esc(d.h1) + '</h1>' +
+    '<p class="lead">' + esc(d.lead) + '</p></div>' +
+    '<div><div class="cs-block" style="box-shadow:var(--sh-lg)">' +
+    '<div class="cs-header"><div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
+    '<div><div class="sp-company">' + esc(cs.company) + '</div><div class="sp-industry">' + esc(cs.industry) + '</div></div></div>' +
+    '<blockquote class="sp-quote">' + esc(cs.quote) + '</blockquote>' +
+    '<div class="sp-metrics">' + cs.results.map(function(r){ return '<div class="sp-metric"><span class="sp-num">' + esc(r.n) + '</span><span class="sp-label">' + esc(r.l) + '</span></div>'; }).join('') + '</div>' +
+    '</div></div></div>' +
+    '</div></section>';
+
+  d.bolumler.forEach(function(b, i) {
+    var bg = i % 2 === 0 ? 'bg-warm' : '';
+    h += '<section class="' + bg + '" style="padding:52px 0"><div class="container narrow platform-bolum">' +
+      '<h3>' + esc(b.baslik) + '</h3>' +
+      b.metin.split('\\n').map(function(p){ return p.trim() ? '<p>' + esc(p.trim()) + '</p>' : ''; }).join('') +
+      '</div></section>';
+  });
+
+  return h + finalCTA();
+}
+
+
+function renderSektorlerV2Listing() {
+  var slugs = Object.keys(SEKTORLER_V2_DATA);
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['Sektörlere Göre']) +
+    '<span class="eyebrow">SEKTÖRLERE GÖRE</span>' +
+    '<h1 style="margin-top:16px;max-width:720px">Sektörünüze özel Chief kullanımı</h1>' +
+    '<p class="lead" style="max-width:620px">Chief\'in farklı sektörlerde nasıl değer ürettiğini keşfedin. Her sektör için özelleşmiş kullanım senaryoları ve başlangıç noktaları.</p>' +
+    '</div></section>';
+  h += '<section class="tight"><div class="container"><div class="cards-grid">';
+  var icons = {'uretim-ve-sanayi':'factory','hizmet-ve-saha-operasyonlari':'wrench','perakende-ve-dagitim':'truck','kamu-ve-yerel-yonetimler':'shield','kurumsal-hizmetler':'users','kobi-ve-buyuyen-isletmeler':'bolt'};
+  slugs.forEach(function(slug, n) {
+    var d = SEKTORLER_V2_DATA[slug];
+    h += '<a class="card" href="#/kullanim-alanlari/sektorlere-gore/' + slug + '">' +
+      '<div class="card-ico ' + (n%3===1?'sage':n%3===2?'blue':'') + '">' + ico(icons[slug]||'flow', 22) + '</div>' +
+      '<h4>' + esc(d.cardTitle) + '</h4><p>' + esc(d.cardDesc) + '</p>' +
+      '<span class="card-foot btn-link">İncele ' + ico('arrow',15) + '</span></a>';
+  });
+  h += '</div></div></section>' + finalCTA();
+  return h;
+}
 
 /* ---- Listing sayfaları ---- */
 function _listing(label, eyebrow, h1, lead, items, slugBase) {
