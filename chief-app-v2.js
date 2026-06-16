@@ -1738,17 +1738,12 @@ function renderIsSureciPage(slug) {
     '<span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
     '<h1 style="margin-top:16px;max-width:760px">' + esc(d.h1) + '</h1>' +
     '<p class="lead" style="max-width:640px">' + esc(d.lead) + '</p>' +
-    '</div></section>';
-
-  // Problem
-  h += '<section class="bg-warm tight"><div class="container narrow">' +
-    '<div class="section-head" style="margin-bottom:18px"><span class="eyebrow">Bu süreç neyi çözer?</span></div>' +
-    '<p style="font-size:17px;line-height:1.75;color:var(--t-body)">' + esc(d.problem) + '</p>' +
+    '<p class="rp-scenario" style="font-style:normal;background:rgba(0,0,0,.04)">' + esc(d.problem) + '</p>' +
     '</div></section>';
 
   // Akış adımları
-  h += '<section class="tight"><div class="container">' +
-    '<div class="section-head"><span class="eyebrow">Chief bu süreci nasıl yönetir?</span></div>' +
+  h += '<section style="padding:52px 0"><div class="container">' +
+    '<div class="section-head" style="margin-bottom:24px"><span class="eyebrow">Chief bu süreci nasıl yönetir?</span></div>' +
     '<div class="proc-steps-grid">';
   d.steps.forEach(function(s) {
     h += '<div class="proc-step">' +
@@ -1759,7 +1754,7 @@ function renderIsSureciPage(slug) {
   h += '</div></div></section>';
 
   // NL Queries
-  h += '<section class="bg-warm tight"><div class="container">' +
+  h += '<section class="bg-warm" style="padding:40px 0"><div class="container">' +
     '<div class="nl-block">' +
     '<div class="nl-block-label">' + ico('chat', 14) + ' Yönetici Chief\'e sorar</div>';
   d.nlQueries.forEach(function(q) {
@@ -1768,13 +1763,13 @@ function renderIsSureciPage(slug) {
   h += '</div></div></section>';
 
   // Metrikler + SSS
-  h += '<section class="tight"><div class="container">' +
-    '<div class="sp-metrics" style="margin-bottom:36px">';
+  h += '<section style="padding:56px 0"><div class="container">' +
+    '<div class="sp-metrics" style="margin-bottom:32px">';
   d.metrics.forEach(function(m) {
     h += '<div class="sp-metric"><span class="sp-num">' + esc(m.n) + '</span><span class="sp-label">' + esc(m.l) + '</span></div>';
   });
   h += '</div>' +
-    '<div class="section-head" style="margin-top:0"><span class="eyebrow">SSS</span></div>';
+    '<div class="section-head" style="margin-top:0;margin-bottom:0"><span class="eyebrow">SSS</span></div>';
   d.faq.forEach(function(f) {
     h += '<details class="faq-item"><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>';
   });
