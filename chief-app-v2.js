@@ -356,6 +356,7 @@ function go() {
   else if (sec === 'entegrasyonlar')       { html = renderEntegrasyonlar();    label = 'Entegrasyonlar'; }
   else if (sec === 'fiyatlandirma')        { html = renderFiyatlandirma();     label = 'Fiyatlandırma'; }
   else if (sec === 'guvenlik')             { html = renderGuvenlik();          label = 'Güvenlik'; }
+  else if (sec === 'partnerler')           { html = renderPartnerler();        label = 'Partner Ağı'; }
   else if (sec === 'hakkimizda')           { html = renderHakkimizda();        label = 'Hakkımızda'; }
   else if (sec === 'blog' && slug)         { html = renderBlogPost(slug);      label = 'Blog'; }
   else if (sec === 'blog')                 { html = renderBlog();              label = 'Blog'; }
@@ -1459,6 +1460,124 @@ function renderGuvenlik() {
   var data = PLATFORM_DATA['guvenlik'];
   if (!data) return _stub('Güvenlik');
   return renderRichPage(data, 'Platform', '#/platform', 'guvenlik');
+}
+
+/* ================================================================
+   PARTNER AĞI
+   ================================================================ */
+function renderPartnerler() {
+  var h = '';
+
+  // HERO
+  h += '<section class="detail-hero"><div class="container">' +
+    crumb(['Partner Ağı']) +
+    '<span class="eyebrow">CHIEF PARTNER AĞI</span>' +
+    '<h1 style="margin-top:16px;max-width:780px">Chief ile Kurumsal Yapay Zekâ Dönüşümünü Birlikte Büyütün</h1>' +
+    '<p class="lead" style="max-width:720px">Chief Partner Ağı; teknoloji şirketleri, sistem entegratörleri, danışmanlar, sektör uzmanları ve bölgesel büyüme ortakları için tasarlanmış kurumsal iş ortaklığı modelidir. Chief ile işletmelerin satış, operasyon, üretim, finans, saha ekipleri ve yönetim süreçlerinde yapay zekâ destekli dönüşümüne birlikte katkı sağlayın.</p>' +
+    '<p style="font-size:15px;color:var(--t-muted);max-width:680px;margin-top:16px;line-height:1.75">Chief, farklı sistemlerden gelen veriyi yalnızca raporlayan bir araç değildir. Gelen iş sinyallerini anlar, eksik bilgiyi tamamlar, ilgili sürece bağlar, görev ve onay akışları oluşturur, yönetime ölçülebilir aksiyon olarak sunar. Partnerlerimiz bu değeri farklı sektörlere, pazarlara ve müşteri ihtiyaçlarına doğru şekilde taşımamıza yardımcı olur.</p>' +
+    '<div class="cta-row" style="margin-top:28px">' +
+    '<a href="#/demo-talep-et" class="btn btn-clay btn-lg">Chief Partneri Olun</a>' +
+    '<a href="#/demo-talep-et" class="btn btn-ghost btn-lg">Partnerlik Başvurusu Yapın</a>' +
+    '</div></div></section>';
+
+  // PARTNERLİK YAKLAŞIMI
+  h += '<section class="bg-warm" style="padding:52px 0"><div class="container narrow">' +
+    '<div class="section-head"><span class="eyebrow">Partnerlik Yaklaşımı</span></div>' +
+    '<p style="font-size:16px;color:var(--t-body);line-height:1.8;margin-bottom:16px">Chief partner modeli, klasik bayi veya tek seferlik satış yaklaşımından farklıdır. Temel amaç; müşterinin ihtiyacını doğru anlamak, uygun çözümü konumlandırmak, kurulum ve entegrasyon süreçlerini sağlıklı yürütmek ve müşterinin platformdan sürdürülebilir değer üretmesini sağlamaktır.</p>' +
+    '<p style="font-size:16px;color:var(--t-body);line-height:1.8;margin-bottom:16px">Her partner aynı rolde konumlanmaz. Bazı partnerler belirli bir ülke veya bölgenin gelişiminden sorumlu olurken, bazı partnerler çözüm kurulumu, entegrasyon ve proje yönetimi tarafında güçlü rol alır. Bazı partnerler ise satış, iş analizi, sektör uzmanlığı veya müşteri destek süreçlerinde değer üretir.</p>' +
+    '<p style="font-size:16px;color:var(--t-body);line-height:1.8;margin:0">Bu yapı sayesinde Chief, merkezi ürün standardını korurken; yerel uzmanlık, sektör bilgisi ve uygulama gücüyle müşteriye daha yakın, daha güvenilir ve daha sürdürülebilir bir hizmet modeli sunar.</p>' +
+    '</div></section>';
+
+  // PARTNER MODELLERİ
+  h += '<section style="padding:52px 0"><div class="container">' +
+    '<div class="section-head"><span class="eyebrow">Partner Modelleri</span>' +
+    '<p class="lead" style="max-width:640px">Bu modeller hiyerarşik seviye değildir; partnerin pazara, projeye ve müşteriye nasıl katkı sunduğunu tarif eder.</p></div>' +
+    '<div class="partner-modeller-grid">' +
+    '<div class="partner-model-kart">' +
+    '<span class="eyebrow" style="font-size:11px">01</span>' +
+    '<h3>Stratejik Bölge ve Ülke Partnerleri</h3>' +
+    '<p class="partner-kart-lead">Belirli bir ülke veya bölgede Chief\'in doğru konumlanmasına, yerel iş ortaklığı yapısının gelişmesine ve kurumsal müşteri ilişkilerinin büyümesine katkı sağlayın.</p>' +
+    '<p class="partner-kart-detay">Pazar geliştirme, yerel iş ortaklarının koordinasyonu, büyük müşteri ilişkileri, kanal yapılanması ve bölgesel büyüme stratejisinde aktif rol alırlar.</p>' +
+    '</div>' +
+    '<div class="partner-model-kart">' +
+    '<span class="eyebrow" style="font-size:11px">02</span>' +
+    '<h3>Çözüm ve Uygulama Partnerleri</h3>' +
+    '<p class="partner-kart-lead">Chief projelerinde ihtiyaç analizi, kurulum, entegrasyon, eğitim ve canlı kullanım süreçlerinde aktif rol alarak müşterinin platformdan gerçek değer üretmesini sağlayın.</p>' +
+    '<p class="partner-kart-detay">İhtiyaç analizi, proje kapsamı, sistem entegrasyonları, veri kaynaklarının bağlanması, kullanıcı geçişi, eğitim ve canlı kullanım desteği bu modelin merkezindedir.</p>' +
+    '</div>' +
+    '<div class="partner-model-kart">' +
+    '<span class="eyebrow" style="font-size:11px">03</span>' +
+    '<h3>Satış ve Uzmanlık Partnerleri</h3>' +
+    '<p class="partner-kart-lead">Sektör bilginiz, müşteri ilişkileriniz veya danışmanlık uzmanlığınızla Chief\'in doğru müşterilerle buluşmasına ve doğru kullanım senaryolarıyla konumlanmasına katkı sağlayın.</p>' +
+    '<p class="partner-kart-detay">Yeni müşteri fırsatları, ilk temas, iş analizi, sektör uzmanlığı, teknik ön değerlendirme ve kullanıcı adaptasyonu gibi alanlarda rol alabilirler.</p>' +
+    '</div>' +
+    '</div></div></section>';
+
+  // SÜRDÜRÜLEBİLİR PARTNER GELİRİ
+  h += '<section class="bg-warm" style="padding:52px 0"><div class="container">' +
+    '<div class="partner-gelir-blok">' +
+    '<span class="eyebrow on-dark">Sürekli Gelir Modeli</span>' +
+    '<h2 style="margin-top:14px">Sürdürülebilir Partner Geliri</h2>' +
+    '<p>Chief partnerliği, yalnızca tek seferlik satış fırsatı olarak değil; platformun müşteride kullanımı devam ettikçe partner için sürdürülebilir gelir potansiyeli oluşturan bir iş ortaklığı modeli olarak tasarlanır.</p>' +
+    '<p>Partner gelir modeli; partnerin üstlendiği rol, müşteri kazanımına katkısı, uygulama ve entegrasyon sorumluluğu, destek kapsamı, portföy büyümesi ve müşteri başarısına sağladığı katkı dikkate alınarak yapılandırılır.</p>' +
+    '<p>Bu yaklaşımda partnerler, performanslarına ve projeye kattıkları değere bağlı olarak değişen oranlarda sürekli gelir paylaşımı imkânına sahip olabilir.</p>' +
+    '<div class="partner-gelir-kart">Chief, partnerler için yalnızca ilk satış anında değil, müşterinin platform kullanımının sürdürülmesi ve büyümesiyle birlikte devam eden gelir potansiyeli oluşturur.</div>' +
+    '</div></div></section>';
+
+  // CHIEF PARTNERLERE NE SAĞLAR
+  h += '<section style="padding:52px 0"><div class="container">' +
+    '<div class="section-head"><span class="eyebrow">Chief Partnerlerine Ne Sağlar?</span>' +
+    '<p class="lead" style="max-width:680px">Chief, partnerlerini yalnızca satış kanalı olarak değil, ekosistemin değer üreten parçası olarak konumlandırır. Partnerlere ürün anlatımı, kullanım senaryoları, satış materyalleri, demo desteği, kurulum yaklaşımı, entegrasyon metodolojisi, proje yönetim çerçevesi ve müşteri başarı süreçlerinde destek sağlanır.</p></div>' +
+    '<div class="partner-ne-saglar-list" style="max-width:760px">' +
+    ['Kurumsal yapay zekâ platformunu mevcut müşteri portföyüne ekleme imkânı',
+     'Satıştan uygulamaya kadar desteklenen iş ortaklığı yaklaşımı',
+     'Müşteri başarısı ve kullanım sürekliliğine bağlı büyüme potansiyeli',
+     'Farklı sektör ve iş süreçlerine uyarlanabilen çözüm mimarisi',
+     'Performansa ve projeye katkıya göre yapılandırılabilen sürekli gelir modeli'].map(function(m) {
+      return '<div class="partner-ne-saglar-item">' + esc(m) + '</div>';
+    }).join('') +
+    '</div></div></section>';
+
+  // MÜŞTERİLER İÇİN DEĞER
+  h += '<section class="bg-warm" style="padding:52px 0"><div class="container narrow">' +
+    '<div class="section-head"><span class="eyebrow">Müşteriler İçin Değer</span></div>' +
+    '<p style="font-size:16px;color:var(--t-body);line-height:1.8;margin-bottom:16px">Chief Partner Ağı, müşterilerin yalnızca merkezi bir yazılım sağlayıcıyla değil, aynı zamanda kendi sektörünü, yerel ihtiyaçlarını ve iş süreçlerini anlayan uzman iş ortaklarıyla çalışmasını sağlar.</p>' +
+    '<p style="font-size:16px;color:var(--t-body);line-height:1.8;margin-bottom:16px">Bu yapı müşterilere daha hızlı keşif, daha doğru ihtiyaç analizi, daha sağlıklı entegrasyon, daha güçlü kullanıcı adaptasyonu ve sürdürülebilir destek avantajı sunar.</p>' +
+    '<p style="font-size:16px;color:var(--t-body);line-height:1.8;margin:0">Chief\'in merkezi ürün mimarisi korunurken, partnerlerin yerel ve sektörel uzmanlığı projelerin başarı oranını artırır.</p>' +
+    '</div></section>';
+
+  // KİMLER OLABİLİR
+  h += '<section style="padding:52px 0"><div class="container narrow">' +
+    '<div class="section-head"><span class="eyebrow">Kimler Chief Partneri Olabilir?</span></div>' +
+    '<p style="font-size:16px;color:var(--t-body);line-height:1.8;margin-bottom:16px">Chief Partner Ağı; teknoloji şirketleri, sistem entegratörleri, ERP ve CRM danışmanları, iş süreçleri danışmanları, sektör odaklı çözüm sağlayıcılar, saha operasyonu uzmanları, kurumsal satış ekipleri, teknik destek sağlayıcıları ve bölgesel büyüme ortakları için uygundur.</p>' +
+    '<p style="font-size:16px;color:var(--t-body);line-height:1.8;margin:0">Chief ile birlikte çalışmak isteyen partnerlerde; kurumsal müşteri deneyimi, güvenilir iş yapma kültürü, sürdürülebilir destek yaklaşımı, teknik ve ticari sorumluluk bilinci ve müşteri başarısına odaklı çalışma anlayışı önceliklidir.</p>' +
+    '</div></section>';
+
+  // SSS
+  var faqItems = [
+    ['Chief partnerliği yalnızca satış ortaklığı mıdır?', 'Hayır. Chief partnerliği satışın yanında ihtiyaç analizi, çözüm kurgusu, entegrasyon, uygulama, eğitim, teknik destek, müşteri başarısı ve sürdürülebilir gelir ortaklığı gibi alanları da kapsayabilir.'],
+    ['Chief partnerlerine sürekli gelir modeli sunulur mu?', 'Evet. Chief partnerliği, partnerin rolü, performansı, müşteri kazanımına katkısı ve müşteri başarısındaki sorumluluğuna bağlı olarak sürekli gelir potansiyeli sunabilir. Ticari detaylar iş birliği kapsamı ve sözleşme koşullarına göre netleştirilir.'],
+    ['Her partner aynı sorumluluğu mu üstlenir?', 'Hayır. Partnerler kendi uzmanlık alanlarına göre Stratejik Bölge ve Ülke Partneri, Çözüm ve Uygulama Partneri veya Satış ve Uzmanlık Partneri olarak konumlanabilir.'],
+    ['Chief hangi tür iş ortaklarıyla çalışır?', 'Teknoloji şirketleri, entegratörler, danışmanlık firmaları, sektör uzmanları, kurumsal satış ekipleri, bölgesel büyüme ortakları ve teknik destek sağlayıcıları Chief Partner Ağı için uygun adaylardır.'],
+  ];
+
+  h += '<section class="bg-warm" style="padding:52px 0"><div class="container narrow">' +
+    '<div class="section-head"><span class="eyebrow">SSS</span></div>' +
+    faqItems.map(function(f) {
+      return '<details class="faq-item"><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>';
+    }).join('') +
+    '</div></section>';
+
+  // FINAL CTA
+  h += '<section class="final-cta"><div class="container">' +
+    '<h2>Chief ile birlikte büyüyün.</h2>' +
+    '<p class="lead">Chief ile birlikte işletmelerin yapay zekâ destekli dönüşümünde yer almak, yeni pazarlarda büyümek, mevcut müşteri portföyünüze güçlü bir kurumsal yapay zekâ platformu eklemek ve sürdürülebilir partner geliri oluşturmak için bizimle iletişime geçin.</p>' +
+    '<div class="cta-row">' +
+    '<a href="#/demo-talep-et" class="btn btn-clay btn-lg">Chief Partneri Olun ' + ico('arrow',16) + '</a>' +
+    '<a href="#/demo-talep-et" class="btn on-dark-ghost btn-lg">Ekosistemimize Katılın</a>' +
+    '</div></div></section>';
+
+  return h;
 }
 
 /* ================================================================
