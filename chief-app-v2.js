@@ -55,7 +55,7 @@ const MEGA = {
         { href: '#/platform/ai-surec-orkestrasyonu',        title: 'AI Süreç Orkestrasyonu',       desc: 'Koordineli ajanlar, insan kontrolü' },
         { href: '#/platform/gorev-onay-ve-takip',           title: 'Görev, Onay ve Takip',         desc: 'SLA, sorumlu ve kapanış kriteri' },
         { href: '#/platform/surecler-arasi-devir-teslim',   title: 'Süreçler Arası Devir Teslim',  desc: 'Satıştan sahaya bilgi kayıpsız' },
-        { href: '#/platform/karar-destek-guvenlik-ogrenme', title: 'Karar Destek ve Güvenlik',     desc: 'Açıklanabilir öneriler, rol bazlı erişim' },
+        { href: '#/platform/karar-destek-guvenlik-ogrenme', title: 'Karar Destek, Güvenlik ve Öğrenme', desc: 'Açıklanabilir öneriler, rol bazlı erişim' },
       ]},
     ],
   },
@@ -702,7 +702,7 @@ const PLATFORM_V2_DATA = {
     h1: 'Yakala. Anla. Bağla. Yürüt. Öğren.',
     lead: 'Chief, işletmedeki dağınık bilgi ve sinyalleri tek akışta yönetilir hale getirir — e-postadan iş emrine, toplantı notundan yönetim kararına.',
     benefits: [
-      { icon:'mail',   title:'Her sinyali yakalar',    body:'E-posta, WhatsApp, web formu, saha bildirimi, ERP kaydı — Chief hepsini tek akışa alır. Kritik bilgi kişisel hafızada veya takipsiz dosyalarda kaybolmaz.' },
+      { icon:'bolt',   title:'Her sinyali yakalar',    body:'E-posta, WhatsApp, web formu, saha bildirimi, ERP kaydı — Chief hepsini tek akışa alır. Kritik bilgi kişisel hafızada veya takipsiz dosyalarda kaybolmaz.' },
       { icon:'cpu',    title:'Niyeti anlar',            body:'Gelen mesaj teklif talebi mi, servis ihtiyacı mı, şikayet mi? Chief içeriği analiz eder, doğru sürece yönlendirir.' },
       { icon:'layers', title:'Veriyle bağlar',          body:'Talep ilgili müşteriye, teklife, iş emrine, sözleşmeye bağlanır. Ekipler aynı konuya farklı sistemlerden değil, ortak iş nesnesinden bakar.' },
       { icon:'spark',  title:'Öğrenerek iyileşir',      body:'Her tamamlanan iş bir veri noktasıdır. Hangi süreçler gecikiyor, nerede eksik bilgi tekrar ediyor — Chief bunları görünür kılar ve iyileştirme önerir.' },
@@ -745,7 +745,7 @@ const PLATFORM_V2_DATA = {
     lead: 'SAP, Logo, Netsis, Salesforce, WhatsApp Business — Chief bunların üzerinde çalışan süreç ve karar katmanıdır. Entegrasyon değil, işletme aklı.',
     benefits: [
       { icon:'layers', title:'Sistemler olduğu gibi kalır',         body:'ERP finansalı yönetir, CRM müşteriyi izler, saha uygulaması operasyonu taşır. Chief bunları değiştirmez — aralarında anlam ve süreç köprüsü kurar.' },
-      { icon:'cpu',    title:'Hangi kayıt aksiyon gerektiriyor?',   body:'ERP\'deki bekleyen sipariş, CRM\'deki temassız fırsat, e-postadaki onaysız teklif — Chief bunları tespit eder, doğru kişiye zamanında taşır.' },
+      { icon:'cpu',    title:'Aksiyon bekleyen kaydı Chief bulur',   body:'ERP\'deki bekleyen sipariş, CRM\'deki temassız fırsat, e-postadaki onaysız teklif — Chief bunları tespit eder, doğru kişiye zamanında taşır.' },
       { icon:'mail',   title:'İletişim sürece bağlanır',             body:'Toplantı notları, WhatsApp mesajları, e-postalar çoğu zaman sistemlere tam yansımaz. Chief bu iletişimleri süreçlerle bağlayarak kişisel takip yükünü kaldırır.' },
       { icon:'spark',  title:'Entegrasyon değil, işletme aklı',     body:'Chief\'in değeri API bağlantısı değil; farklı kaynaklardan gelen veriyi işletmenin süreç mantığına göre yorumlaması ve aksiyona çevirmesidir.' },
     ],
@@ -766,7 +766,7 @@ const PLATFORM_V2_DATA = {
     lead: 'Chief, işletmedeki temel kayıtları ortak bir iş modelinde birleştirir. Aynı konu için farklı sistemlerde arama biter.',
     benefits: [
       { icon:'users',  title:'Herkes farklı bakar, Chief birleştirir', body:'Satış için fırsat, operasyon için iş emri, finans için tahsilat riski, yönetim için KPI sapması. Chief bu farklı bakışları ortak iş nesnesi üzerinden birleştirir.' },
-      { icon:'doc',    title:'İş nesnesi nedir?',                       body:'Müşteri, lokasyon, teklif, iş emri, proje, görev, sözleşme, makine — takip edilmesi ve yönetilmesi gereken her kayıt bir iş nesnesidir. Chief bunları birbirine bağlar.' },
+      { icon:'doc',    title:'Her kayıt ortak modelde bağlı',           body:'Müşteri, lokasyon, teklif, iş emri, proje, görev, sözleşme, makine — takip edilmesi ve yönetilmesi gereken her kayıt Chief\'in ortak modelinde birbirine bağlanır.' },
       { icon:'layers', title:'Veri bağlamıyla anlam kazanır',           body:'Teklif hangi müşteriye bağlı, hangi lokasyonda uygulanacak, hangi ekip yürütecek? Chief bunu tek sorguda gösterir — ayrı sistemlerde arama biter.' },
       { icon:'bars',   title:'Tek görünüm, tam bağlam',                 body:'İlgili işin geçmişi, açık görevleri, bekleyen onayları, belgeleri ve riskleri — tek ekranda. Farklı sistemler arasında gezinti ortadan kalkar.' },
     ],
@@ -919,7 +919,7 @@ function renderPlatformV2Listing() {
     ['mevcut-sistemlerle-calisir',    'Mevcut Sistemlerle Çalışır',       'layers',  'ERP/CRM üzerinde akıllı süreç katmanı'],
     ['is-nesnesi-ve-veri-katmani',    'İş Nesnesi ve Veri Katmanı',       'db',      'Müşteri, teklif, iş emri tek modelde bağlı'],
     ['ai-surec-orkestrasyonu',        'AI Süreç Orkestrasyonu',           'cpu',     'Koordineli ajanlar, kararı insan verir'],
-    ['gorev-onay-ve-takip',           'Görev, Onay ve Takip',             'check',   'SLA, sorumlu ve kapanış kriteri'],
+    ['gorev-onay-ve-takip',           'Görev, Onay ve Takip',             'check',   'Her işin sahibi belli, kapanış kriteri net'],
     ['surecler-arasi-devir-teslim',   'Süreçler Arası Devir Teslim',      'arrow',   'Satıştan sahaya bilgi kayıpsız geçer'],
     ['karar-destek-guvenlik-ogrenme', 'Karar Destek, Güvenlik ve Öğrenme','shield',  'Açıklanabilir öneriler, denetlenebilir kararlar'],
   ];
