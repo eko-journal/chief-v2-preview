@@ -1324,8 +1324,8 @@ function renderEntegrasyonlar() {
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['Entegrasyonlar']) +
     '<span class="eyebrow">Entegrasyonlar</span>' +
-    '<h1 style="margin-top:16px;max-width:700px">Kullandığınız her sistemle çalışır.</h1>' +
-    '<p class="lead" style="max-width:600px">Chief ERP\'nizin, CRM\'inizin veya WhatsApp\'ınızın yerine geçmez. Bunların üzerine karar ve akış katmanı ekler — hiçbirini değiştirmeden.</p>' +
+    '<h1 style="margin-top:16px;max-width:760px">Mevcut sistemlerinizi değiştirmeden Chief ile birlikte çalıştırın</h1>' +
+    '<p class="lead" style="max-width:680px">Chief; ERP, CRM, muhasebe, e-posta, WhatsApp, Slack, Teams, web formu, Excel, API, veri tabanı, saha formu, IoT ve BI sistemlerinden gelen bilgileri iş süreçlerine, görevlere, onaylara ve yönetim görünürlüğüne bağlar.</p>' +
     '<blockquote class="rp-scenario">TAK-Umwelt, SAP ERP\'sini ve WhatsApp Business\'ını değiştirmedi. Chief her ikisini de okudu, birbirine bağladı. Bakım talebi WhatsApp\'tan geldi, iş emri SAP\'a yazıldı — 9 dakikada.<cite>TAK-Umwelt GmbH · Çevre Teknolojisi, Almanya</cite></blockquote>' +
     '</div></section>';
 
@@ -1845,22 +1845,32 @@ function renderDemo() {
     '<div class="form-group"><label>E-posta *</label><input type="email" name="email" placeholder="ornek@sirket.com" required autocomplete="email"></div>' +
     '<div class="form-group"><label>Telefon</label><input type="tel" name="phone" placeholder="+90 5__ ___ __ __" autocomplete="tel"></div>' +
     '</div>' +
-    '<div class="form-group"><label>Sektör</label>' +
-    '<select name="sector"><option value="">Seçin (opsiyonel)</option>' +
-    '<option>Endüstriyel Saha Hizmetleri</option>' +
-    '<option>İmalat & Üretim</option>' +
-    '<option>B2B Satış & Dağıtım</option>' +
-    '<option>Tesis Yönetimi</option>' +
-    '<option>Diğer</option>' +
+    '<div class="form-group"><label>İşletme ölçeği</label>' +
+    '<select name="scale"><option value="">Seçin (opsiyonel)</option>' +
+    '<option>Mikro İşletme / Girişim (1-5 çalışan)</option>' +
+    '<option>Küçük İşletme / KOBİ (5-20 çalışan)</option>' +
+    '<option>Orta Ölçekli İşletme (20-100 çalışan)</option>' +
+    '<option>Büyük Kurumsal / Grup Şirketleri (100+)</option>' +
     '</select></div>' +
-    '<div class="form-group"><label>Operasyonunuzdaki en büyük zorluk nedir?</label>' +
-    '<textarea name="message" rows="3" placeholder="Örn: Saha ekibinin talep takibi e-posta ve WhatsApp\'a dağılmış, hiçbir şey sisteme girmiyor..."></textarea></div>' +
-    '<button type="submit" class="btn btn-clay btn-lg" style="width:100%;justify-content:center;margin-top:8px">Görüşme Talep Et ' + ico('arrow', 16) + '</button>' +
+    '<div class="form-group"><label>Öncelikli kullanım alanı</label>' +
+    '<select name="area"><option value="">Seçin (opsiyonel)</option>' +
+    '<option>Yönetim Katmanı</option>' +
+    '<option>Satış ve Teklif</option>' +
+    '<option>Operasyon ve Saha</option>' +
+    '<option>Üretim, Tedarik ve Kalite</option>' +
+    '<option>Finans</option>' +
+    '<option>Paydaş Deneyimi</option>' +
+    '</select></div>' +
+    '<div class="form-group"><label>Mevcut sistemler</label>' +
+    '<input type="text" name="systems" placeholder="ERP, CRM, muhasebe, WhatsApp, saha uygulaması vb."></div>' +
+    '<div class="form-group"><label>Notunuz</label>' +
+    '<textarea name="note" rows="3" placeholder="En büyük kayıp noktanızı veya başlamak istediğiniz akışı yazabilirsiniz."></textarea></div>' +
+    '<button type="submit" class="btn btn-clay btn-lg" style="width:100%;justify-content:center;margin-top:8px">Görüşmeyi Onayla ' + ico('arrow', 16) + '</button>' +
     '</form>' +
     '<div id="demoSuccess" style="display:none;text-align:center;padding:32px 0">' +
     ico('check', 32) +
-    '<h3 style="margin:16px 0 8px;color:var(--sage)">Talebiniz alındı.</h3>' +
-    '<p style="color:var(--t-muted);font-size:14px">En kısa sürede size dönüp uygun zaman dilimleri göndereceğiz.</p>' +
+    '<h3 style="margin:16px 0 8px;color:var(--sage)">Görüşmeniz onaylandı.</h3>' +
+    '<p style="color:var(--t-muted);font-size:14px">Takvim davetiyesi e-posta adresinize gönderilecek.</p>' +
     '</div>' +
     '</div>' +
 
