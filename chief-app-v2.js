@@ -62,11 +62,11 @@ const MEGA = {
   'kullanim-alanlari': {
     cols: [
       { label: 'İş Süreçlerine Göre', items: [
-        { href: '#/is-surecleri/yonetimsel-dogal-dil-veri-stratejik-aksiyon', title: 'Yönetim Katmanı',              desc: '' },
+        { href: '#/kullanim-alanlari/is-sureclerine-gore/yonetim-katmani', title: 'Yönetim Katmanı',              desc: '' },
         { href: '#/is-surecleri',                                              title: 'Satış ve Teklif',              desc: '' },
         { href: '#/is-surecleri',                                              title: 'Operasyon ve Saha',            desc: '' },
         { href: '#/is-surecleri',                                              title: 'Üretim, Tedarik ve Kalite',    desc: '' },
-        { href: '#/is-surecleri/fatura-tahsilat-is-kapanisi',                  title: 'Finans',                       desc: '' },
+        { href: '#/kullanim-alanlari/is-sureclerine-gore/finans',                  title: 'Finans',                       desc: '' },
         { href: '#/is-surecleri',                                              title: 'Paydaş Deneyimi',              desc: '' },
       ]},
       { label: 'Sektörlere Göre', items: [
@@ -124,11 +124,11 @@ const FOOTER_COLS = {
     ['#/platform/devreye-alma',                  'Devreye Alma'],
   ]],
   'fc-is-surecleri': ['İş Süreçleri', [
-    ['#/is-surecleri/yonetimsel-dogal-dil-veri-stratejik-aksiyon',    'Yönetim Katmanı'],
-    ['#/is-surecleri/talep-potansiyel-musteri-firsat-yonetimi','Talep ve Fırsat'],
-    ['#/is-surecleri/is-emri-saha-planlama',   'İş Emri & Saha'],
-    ['#/is-surecleri/bakim-ariza-teknik-servis','Bakım & Teknik Servis'],
-    ['#/is-surecleri/fatura-tahsilat-is-kapanisi','Fatura & Tahsilat'],
+    ['#/kullanim-alanlari/is-sureclerine-gore/yonetim-katmani',    'Yönetim Katmanı'],
+    ['#/kullanim-alanlari/is-sureclerine-gore/talep-potansiyel-musteri-firsat-yonetimi','Talep ve Fırsat'],
+    ['#/kullanim-alanlari/is-sureclerine-gore/is-emri-saha-planlama',   'İş Emri & Saha'],
+    ['#/kullanim-alanlari/is-sureclerine-gore/bakim-ariza-teknik-servis','Bakım & Teknik Servis'],
+    ['#/kullanim-alanlari/is-sureclerine-gore/finans','Fatura & Tahsilat'],
   ]],
   'fc-kaynaklar': ['Kaynaklar', [
     ['#/entegrasyonlar', 'Entegrasyonlar'],
@@ -254,7 +254,7 @@ function _drawerRoot() {
     '<a class="m-flat" href="#/entegrasyonlar">Entegrasyonlar</a>' +
     '<a class="m-flat" href="#/fiyatlandirma">Fiyatlandırma</a>' +
     '<a class="m-flat" href="#/blog">Kaynaklar</a>' +
-    '<a class="m-flat" href="#/partnerler">Partnerlik</a>' +
+    '<a class="m-flat" href="#/partnerlik">Partnerlik</a>' +
     '<div style="margin-top:22px;display:flex;flex-direction:column;gap:10px">' +
     '<a href="https://app.chiefai.com.tr" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center">Giriş</a>' +
     '<a href="#/demo-talep-et" class="btn btn-clay btn-lg" style="width:100%;justify-content:center">Demo Talep Et</a>' +
@@ -347,8 +347,19 @@ function go() {
 
   if      (sec === 'platform'      && slug) { html = PLATFORM_V2_DATA[slug] ? renderPlatformV2Page(slug) : renderPlatformPage(slug); label = 'Platform'; }
   else if (sec === 'platform')              { html = renderPlatformV2Listing();    label = 'Platform'; }
+  else if (sec === 'kullanim-alanlari') {
+    var subSec = parts[1], subSlug = parts[2];
+    if (subSec === 'is-sureclerine-gore' && subSlug) { html = renderIsSureciPage(_kuSlug(subSlug)); label = 'İş Süreçlerine Göre'; }
+    else if (subSec === 'is-sureclerine-gore')        { html = renderIsSureciListing();              label = 'İş Süreçlerine Göre'; }
+    else if (subSec === 'sektorlere-gore' && subSlug) { html = renderSektorlerPage(subSlug);         label = 'Sektörlere Göre'; }
+    else if (subSec === 'sektorlere-gore')             { html = renderSektorlerListing();             label = 'Sektörlere Göre'; }
+    else if (subSec === 'isletme-olcegine-gore')       { html = _stub('İşletme Ölçeğine Göre', subSlug); label = 'İşletme Ölçeğine Göre'; }
+    else if (subSec === 'kullanim-senaryolari')        { html = _stub('Kullanım Senaryoları', subSlug);  label = 'Kullanım Senaryoları'; }
+    else                                               { html = renderKullanimAlanlariListing();     label = 'Kullanım Alanları'; }
+  }
   else if (sec === 'is-surecleri'  && slug) { html = renderIsSureciPage(slug);     label = 'İş Süreçleri'; }
   else if (sec === 'is-surecleri')          { html = renderIsSureciListing();      label = 'İş Süreçleri'; }
+  else if (sec === 'partnerlik')            { html = renderPartnerler();           label = 'Partner Ağı'; }
   else if (sec === 'cozumler'      && slug) { html = renderCozumlerPage(slug);     label = 'Çözümler'; }
   else if (sec === 'cozumler')              { html = renderCozumlerListing();      label = 'Çözümler'; }
   else if (sec === 'sektorler'     && slug) { html = renderSektorlerPage(slug);    label = 'Sektörler'; }
@@ -2895,6 +2906,45 @@ const IS_SURECLERI_CS = {
   },
 };
 
+
+/* ================================================================
+   KULLANIM ALANLARI — Ana listeleme sayfası
+   ================================================================ */
+function renderKullanimAlanlariListing() {
+  var cols = [
+    { key:'is-sureclerine-gore', label:'İş Süreçlerine Göre', icon:'flow',
+      desc:'Satış, operasyon, üretim, finans ve paydaş deneyimi süreçlerini yönetin.',
+      href:'#/kullanim-alanlari/is-sureclerine-gore' },
+    { key:'sektorlere-gore', label:'Sektörlere Göre', icon:'factory',
+      desc:'Üretim, hizmet, perakende, kamu ve KOBİ için özel kurgu.',
+      href:'#/kullanim-alanlari/sektorlere-gore' },
+    { key:'isletme-olcegine-gore', label:'İşletme Ölçeğine Göre', icon:'users',
+      desc:'Mikro girişimden büyük kurumsal yapılara kadar her ölçek için.',
+      href:'#/kullanim-alanlari/isletme-olcegine-gore' },
+    { key:'kullanim-senaryolari', label:'Kullanım Senaryoları', icon:'bolt',
+      desc:'Talep karşılama, teklif, iş emri, toplantı ve onay akışları.',
+      href:'#/kullanim-alanlari/kullanim-senaryolari' },
+  ];
+
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['Kullanım Alanları']) +
+    '<span class="eyebrow">KULLANIM ALANLARI</span>' +
+    '<h1 style="margin-top:16px;max-width:720px">Chief ile nerede, nasıl çalışırsınız?</h1>' +
+    '<p class="lead" style="max-width:640px">İş süreçlerinize, sektörünüze, işletme ölçeğinize ve kullanım senaryolarınıza göre size özel değeri keşfedin.</p>' +
+    '</div></section>';
+
+  h += '<section class="tight"><div class="container"><div class="cards-grid cols-2">';
+  cols.forEach(function(c, n) {
+    h += '<a class="card" href="' + c.href + '">' +
+      '<div class="card-ico ' + (n%2===1?'sage':'') + '">' + ico(c.icon, 22) + '</div>' +
+      '<h4>' + esc(c.label) + '</h4>' +
+      '<p>' + esc(c.desc) + '</p>' +
+      '<span class="card-foot btn-link">Keşfet ' + ico('arrow',15) + '</span></a>';
+  });
+  h += '</div></div></section>' + finalCTA();
+  return h;
+}
+
 /* ---- Ortak süreç omurgası ve katman helper'ları ---- */
 function _isOmurga() {
   var items = [
@@ -2935,6 +2985,14 @@ function _isKatman() {
     '</div></div></section>';
 }
 
+
+/* ---- URL slug mapping: yeni kısa slug → data key ---- */
+var KULLANIM_SLUG_MAP = {
+  'yonetim-katmani': 'yonetimsel-dogal-dil-veri-stratejik-aksiyon',
+  'finans':          'fatura-tahsilat-is-kapanisi',
+};
+function _kuSlug(slug) { return KULLANIM_SLUG_MAP[slug] || slug; }
+
 /* ---- Kategori filtre ---- */
 window.isCatFilter = function(btn, cat) {
   document.querySelectorAll('.is-cat').forEach(function(b) { b.classList.remove('active'); });
@@ -2960,7 +3018,7 @@ function renderIsSureciListing() {
   var slugs = Object.keys(IS_SURECLERI_DATA).filter(function(k){ return !IS_SURECLERI_DATA[k].featured; });
 
   var h = '<section class="detail-hero"><div class="container">' +
-    crumb(['İş Süreçleri']) +
+    crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['İş Süreçlerine Göre']) +
     '<span class="eyebrow">AI-NATIVE SÜREÇ VE YÖNETİM KATMANI</span>' +
     '<h1 style="margin-top:16px;max-width:800px">İş Süreçlerinizi Sinyalden Sonuca Yönetin</h1>' +
     '<p class="lead" style="max-width:720px">Chief; yönetim karar süreçlerinden başlayarak satış, teklif, operasyon, üretim, teknik servis, finansal kapanış ve müşteri/çalışan deneyimi süreçlerini tek bir işletme akışında birbirine bağlar. E-posta, WhatsApp, web formu, toplantı notu, ERP/CRM kaydı, saha formu, IoT sinyali veya geri bildirim gibi dağınık iş sinyallerini yakalar; eksik bilgiyi tamamlar, kurallara göre görev ve onay başlatır, süreci izler ve sonucu yönetim seviyesinde sorgulanabilir hale getirir.</p>' +
@@ -2975,7 +3033,7 @@ function renderIsSureciListing() {
 
   // Kartlar
   h += '<section class="tight"><div class="container">';
-  h += '<a class="is-feat" href="#/is-surecleri/yonetimsel-dogal-dil-veri-stratejik-aksiyon">' +
+  h += '<a class="is-feat" href="#/kullanim-alanlari/is-sureclerine-gore/yonetimsel-dogal-dil-veri-stratejik-aksiyon">' +
     '<span class="eyebrow on-dark">' + esc(feat.cat) + '</span>' +
     '<h3>' + esc(feat.cardTitle) + '</h3>' +
     '<p>' + esc(feat.cardDesc) + '</p>' +
@@ -2986,7 +3044,7 @@ function renderIsSureciListing() {
   h += '</div><div class="cards-grid" id="isSureciGrid">';
   slugs.forEach(function(slug,n){
     var d = IS_SURECLERI_DATA[slug];
-    h += '<a class="card" href="#/is-surecleri/' + slug + '" data-cat="' + d.catKey + '">' +
+    h += '<a class="card" href="#/kullanim-alanlari/is-sureclerine-gore/' + slug + '" data-cat="' + d.catKey + '">' +
       '<div class="card-ico ' + (n%3===1?'sage':n%3===2?'blue':'') + '">' + ico(d.icon,22) + '</div>' +
       '<span style="font-size:11px;font-weight:600;color:var(--t-muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:10px">' + esc(d.cat) + '</span>' +
       '<h4>' + esc(d.cardTitle) + '</h4><p>' + esc(d.cardDesc) + '</p>' +
@@ -3027,12 +3085,12 @@ function renderIsSureciListing() {
 function renderIsSureciPage(slug) {
   var d = IS_SURECLERI_DATA[slug];
   if (!d) return renderNotFound();
-  var cs = IS_SURECLERI_CS[slug];
+  var cs = IS_SURECLERI_CS[slug] || IS_SURECLERI_CS[_kuSlug(slug)];
   var isFeatured = d.featured || false;
 
   // HERO
   var h = '<section class="detail-hero"><div class="container">' +
-    crumb(['İş Süreçleri', '#/is-surecleri'], [d.cardTitle]) +
+    crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['İş Süreçlerine Göre', '#/kullanim-alanlari/is-sureclerine-gore'], [d.cardTitle]) +
     '<div style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px 56px;align-items:start">' +
     '<div><span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
     '<h1 style="margin-top:16px">' + esc(d.h1) + '</h1>' +
