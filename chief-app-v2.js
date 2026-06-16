@@ -645,8 +645,8 @@ function renderRichPage(data, parentLabel, parentHref, slug) {
   var sc  = PAGE_SCENARIOS[slug] || null;
   var h   = '';
 
-  // Ekran 1: Hero — eyebrow + h1 + kısa lead + senaryo paragrafı
-  h += '<section class="detail-hero"><div class="container">' +
+  // Hero — eyebrow + h1 + lead + senaryo
+  h += '<section class="detail-hero hero-overlap"><div class="container">' +
     crumb([parentLabel, parentHref], [data.h1]) +
     '<span class="eyebrow">' + esc(data.eyebrow) + '</span>' +
     '<h1 style="margin-top:16px;max-width:760px">' + esc(data.h1) + '</h1>' +
@@ -657,19 +657,8 @@ function renderRichPage(data, parentLabel, parentHref, slug) {
   }
   h += '</div></section>';
 
-  // Ekran 2: 3 temel nokta — borderless, icon + başlık + metin
-  h += '<section><div class="container">' +
-    '<div class="rich-points">' +
-    data.benefits.map(function(b, n) {
-      return '<div class="rp-item">' +
-        '<div class="rp-icon ' + (n===1?'sage':n===2?'blue':'') + '">' + ico(b.icon, 22) + '</div>' +
-        '<div><h3>' + esc(b.title) + '</h3><p>' + esc(b.body) + '</p></div>' +
-        '</div>';
-    }).join('') +
-    '</div></div></section>';
-
-  // Ekran 3: Müşteri hikayesi — enhanced case study
-  h += '<section class="bg-warm"><div class="container">' +
+  // Müşteri hikayesi — hero'ya yaslanıyor
+  h += '<div class="cs-overlap-wrap"><div class="container">' +
     '<div class="cs-block">' +
     '<div class="cs-header">' +
     '<div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
@@ -680,9 +669,20 @@ function renderRichPage(data, parentLabel, parentHref, slug) {
     cs.results.map(function(r) {
       return '<div class="sp-metric"><span class="sp-num">' + esc(r.n) + '</span><span class="sp-label">' + esc(r.l) + '</span></div>';
     }).join('') +
-    '</div></div></div></section>';
+    '</div></div></div></div>';
 
-  // Ekran 4: SSS — 2-3 soru
+  // 3 temel nokta
+  h += '<section><div class="container">' +
+    '<div class="rich-points">' +
+    data.benefits.map(function(b, n) {
+      return '<div class="rp-item">' +
+        '<div class="rp-icon ' + (n===1?'sage':n===2?'blue':'') + '">' + ico(b.icon, 22) + '</div>' +
+        '<div><h3>' + esc(b.title) + '</h3><p>' + esc(b.body) + '</p></div>' +
+        '</div>';
+    }).join('') +
+    '</div></div></section>';
+
+  // SSS
   h += '<section><div class="container narrow">' +
     '<div class="section-head"><span class="eyebrow">SSS</span></div>' +
     data.faq.map(function(f) {
@@ -871,25 +871,15 @@ function renderPlatformV2Page(slug) {
   var d = PLATFORM_V2_DATA[slug];
   if (!d) return renderPlatformPage(slug);
 
-  var h = '<section class="detail-hero"><div class="container">' +
+  var h = '<section class="detail-hero hero-overlap"><div class="container">' +
     crumb(['Platform', '#/platform'], [d.h1]) +
     '<span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
     '<h1 style="margin-top:16px;max-width:760px">' + esc(d.h1) + '</h1>' +
     '<p class="lead" style="max-width:640px">' + esc(d.lead) + '</p>' +
     '</div></section>';
 
-  h += '<section><div class="container">' +
-    '<div class="rich-points" style="grid-template-columns:repeat(2,1fr);gap:36px 64px">' +
-    d.benefits.map(function(b, n) {
-      return '<div class="rp-item">' +
-        '<div class="rp-icon ' + (n===1||n===3?'sage':'') + '">' + ico(b.icon, 22) + '</div>' +
-        '<div><h3>' + esc(b.title) + '</h3><p>' + esc(b.body) + '</p></div>' +
-        '</div>';
-    }).join('') +
-    '</div></div></section>';
-
   var cs = d.caseStudy;
-  h += '<section class="bg-warm"><div class="container">' +
+  h += '<div class="cs-overlap-wrap"><div class="container">' +
     '<div class="cs-block">' +
     '<div class="cs-header">' +
     '<div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
@@ -900,9 +890,19 @@ function renderPlatformV2Page(slug) {
     cs.results.map(function(r) {
       return '<div class="sp-metric"><span class="sp-num">' + esc(r.n) + '</span><span class="sp-label">' + esc(r.l) + '</span></div>';
     }).join('') +
-    '</div></div></div></section>';
+    '</div></div></div></div>';
 
-  h += '<section><div class="container narrow">' +
+  h += '<section style="padding:56px 0"><div class="container">' +
+    '<div class="rich-points" style="grid-template-columns:repeat(2,1fr);gap:36px 64px">' +
+    d.benefits.map(function(b, n) {
+      return '<div class="rp-item">' +
+        '<div class="rp-icon ' + (n===1||n===3?'sage':'') + '">' + ico(b.icon, 22) + '</div>' +
+        '<div><h3>' + esc(b.title) + '</h3><p>' + esc(b.body) + '</p></div>' +
+        '</div>';
+    }).join('') +
+    '</div></div></section>';
+
+  h += '<section style="padding:56px 0"><div class="container narrow">' +
     '<div class="section-head"><span class="eyebrow">SSS</span></div>' +
     d.faq.map(function(f) {
       return '<details class="faq-item"><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>';
@@ -2045,13 +2045,30 @@ function renderIsSureciPage(slug) {
   var d = IS_SURECLERI_DATA[slug];
   if (!d) return renderNotFound();
 
-  var h = '<section class="detail-hero"><div class="container">' +
+  var h = '<section class="detail-hero hero-overlap"><div class="container">' +
     crumb(['İş Süreçleri', '#/is-surecleri'], [d.cardTitle]) +
     '<span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
     '<h1 style="margin-top:16px;max-width:760px">' + esc(d.h1) + '</h1>' +
     '<p class="lead" style="max-width:640px">' + esc(d.lead) + '</p>' +
     '<p class="rp-scenario" style="font-style:normal;background:rgba(0,0,0,.04)">' + esc(d.problem) + '</p>' +
     '</div></section>';
+
+  // Müşteri hikayesi — hero'ya yaslanıyor
+  var cs = IS_SURECLERI_CS[slug];
+  if (cs) {
+    h += '<div class="cs-overlap-wrap"><div class="container">' +
+      '<div class="cs-block">' +
+      '<div class="cs-header">' +
+      '<div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
+      '<div><div class="sp-company">' + esc(cs.company) + '</div><div class="sp-industry">' + esc(cs.industry) + '</div></div>' +
+      '</div>' +
+      '<blockquote class="sp-quote">' + esc(cs.quote) + '</blockquote>' +
+      '<div class="sp-metrics">' +
+      d.metrics.map(function(m) {
+        return '<div class="sp-metric"><span class="sp-num">' + esc(m.n) + '</span><span class="sp-label">' + esc(m.l) + '</span></div>';
+      }).join('') +
+      '</div></div></div></div>';
+  }
 
   // Akış adımları
   h += '<section style="padding:52px 0"><div class="container">' +
@@ -2073,23 +2090,6 @@ function renderIsSureciPage(slug) {
     h += '<div class="nl-item"><div class="nl-dot"></div><p>' + esc(q) + '</p></div>';
   });
   h += '</div></div></section>';
-
-  // Müşteri hikayesi
-  var cs = IS_SURECLERI_CS[slug];
-  if (cs) {
-    h += '<section class="bg-warm" style="padding:56px 0"><div class="container">' +
-      '<div class="cs-block">' +
-      '<div class="cs-header">' +
-      '<div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
-      '<div><div class="sp-company">' + esc(cs.company) + '</div><div class="sp-industry">' + esc(cs.industry) + '</div></div>' +
-      '</div>' +
-      '<blockquote class="sp-quote">' + esc(cs.quote) + '</blockquote>' +
-      '<div class="sp-metrics">' +
-      d.metrics.map(function(m) {
-        return '<div class="sp-metric"><span class="sp-num">' + esc(m.n) + '</span><span class="sp-label">' + esc(m.l) + '</span></div>';
-      }).join('') +
-      '</div></div></div></section>';
-  }
 
   // SSS
   h += '<section style="padding:56px 0"><div class="container narrow">' +
