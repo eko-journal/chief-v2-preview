@@ -45,17 +45,21 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;',
 const MEGA = {
   platform: {
     cols: [
-      { label: 'Platform', items: [
-        { href: '#/platform/chief-nasil-calisir',       title: 'Chief Nasıl Çalışır?',        desc: 'Sinyalden aksiyona 5 temel adım' },
-        { href: '#/platform/sinyalden-aksiyona',         title: 'Sinyalden Aksiyona',           desc: 'Her sinyal takip edilebilir iş akışına' },
-        { href: '#/platform/mevcut-sistemlerle-calisir', title: 'Mevcut Sistemlerle Çalışır',   desc: 'ERP/CRM üzerinde süreç katmanı' },
-        { href: '#/platform/is-nesnesi-ve-veri-katmani', title: 'İş Nesnesi ve Veri Katmanı',   desc: 'Müşteri, teklif, iş emri tek modelde' },
+      { label: 'Platform Temelleri', items: [
+        { href: '#/platform/chief-nedir',                 title: 'Chief Nedir?',                desc: 'Akıllı işletme katmanının konumu' },
+        { href: '#/platform/chief-nasil-calisir',         title: 'Chief Nasıl Çalışır?',        desc: 'Sinyalden aksiyona 5 temel adım' },
+        { href: '#/platform/akilli-isletme-katmani',      title: 'Akıllı İşletme Katmanı',      desc: 'ERP/CRM üzerinde süreç ve karar katmanı' },
+        { href: '#/platform/sinyalden-aksiyona',          title: 'Sinyalden Aksiyona',           desc: 'Her sinyal takip edilebilir iş akışına' },
+        { href: '#/platform/mevcut-sistemlerle-calisir',  title: 'Mevcut Sistemlerle Çalışır',   desc: 'Sistemleri değiştirmeden değer üretir' },
+        { href: '#/platform/is-nesnesi-ve-veri-katmani',  title: 'İş Nesnesi ve Veri Katmanı',   desc: 'Müşteri, teklif, iş emri tek modelde' },
       ]},
       { label: 'Yetenekler', items: [
-        { href: '#/platform/ai-surec-orkestrasyonu',        title: 'AI Süreç Orkestrasyonu',       desc: 'Koordineli ajanlar, insan kontrolü' },
+        { href: '#/platform/ai-ajanlar-ve-gorev-yonetimi', title: 'AI Ajanlar ve Görev Yönetimi', desc: 'Koordineli ajanlar, insan kontrolü' },
         { href: '#/platform/gorev-onay-ve-takip',           title: 'Görev, Onay ve Takip',         desc: 'SLA, sorumlu ve kapanış kriteri' },
         { href: '#/platform/surecler-arasi-devir-teslim',   title: 'Süreçler Arası Devir Teslim',  desc: 'Satıştan sahaya bilgi kayıpsız' },
-        { href: '#/platform/karar-destek-guvenlik-ogrenme', title: 'Karar Destek, Güvenlik ve Öğrenme', desc: 'Açıklanabilir öneriler, rol bazlı erişim' },
+        { href: '#/platform/yonetim-paneli-ve-dashboard',   title: 'Yönetim Paneli ve Dashboard',  desc: 'Risk ve ilerleme gerçek zamanlı' },
+        { href: '#/platform/rol-bazli-yetkilendirme',        title: 'Rol Bazlı Yetkilendirme',      desc: 'Granüler erişim, denetim izi' },
+        { href: '#/platform/guvenlik-ve-veri-yaklasimi',     title: 'Güvenlik ve Veri Yaklaşımı',   desc: 'KVKK, GDPR, on-prem seçenekleri' },
       ]},
     ],
   },
@@ -119,7 +123,7 @@ const FOOTER_COLS = {
   'fc-platform': ['Platform', [
     ['#/platform/chief-nasil-calisir',          'Chief Nasıl Çalışır?'],
     ['#/platform/sinyalden-aksiyona',            'Sinyalden Aksiyona'],
-    ['#/platform/ai-surec-orkestrasyonu',        'AI Süreç Orkestrasyonu'],
+    ['#/platform/ai-ajanlar-ve-gorev-yonetimi',        'AI Süreç Orkestrasyonu'],
     ['#/platform/gorev-onay-ve-takip',           'Görev, Onay ve Takip'],
     ['#/platform/devreye-alma',                  'Devreye Alma'],
   ]],
@@ -345,7 +349,13 @@ function go() {
   const sec = parts[0], slug = parts[1];
   let html, label;
 
-  if      (sec === 'platform'      && slug) { html = PLATFORM_V2_DATA[slug] ? renderPlatformV2Page(slug) : renderPlatformPage(slug); label = 'Platform'; }
+  if      (sec === 'platform'      && slug) {
+    var pSlug = slug;
+    if (slug === 'ai-surec-orkestrasyonu') pSlug = 'ai-ajanlar-ve-gorev-yonetimi';
+    if (slug === 'karar-destek-guvenlik-ogrenme') pSlug = 'guvenlik-ve-veri-yaklasimi';
+    html = PLATFORM_V2_DATA[pSlug] ? renderPlatformV2Page(pSlug) : renderPlatformPage(pSlug);
+    label = 'Platform';
+  }
   else if (sec === 'platform')              { html = renderPlatformV2Listing();    label = 'Platform'; }
   else if (sec === 'kullanim-alanlari') {
     var subSec = parts[1], subSlug = parts[2];
@@ -734,6 +744,79 @@ function renderRichPage(data, parentLabel, parentHref, slug) {
    PLATFORM V2 — VERİ + RENDER  (doküman birebir)
    ================================================================ */
 const PLATFORM_V2_DATA = {
+
+  'chief-nedir': {
+    eyebrow: 'Platform',
+    cardTitle: 'Chief Nedir?',
+    cardDesc: 'Chief\'in işletme içinde nasıl konumlandığını, hangi problemi çözdüğünü ve neden mevcut sistemlerin üzerinde çalışan akıllı işletme katmanı olduğunu anlatır.',
+    h1: 'Chief Nedir?',
+    lead: 'Chief, mevcut ERP, CRM, muhasebe, saha, üretim, IoT, doküman ve iletişim sistemlerinin yerine geçmez. Bu sistemlerin üzerinde çalışan AI tabanlı akıllı işletme katmanı olarak bilgiyi sorumluluk, karar, aksiyon, kapanış kriteri ve yönetim görünürlüğüyle ilişkilendirir.',
+    bolumler: [
+      { baslik: 'Bir araç değil, işletme katmanı', metin: 'Chief, tekil bir uygulama veya otomasyon aracı değildir. İşletmede farklı sistemlerde, ekiplerde ve kanallarda dağılmış bilgileri süreç, görev, aksiyon ve yönetim görünürlüğüne dönüştüren kurumsal AI tabanlı işletme katmanıdır.\nChief mevcut sistemlerin yerine geçmez. ERP, CRM, telefon çağrısı, doküman, saha uygulamaları ve iletişim kanallarının üzerinde çalışan akıllı bir operasyon ve karar katmanı oluşturur.' },
+      { baslik: 'Hangi problemi çözüyor?', metin: 'İşletmelerde önemli bilgiler çoğu zaman kaybolur. E-postada kalan teklif, WhatsApp\'ta kalan iş emri, toplantı notunda kalan karar... Chief bu dağınık sinyalleri tek bir akışa alır; her birini sorumlu, öncelik, süreç ve kapanış kriteriyle ilişkilendirir.\nBöylece işletme içinde oluşan her talep, kayıt, görüşme, teklif, iş emri veya geri bildirim yalnızca bilgi olarak kalmaz; takip edilebilir bir sürece dönüşür.' },
+      { baslik: 'ERP ve CRM\'in yerine geçmiyor', metin: 'Chief, mevcut sistemleri değiştirmez. ERP finansal ve operasyonel kayıtları tutmaya, CRM müşteri ilişkilerini izlemeye devam eder. Chief bu verileri okur ama değiştirmez.\nAsıl işi, bu kayıtları birbirine bağlayan süreç ve karar katmanını oluşturmaktır: Hangi kayıt aksiyon gerektiriyor? Hangi teklif onayda bekledi? Hangi saha işi kapanmadı? Hangi yönetici karar vermeli?' },
+      { baslik: 'Kim için?', metin: 'Chief; birden fazla sistemi olan, ekipler arası koordinasyonu yönetmesi gereken ve yönetim görünürlüğüne ihtiyaç duyan işletmeler için tasarlanmıştır. Mikro girişimden büyük kurumsal yapılara kadar, süreç karmaşıklığı olan her organizasyonda değer üretir.' },
+    ],
+    caseStudy: {
+      logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+      quote:'"Servis talepleri telefon, e-posta ve portaldan aynı anda geliyordu. Her birini manuel takibe almak ekibe büyük yük bindiriyordu. Chief ile hiçbir talep kaybolmuyor, her iş emrinin durumu gerçek zamanlı görünüyor, kapanış belgesi otomatik oluşuyor."',
+      results:[{n:'-%65',l:'Manuel veri girişi'},{n:'%100',l:'Talep takip görünürlüğü'},{n:'3 hafta',l:'Devreye alma süresi'},{n:'0',l:'Kayıp talep'}],
+    },
+  },
+  'akilli-isletme-katmani': {
+    eyebrow: 'Platform',
+    cardTitle: 'Akıllı İşletme Katmanı',
+    cardDesc: 'ERP/CRM yerine geçmeyen, sistemler arasında anlam, görev, süreç ve yönetim görünürlüğü kuran yapıyı anlatır.',
+    h1: 'Akıllı İşletme Katmanı',
+    lead: 'Chief, mevcut sistemlerin üzerinde çalışan; iş sinyallerini anlayan, süreçlere bağlayan, görev ve kararlara dönüştüren ve yönetim görünürlüğü sağlayan AI tabanlı akıllı katmandır.',
+    bolumler: [
+      { baslik: 'Katman nedir?', metin: 'Kurumsal altyapıda "katman", mevcut sistemleri değiştirmeden onların üzerinde çalışan, aralarında anlam ve süreç bağlantısı kuran yapı anlamına gelir. ERP verilerini okur, CRM kayıtlarını anlar, iletişim kanallarını sürece bağlar; ancak hiçbirinin işlevini tekrar etmez.' },
+      { baslik: 'Neden akıllı?', metin: 'Chief gelen bilgiyi yalnızca depolamaz. Talebin niyetini, aciliyetini, ilgili süreci ve eksik bilgileri analiz eder. Ardından iş kurallarına göre görev oluşturur, sorumlu atar, onay zinciri kurar ve sonucu izler. Bu döngü her işlemde tekrarlanır; her döngüden öğrenir.' },
+      { baslik: 'ERP/CRM\'in üstünde nasıl çalışır?', metin: 'ERP finansal ve operasyonel kayıtları tutarken, CRM müşteri ilişkilerini izler. Chief bu verileri okur ama değiştirmez. Asıl işi, bu kayıtları birbirine bağlayan süreç ve karar katmanını oluşturmaktır.\nHangi kayıt aksiyon gerektiriyor? Hangi teklif onayda kaldı? Hangi saha işi kapanmadı? Hangi süreçte eksik bilgi var? Hangi yönetici karar vermeli?' },
+      { baslik: 'Yönetim görünürlüğü nasıl sağlanır?', metin: 'Chief, işlerin ve kararların ilerleyişini yönetim ekranlarında gerçek zamanlı görünür kılar. Gecikme, risk, SLA aşımı ve onay bekleyen konular aksiyon seviyesinde raporlanır. Yönetici gerektiğinde ilgili işe, göreve veya sürece inebilir.' },
+    ],
+    caseStudy: {
+      logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+      quote:'"Satış ekibimizin ziyaret notları farklı kişisel dosyalara dağılmış, doğru veriye anında ulaşmak güçleşmişti. Chief ile tüm satış hattı, toplantı çıktıları ve teklif süreçleri tek ekranda görünür. Artık müdür sahadan dönen temsilciyi arayıp sormak zorunda değil."',
+      results:[{n:'%98',l:'Ziyaret notu kayıt oranı'},{n:'7/24',l:'Satış hattı görünürlüğü'},{n:'-%40',l:'Raporlama hazırlık süresi'},{n:'1 ekran',l:'Tüm operasyon'}],
+    },
+  },
+  'yonetim-paneli-ve-dashboard': {
+    eyebrow: 'Platform',
+    cardTitle: 'Yönetim Paneli ve Dashboard',
+    cardDesc: 'Hem riskleri hem pozitif operasyonel ilerlemeyi görünür hale getiren yönetim ekranını anlatır.',
+    h1: 'Yönetim Paneli ve Dashboard',
+    lead: 'Chief yönetim ekranı, yalnızca gecikme ve riski değil; tamamlanan işleri, kapatılan süreçleri ve ilerleyen operasyonu da gerçek zamanlı görünür kılar.',
+    bolumler: [
+      { baslik: 'Rapor değil, aksiyon ekranı', metin: 'Geleneksel raporlar geç gelir, statiktir ve kararı geciktirir. Chief\'in yönetim paneli gerçek zamanlıdır; hangi işlerin açık olduğunu, hangilerinin geciktiğini, kimin sorumlu olduğunu ve hangi adımın beklediğini anlık gösterir.\nBu görünürlük yalnızca rapor seviyesinde değil, aksiyon seviyesindedir. Yönetici gerektiğinde ilgili işe, göreve, onaya veya sürece inebilir.' },
+      { baslik: 'Pozitif ilerleme de görünür', metin: 'Chief yönetim ekranı yalnızca alarm ve riski değil, tamamlanan işleri, kapatılan süreci ve operasyonel ilerlemeyi de gösterir. İşlenen sinyal sayısı, tamamlanan görev, kapanan süreç ve karşılanan SLA hedefleri operasyonun sağlıklı yürüdüğünü doğrular.' },
+      { baslik: 'Departman ve süreç bazlı görünüm', metin: 'Satış, operasyon, saha, üretim, finans — her ekip kendi alanını görür. Yönetim ise tüm tabloyu görür. Rol ve yetki bazlı erişim sayesinde herkes kendi ekranına sahip olur; kimse erişmemesi gereken veriye ulaşamaz.' },
+      { baslik: 'Özetle başla, detaya in', metin: 'Yönetim özet seviyesinde başlar: kaç iş açık, kaçı SLA riski taşıyor, kaçı gecikiyor. İlgili bir konuya tıklar; göreve, sürece veya onay zincirine iner. Haftalık yönetim brifingi otomatik hazırlanır.' },
+    ],
+    caseStudy: {
+      logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+      quote:'"Pazartesi toplantısına her hafta veri toplamak için Cuma günü başlardık. Chief ile o toplantı hazırlığı tamamen ortadan kalktı. Pazar gecesi özet geliyor, Pazartesi toplantısı 12 dakika sürüyor."',
+      results:[{n:'-%80',l:'Rapor hazırlama süresi'},{n:'12 dk',l:'Ort. yönetim toplantısı'},{n:'7/24',l:'Gerçek zamanlı KPI erişimi'},{n:'3 gün',l:'Risk öncesi uyarı süresi'}],
+    },
+  },
+  'rol-bazli-yetkilendirme': {
+    eyebrow: 'Platform',
+    cardTitle: 'Rol Bazlı Yetkilendirme',
+    cardDesc: 'Kullanıcıların rol, departman, lokasyon, müşteri ve süreç kapsamına göre erişimini açıklar.',
+    h1: 'Rol Bazlı Yetkilendirme',
+    lead: 'Chief\'te her kullanıcı yalnızca yetkili olduğu bilgi ve aksiyonlara erişir. Departman, rol, lokasyon, müşteri ve süreç kapsamına göre tanımlanan granüler erişim yapısıyla veri güvenliği ve operasyonel uyum birlikte korunur.',
+    bolumler: [
+      { baslik: 'Her kullanıcı kendi alanını görür', metin: 'Saha teknisyeni kendi bölgesinin iş emirlerini görür; satış temsilcisi kendi müşterilerinin tekliflerini; yönetici tüm departmanların tablosunu görür. Kimse erişmemesi gereken veriye ulaşamaz.\nBu yapı özellikle kurumsal işletmeler, kamu kurumları ve veri hassasiyeti yüksek organizasyonlar için kritik önem taşır.' },
+      { baslik: 'Erişim tanımlama esnekliği', metin: 'Departman, rol, lokasyon, müşteri segmenti, ürün grubu veya süreç alanına göre erişim kurgulanabilir. Bir kullanıcı birden fazla rolde olabilir; her rolün alanı ayrı tanımlanır. Değişiklikler kurulum sırasında ve sonrasında güncellenebilir.' },
+      { baslik: 'Denetim izi', metin: 'Her erişim, işlem ve değişiklik kayıt altına alınır. Kim, ne zaman, hangi veriye erişti, hangi kararı verdi — değiştirilemez denetim izi olarak saklanır. Denetim için hazır, yasal uyum belgesi olarak kullanılabilir.' },
+      { baslik: 'SSO ve kurumsal kimlik yönetimi', metin: 'Azure AD, Okta ve SAML 2.0 ile SSO entegrasyonu desteklenir. Şirket içi kimlik yönetim sistemleriyle senkronize edilebilir; kullanıcı eklemek ve çıkarmak merkezi yönetimden yapılır.' },
+    ],
+    caseStudy: {
+      logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+      quote:'"Almanya operasyonumuz için GDPR uyumluluğu kritikti. Chief\'in on-prem kurulumu ve veri izolasyonu, hukuk biriminin onayını ilk görüşmede aldı. Mevcut ERP projemize dokunmadan Chief\'i 3 haftada devreye aldık."',
+      results:[{n:'GDPR',l:'Almanya operasyonu onaylı'},{n:'%100',l:'On-prem veri izolasyonu'},{n:'3 hafta',l:'Devreye alma süresi'},{n:'0',l:'Sistem değişikliği'}],
+    },
+  },
   'chief-nasil-calisir': {
     eyebrow: 'Platform',
     cardTitle: 'Chief Nasıl Çalışır?',
@@ -807,11 +890,11 @@ const PLATFORM_V2_DATA = {
       results:[{n:'%98',l:'Ziyaret notu kayıt oranı'},{n:'7/24',l:'Satış hattı görünürlüğü'},{n:'-%40',l:'Raporlama hazırlık süresi'},{n:'1 ekran',l:'Tüm operasyon'}],
     },
   },
-  'ai-surec-orkestrasyonu': {
-    eyebrow: 'Platform · AI Native',
-    cardTitle: 'AI Süreç Orkestrasyonu',
+  'ai-ajanlar-ve-gorev-yonetimi': {
+    eyebrow: 'Platform · AI Tabanlı',
+    cardTitle: 'AI Ajanlar ve Görev Yönetimi',
     cardDesc: 'Chief\'in AI ajanları talebi sınıflandırır, eksik bilgiyi bulur, öneri üretir ve süreci ilgili ekip veya onay noktasına yönlendirir.',
-    h1: 'AI Süreç Orkestrasyonu',
+    h1: 'AI Ajanlar ve Görev Yönetimi',
     lead: 'Chief\'in AI ajanları işletme süreçlerini uçtan uca anlamak, yönlendirmek ve takip etmek için birlikte çalışır. AI önerir, sınıflandırır ve hazırlar; kritik kararlarda kontrol insanda kalır.',
     bolumler: [
       { baslik: 'Tek chatbot değil, çoklu ajan yapısı', metin: 'Chief yalnızca soru cevap veren bir yapay zeka ekranı değildir. Farklı görevleri üstlenen ajanlardan oluşan bir süreç orkestrasyon katmanıdır.\nBazı ajanlar gelen talebi sınıflandırır, bazıları eksik bilgiyi tespit eder, bazıları ilgili veriyle eşleştirir, bazıları görev veya onay önerir, bazıları da yönetim için özet ve içgörü üretir.' },
@@ -861,11 +944,11 @@ const PLATFORM_V2_DATA = {
       results:[{n:'%0',l:'Manuel aktarım hatası'},{n:'-%42',l:'Teklif-operasyon geçiş süresi'},{n:'%100',l:'Bağlam görünürlüğü'},{n:'1 akış',l:'Satıştan finansala'}],
     },
   },
-  'karar-destek-guvenlik-ogrenme': {
+  'guvenlik-ve-veri-yaklasimi': {
     eyebrow: 'Platform',
-    cardTitle: 'Karar Destek, Güvenlik ve Öğrenme',
-    cardDesc: 'Chief, yönetim için riskleri, gecikmeleri, fırsatları ve performans göstergelerini görünür kılar; her aksiyondan öğrenir.',
-    h1: 'Karar Destek, Güvenlik ve Öğrenme',
+    cardTitle: 'Güvenlik ve Veri Yaklaşımı',
+    cardDesc: 'Veri erişimi, denetim izi, insan onayı, AI çıktılarının izlenebilirliği ve özel kurulum yaklaşımını açıklar.',
+    h1: 'Güvenlik ve Veri Yaklaşımı',
     lead: 'Chief, işletme yönetimine yalnızca veri sunmaz; gecikmeleri, riskleri, fırsatları ve süreç iyileştirme alanlarını açıklanabilir şekilde gösterir.',
     bolumler: [
       { baslik: 'Yönetim için görünürlük', metin: 'Chief yönetim ekranlarında hangi işlerin açık olduğunu, hangi süreçlerin geciktiğini, hangi ekiplerde yoğunluk oluştuğunu ve hangi müşterilerde risk arttığını görünür hale getirir.\nBu görünürlük yalnızca rapor seviyesinde değil, aksiyon seviyesindedir. Yönetici gerektiğinde ilgili işe, göreve, onaya veya sürece inebilir.' },
@@ -934,14 +1017,14 @@ function renderPlatformV2Page(slug) {
 }
 
 function renderPlatformV2Listing() {
-  var slugOrder = ['chief-nasil-calisir','sinyalden-aksiyona','mevcut-sistemlerle-calisir','is-nesnesi-ve-veri-katmani','ai-surec-orkestrasyonu','gorev-onay-ve-takip','surecler-arasi-devir-teslim','karar-destek-guvenlik-ogrenme'];
-  var icons = {'chief-nasil-calisir':'flow','sinyalden-aksiyona':'bolt','mevcut-sistemlerle-calisir':'layers','is-nesnesi-ve-veri-katmani':'db','ai-surec-orkestrasyonu':'cpu','gorev-onay-ve-takip':'check','surecler-arasi-devir-teslim':'arrow','karar-destek-guvenlik-ogrenme':'shield'};
+  var slugOrder = ['chief-nedir','chief-nasil-calisir','akilli-isletme-katmani','sinyalden-aksiyona','mevcut-sistemlerle-calisir','is-nesnesi-ve-veri-katmani','ai-ajanlar-ve-gorev-yonetimi','gorev-onay-ve-takip','surecler-arasi-devir-teslim','yonetim-paneli-ve-dashboard','rol-bazli-yetkilendirme','guvenlik-ve-veri-yaklasimi'];
+  var icons = {'chief-nedir':'spark','chief-nasil-calisir':'flow','akilli-isletme-katmani':'layers','sinyalden-aksiyona':'bolt','mevcut-sistemlerle-calisir':'cpu','is-nesnesi-ve-veri-katmani':'db','ai-ajanlar-ve-gorev-yonetimi':'cpu','gorev-onay-ve-takip':'check','surecler-arasi-devir-teslim':'arrow','yonetim-paneli-ve-dashboard':'bars','rol-bazli-yetkilendirme':'users','guvenlik-ve-veri-yaklasimi':'shield'};
 
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['Platform']) +
-    '<span class="eyebrow">AI-NATIVE İŞLETME ZEKASI KATMANI</span>' +
+    '<span class="eyebrow">AI TABANLI İŞLETME ZEKASI KATMANI</span>' +
     '<h1 style="margin-top:16px;max-width:800px">Chief Platformu</h1>' +
-    '<p class="lead" style="max-width:720px">Chief; e-posta, toplantı notu, WhatsApp, web formu, ERP/CRM kaydı, saha formu ve sistem verilerinden gelen dağınık iş sinyallerini anlayarak bunları yönetilebilir süreçlere, görevlere, onaylara ve karar aksiyonlarına dönüştüren, öğrenen öngörüler üreten, AI-native olarak tasarlanmış bir işletme zekası katmanıdır.</p>' +
+    '<p class="lead" style="max-width:720px">Chief; e-posta, toplantı notu, WhatsApp, web formu, ERP/CRM kaydı, saha formu ve sistem verilerinden gelen dağınık iş sinyallerini anlayarak bunları yönetilebilir süreçlere, görevlere, onaylara ve karar aksiyonlarına dönüştüren, öğrenen öngörüler üreten, AI tabanlı olarak tasarlanmış bir işletme zekası katmanıdır.</p>' +
     '<div class="cta-row" style="margin-top:28px">' +
     '<a href="#/platform/chief-nasil-calisir" class="btn btn-ghost btn-lg">Chief Nasıl Çalışır?</a>' +
     '<a href="#/demo-talep-et" class="btn btn-clay btn-lg">Demo Talep Et</a>' +
@@ -949,7 +1032,7 @@ function renderPlatformV2Listing() {
 
   // 4 alt paragraf
   h += '<section class="bg-warm" style="padding:52px 0"><div class="container"><div class="platform-intro-paras">';
-  ['Chief, işletmelerde farklı sistemlerde, ekiplerde ve kanallarda dağınık halde duran bilgileri yönetilebilir süreçlere, görevlere, onaylara ve kararlara dönüştüren, AI-native olarak iş süreçlerini yöneten, operasyonel işletme zekasıdır.',
+  ['Chief, işletmelerde farklı sistemlerde, ekiplerde ve kanallarda dağınık halde duran bilgileri yönetilebilir süreçlere, görevlere, onaylara ve kararlara dönüştüren, AI tabanlı olarak iş süreçlerini yöneten, operasyonel işletme zekasıdır.',
    'Toplantı notları, e-postalar, WhatsApp mesajları, web formları, ERP/CRM kayıtları, saha formları, dokümanlar ve müşteri geri bildirimleri Chief için yalnızca veri kaynağı değildir. Her biri doğru bağlamla ele alındığında işletme için aksiyon gerektiren bir sinyaldir.',
    'Chief bu sinyalleri yakalar, anlar, mevcut verilerle bağlar, ilgili kişilere görev veya onay olarak yönlendirir ve sürecin sonucunu yönetim için görünür hale getirir.',
    'Bu yapı sayesinde işletmeler yalnızca daha fazla rapor üretmez; işin nerede beklediğini, kimin sorumlu olduğunu, hangi kararın gerektiğini ve hangi süreçlerin iyileştirilmesi gerektiğini daha net görür.'
@@ -2933,7 +3016,7 @@ function renderKullanimAlanlariListing() {
     '<p class="lead" style="max-width:640px">İş süreçlerinize, sektörünüze, işletme ölçeğinize ve kullanım senaryolarınıza göre size özel değeri keşfedin.</p>' +
     '</div></section>';
 
-  h += '<section class="tight"><div class="container"><div class="cards-grid cols-2">';
+  h += '<section class="tight"><div class="container"><div class="cards-grid">';
   cols.forEach(function(c, n) {
     h += '<a class="card" href="' + c.href + '">' +
       '<div class="card-ico ' + (n%2===1?'sage':'') + '">' + ico(c.icon, 22) + '</div>' +
@@ -3019,7 +3102,7 @@ function renderIsSureciListing() {
 
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['İş Süreçlerine Göre']) +
-    '<span class="eyebrow">AI-NATIVE SÜREÇ VE YÖNETİM KATMANI</span>' +
+    '<span class="eyebrow">AI TABANLI SÜREÇ VE YÖNETİM KATMANI</span>' +
     '<h1 style="margin-top:16px;max-width:800px">İş Süreçlerinizi Sinyalden Sonuca Yönetin</h1>' +
     '<p class="lead" style="max-width:720px">Chief; yönetim karar süreçlerinden başlayarak satış, teklif, operasyon, üretim, teknik servis, finansal kapanış ve müşteri/çalışan deneyimi süreçlerini tek bir işletme akışında birbirine bağlar. E-posta, WhatsApp, web formu, toplantı notu, ERP/CRM kaydı, saha formu, IoT sinyali veya geri bildirim gibi dağınık iş sinyallerini yakalar; eksik bilgiyi tamamlar, kurallara göre görev ve onay başlatır, süreci izler ve sonucu yönetim seviyesinde sorgulanabilir hale getirir.</p>' +
     '<div class="cta-row" style="margin-top:28px">' +
@@ -3233,7 +3316,7 @@ function renderBlog() {
     crumb(['Blog']) +
     '<span class="eyebrow">Blog</span>' +
     '<h1 style="margin-top:16px">Chief\'den yazılar</h1>' +
-    '<p class="lead">Operasyonel verimlilik, AI-native sistemler ve kurumsal operasyon yönetimi üzerine içerikler.</p>' +
+    '<p class="lead">Operasyonel verimlilik, AI tabanlı sistemler ve kurumsal operasyon yönetimi üzerine içerikler.</p>' +
     '</div></section>' +
     '<section><div class="container"><div class="blog-grid">' +
     BLOG_POSTS.map(p =>
