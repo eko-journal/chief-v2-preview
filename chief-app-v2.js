@@ -59,21 +59,38 @@ const MEGA = {
       ]},
     ],
   },
-  'is-surecleri': {
+  'kullanim-alanlari': {
     cols: [
-      { label: 'Satış & Teklif', items: [
-        { href: '#/is-surecleri/talep-potansiyel-musteri-firsat-yonetimi', title: 'Talep ve Fırsat Yönetimi',     desc: 'Gelen ilgiyi nitelikli fırsata çevirin' },
-        { href: '#/is-surecleri/satis-ekibi-ziyaret-yonetimi',      title: 'Satış Ekibi ve Ziyaret',       desc: 'Ziyareti fırsata ve teklife bağlayın' },
-        { href: '#/is-surecleri/teklif-talebi-bilgi-tamamlama',      title: 'Teklif Talebi ve Bilgi',       desc: 'Eksik talebi teklife hazır dosyaya çevirin' },
-        { href: '#/is-surecleri/fiyatlama-marj-onay',      title: 'Fiyatlama, Marj ve Onay',      desc: 'Fiyat kararı kontrollü ve izlenebilir' },
-        { href: '#/is-surecleri/tekliften-siparise-gecis',        title: 'Tekliften Siparişe Geçiş',     desc: 'Onaylı teklifi operasyona kayıpsız taşıyın' },
+      { label: 'İş Süreçlerine Göre', items: [
+        { href: '#/is-surecleri/yonetimsel-dogal-dil-veri-stratejik-aksiyon', title: 'Yönetim Katmanı',              desc: '' },
+        { href: '#/is-surecleri',                                              title: 'Satış ve Teklif',              desc: '' },
+        { href: '#/is-surecleri',                                              title: 'Operasyon ve Saha',            desc: '' },
+        { href: '#/is-surecleri',                                              title: 'Üretim, Tedarik ve Kalite',    desc: '' },
+        { href: '#/is-surecleri/fatura-tahsilat-is-kapanisi',                  title: 'Finans',                       desc: '' },
+        { href: '#/is-surecleri',                                              title: 'Paydaş Deneyimi',              desc: '' },
       ]},
-      { label: 'Operasyon & Üretim', items: [
-        { href: '#/is-surecleri/is-emri-saha-planlama',             title: 'İş Emri ve Saha Planlama',       desc: 'Doğru ekip, SLA, kanıtlı kapanış' },
-        { href: '#/is-surecleri/bakim-ariza-teknik-servis',          title: 'Bakım, Arıza ve Teknik Servis',  desc: 'Ekipman geçmişi, kök neden, iyileştirme' },
-        { href: '#/is-surecleri/uretim-planlama-kapasite',           title: 'Üretim Planlama ve Kapasite',    desc: 'Gerçekçi termin, görünür darboğaz' },
-        { href: '#/is-surecleri/stok-yedek-parca-tedarik',           title: 'Stok ve Tedarik',                desc: 'Kritik stok bağlamıyla izlenir' },
-        { href: '#/is-surecleri/fatura-tahsilat-is-kapanisi',         title: 'Fatura ve Tahsilat',             desc: 'İşten faturaya, tahsilata tek zincir' },
+      { label: 'Sektörlere Göre', items: [
+        { href: '#/sektorler', title: 'Üretim ve Sanayi',               desc: '' },
+        { href: '#/sektorler', title: 'Hizmet ve Saha Operasyonları',   desc: '' },
+        { href: '#/sektorler', title: 'Perakende ve Dağıtım',           desc: '' },
+        { href: '#/sektorler', title: 'Kamu ve Yerel Yönetimler',       desc: '' },
+        { href: '#/sektorler', title: 'Kurumsal Hizmetler',             desc: '' },
+        { href: '#/sektorler', title: 'KOBİ ve Büyüyen İşletmeler',    desc: '' },
+      ]},
+      { label: 'İşletme Ölçeğine Göre', items: [
+        { href: '#', title: 'Mikro İşletme / Girişim',           desc: '' },
+        { href: '#', title: 'Küçük İşletme / KOBİ',             desc: '' },
+        { href: '#', title: 'Orta Ölçekli İşletme',             desc: '' },
+        { href: '#', title: 'Büyük Kurumsal / Grup Şirketleri', desc: '' },
+      ]},
+      { label: 'Kullanım Senaryoları', items: [
+        { href: '#', title: 'Talep Karşılama',         desc: '' },
+        { href: '#', title: 'Teklif Hazırlama',        desc: '' },
+        { href: '#', title: 'İş Emri ve Operasyon',    desc: '' },
+        { href: '#', title: 'Toplantıdan Göreve',      desc: '' },
+        { href: '#', title: 'Saha Bildirimi',          desc: '' },
+        { href: '#', title: 'Müşteri Geri Bildirim',   desc: '' },
+        { href: '#', title: 'Onay ve SLA Takibi',      desc: '' },
       ]},
     ],
   },
@@ -168,8 +185,9 @@ const megaC = document.getElementById('megaContainer');
 
 function buildMega(key) {
   const m = MEGA[key]; if (!m) return '';
+  const colClass = m.cols.length >= 4 ? 'mega-4col' : 'mega-2col';
   return '<div class="mega" data-mega-panel="' + key + '">' +
-    '<div class="mega-inner mega-2col">' +
+    '<div class="mega-inner ' + colClass + '">' +
     m.cols.map(col =>
       '<div class="mega-col">' +
       '<span class="mega-col-label">' + esc(col.label) + '</span>' +
@@ -232,16 +250,20 @@ let _drawerGoBack  = false;
 
 function _drawerRoot() {
   return '<button class="m-nav-btn" data-panel="platform">Platform <span class="m-chev">›</span></button>' +
-    '<button class="m-nav-btn" data-panel="is-surecleri">İş Süreçleri <span class="m-chev">›</span></button>' +
+    '<button class="m-nav-btn" data-panel="kullanim-alanlari">Kullanım Alanları <span class="m-chev">›</span></button>' +
     '<a class="m-flat" href="#/entegrasyonlar">Entegrasyonlar</a>' +
     '<a class="m-flat" href="#/fiyatlandirma">Fiyatlandırma</a>' +
-    '<a class="m-flat" href="#/blog">Blog</a>' +
-    '<div style="margin-top:22px"><a href="#/demo-talep-et" class="btn btn-clay btn-lg" style="width:100%;justify-content:center">Demo Talep Et</a></div>';
+    '<a class="m-flat" href="#/blog">Kaynaklar</a>' +
+    '<a class="m-flat" href="#/partnerler">Partnerlik</a>' +
+    '<div style="margin-top:22px;display:flex;flex-direction:column;gap:10px">' +
+    '<a href="https://app.chiefai.com.tr" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center">Giriş</a>' +
+    '<a href="#/demo-talep-et" class="btn btn-clay btn-lg" style="width:100%;justify-content:center">Demo Talep Et</a>' +
+    '</div>';
 }
 
 function _drawerPanel(key) {
   const m = MEGA[key];
-  const label = key === 'platform' ? 'Platform' : 'İş Süreçleri';
+  const label = key === 'platform' ? 'Platform' : 'Kullanım Alanları';
   let h = '<button class="m-back" id="mDrawerBack">' +
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>' +
     label + '</button>';
