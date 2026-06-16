@@ -1693,7 +1693,7 @@ function renderIsSureciListing() {
     '<p class="lead" style="max-width:620px">Yönetimsel doğal dil veri erişiminden satışa, operasyondan üretime, finansal kapanıştan paydaş deneyimine — 15 süreç, tek işletme akışında.</p>' +
     '</div></section>';
 
-  h += '<section><div class="container">';
+  h += '<section class="tight"><div class="container">';
 
   // Featured card
   h += '<a class="is-feat" href="#/is-surecleri/yonetimsel-dogal-dil">' +
@@ -1741,13 +1741,13 @@ function renderIsSureciPage(slug) {
     '</div></section>';
 
   // Problem
-  h += '<section class="bg-warm"><div class="container narrow">' +
-    '<div class="section-head"><span class="eyebrow">Bu süreç neyi çözer?</span></div>' +
+  h += '<section class="bg-warm tight"><div class="container narrow">' +
+    '<div class="section-head" style="margin-bottom:18px"><span class="eyebrow">Bu süreç neyi çözer?</span></div>' +
     '<p style="font-size:17px;line-height:1.75;color:var(--t-body)">' + esc(d.problem) + '</p>' +
     '</div></section>';
 
   // Akış adımları
-  h += '<section><div class="container">' +
+  h += '<section class="tight"><div class="container">' +
     '<div class="section-head"><span class="eyebrow">Chief bu süreci nasıl yönetir?</span></div>' +
     '<div class="proc-steps-grid">';
   d.steps.forEach(function(s) {
@@ -1759,7 +1759,7 @@ function renderIsSureciPage(slug) {
   h += '</div></div></section>';
 
   // NL Queries
-  h += '<section class="bg-warm"><div class="container">' +
+  h += '<section class="bg-warm tight"><div class="container">' +
     '<div class="nl-block">' +
     '<div class="nl-block-label">' + ico('chat', 14) + ' Yönetici Chief\'e sorar</div>';
   d.nlQueries.forEach(function(q) {
@@ -1768,8 +1768,8 @@ function renderIsSureciPage(slug) {
   h += '</div></div></section>';
 
   // Metrikler + SSS
-  h += '<section><div class="container">' +
-    '<div class="sp-metrics" style="margin-bottom:56px">';
+  h += '<section class="tight"><div class="container">' +
+    '<div class="sp-metrics" style="margin-bottom:36px">';
   d.metrics.forEach(function(m) {
     h += '<div class="sp-metric"><span class="sp-num">' + esc(m.n) + '</span><span class="sp-label">' + esc(m.l) + '</span></div>';
   });
