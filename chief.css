@@ -721,6 +721,64 @@ a.card { color: inherit; }
 .nl-item p { font-size: 14.5px; color: rgba(250,249,245,.78); margin: 0; line-height: 1.65; font-style: italic; }
 @media (max-width: 700px) { .is-feat { padding: 26px 22px; } .proc-steps-grid { grid-template-columns: 1fr; } .nl-block { padding: 22px 20px; } }
 
+/* İş Süreçleri — omurga grid */
+.omurga-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.omurga-item { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 22px 24px; }
+.omurga-num { font-size: 12px; font-weight: 700; color: var(--clay); font-family: 'JetBrains Mono',monospace; letter-spacing:.06em; margin-bottom:10px; display:block; }
+.omurga-item h4 { font-size:15px; font-weight:700; margin:0 0 8px; }
+.omurga-item p { font-size:13.5px; color:var(--t-muted); margin:0; line-height:1.6; }
+/* yönetimsel katman liste */
+.katman-list { display:flex; flex-direction:column; gap:16px; }
+.katman-item { display:flex; gap:14px; align-items:flex-start; }
+.katman-dot { width:6px; height:6px; border-radius:50%; background:var(--clay); flex-shrink:0; margin-top:10px; }
+.katman-item p { font-size:15px; color:var(--t-body); margin:0; line-height:1.7; }
+/* öne çıkan yönetim deneyimi */
+.yone-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.yone-card { border:1px solid var(--border); border-radius:var(--r-lg); padding:26px 28px; background:var(--card); }
+.yone-label { font-size:11px; font-weight:700; color:var(--clay); text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px; display:block; }
+.yone-card p { font-size:15px; color:var(--t-body); line-height:1.7; margin:0; }
+/* örnek yönetici akışı */
+.ornek-akis { background:var(--ink); border-radius:var(--r-xl); padding:36px 40px; }
+.ornek-akis .akis-label { font-size:12px; font-weight:700; color:var(--clay-soft); text-transform:uppercase; letter-spacing:.08em; margin-bottom:24px; display:block; }
+.akis-step { display:flex; gap:20px; align-items:flex-start; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.07); }
+.akis-step:last-child { border-bottom:none; padding-bottom:0; }
+.akis-step-num { width:36px; height:36px; border-radius:50%; background:rgba(217,119,87,.18); color:var(--clay-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:13px; font-weight:700; font-family:'JetBrains Mono',monospace; }
+.akis-step p { font-size:14.5px; color:rgba(250,249,245,.8); margin:0; line-height:1.65; }
+.akis-step strong { color:var(--ivory); font-weight:600; }
+/* NL chat bubbles */
+.nl-chat-wrap { background:var(--ink); border-radius:var(--r-xl); padding:32px 36px; }
+.nl-chat-intro { font-size:12px; font-weight:700; color:var(--clay-soft); text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px; display:block; }
+.nl-chat-sub { font-size:13px; color:rgba(250,249,245,.45); margin:0 0 22px; line-height:1.6; }
+.nl-bubbles { display:flex; flex-direction:column; gap:10px; }
+.nl-bubble { display:flex; gap:12px; align-items:flex-start; }
+.nl-bubble-icon { width:28px; height:28px; border-radius:50%; background:rgba(120,140,93,.25); color:#a3bc82; flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:2px; }
+.nl-bubble-text { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:0 12px 12px 12px; padding:10px 16px; font-size:14px; color:rgba(250,249,245,.82); line-height:1.6; font-style:italic; }
+/* özel durumlar */
+.durumlar-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.durum-card { background:var(--card); border:1px solid var(--border); border-left:3px solid var(--clay-soft); border-radius:0 var(--r-md) var(--r-md) 0; padding:16px 20px; }
+.durum-card p { font-size:14px; color:var(--t-body); margin:0; line-height:1.6; }
+/* KPI grid */
+.kpi-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px 40px; }
+.kpi-item { font-size:15px; color:var(--t-body); display:flex; gap:10px; align-items:flex-start; }
+.kpi-dash { color:var(--clay); font-weight:700; flex-shrink:0; }
+/* tablolar */
+.is-amac-table { width:100%; border-collapse:collapse; font-size:15px; }
+.is-amac-table td { padding:14px 18px; border:1px solid var(--border); vertical-align:top; line-height:1.65; }
+.is-amac-table td:first-child { font-weight:700; background:var(--warm); width:160px; }
+.is-karar-table { width:100%; border-collapse:collapse; font-size:14px; }
+.is-karar-table th { padding:11px 14px; text-align:left; border:1px solid var(--border); background:var(--warm); font-weight:700; }
+.is-karar-table td { padding:11px 14px; border:1px solid var(--border); color:var(--t-body); vertical-align:top; line-height:1.55; }
+.is-karar-table td:first-child { font-weight:600; color:var(--ink); }
+/* insan denetimi */
+.denetim-block { background:var(--warm); border-radius:var(--r-lg); padding:22px 26px; border-left:3px solid var(--sage); }
+.denetim-block p { font-size:14px; color:var(--t-muted); margin:0; line-height:1.75; }
+/* listing kapanış */
+.is-kapanis { background:var(--ink); padding:80px 0; }
+.is-kapanis h2 { font-size:clamp(22px,3vw,32px); color:var(--ivory); margin-bottom:22px; max-width:680px; }
+.is-kapanis p { font-size:16px; color:rgba(250,249,245,.7); max-width:680px; margin-bottom:14px; line-height:1.75; }
+@media(max-width:860px){ .omurga-grid{grid-template-columns:1fr 1fr} .yone-grid,.durumlar-grid,.kpi-grid{grid-template-columns:1fr} }
+@media(max-width:560px){ .omurga-grid{grid-template-columns:1fr} .ornek-akis{padding:22px 18px} .nl-chat-wrap{padding:22px 18px} }
+
 /* pricing */
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
 .price-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 34px; }
