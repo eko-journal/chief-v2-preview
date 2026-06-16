@@ -743,6 +743,20 @@ a.card { color: inherit; }
 .partner-ne-saglar-item::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--clay); flex-shrink:0; margin-top:8px; }
 @media(max-width:860px){ .partner-modeller-grid{grid-template-columns:1fr} .partner-gelir-blok{padding:32px 24px} }
 
+
+/* Kullanım Senaryoları sayfaları */
+.senaryo-steps { display:flex; flex-direction:column; gap:16px; }
+.senaryo-step { display:flex; gap:16px; align-items:flex-start; }
+.senaryo-step-num { min-width:34px; height:34px; border-radius:50%; background:var(--clay); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; font-family:'JetBrains Mono',monospace; flex-shrink:0; margin-top:2px; }
+.senaryo-step p { font-size:15px; color:var(--t-body); margin:0; line-height:1.65; }
+.senaryo-step strong { color:var(--ink); font-weight:600; }
+.senaryo-ciktilar { display:flex; flex-direction:column; gap:10px; }
+.senaryo-cikti { display:flex; gap:12px; font-size:15px; color:var(--t-body); align-items:flex-start; }
+.senaryo-cikti::before { content:'✓'; color:var(--sage-deep); font-weight:700; flex-shrink:0; margin-top:2px; }
+.senaryo-yetenekler { display:flex; flex-wrap:wrap; gap:8px; }
+.senaryo-yetenek { background:var(--warm); border:1px solid var(--border); border-radius:20px; padding:5px 14px; font-size:13px; color:var(--t-muted); font-family:var(--f-ui); }
+.senaryo-kimler { background:var(--warm); border-radius:var(--r-lg); padding:16px 20px; font-size:14px; color:var(--t-body); line-height:1.7; }
+.senaryo-denetim { display:flex; gap:10px; align-items:flex-start; font-size:13px; color:var(--sage-deep); background:var(--sage-tint); border-radius:var(--r-md); padding:12px 16px; margin-top:16px; line-height:1.6; }
 /* Platform bölüm sayfaları */
 .platform-bolum h3 { font-size: clamp(17px,2vw,21px); font-weight: 700; margin:0 0 16px; }
 .platform-bolum p { font-size:16px; color:var(--t-body); line-height:1.8; margin-bottom:14px; }

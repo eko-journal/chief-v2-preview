@@ -85,7 +85,7 @@ const MEGA = {
         { href: '#', title: 'Mikro İşletme / Girişim',           desc: '' },
         { href: '#', title: 'Küçük İşletme / KOBİ',             desc: '' },
         { href: '#', title: 'Orta Ölçekli İşletme',             desc: '' },
-        { href: '#', title: 'Büyük Kurumsal / Grup Şirketleri', desc: '' },
+        { href: '#/kullanim-alanlari/isletme-olcegine-gore/buyuk-kurumsal-grup-sirketleri', title: 'Büyük Kurumsal / Grup Şirketleri', desc: '' },
       ]},
       { label: 'Kullanım Senaryoları', items: [
         { href: '#', title: 'Talep Karşılama',         desc: '' },
@@ -366,8 +366,16 @@ function go() {
       label = 'Sektörlere Göre';
     }
     else if (subSec === 'sektorlere-gore')             { html = renderSektorlerV2Listing();          label = 'Sektörlere Göre'; }
-    else if (subSec === 'isletme-olcegine-gore')       { html = _stub('İşletme Ölçeğine Göre', subSlug); label = 'İşletme Ölçeğine Göre'; }
-    else if (subSec === 'kullanim-senaryolari')        { html = _stub('Kullanım Senaryoları', subSlug);  label = 'Kullanım Senaryoları'; }
+    else if (subSec === 'isletme-olcegine-gore' && subSlug) {
+      html = ISLETME_OLCEGI_DATA[subSlug] ? renderIsletmeOlcegiPage(subSlug) : _stub('İşletme Ölçeğine Göre', subSlug);
+      label = 'İşletme Ölçeğine Göre';
+    }
+    else if (subSec === 'isletme-olcegine-gore') { html = renderIsletmeOlcegiListing(); label = 'İşletme Ölçeğine Göre'; }
+    else if (subSec === 'kullanim-senaryolari' && subSlug) {
+      html = KULLANIM_SENARYOLARI_DATA[subSlug] ? renderKullanimSenaryoPage(subSlug) : _stub('Kullanım Senaryoları', subSlug);
+      label = 'Kullanım Senaryoları';
+    }
+    else if (subSec === 'kullanim-senaryolari') { html = renderKullanimSenaryolariListing(); label = 'Kullanım Senaryoları'; }
     else                                               { html = renderKullanimAlanlariListing();     label = 'Kullanım Alanları'; }
   }
   else if (sec === 'is-surecleri'  && slug) { html = renderIsSureciPage(slug);     label = 'İş Süreçleri'; }
@@ -2011,6 +2019,378 @@ function renderSektorlerV2Listing() {
   });
   h += '</div></div></section>' + finalCTA();
   return h;
+}
+
+
+/* ================================================================
+   İŞLETME ÖLÇEĞİNE GÖRE
+   ================================================================ */
+const ISLETME_OLCEGI_DATA = {
+  'mikro-isletme-girisim': {
+    cardTitle: 'Mikro İşletme / Girişim',
+    cardDesc: 'Freelance çalışanlar, yeni kurulan ekipler, 1-5 çalışan mikro işletmeler ve ilk süreçlerini düzenlemek isteyen girişimler.',
+    h1: 'Mikro İşletme / Girişim',
+    lead: 'Büyük ERP veya CRM yatırımı yapmadan; gelen talepleri toplamak, mesajdan görev çıkarmak, teklif ve takip akışı kurmak için Chief\'le başlayın.',
+    bolumler: [
+      { baslik: 'Kimler için?', metin: 'Freelance çalışanlar, yeni kurulan ekipler, 1-5 çalışan mikro işletmeler ve ilk operasyonel süreçlerini düzenlemek isteyen girişimler için tasarlanmıştır.' },
+      { baslik: 'Chief ne sağlar?', metin: 'Gelen talepleri toplama ve sınıflandırma.\nMesajdan görev çıkarma ve takip.\nBasit teklif ve onay akışı.\nKısa yönetim özeti.\nTemel görev ve onay düzeni.' },
+      { baslik: 'Nasıl başlanır?', metin: 'Mevcut araçlarınızı — WhatsApp, e-posta, web formu — değiştirmeden Chief\'e bağlayın. Tek bir akışla başlayın; sonuçları görünce genişletin. Kurulum haftalar içinde tamamlanır.' },
+      { baslik: 'Büyüdükçe ne olur?', metin: 'Ekip büyüdükçe yeni süreçler, kullanıcılar ve entegrasyonlar eklenebilir. Başlangıçta kullandığınız akışlar değişmez; üstüne yenileri gelir. Büyük sistem değişikliği gerekmez.' },
+    ],
+    caseStudy: {
+      logo:'logo-ikon.png', company:'İkon Araştırma', industry:'Pazar Araştırması & Danışmanlık',
+      quote:'"Saha ekibinin anket süreçleri, proje ilerlemeleri ve verilen tekliflerin takibi e-posta ve WhatsApp karmaşasındaydı. Chief ile saha koordinasyonu ve teklif yönetimi tek platforma taşındı."',
+      results:[{n:'7/24',l:'Saha ekibi görünürlüğü'},{n:'%100',l:'Teklif takip oranı'},{n:'-%55',l:'Koordinasyon e-postası'},{n:'2 hafta',l:'Devreye alma süresi'}],
+    },
+  },
+  'kucuk-isletme-kobi': {
+    cardTitle: 'Küçük İşletme / KOBİ',
+    cardDesc: 'İşini oturtmuş, büyüyen ekipler; yaklaşık 5-20 çalışan yapılar. Düzenli satış, teklif, takip ve temel operasyon akışı olan işletmeler.',
+    h1: 'Küçük İşletme / KOBİ',
+    lead: 'Satış, teklif, operasyon ve temel saha akışlarınızı tek platformda yönetin. Departmanlar arasında bilgi kaybı olmadan büyüyün.',
+    bolumler: [
+      { baslik: 'Kimler için?', metin: 'İşini oturtmuş, büyüyen ekipler; yaklaşık 5-20 çalışan yapılar. Düzenli satış, teklif, takip ve temel operasyon akışı olan işletmeler için uygundur.' },
+      { baslik: 'Chief ne sağlar?', metin: 'Satış ve teklif takibi.\nOperasyon görevleri ve atama.\nTemel saha planlama.\nFatura ve tahsilat takibi.\nDepartman bazlı görünürlük.' },
+      { baslik: 'Neden önemli?', metin: 'Bu ölçekteki işletmelerde en büyük sorun bilginin kişisel hafızalarda ve mesajlarda kalmasıdır. Chief bu bilgiyi göreve, sorumluya ve sürece dönüştürür. Yönetici haftalık rapor beklemeden ne durumda olduğunu anlık görür.' },
+      { baslik: 'Devreye alma', metin: 'Mevcut araçlarla çalışır: WhatsApp, e-posta ve varsa CRM veya ERP. Tek bir süreçle başlanır, büyüdükçe genişlenir. Ortalama 3-4 haftada ilk akış canlıya alınır.' },
+    ],
+    caseStudy: {
+      logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
+      quote:'"Satış ekibimizin ziyaret notları farklı kişisel dosyalara dağılmış, doğru veriye anında ulaşmak güçleşmişti. Chief ile tüm satış hattı, toplantı çıktıları ve teklif süreçleri tek ekranda görünür."',
+      results:[{n:'%98',l:'Ziyaret notu kayıt oranı'},{n:'7/24',l:'Satış hattı görünürlüğü'},{n:'-%40',l:'Raporlama hazırlık süresi'},{n:'1 ekran',l:'Tüm operasyon'}],
+    },
+  },
+  'orta-olcekli-isletme': {
+    cardTitle: 'Orta Ölçekli İşletme',
+    cardDesc: 'Yaklaşık 20-100 çalışan, ciddi iş hacmi olan ve birden fazla süreci birlikte yöneten ticari şirketler.',
+    h1: 'Orta Ölçekli İşletme',
+    lead: 'Satış, operasyon, saha, üretim ve finans süreçlerini entegrasyon ve onay akışlarıyla birlikte yönetin. Çoklu departman görünürlüğü ve yönetim brifingleriyle büyük kurumsal altyapı gerektirmeden büyüyün.',
+    bolumler: [
+      { baslik: 'Kimler için?', metin: 'Yaklaşık 20-100 çalışan, ciddi iş hacmi olan ve birden fazla süreci birlikte yöneten ticari şirketler. Satış, operasyon, saha/servis, üretim veya planlama süreçlerini birlikte yürüten işletmeler için uygundur.' },
+      { baslik: 'Chief ne sağlar?', metin: 'Satış, operasyon, saha, üretim ve finans süreçlerinin birlikte yönetimi.\nEntegrasyonlu süreç akışları.\nOnay ve SLA takibi.\nDashboard ve yönetim brifingleri.\nKullanım yoğunluğuna göre ölçeklenen yapı.' },
+      { baslik: 'Bu ölçeğin ana sorunları', metin: 'Bu büyüklükteki işletmelerde bilgi birden fazla sistemde dağılır, ekipler arası devir teslim kopuktur ve yönetim gerçek zamanlı görünürlük için haftalarca rapor bekler. Chief bu üç sorunu aynı anda çözer.' },
+      { baslik: 'Entegrasyon ve güvenlik', metin: 'Mevcut ERP, CRM ve muhasebe sistemleriyle birlikte çalışır. SSO, rol bazlı yetkilendirme ve denetim izi standart olarak gelir. KVKK ve GDPR uyumu için on-premise seçeneği mevcuttur.' },
+    ],
+    caseStudy: {
+      logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+      quote:'"40+ lokasyondaki saha işlerinin takibini tek Chief kurulumundan yönetiyoruz. Her iş emrinin durumu, sahibi ve kapanış kanıtı gerçek zamanlı görünür."',
+      results:[{n:'40+',l:'Lokasyon tek akışta'},{n:'%100',l:'İş emri görünürlüğü'},{n:'-%38',l:'Yanıt süresi'},{n:'0',l:'Kanıtsız kapanış'}],
+    },
+  },
+  'buyuk-kurumsal-grup-sirketleri': {
+    cardTitle: 'Büyük Kurumsal / Grup Şirketleri',
+    cardDesc: '100+ çalışan, çok lokasyonlu, çok sistemli, global veya holding yapıları. İleri entegrasyon, güvenlik ve ölçeklenebilirlik ihtiyacı yüksektir.',
+    h1: 'Büyük Kurumsal / Grup Şirketleri',
+    lead: 'Çok sistemli entegrasyon, rol bazlı yetkilendirme, private cloud veya on-premise kurulum ve yönetim katmanıyla büyük kurumsal yapılara özel Chief konumlandırması.',
+    bolumler: [
+      { baslik: 'Kimler için?', metin: '100+ çalışan, çok lokasyonlu, çok sistemli, global veya holding yapıları. İleri entegrasyon, güvenlik ve ölçeklenebilirlik ihtiyacı yüksek olan kurumsal organizasyonlar için uygundur.' },
+      { baslik: 'Chief ne sağlar?', metin: 'Çok sistemli entegrasyon (SAP, Oracle, özel ERP).\nGranüler rol bazlı yetkilendirme.\nPrivate cloud veya on-premise seçenekleri.\nYönetim katmanı ve karar destek.\nÇoklu departman ve lokasyon görünürlüğü.' },
+      { baslik: 'Kurumsal güvenlik ve uyumluluk', metin: 'Verinin kendi altyapısında kalması gereken kurumlar için on-premise ve private cloud kurulum seçenekleri sunulmaktadır. KVKK ve GDPR uyumluluğu sertifikalandırılabilir. Rol bazlı erişim, denetim kayıtları ve veri maskeleme standart olarak gelir.' },
+      { baslik: 'Proje tabanlı yaklaşım', metin: 'Büyük kurumsal ve grup şirketleri için fiyat; altyapı, kullanıcı, süreç hacmi, model tercihi, entegrasyon ve bakım kapsamına göre proje bazlı belirlenir. Kurumsal görüşme ile başlayın.' },
+    ],
+    caseStudy: {
+      logo:'logo-tak.png', company:'TAK-Umwelt GmbH', industry:'Çevre Teknolojisi · Almanya',
+      quote:'"Almanya operasyonumuz için GDPR uyumluluğu kritikti. Chief\'in on-prem kurulumu ve veri izolasyonu, hukuk biriminin onayını ilk görüşmede aldı."',
+      results:[{n:'GDPR',l:'Almanya operasyonu onaylı'},{n:'%100',l:'On-prem veri izolasyonu'},{n:'3 hafta',l:'Devreye alma süresi'},{n:'0',l:'Sistem değişikliği'}],
+    },
+  },
+};
+
+function renderIsletmeOlcegiPage(slug) {
+  var d = ISLETME_OLCEGI_DATA[slug];
+  if (!d) return _stub('İşletme Ölçeğine Göre', slug);
+  var cs = d.caseStudy;
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['İşletme Ölçeğine Göre', '#/kullanim-alanlari/isletme-olcegine-gore'], [d.cardTitle]) +
+    '<div style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px 56px;align-items:start">' +
+    '<div><span class="eyebrow">İŞLETME ÖLÇEĞİNE GÖRE</span>' +
+    '<h1 style="margin-top:16px">' + esc(d.h1) + '</h1>' +
+    '<p class="lead">' + esc(d.lead) + '</p></div>' +
+    '<div><div class="cs-block" style="box-shadow:var(--sh-lg)">' +
+    '<div class="cs-header"><div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
+    '<div><div class="sp-company">' + esc(cs.company) + '</div><div class="sp-industry">' + esc(cs.industry) + '</div></div></div>' +
+    '<blockquote class="sp-quote">' + esc(cs.quote) + '</blockquote>' +
+    '<div class="sp-metrics">' + cs.results.map(function(r){ return '<div class="sp-metric"><span class="sp-num">' + esc(r.n) + '</span><span class="sp-label">' + esc(r.l) + '</span></div>'; }).join('') + '</div>' +
+    '</div></div></div></div></section>';
+  d.bolumler.forEach(function(b, i) {
+    h += '<section class="' + (i%2===0?'bg-warm':'') + '" style="padding:52px 0"><div class="container narrow platform-bolum"><h3>' + esc(b.baslik) + '</h3>';
+    b.metin.split('\\n').forEach(function(line){ if (line.trim()) h += '<p>' + esc(line.trim()) + '</p>'; });
+    h += '</div></section>';
+  });
+  return h + finalCTA();
+}
+
+function renderIsletmeOlcegiListing() {
+  var slugs = Object.keys(ISLETME_OLCEGI_DATA);
+  var icons = {'mikro-isletme-girisim':'bolt','kucuk-isletme-kobi':'users','orta-olcekli-isletme':'bars','buyuk-kurumsal-grup-sirketleri':'shield'};
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['İşletme Ölçeğine Göre']) +
+    '<span class="eyebrow">İŞLETME ÖLÇEĞİNE GÖRE</span>' +
+    '<h1 style="margin-top:16px;max-width:720px">İşletme ölçeğinize göre Chief</h1>' +
+    '<p class="lead" style="max-width:620px">Mikro girişimden büyük kurumsal yapılara kadar her ölçek için Chief\'in nasıl değer ürettiğini keşfedin.</p>' +
+    '</div></section><section class="tight"><div class="container"><div class="cards-grid cols-2">';
+  slugs.forEach(function(slug, n) {
+    var d = ISLETME_OLCEGI_DATA[slug];
+    h += '<a class="card" href="#/kullanim-alanlari/isletme-olcegine-gore/' + slug + '">' +
+      '<div class="card-ico ' + (n%2===1?'sage':'') + '">' + ico(icons[slug]||'users', 22) + '</div>' +
+      '<h4>' + esc(d.cardTitle) + '</h4><p>' + esc(d.cardDesc) + '</p>' +
+      '<span class="card-foot btn-link">İncele ' + ico('arrow',15) + '</span></a>';
+  });
+  h += '</div></div></section>' + finalCTA();
+  return h;
+}
+
+
+/* ================================================================
+   KULLANIM SENARYOLARI
+   ================================================================ */
+const KULLANIM_SENARYOLARI_DATA = {
+  'gelen-talebi-yakala-ve-tamamla': {
+    cat: 'TALEP, SATIŞ VE TEKLİF',
+    h1: 'Gelen Talebi Yakala ve Tamamla',
+    lead: 'E-posta, WhatsApp, web formu veya CRM üzerinden gelen talebi anlayın; eksik bilgiyi doğal diyalogla tamamlayın ve teklif hazırlamaya hazır, yapılandırılmış bir kayda dönüştürün.',
+    problem: 'Gelen talepler çoğu zaman farklı kanallara dağılır, eksik bilgiyle gelir ve çalışanların yeniden veri girmesini gerektirir. Bu durum geç yanıt, yanlış sınıflandırma, kayıp fırsat ve teklif süresinin uzamasıyla sonuçlanır.',
+    steps: ['Talebi yakalar. E-posta, WhatsApp, web formu, CRM veya diğer bağlı kanallardan gelen kaydı alır ve kaynak bağlantısını korur.','Niyeti ve bağlamı belirler. Talep türünü, müşteriyi, ürün veya hizmeti, lokasyonu, aciliyeti ve ilgili süreci sınıflandırır.','Mevcut veriyi tamamlar. CRM, ERP, ürün kataloğu, sözleşme veya geçmiş iletişim kayıtlarından ilgili bağlamı getirir.','Eksik bilgiyi sorar. Teklif veya işlem için gerekli alanlar eksikse müşteriye ya da iç kullanıcıya doğal diyalogla hedefli sorular yöneltir.','Yapılandırılmış kayıt oluşturur. Talep özeti, ihtiyaçlar, ekler, öncelik, son tarih ve eksik bilgi geçmişini tek dosyada toplar.','Doğru ekibe yönlendirir. Bölge, ürün, müşteri tipi, uzmanlık ve SLA kuralına göre sorumlu kişiyi veya ekibi atar ve takibi başlatır.'],
+    ciktilar: ['Eksiksiz ve standartlaştırılmış talep kaydı','Tekrar veri girişinin azalması ve kaynak mesajın korunması','Talep türü, öncelik, sorumlu ve hedef yanıt süresinin belirlenmesi','Teklife, keşfe, teknik değerlendirmeye veya hizmet kaydına hazır iş dosyası','Geciken ve yanıtsız talepler için otomatik hatırlatma ve eskalasyon'],
+    yetenekler: ['Çok kanallı sinyal yakalama','Yapay zekâ ile niyet ve içerik sınıflandırma','Doğal diyalogla eksik bilgi tamamlama','ERP/CRM ve ürün verisiyle bağlam kurma','Kural tabanlı yönlendirme, SLA ve denetim izi'],
+    kimler: 'Satış, teknik satış, müşteri hizmetleri, proje satış, teklif ve iş geliştirme ekipleri için uygundur.',
+  },
+  'mesajdan-goreve-ve-takibe': {
+    cat: 'TALEP, SATIŞ VE TEKLİF',
+    h1: 'Mesajdan Göreve ve Takibe',
+    lead: 'E-posta, WhatsApp, kurumsal mesajlaşma veya not içinde kalan yapılacak işi bulun; sorumlu, tarih, öncelik ve kapanış koşuluyla birlikte izlenebilir göreve dönüştürün.',
+    problem: 'Operasyonel işler çoğu zaman bir mesajın içinde kalır; kimin yapacağı, ne zaman tamamlanacağı ve tamamlandığının nasıl doğrulanacağı açık değildir.',
+    steps: ['Mesajı alır. Bağlı iletişim kanalındaki mesajı, eki ve konuşma bağlamını yakalar.','Aksiyon ifadesini belirler. Yapılacak işi, talebi, soruyu, taahhüdü veya takip gerektiren konuyu metinden çıkarır.','Görev alanlarını oluşturur. Konu, açıklama, öncelik, son tarih, gerekli belge ve kapanış şartlarını yapılandırır.','Sorumluyu atar. Rol, bölge, uzmanlık, iş yükü veya müşteri sorumluluğuna göre doğru kişiyi önerir ya da atar.','Takip ve eskalasyonu çalıştırır. Yaklaşan son tarih, gecikme, yanıtsızlık veya bağımlı iş durumunda bildirim ve eskalasyon üretir.','Kapanışı doğrular. Yanıt, belge, fotoğraf, form, sistem kaydı veya yönetici onayı gibi tanımlı kanıtla görevi kapatır.'],
+    ciktilar: ['Mesajlarda kaybolmayan atanmış görevler','Açık sorumluluk, hedef tarih ve öncelik','Gecikme ve bekleyen iş görünürlüğü','Kaynak mesajla görevin aynı denetim izinde tutulması','Kapanış kanıtı ve görev performans verisi'],
+    yetenekler: ['Metinden aksiyon ve varlık çıkarımı','Rol ve iş yüküne göre atama','Görev, bildirim, SLA ve eskalasyon motoru','Belge ve kanıt yönetimi','Aktivite geçmişi ve yönetim görünürlüğü'],
+    kimler: 'Müşteri hizmetleri, operasyon, satış, satın alma, finans, idari işler ve saha koordinasyon ekiplerinde mesaj trafiğinin yüksek olduğu tüm birimler için uygundur.',
+  },
+  'gorusmeden-aksiyona': {
+    cat: 'TALEP, SATIŞ VE TEKLİF',
+    h1: 'Görüşmeden Aksiyona',
+    lead: 'Toplantı, müşteri görüşmesi veya telefon notlarını yalnızca arşivlemeyin; kararları, taahhütleri, riskleri ve takip maddelerini sorumlusu belli aksiyonlara dönüştürün.',
+    problem: 'Görüşmelerde önemli kararlar alınmasına rağmen aksiyonlar notların içinde kalabilir. Farklı kişiler aynı kararı farklı yorumlayabilir; taahhütlerin sahibi ve tarihi belirsizleşebilir.',
+    steps: ['Görüşme kaydını alır. Toplantı özeti, çağrı notu, transkript veya kullanıcı notunu ilgili müşteri, proje ya da süreçle ilişkilendirir.','Karar ve aksiyonları ayırır. Alınan kararları, yapılacak işleri, verilen taahhütleri, açık soruları ve riskleri ayrı ayrı sınıflandırır.','Bağlamı doğrular. İlgili müşteri, proje, teklif, iş emri veya konu kaydıyla eşleşmeyi kontrol eder.','Sorumlu ve tarih önerir. Notta geçen sahiplik ve zaman ifadelerini kullanır; eksikse rol ve süreç kurallarına göre öneri üretir.','Onay sonrası görevleri açar. Kullanıcı doğrulamasından sonra görev, hatırlatma, onay veya takip kaydı oluşturur.','Sonucu görüşmeye bağlar. Tamamlanan işleri, geciken taahhütleri ve yeni riskleri aynı görüşme geçmişinde görünür tutar.'],
+    ciktilar: ['Toplantıdan çıkan net karar ve aksiyon listesi','Taahhüt sahibi ve hedef tarih görünürlüğü','Açık sorular ve risklerin ayrı takibi','Görüşme, görev ve sonuç arasında kesintisiz iz','Haftalık takip ve yönetim özetine otomatik veri'],
+    yetenekler: ['Not ve transkript analizi','Karar, taahhüt, risk ve aksiyon ayrıştırma','İş nesneleriyle bağlam eşleştirme','Görev ve hatırlatma oluşturma','Denetim izi ve yönetim görünümlüğü'],
+    kimler: 'Satış, proje yönetimi, müşteri başarı, teknik danışmanlık, operasyon yönetimi ve üst yönetim ekipleri için uygundur.',
+  },
+  'teklif-hazirlama-ve-onay': {
+    cat: 'TALEP, SATIŞ VE TEKLİF',
+    h1: 'Teklif Hazırlama ve Onay',
+    lead: 'Tamamlanmış müşteri talebini fiyat, maliyet, stok, teslimat ve sözleşme koşullarıyla birleştirin; teklifi hazırlayın, doğru yetki seviyesinde onaylatın ve sonrasındaki operasyona bağlayın.',
+    problem: 'Teklif hazırlarken müşteri talebi, ürün bilgisi, fiyat listesi, maliyet, iskonto, stok ve teslimat koşulları farklı kaynaklarda kalabilir. Manuel kontrol hataya, marj kaybına ve onay gecikmesine neden olur.',
+    steps: ['Talep dosyasını açar. Tamamlanmış ihtiyaç, miktar, teknik koşul, teslim yeri ve hedef tarih bilgilerini kullanır.','Ticari bağlamı getirir. ERP/CRM, fiyat listesi, maliyet, stok, müşteri segmenti, sözleşme ve geçmiş teklif verisini bağlar.','Teklif taslağı oluşturur. Kalemleri, miktarları, fiyatları, teslim ve ödeme koşullarını şirket şablonuna göre hazırlar.','Kural kontrollerini uygular. İskonto, marj, kredi riski, teslim süresi, stok uygunluğu ve istisna kurallarını kontrol eder.','Yetkili onayını çalıştırır. Tutar, marj, müşteri veya istisna seviyesine göre doğru onay zincirini başlatır.','Sürüm ve sonucu yönetir. Onaylı teklifi gönderime hazırlar, revizyonları izler; kabul edildiğinde üretim, saha veya sipariş akışını tetikler.'],
+    ciktilar: ['Standart ve izlenebilir teklif dosyası','Marj, iskonto ve yetki kurallarına uygunluk','Onay süresinin ve bekleyen onayların görünürlüğü','Teklif sürümleri, gerekçeler ve onay geçmişi','Onaylı tekliften sonraki sürece otomatik devir'],
+    yetenekler: ['ERP/CRM, fiyat ve stok entegrasyonu','Teklif taslağı ve belge üretimi','Politika, kural ve onay motoru','İnsan onayı ve istisna yönetimi','Sürüm, denetim izi ve süreç orkestrasyonu'],
+    kimler: 'Satış, teknik satış, teklif, finans, ticari kontrol, satın alma ve operasyon planlama ekiplerinin birlikte çalıştığı B2B süreçler için uygundur.',
+  },
+  'onayli-tekliften-uretim-planina': {
+    cat: 'OPERASYON VE SAHA',
+    h1: 'Onaylı Tekliften Üretim Planına',
+    lead: 'Kabul edilen teklifi yeniden veri girmeden teknik gereksinim, ürün ağacı, malzeme uygunluğu, kapasite ve teslim tarihiyle eşleştirerek üretim veya montaj planına dönüştürün.',
+    problem: 'Satıştan üretime devir sırasında teklif detayları, teknik şartlar ve teslim taahhütleri eksik veya farklı formatta aktarılabilir. Bu kopukluk yanlış planlama, malzeme eksiği, gecikme ve yeniden çalışma yaratır.',
+    steps: ['Kabul sinyalini alır. Onaylı teklif, sipariş veya sözleşme kaydını üretim sürecinin başlangıcı olarak kullanır.','Teknik kapsamı yapılandırır. Ürün, varyant, miktar, teknik resim, kalite koşulu, montaj gereksinimi ve teslim tarihini tek iş paketinde toplar.','Hazırlık kontrollerini yapar. Ürün ağacı, malzeme, stok, satın alma ihtiyacı, ekipman, işçilik ve kapasite uygunluğunu kontrol eder.','Plan ve iş emirlerini oluşturur. Üretim, montaj, kalite ve ara kontrol adımlarını bağımlılıklarıyla birlikte planlar.','Eksik ve riskleri yönlendirir. Malzeme açığı, kapasite çakışması, teknik belirsizlik veya teslim riski için ilgili ekibe aksiyon açar.','İlerlemeyi siparişe bağlar. Üretim durumu, gecikme, kalite sonucu ve tamamlanma bilgisini satış ve yönetim görünümüne geri taşır.'],
+    ciktilar: ['Satıştan üretime eksiksiz ve izlenebilir devir','Teknik iş paketi ve üretim/montaj iş emirleri','Malzeme, kapasite ve teslim risklerinin erken görünürlüğü','Bölümler arası yeniden veri girişinin azalması','Sipariş, üretim, kalite ve teslim durumunun tek zincirde izlenmesi'],
+    yetenekler: ['Teklif ve sipariş bağlamı','ERP/MRP, stok ve ürün ağacı entegrasyonu','Kapasite ve kaynak kuralı','İş emri ve bağımlılık yönetimi','Risk, SLA ve yönetim görünürlüğü'],
+    kimler: 'Özel üretim, makine ve ekipman, metal işleme, elektromekanik montaj, proje bazlı imalat ve siparişe göre üretim yapan işletmeler için uygundur.',
+  },
+  'onayli-tekliften-saha-is-emrine': {
+    cat: 'OPERASYON VE SAHA',
+    h1: 'Onaylı Tekliften Saha İş Emrine',
+    lead: 'Kabul edilen hizmet, kurulum veya proje teklifini; lokasyon, kapsam, ekip yetkinliği, ekipman, malzeme ve zaman planıyla birlikte yürütülebilir saha iş emrine dönüştürün.',
+    problem: 'Satış ekibinin verdiği kapsam ve taahhütler saha ekibine eksik aktarılırsa yanlış ekip gider, malzeme unutulur veya müşteri beklentisi karşılanmaz.',
+    steps: ['Onaylı kaydı alır. Kabul edilen teklif, sipariş veya sözleşmedeki hizmet kalemlerini saha operasyonuna aktarır.','Saha kapsamını netleştirir. Lokasyon, ekipman, yapılacak işler, teknik şartlar, erişim koşulları ve müşteri temasını yapılandırır.','Kaynak uygunluğunu kontrol eder. Yetkinlik, bölge, vardiya, iş yükü, araç, ekipman ve malzeme ihtiyaçlarını eşleştirir.','Plan ve iş emrini oluşturur. Uygun tarih ve ekibi önerir; iş emri, kontrol listesi ve saha talimatını hazırlar.','Müşteri ve ekibi bilgilendirir. Randevu, hazırlık koşulları, sorumlu ekip ve değişiklikleri ilgili taraflara iletir.','Yürütme ve kapanış akışına devreder. İş emrini mobil saha uygulamasına iletir; sonuçları faturalama ve müşteri kaydına bağlar.'],
+    ciktilar: ['Satıştan sahaya standart iş devri','Doğru lokasyon, ekip, yetkinlik ve ekipman planı','Eksiksiz saha iş emri ve kontrol listesi','Müşteri randevusu ve operasyon bilgilendirmesi','Saha sonucu, faturalama ve müşteri geçmişi arasında bağlantı'],
+    yetenekler: ['Teklif/siparişten iş emrine orkestrasyon','Lokasyon, varlık ve müşteri bağlamı','Yetkinlik ve kaynak eşleştirme','Planlama, bildirim ve mobil görev','ERP/CRM ve finans akışına geri yazma'],
+    kimler: 'Kurulum, teknik servis, bakım, enerji, çevre hizmetleri, altyapı, telekom, tesis yönetimi ve proje bazlı saha operasyonları için uygundur.',
+  },
+  'bakim-ariza-ve-teknik-servis': {
+    cat: 'OPERASYON VE SAHA',
+    h1: 'Bakım, Arıza ve Teknik Servis',
+    lead: 'Periyodik bakım tarihlerini, müşteri arıza bildirimlerini ve IoT uyarılarını tek servis akışında birleştirin; doğru öncelik, ekip, parça ve SLA ile müdahaleyi yönetin.',
+    problem: 'Bakım planları ayrı tabloda, arıza bildirimleri mesajlarda, ekipman geçmişi başka sistemde kaldığında servis kararı gecikir. Öncelik yanlış belirlenebilir ve ekip sahaya eksik bilgiyle çıkabilir.',
+    steps: ['Bakım veya arıza sinyalini alır. Takvimde yaklaşan bakım, müşteri bildirimi, çağrı merkezi kaydı, saha formu veya IoT alarmı akışı başlatır.','Öncelik ve etkiyi sınıflandırır. Arıza türü, güvenlik etkisi, üretim kaybı, müşteri seviyesi, sözleşme ve SLA\'ya göre öncelik belirler.','Ekipman geçmişini getirir. Varlık, önceki servisler, garanti, kullanılan parçalar ve teknik dokümanları bağlar.','Müdahaleyi planlar. Uzmanlık, bölge, vardiya, ekipman ve parça uygunluğuna göre ekip ve zaman önerir.','Servis iş emrini yürütür. Kontrol listesi, arıza teşhisi, işlem, parça kullanımı, süre ve saha kanıtlarını toplar.','Kapanış ve öğrenmeyi sağlar. Sonucu doğrular; ekipman geçmişini, sonraki bakım tarihini ve kök neden bilgisini günceller.'],
+    ciktilar: ['Planlı bakım ve arıza kayıtlarının tek görünümü','SLA ve etki bazlı doğru önceliklendirme','Ekipman geçmişiyle desteklenen servis kararı','Doğru ekip, yedek parça ve saha hazırlığı','Kronik arıza, tekrar servis ve bakım performansı içgörüsü'],
+    yetenekler: ['Takvim, çağrı, form ve IoT sinyali yakalama','Varlık ve servis geçmişi bağlamı','Öncelik, SLA ve ekip atama kuralları','Mobil iş emri ve kontrol listesi','Kök neden, kapanış ve bakım planı güncelleme'],
+    kimler: 'Teknik servis sağlayıcıları, üretim tesisleri, tesis yönetimi, enerji, makine ve ekipman şirketleri ile bakım sözleşmesi yöneten işletmeler için uygundur.',
+  },
+  'saha-is-emri-ve-kanitli-kapanis': {
+    cat: 'OPERASYON VE SAHA',
+    h1: 'Saha İş Emri ve Kanıtlı Kapanış',
+    lead: 'Saha iş emrini yalnızca "tamamlandı" durumuna getirmeyin; yapılan işi konum, zaman, kontrol listesi, fotoğraf, ölçüm, parça kullanımı ve müşteri onayıyla doğrulayarak kapatın.',
+    problem: 'Sahadaki işin gerçekten kapsamına uygun yapılıp yapılmadığı, hangi parçanın kullanıldığı veya müşterinin onay verip vermediği merkezde görünmeyebilir. Eksik kapanış; yeniden ziyaret, faturalama gecikmesi ve kalite sorununa yol açar.',
+    steps: ['İş emrini mobil ekibe iletir. Kapsam, lokasyon, müşteri, talimat, kontrol listesi, güvenlik notu ve gerekli belgeleri sunar.','Başlangıcı kaydeder. Check-in, zaman, konum ve gerekli ön koşulların tamamlandığını doğrular.','Uygulamayı adım adım yönlendirir. Kontrol listesi, ölçüm, form ve teknik talimata göre işin yürütülmesini sağlar.','Kaynak kullanımını toplar. Çalışma süresi, kullanılan parça, ekipman, ek iş ve sahadaki istisnaları kaydeder.','Kapanış kanıtlarını doğrular. Fotoğraf, video, ölçüm, belge, müşteri imzası veya dijital onay gibi zorunlu kanıtları kontrol eder.','Sonraki süreci tetikler. Kapanış sonrası fatura, garanti, stok düşümü, takip ziyareti, memnuniyet veya uygunsuzluk akışını başlatır.'],
+    ciktilar: ['Standart saha uygulaması ve eksiksiz iş kaydı','Konum, süre ve görev ilerleme görünürlüğü','Fotoğraf, ölçüm, imza ve belgeyle kanıtlı kapanış','Parça, süre ve ek iş bilgilerinin finans ve stok sistemine aktarılması','Tekrar ziyaret ve eksik kapanış riskinin azalması'],
+    yetenekler: ['Mobil görev ve saha kontrol listesi','Konum, zaman ve aktivite kaydı','Medya, form, ölçüm ve imza yönetimi','Kapanış kuralı ve istisna yönetimi','Finans, stok, garanti ve memnuniyet akışlarıyla bağlantı'],
+    kimler: 'Saha servis, bakım, kurulum, denetim, montaj, altyapı ve proje ekipleri ile işin yapıldığını kanıtla kapatması gereken tüm operasyonlar için uygundur.',
+  },
+  'kalite-uygunsuzlugundan-duzeltici-aksiyona': {
+    cat: 'KALİTE VE KAYNAK YÖNETİMİ',
+    h1: 'Kalite Uygunsuzluğundan Düzeltici Aksiyona',
+    lead: 'Üretim, saha, tedarikçi veya müşteri kaynağındaki uygunsuzluğu yalnızca kayıt altına almakla kalmayın; etkiyi sınıflandırın, kök nedeni araştırın, düzeltici faaliyeti yürütün ve etkinliğini doğrulayın.',
+    problem: 'Kalite kayıtları aksiyona bağlanmadığında aynı hata tekrar eder. Sorumluluk, hedef tarih, kök neden ve doğrulama adımı net değilse uygunsuzluk yalnızca raporlanmış olur.',
+    steps: ['Uygunsuzluğu yakalar. Kalite formu, müşteri şikâyeti, saha kontrolü, üretim ölçümü veya tedarikçi kaydını alır.','Etki ve önceliği belirler. Ürün, parti, müşteri, güvenlik, maliyet, teslimat ve tekrar riskine göre sınıflandırır.','Geçici önlemi başlatır. Karantina, sevkiyat durdurma, müşteri bilgilendirmesi veya yeniden kontrol gibi acil aksiyonları yönlendirir.','Kök neden çalışmasını açar. İlgili ekip, veri, geçmiş olay ve yöntemle kök neden analizini takip eder.','Düzeltici faaliyeti yürütür. Sorumlu, tarih, kaynak ve beklenen sonucu olan aksiyonları oluşturur ve izler.','Etkinliği doğrular ve kapatır. Tekrar kontrol, ölçüm, denetim veya yönetici onayıyla faaliyetin işe yaradığını doğrular.'],
+    ciktilar: ['Uygunsuzluk, geçici önlem ve düzeltici faaliyet arasında bağlantı','Kök neden, sorumlu ve hedef tarih görünürlüğü','Ürün, parti, müşteri ve tedarikçi etkisinin izlenmesi','Etkinlik doğrulaması yapılmadan kapanmayan kayıt','Tekrarlayan hata ve iyileştirme performansı içgörüsü'],
+    yetenekler: ['Form, ölçüm ve şikâyet sinyali','Etki ve öncelik sınıflandırma','Görev, onay ve CAPA takibi','Varlık, parti, müşteri ve tedarikçi bağlamı','Kanıtlı doğrulama ve denetim izi'],
+    kimler: 'Kalite, üretim, tedarikçi kalite, saha servis, müşteri hizmetleri, operasyon ve sürekli iyileştirme ekipleri için uygundur.',
+  },
+  'kritik-stoktan-tedarik-aksiyonuna': {
+    cat: 'KALİTE VE KAYNAK YÖNETİMİ',
+    h1: 'Kritik Stoktan Tedarik Aksiyonuna',
+    lead: 'Kritik stok seviyesini yalnızca uyarı olarak göstermeyin; beklenen tüketim, açık sipariş, teslim süresi, üretim ve saha ihtiyacını birlikte değerlendirerek satın alma, transfer veya ikame aksiyonu üretin.',
+    problem: 'Sabit minimum stok uyarıları gerçek ihtiyacı tek başına açıklamaz. Bir ürün kritik görünse de açık sipariş yolda olabilir; başka bir üründe ise yaklaşan iş emri nedeniyle görünmeyen risk oluşabilir.',
+    steps: ['Stok sinyalini izler. Minimum seviye, güvenlik stoğu, beklenen tüketim, rezervasyon veya anormal çıkış durumunu algılar.','Talep bağlamını getirir. Açık satış siparişi, üretim planı, saha iş emri, bakım planı ve tahmin verisini değerlendirir.','Tedarik durumunu kontrol eder. Açık satın alma siparişleri, teslim tarihi, tedarikçi performansı, depo ve lokasyon stoklarını birleştirir.','Aksiyon alternatifleri üretir. Satın alma, depolar arası transfer, ikame ürün, teslimat değişikliği veya yönetici onayı seçeneklerini önerir.','Yetki ve onayı uygular. Tutar, kritik malzeme, tedarikçi ve aciliyet kurallarına göre ilgili onay zincirini çalıştırır.','Sonucu ve riski izler. Sipariş veya transfer gerçekleşene kadar beklenen kapanış tarihini, riskli işleri ve sapmaları takip eder.'],
+    ciktilar: ['Bağlamdan kopuk alarm yerine gerekçeli stok aksiyonu','Açık talep, sipariş ve tedarik durumunun birlikte görünmesi','Satın alma, transfer veya ikame önerisi','Onaylı ve izlenebilir tedarik kararı','Stok kaynaklı üretim, saha ve teslimat riskinin erken görünürlüğü'],
+    yetenekler: ['ERP/WMS/MRP ve sipariş verisi entegrasyonu','Eşik, tahmin ve tüketim sinyali','Kural tabanlı alternatif ve karar önerisi','Satın alma/transfer görevi ve onay akışı','Risk ve kapanış takibi'],
+    kimler: 'Satın alma, depo, üretim planlama, bakım, saha operasyon, tedarik zinciri ve finans ekipleri için uygundur.',
+  },
+  'servis-sonrasi-memnuniyet-ve-geri-bildirim': {
+    cat: 'PAYDAŞ DENEYİMİ',
+    h1: 'Servis Sonrası Memnuniyet ve Geri Bildirim',
+    lead: 'Tamamlanan servis, kurulum veya teslimattan sonra müşteriye doğru zamanda ulaşın; geri bildirimi yalnızca bir skor olarak değil, ilgili iş emri, ekip, ürün ve hizmet deneyimiyle bağlantılı içgörüye dönüştürün.',
+    problem: 'Geri bildirim geç veya bağlamdan kopuk alındığında neyin iyi ya da kötü olduğu anlaşılamaz. Bu akış, hizmet kapanışını otomatik geri bildirim tetikleyicisine dönüştürür.',
+    steps: ['Kapanış sinyalini alır. Servis, kurulum, teslimat veya saha iş emri tanımlı koşullarla kapandığında akışı başlatır.','Doğru an ve kanalı seçer. Müşteri tercihi, hizmet tipi ve zaman kuralına göre WhatsApp, SMS, e-posta veya web kanalını kullanır.','Bağlama uygun sorular yöneltir. İlgili hizmet, ekip, zamanlama ve genel deneyim için kısa ve hedefli diyalog kurar.','Yanıtı analiz eder. Skor, duygu, tema, öneri ve açık metindeki risk veya övgü unsurlarını çıkarır.','Sonucu operasyona bağlar. Geri bildirimi müşteri, iş emri, ekip, ürün, lokasyon ve hizmet türüyle ilişkilendirir.','Gerekli aksiyonu tetikler. Düşük skor veya şikâyet durumunda iyileştirme akışı başlatır.'],
+    ciktilar: ['Hizmet kapanışıyla zamanlanmış otomatik geri bildirim','Skorun yanında duygu, tema ve açık metin içgörüsü','Müşteri, iş emri, ekip ve hizmet türü bazında analiz','Olumsuz deneyime hızlı müdahale','Servis kalitesi ve ekip performansı için öğrenme döngüsü'],
+    yetenekler: ['Kapanış tetikleyicisi ve kanal orkestrasyonu','Diyalog tabanlı geri bildirim','Duygu, tema ve risk analizi','Operasyon verisiyle bağlam eşleştirme','Aksiyon, bildirim ve yönetim görünümü'],
+    kimler: 'Teknik servis, kurulum, teslimat, saha hizmeti, bakım, müşteri başarı ve satış sonrası ekipleri için uygundur.',
+  },
+  'riskli-musteri-iyilestirme-aksiyonu': {
+    cat: 'PAYDAŞ DENEYİMİ',
+    h1: 'Riskli Müşteri için İyileştirme Aksiyonu',
+    lead: 'Düşük skor, tekrar eden şikâyet, geciken servis, açık taahhüt veya olumsuz iletişim sinyalini müşteri kaybından önce tespit edin; sahipliği, yanıt süresi ve çözüm adımları belirli bir iyileştirme akışı başlatın.',
+    problem: 'Riskli müşteri yalnızca düşük NPS veren müşteri değildir. Geciken iş, tekrar arıza, uzun yanıt süresi, açık fatura uyuşmazlığı veya olumsuz mesajlar birlikte değerlendirilmelidir.',
+    steps: ['Risk sinyalini algılar. Düşük memnuniyet, olumsuz duygu, tekrar şikâyet, SLA ihlali, açık taahhüt veya hizmet tekrarı gibi göstergeleri izler.','Müşteri bağlamını birleştirir. Aktif işler, sözleşme, gelir, geçmiş şikâyet, servis, teklif ve iletişim kayıtlarını getirir.','Risk seviyesini belirler. Etki, müşteri değeri, tekrar sıklığı ve açık sorunlara göre önceliklendirir.','İyileştirme sorumlusunu atar. Müşteri yöneticisi, operasyon sorumlusu veya yönetici seviyesinde sahiplik ve hedef yanıt süresi oluşturur.','Çözüm planını yürütür. İletişim, yeniden servis, telafi, teknik inceleme veya yönetici görüşmesi görevlerini takip eder.','Sonucu ölçer. Sorunun kapandığını, müşterinin bilgilendirildiğini ve risk seviyesinin değiştiğini doğrular.'],
+    ciktilar: ['Müşteri riskinin tek skora bağlı kalmadan erken tespiti','Tüm açık sorun ve taahhütlerin müşteri bağlamında görünmesi','Net sorumlu, hedef yanıt ve çözüm planı','Müşteriyle yapılan iletişim ve telafi geçmişi','Kayıp riski, tekrar şikâyet ve iyileştirme başarısı içgörüsü'],
+    yetenekler: ['Çoklu sinyal ve duygu analizi','CRM, servis, görev ve finans bağlamı','Risk sınıflandırma ve öncelik kuralı','Görev, SLA, eskalasyon ve yönetici görünümü','Sonuç doğrulama ve kapalı döngü öğrenme'],
+    kimler: 'Müşteri deneyimi, müşteri başarı, satış, teknik servis, operasyon ve kilit müşteri yönetimi ekipleri için uygundur.',
+  },
+  'calisan-geri-bildiriminden-ik-aksiyonuna': {
+    cat: 'PAYDAŞ DENEYİMİ',
+    h1: 'Çalışan Geri Bildiriminden İK Aksiyonuna',
+    lead: 'Çalışan geri bildirimlerindeki tema, risk ve önerileri gizlilik ve anonimlik kurallarını koruyarak anlayın; bireysel ifşaya yol açmadan sorumlusu, hedefi ve ölçümü belli İK aksiyonlarına dönüştürün.',
+    problem: 'Anket ve açık uçlu geri bildirimler raporlandıktan sonra aksiyon sahibi ve kapanış ölçütü belirlenmezse çalışanlar değişim görmez. Öte yandan gizlilik yanlış yönetilirse güven zedelenir.',
+    steps: ['Geri bildirimi toplar. Belirlenen kanal, dönem ve hedef kitle üzerinden yapılandırılmış veya diyalog tabanlı geri bildirim alır.','Gizlilik kurallarını uygular. Anonimlik, minimum grup büyüklüğü, rol bazlı erişim ve hassas içerik kurallarını gözetir.','Tema ve riski analiz eder. Memnuniyet, bağlılık, yönetim, iş yükü, iletişim, gelişim ve güvenlik temalarını çıkarır.','Öncelik ve sorumluluk belirler. Etki, yaygınlık, trend ve aciliyete göre İK, yönetici veya ilgili birim için aksiyon önerir.','İyileştirme planını izler. Aksiyonun sahibi, hedef tarihi, ölçütü ve çalışanlara yapılacak geri bildirim adımını takip eder.','Değişimi ölçer. Sonraki nabız ölçümü, tema trendi ve aksiyon sonucu üzerinden iyileşmeyi değerlendirir.'],
+    ciktilar: ['Gizlilik kurallarına uygun tema ve trend analizi','Raporlanan içgörüden sorumlusu belli aksiyonlara geçiş','Kritik çalışan deneyimi risklerinin erken görünürlüğü','Aksiyon durumu ve çalışanlara geri bildirim şeffaflığı','Dönemler arasında ölçülebilir iyileşme takibi'],
+    yetenekler: ['Çok kanallı ve diyalog tabanlı geri bildirim','Anonimlik, erişim ve minimum örneklem politikaları','Tema, duygu, trend ve risk analizi','Aksiyon, onay ve takip yönetimi','Yönetim brifingi ve kapalı döngü ölçüm'],
+    kimler: 'İnsan kaynakları, çalışan deneyimi, organizasyonel gelişim, iş sağlığı ve güvenliği ile kurum yönetimi ekipleri için uygundur.',
+  },
+  'fatura-vade-ve-tahsilat-takibi': {
+    cat: 'FİNANS VE YÖNETİM',
+    h1: 'Fatura, Vade ve Tahsilat Takibi',
+    lead: 'Fatura oluşumundan vade yaklaşımına, gecikmeden tahsilat kapanışına kadar müşteri iletişimini, satış koordinasyonunu ve finans görevlerini aynı izlenebilir akışta yönetin.',
+    problem: 'Tahsilat takibi yalnızca hatırlatma göndermek değildir. Faturanın doğru oluşması, müşteriye ulaştığının doğrulanması, itirazların ayrıştırılması ve kredi kurallarının birlikte yönetilmesi gerekir.',
+    steps: ['Fatura veya alacak kaydını alır. Muhasebe/ERP sistemindeki fatura, vade, bakiye, müşteri ve ödeme koşullarını izler.','Vade öncesi kontrol yapar. Faturanın iletildiğini, eksik belge veya müşteri itirazı bulunmadığını ve ilgili satış kaydıyla eşleştiğini kontrol eder.','Uygun iletişimi başlatır. Müşteri segmenti, tutar, vade ve tercih edilen kanala göre hatırlatma veya bilgilendirme üretir.','Gecikmeyi sınıflandırır. Ödeme sözü, itiraz, mutabakat farkı, onay bekleme veya finansal risk gibi nedeni ayrıştırır.','İç görev ve eskalasyonu yönetir. Finans, satış, müşteri yöneticisi veya yönetim için görev, son tarih ve yetki bazlı eskalasyon oluşturur.','Tahsilatı kapatır. Ödeme kaydı geldiğinde açık görevi kapatır; söz, itiraz ve gecikme geçmişini müşteri kaydında tutar.'],
+    ciktilar: ['Vade öncesi ve sonrası kontrollü tahsilat takibi','Müşteri iletişimi, ödeme sözü ve itiraz geçmişi','Finans ve satış ekipleri arasında net sorumluluk','Geciken ve riskli alacakların yönetim görünürlüğü','Tahsilat kapanışı ve müşteri risk verisinin güncellenmesi'],
+    yetenekler: ['ERP/muhasebe ve CRM entegrasyonu','Tarih, tutar, müşteri ve risk kuralları','Çok kanallı bildirim ve iletişim taslağı','Görev, onay, SLA ve eskalasyon','Ödeme sinyaliyle otomatik kapanış'],
+    kimler: 'Finans, muhasebe, satış operasyonu, müşteri yönetimi ve kredi risk ekipleri için uygundur.',
+  },
+  'haftalik-yonetim-brifingi': {
+    cat: 'FİNANS VE YÖNETİM',
+    h1: 'Haftalık Yönetim Brifingi',
+    lead: 'KPI\'ları, açık işleri, gecikmeleri, müşteri ve operasyon risklerini, önemli değişimleri ve karar gerektiren konuları kaynak kayıtlarıyla birlikte kısa, eyleme dönük haftalık yönetim brifingine dönüştürün.',
+    problem: 'Yönetim raporları çok sayıda ekran ve tablo içerdiğinde önemli istisnalar görünmez kalabilir. Sadece toplam rakamlar verilmesi de "neden oldu, kim ilgileniyor, ne karar gerekiyor?" sorularını yanıtsız bırakır.',
+    steps: ['Dönem verisini toplar. Satış, teklif, operasyon, üretim, saha, bakım, kalite, finans ve geri bildirim kayıtlarından haftalık değişimleri alır.','Önemli sapmaları belirler. Hedef sapması, sıra dışı artış, gecikme, SLA ihlali, blokaj, müşteri riski ve kapasite sorunlarını tespit eder.','Neden ve bağlamı ekler. Her bulguyu ilgili müşteri, proje, iş emri, görev, ekip veya kaynak kayıtlarıyla ilişkilendirir.','Karar gerektiren konuyu ayırır. Yönetim onayı, kaynak değişikliği, öncelik kararı veya risk kabulü isteyen maddeleri öne çıkarır.','Brifingi üretir. Özet, önemli gelişmeler, riskler, açık kararlar ve gelecek hafta önceliklerini kısa bir yapı içinde sunar.','Takip maddelerini açar. Yönetim kararı veya toplantı sonucunu görev, onay ve takip akışına dönüştürür.'],
+    ciktilar: ['Rakam yığını yerine eyleme dönük haftalık özet','Hedef sapması, gecikme, risk ve blokaj görünürlüğü','Her bulgunun kaynak kaydına izlenebilir bağlantısı','Karar gerektiren maddelerin ayrı listesi','Yönetim kararlarının görev ve takip akışına dönüşmesi'],
+    yetenekler: ['Çoklu sistem ve iş nesnesi bağlamı','KPI, trend, sapma ve istisna analizi','Doğal dilde özet ve gerekçelendirme','Kaynak bağlantısı ve denetim izi','Karardan göreve kapalı döngü yönetim'],
+    kimler: 'Üst yönetim, birim yöneticileri, operasyon merkezi, satış ve finans yönetimi ile haftalık performans toplantısı yürüten ekipler için uygundur.',
+  },
+};
+
+function renderKullanimSenaryoPage(slug) {
+  var d = KULLANIM_SENARYOLARI_DATA[slug];
+  if (!d) return _stub('Kullanım Senaryoları', slug);
+
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['Kullanım Senaryoları', '#/kullanim-alanlari/kullanim-senaryolari'], [d.h1]) +
+    '<span class="eyebrow">' + esc(d.cat) + ' / KULLANIM SENARYOSU</span>' +
+    '<h1 style="margin-top:16px;max-width:760px">' + esc(d.h1) + '</h1>' +
+    '<p class="lead" style="max-width:680px">' + esc(d.lead) + '</p>' +
+    '</div></section>';
+
+  // Bu akış neyi çözer?
+  h += '<section class="bg-warm" style="padding:48px 0"><div class="container narrow">' +
+    '<div class="section-head" style="margin-bottom:14px"><span class="eyebrow">Bu akış neyi çözer?</span></div>' +
+    '<p style="font-size:16px;color:var(--t-body);line-height:1.8">' + esc(d.problem) + '</p>' +
+    '</div></section>';
+
+  // Akış nasıl çalışır?
+  h += '<section style="padding:52px 0"><div class="container">' +
+    '<div class="section-head"><span class="eyebrow">Akış nasıl çalışır?</span></div>' +
+    '<div class="senaryo-steps">';
+  d.steps.forEach(function(step, i) {
+    // step format: "1. Talebi yakalar. Açıklama..."
+    var parts = step.split('. ');
+    var title = parts[0] + '. ' + (parts[1] || '');
+    var body = parts.slice(2).join('. ');
+    h += '<div class="senaryo-step"><div class="senaryo-step-num">0' + (i+1) + '</div>' +
+      '<div><p><strong>' + esc(title.trim()) + '</strong>' + (body ? ' ' + esc(body.trim()) : '') + '</p></div></div>';
+  });
+  h += '</div></div></section>';
+
+  // Akışın ürettiği sonuçlar
+  h += '<section class="bg-warm" style="padding:48px 0"><div class="container">' +
+    '<div class="section-head"><span class="eyebrow">Akışın ürettiği sonuçlar</span></div>' +
+    '<div class="senaryo-ciktilar">';
+  d.ciktilar.forEach(function(c){ h += '<div class="senaryo-cikti">' + esc(c) + '</div>'; });
+  h += '</div></div></section>';
+
+  // Yetenekler + Kimler için
+  h += '<section style="padding:48px 0"><div class="container">' +
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:40px 56px">' +
+    '<div><div class="section-head" style="margin-bottom:16px"><span class="eyebrow">Bu akışta kullanılan Chief yetenekleri</span></div>' +
+    '<div class="senaryo-yetenekler">' +
+    d.yetenekler.map(function(y){ return '<span class="senaryo-yetenek">' + esc(y) + '</span>'; }).join('') +
+    '</div></div>' +
+    '<div><div class="section-head" style="margin-bottom:16px"><span class="eyebrow">Kimler için uygundur?</span></div>' +
+    '<div class="senaryo-kimler">' + esc(d.kimler) + '</div>' +
+    '<div class="senaryo-denetim">AI sınıflandırır, önerir ve takip eder; kritik karar ve onaylarda insan denetimi korunur.</div>' +
+    '</div></div></div></section>';
+
+  // CTA
+  h += '<section class="final-cta"><div class="container">' +
+    '<h2>' + esc(d.h1) + ' akışını Chief ile kurun.</h2>' +
+    '<p class="lead">Akışı mevcut sistemlerinize, yetki matrisinize ve operasyon kurallarınıza göre uyarlayarak devreye alın.</p>' +
+    '<div class="cta-row"><a href="#/demo-talep-et" class="btn btn-clay btn-lg">Demo Talep Et ' + ico('arrow',16) + '</a>' +
+    '<a href="#/kullanim-alanlari/kullanim-senaryolari" class="btn on-dark-ghost btn-lg">Tüm senaryolar</a></div>' +
+    '</div></section>';
+  return h;
+}
+
+function renderKullanimSenaryolariListing() {
+  var cats = {
+    'TALEP, SATIŞ VE TEKLİF': ['gelen-talebi-yakala-ve-tamamla','mesajdan-goreve-ve-takibe','gorusmeden-aksiyona','teklif-hazirlama-ve-onay'],
+    'OPERASYON VE SAHA': ['onayli-tekliften-uretim-planina','onayli-tekliften-saha-is-emrine','bakim-ariza-ve-teknik-servis','saha-is-emri-ve-kanitli-kapanis'],
+    'KALİTE VE KAYNAK YÖNETİMİ': ['kalite-uygunsuzlugundan-duzeltici-aksiyona','kritik-stoktan-tedarik-aksiyonuna'],
+    'PAYDAŞ DENEYİMİ': ['servis-sonrasi-memnuniyet-ve-geri-bildirim','riskli-musteri-iyilestirme-aksiyonu','calisan-geri-bildiriminden-ik-aksiyonuna'],
+    'FİNANS VE YÖNETİM': ['fatura-vade-ve-tahsilat-takibi','haftalik-yonetim-brifingi'],
+  };
+
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['Kullanım Senaryoları']) +
+    '<span class="eyebrow">CHIEF KULLANIM SENARYOLARI</span>' +
+    '<h1 style="margin-top:16px;max-width:720px">Kullanım Senaryoları</h1>' +
+    '<p class="lead" style="max-width:680px">Teklif talebinden saha kapanışına, bakım planından tahsilat takibine kadar yaygın iş senaryoları için tasarlanmış akışlarla daha hızlı başlayın. Her akışı mevcut sistemlerinize, kurallarınıza ve ekip yapınıza göre uyarlayın.</p>' +
+    '<div class="cta-row" style="margin-top:24px"><a href="#/demo-talep-et" class="btn btn-clay btn-lg">Demo Talep Et</a></div>' +
+    '</div></section>';
+
+  Object.keys(cats).forEach(function(catName) {
+    h += '<section style="padding:48px 0"><div class="container">' +
+      '<div class="section-head"><span class="eyebrow">' + esc(catName) + '</span></div>' +
+      '<div class="cards-grid">';
+    cats[catName].forEach(function(slug, n) {
+      var d = KULLANIM_SENARYOLARI_DATA[slug];
+      if (!d) return;
+      h += '<a class="card" href="#/kullanim-alanlari/kullanim-senaryolari/' + slug + '">' +
+        '<div class="card-ico ' + (n%3===1?'sage':n%3===2?'blue':'') + '">' + ico('flow', 20) + '</div>' +
+        '<h4>' + esc(d.h1) + '</h4>' +
+        '<p>' + esc(d.lead.substring(0, 100)) + (d.lead.length > 100 ? '...' : '') + '</p>' +
+        '<span class="card-foot btn-link">Akışı İncele ' + ico('arrow',15) + '</span></a>';
+    });
+    h += '</div></div></section>';
+  });
+
+  return h + finalCTA();
 }
 
 /* ---- Listing sayfaları ---- */
