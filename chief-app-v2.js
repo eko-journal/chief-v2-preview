@@ -648,7 +648,7 @@ function renderRichPage(data, parentLabel, parentHref, slug) {
   // Hero — sol: metin, sağ: müşteri kartı
   h += '<section class="detail-hero"><div class="container">' +
     crumb([parentLabel, parentHref], [data.h1]) +
-    '<div class="hero-split">' +
+    '<div class="hero-split" style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px 56px;align-items:start">' +
     '<div class="hero-split-left">' +
     '<span class="eyebrow">' + esc(data.eyebrow) + '</span>' +
     '<h1 style="margin-top:16px">' + esc(data.h1) + '</h1>' +
@@ -877,7 +877,7 @@ function renderPlatformV2Page(slug) {
   var cs = d.caseStudy;
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['Platform', '#/platform'], [d.h1]) +
-    '<div class="hero-split">' +
+    '<div class="hero-split" style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px 56px;align-items:start">' +
     '<div class="hero-split-left">' +
     '<span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
     '<h1 style="margin-top:16px">' + esc(d.h1) + '</h1>' +
@@ -2055,7 +2055,7 @@ function renderIsSureciPage(slug) {
   var cs = IS_SURECLERI_CS[slug];
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['İş Süreçleri', '#/is-surecleri'], [d.cardTitle]) +
-    '<div class="hero-split">' +
+    '<div class="hero-split" style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px 56px;align-items:start">' +
     '<div class="hero-split-left">' +
     '<span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
     '<h1 style="margin-top:16px">' + esc(d.h1) + '</h1>' +
