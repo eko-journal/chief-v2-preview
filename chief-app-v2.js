@@ -811,12 +811,12 @@ const PLATFORM_V2_DATA = {
     cardTitle: 'Yönetim Paneli ve Dashboard',
     cardDesc: 'Hem riskleri hem pozitif operasyonel ilerlemeyi görünür hale getiren yönetim ekranını anlatır.',
     h1: 'Yönetim Paneli ve Dashboard',
-    lead: 'Chief yönetim ekranı, yalnızca gecikme ve riski değil; tamamlanan işleri, kapatılan süreçleri ve ilerleyen operasyonu da gerçek zamanlı görünür kılar.',
+    lead: 'Chief yönetim ekranı, işletmenin tüm operasyonel tablosunu tek görünümde sunar; yönetici özetten kaynak kayda iner, risk öncesinde harekete geçer.',
     bolumler: [
-      { baslik: 'Rapor değil, aksiyon ekranı', metin: 'Geleneksel raporlar geç gelir, statiktir ve kararı geciktirir. Chief\'in yönetim paneli gerçek zamanlıdır; hangi işlerin açık olduğunu, hangilerinin geciktiğini, kimin sorumlu olduğunu ve hangi adımın beklediğini anlık gösterir.\nBu görünürlük yalnızca rapor seviyesinde değil, aksiyon seviyesindedir. Yönetici gerektiğinde ilgili işe, göreve, onaya veya sürece inebilir.' },
-      { baslik: 'Pozitif ilerleme de görünür', metin: 'Chief yönetim ekranı yalnızca alarm ve riski değil, tamamlanan işleri, kapatılan süreci ve operasyonel ilerlemeyi de gösterir. İşlenen sinyal sayısı, tamamlanan görev, kapanan süreç ve karşılanan SLA hedefleri operasyonun sağlıklı yürüdüğünü doğrular.' },
-      { baslik: 'Departman ve süreç bazlı görünüm', metin: 'Satış, operasyon, saha, üretim, finans — her ekip kendi alanını görür. Yönetim ise tüm tabloyu görür. Rol ve yetki bazlı erişim sayesinde herkes kendi ekranına sahip olur; kimse erişmemesi gereken veriye ulaşamaz.' },
-      { baslik: 'Özetle başla, detaya in', metin: 'Yönetim özet seviyesinde başlar: kaç iş açık, kaçı SLA riski taşıyor, kaçı gecikiyor. İlgili bir konuya tıklar; göreve, sürece veya onay zincirine iner. Haftalık yönetim brifingi otomatik hazırlanır.' },
+      { baslik: 'Açık işler, riskler ve fırsatlar tek ekranda', metin: 'Chief yönetim paneli; hangi işlerin açık olduğunu, hangilerinin geciktiğini, hangilerinde risk oluştuğunu ve hangi ekiplerde yoğunluk arttığını gerçek zamanlı gösterir.\nBu görünüm salt rapor değildir. Yönetici doğrudan ilgili işe, göreve ya da onay zincirine inebilir; bekleyen karar noktaları ve SLA ihlalleri anlık yansır.' },
+      { baslik: 'Pozitif ilerleme de görünür', metin: 'Yönetim ekranı yalnızca alarm ve riski değil, tamamlanan işleri, kapatılan süreçleri ve başarılı operasyonel adımları da sunar.\nKarşılanan SLA hedefleri, kapanan teklifler, tamamlanan saha işleri ve tahsil edilen faturalar yönetim görünümüne yansır. Operasyonun nerede sağlıklı ilerlediği de görülür.' },
+      { baslik: 'Kaynak kayda inebilen özet', metin: 'Chief yönetim özeti her bulguyu kaynak kayıtla ilişkilendirir. KPI sapması hangi müşteriye, hangi iş emrine ya da hangi ekip kararına bağlı olduğu tek tıkla ulaşılabilir hale gelir.\nYönetici "Bu ay satış neden hedefin altında?" diye sorduğunda Chief ilgili teklif, ziyaret, müşteri ve kanal kayıtlarını gerekçesiyle birlikte sunar.' },
+      { baslik: 'Haftalık yönetim brifingi otomatik hazırlanır', metin: 'Chief haftalık ya da günlük özetlerde; tamamlananları, gecikmeleri, açık riskleri, KPI sapmalarını ve karar bekleyen konuları kaynak kayıtlarıyla birlikte hazırlar.\nManuel veri toplama olmadan yönetim toplantısı hazırlığı tamamlanır. Önerilen aksiyonlar ve sahipleri brifingin içinde sunulur.' },
     ],
     caseStudy: {
       logo:'logo-termoinduktion.jpg', company:'Termo İndüksiyon', industry:'Endüstriyel Isıl İşlem · 1981\'den beri',
@@ -973,7 +973,7 @@ const PLATFORM_V2_DATA = {
     eyebrow: 'Platform',
     cardTitle: 'Karar Destek, Güvenlik ve Öğrenme',
     cardDesc: 'Chief, yönetim için riskleri, gecikmeleri, fırsatları ve performans göstergelerini görünür kılar; her aksiyondan öğrenir.',
-    h1: 'Güvenlik ve Veri Yaklaşımı',
+    h1: 'Karar Destek, Güvenlik ve Öğrenme',
     lead: 'Chief, işletme yönetimine yalnızca veri sunmaz; gecikmeleri, riskleri, fırsatları ve süreç iyileştirme alanlarını açıklanabilir şekilde gösterir.',
     bolumler: [
       { baslik: 'Yönetim için görünürlük', metin: 'Chief yönetim ekranlarında hangi işlerin açık olduğunu, hangi süreçlerin geciktiğini, hangi ekiplerde yoğunluk oluştuğunu ve hangi müşterilerde risk arttığını görünür hale getirir.\nBu görünürlük yalnızca rapor seviyesinde değil, aksiyon seviyesindedir. Yönetici gerektiğinde ilgili işe, göreve, onaya veya sürece inebilir.' },
