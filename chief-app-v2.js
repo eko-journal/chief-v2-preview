@@ -706,15 +706,335 @@ const PAGE_SCENARIOS = {
 };
 
 /* ================================================================
+   SAYFA ANİMASYONU RENDERER
+   type: 'signal-flow' | 'system-connect' | 'task-board' |
+         'management-dash' | 'handoff-flow' | 'data-model'
+   ================================================================ */
+function renderPageAnimation(type) {
+  var t = type || 'signal-flow';
+  var inner = '';
+
+  if (t === 'signal-flow') {
+    inner =
+      '<div class="panim-signal-flow">' +
+        '<div class="panim-sf-sources">' +
+          '<div class="panim-sf-src"><span class="panim-sf-src-dot"></span>E-posta</div>' +
+          '<div class="panim-sf-src"><span class="panim-sf-src-dot"></span>WhatsApp</div>' +
+          '<div class="panim-sf-src"><span class="panim-sf-src-dot"></span>ERP</div>' +
+          '<div class="panim-sf-src"><span class="panim-sf-src-dot"></span>Web Form</div>' +
+        '</div>' +
+        '<div class="panim-sf-mid">' +
+          '<div class="panim-sf-arrow"></div>' +
+          '<div class="panim-sf-arrow"></div>' +
+          '<div class="panim-sf-arrow"></div>' +
+          '<div class="panim-sf-arrow"></div>' +
+        '</div>' +
+        '<div>' +
+          '<div class="panim-sf-center">CHIEF</div>' +
+          '<div class="panim-sf-output" style="margin-top:10px">' +
+            '<div class="panim-sf-out"><span class="panim-sf-out-dot"></span>Görev oluştu</div>' +
+            '<div class="panim-sf-out"><span class="panim-sf-out-dot"></span>Onay bekleniyor</div>' +
+            '<div class="panim-sf-out"><span class="panim-sf-out-dot"></span>Tamamlandı</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  } else if (t === 'system-connect') {
+    inner =
+      '<div class="panim-system-connect">' +
+        '<div class="panim-sc-grid">' +
+          '<div class="panim-sc-node">ERP</div>' +
+          '<div class="panim-sc-node">CRM</div>' +
+          '<div class="panim-sc-node">WhatsApp</div>' +
+        '</div>' +
+        '<div class="panim-sc-center-row">' +
+          '<div class="panim-sc-line"></div>' +
+          '<div class="panim-sc-hub">CHIEF</div>' +
+          '<div class="panim-sc-line"></div>' +
+        '</div>' +
+        '<div class="panim-sc-bottom">' +
+          '<div class="panim-sc-node">Saha Uyg.</div>' +
+          '<div class="panim-sc-node">Muhasebe</div>' +
+        '</div>' +
+      '</div>';
+  } else if (t === 'task-board') {
+    inner =
+      '<div class="panim-task-board">' +
+        '<div class="panim-tb-card">' +
+          '<div class="panim-tb-title">Saha Servis Talebi #2847</div>' +
+          '<div class="panim-tb-row"><span class="panim-tb-label">Sorumlu</span><span class="panim-tb-val">Teknik Ekip A</span></div>' +
+          '<div class="panim-tb-row"><span class="panim-tb-label">Öncelik</span><span class="panim-tb-val">Yüksek</span></div>' +
+          '<div class="panim-tb-sla-wrap">' +
+            '<div class="panim-tb-sla-label">SLA İlerlemesi</div>' +
+            '<div class="panim-tb-sla-bar"><div class="panim-tb-sla-fill"></div></div>' +
+          '</div>' +
+          '<div class="panim-tb-status">' +
+            '<span>Durum:</span>' +
+            '<span class="panim-tb-badge"><span class="panim-tb-badge-dot"></span>Devam ediyor</span>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  } else if (t === 'management-dash') {
+    inner =
+      '<div class="panim-management-dash">' +
+        '<div class="panim-md-grid">' +
+          '<div class="panim-md-kpi">' +
+            '<div class="panim-md-kpi-label">Açık Görevler</div>' +
+            '<div class="panim-md-kpi-val">128</div>' +
+            '<div class="panim-md-kpi-sub">12 yeni bugün</div>' +
+          '</div>' +
+          '<div class="panim-md-kpi">' +
+            '<div class="panim-md-kpi-label">Tamamlanan</div>' +
+            '<div class="panim-md-kpi-val">94%</div>' +
+            '<div class="panim-md-kpi-sub">SLA uyumu</div>' +
+          '</div>' +
+          '<div class="panim-md-kpi">' +
+            '<div class="panim-md-kpi-label">Risk Uyarısı</div>' +
+            '<div class="panim-md-kpi-val">7</div>' +
+            '<div class="panim-md-kpi-sub">Müdahale gerekli</div>' +
+          '</div>' +
+          '<div class="panim-md-kpi">' +
+            '<div class="panim-md-kpi-label">Teslim Oranı</div>' +
+            '<div class="panim-md-kpi-val">+18%</div>' +
+            '<div class="panim-md-kpi-sub">Geçen aya göre</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  } else if (t === 'handoff-flow') {
+    inner =
+      '<div class="panim-handoff-flow">' +
+        '<div class="panim-hf-track">' +
+          '<div class="panim-hf-step">Satış</div>' +
+          '<div class="panim-hf-step">Operasyon</div>' +
+          '<div class="panim-hf-step">Saha</div>' +
+          '<div class="panim-hf-step">Finans</div>' +
+        '</div>' +
+        '<div class="panim-hf-dot-wrap"><div class="panim-hf-dot"></div></div>' +
+        '<div class="panim-hf-labels">' +
+          '<span class="panim-hf-label">Teklif</span>' +
+          '<span class="panim-hf-label">İş Emri</span>' +
+          '<span class="panim-hf-label">Uygulama</span>' +
+          '<span class="panim-hf-label">Fatura</span>' +
+        '</div>' +
+      '</div>';
+  } else if (t === 'data-model') {
+    inner =
+      '<div class="panim-data-model">' +
+        '<svg class="panim-dm-svg" viewBox="0 0 400 200" preserveAspectRatio="none">' +
+          '<line class="panim-dm-edge" x1="200" y1="100" x2="100" y2="30"/>' +
+          '<line class="panim-dm-edge" x1="200" y1="100" x2="300" y2="30"/>' +
+          '<line class="panim-dm-edge" x1="200" y1="100" x2="80" y2="170"/>' +
+          '<line class="panim-dm-edge" x1="200" y1="100" x2="320" y2="170"/>' +
+          '<line class="panim-dm-edge" x1="200" y1="100" x2="30" y2="100"/>' +
+        '</svg>' +
+        '<div class="panim-dm-nodes">' +
+          '<div class="panim-dm-node">Chief</div>' +
+          '<div class="panim-dm-node">Müşteri</div>' +
+          '<div class="panim-dm-node">Teklif</div>' +
+          '<div class="panim-dm-node">İş Emri</div>' +
+          '<div class="panim-dm-node">Görev</div>' +
+          '<div class="panim-dm-node">Ekip</div>' +
+        '</div>' +
+      '</div>';
+  } else if (t === 'chief-layer') {
+    var SYS=[{x:36,label:'ERP'},{x:108,label:'CRM'},{x:180,label:'Muhasebe'},{x:252,label:'Saha'},{x:324,label:'Üretim'},{x:396,label:'IoT'},{x:468,label:'Doküman'}];
+    var CX=252,CY=42,WTOP=68,WBOT=141,DUR=6,ST=DUR/7;
+    var wires=SYS.map(function(s){return '<line x1="'+CX+'" y1="'+WTOP+'" x2="'+s.x+'" y2="'+WBOT+'" stroke="#DED9CC" stroke-width="1" stroke-dasharray="3,4"/>';}).join('');
+    var nodes=SYS.map(function(s){return '<g transform="translate('+s.x+',155)"><rect x="-29" y="-13" width="58" height="24" rx="6" fill="#F0EDE4" stroke="#DED9CC" stroke-width="1"/><text text-anchor="middle" y="4" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#A9A195">'+s.label+'</text></g>';}).join('');
+    var upDots=SYS.map(function(s,i){var b=(ST*i).toFixed(2);var p='M'+s.x+','+WBOT+' L'+CX+','+WTOP;return '<circle r="3.5" fill="#6A9BCC" opacity="0"><animateMotion path="'+p+'" dur="'+DUR+'s" begin="'+b+'s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.25;1" keyPoints="0;1;1"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.02;0.05;0.22;0.27;1" dur="'+DUR+'s" begin="'+b+'s" repeatCount="indefinite"/></circle>';}).join('');
+    var downDots=SYS.map(function(s,i){var b=(ST*i+ST*0.6).toFixed(2);var p='M'+CX+','+WTOP+' L'+s.x+','+WBOT;return '<circle r="3.5" fill="#D97757" opacity="0"><animateMotion path="'+p+'" dur="'+DUR+'s" begin="'+b+'s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.25;1" keyPoints="0;1;1"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.02;0.05;0.22;0.27;1" dur="'+DUR+'s" begin="'+b+'s" repeatCount="indefinite"/></circle>';}).join('');
+    var hub='<g transform="translate('+CX+','+CY+')"><circle r="26" fill="#141413" class="pcl-hub-pulse"/><g transform="translate(-18,-18) scale(0.2571)"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="9" fill="#788C5D"/></g></g><text x="'+CX+'" y="'+(CY+46)+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#A9A195" letter-spacing="2">CHIEF</text>';
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 0 504 186" fill="none" xmlns="http://www.w3.org/2000/svg">'+wires+nodes+hub+upDots+downDots+'</svg></div>';
+  } else if (t === 'signal-to-action') {
+    var SIG=[
+      {y:18, label:'Müşteri talebi', out:0},
+      {y:40, label:'Toplantı notu', out:1},
+      {y:62, label:'Satış fırsatı', out:0},
+      {y:84, label:'Saha bildirimi', out:2},
+      {y:106,label:'Üretim problemi',out:3},
+      {y:128,label:'Servis ihtiyacı',out:2},
+      {y:150,label:'Fiyat onayı',out:4},
+      {y:172,label:'Stok uyarısı',out:3},
+      {y:194,label:'Ödeme riski',out:3},
+      {y:216,label:'Çalışan geri bildirimi',out:4}
+    ];
+    var OUT=[{y:24,label:'Satış'},{y:66,label:'Operasyon'},{y:108,label:'Saha Ekibi'},{y:150,label:'Tedarik / Finans'},{y:192,label:'Yönetim / İK'}];
+    var D=20,CX=240,CY=115,SX=152,OX=330;
+    function _kt2(a,b,c,d){return[0,a/D,b/D,c/D,d/D,1].map(function(v){return v.toFixed(4);}).join(';');}
+    var sBg=SIG.map(function(s){return '<rect x="5" y="'+(s.y-9)+'" width="145" height="18" rx="5" fill="#F0EDE4" stroke="#DED9CC" stroke-width="1"/>';}).join('');
+    var sLbl=SIG.map(function(s){return '<text x="10" y="'+(s.y+4)+'" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#A9A195">'+s.label+'</text>';}).join('');
+    var oBg=OUT.map(function(o){return '<rect x="'+OX+'" y="'+(o.y-9)+'" width="145" height="18" rx="5" fill="#F0EDE4" stroke="#DED9CC" stroke-width="1"/>';}).join('');
+    var oLbl=OUT.map(function(o){return '<text x="'+(OX+5)+'" y="'+(o.y+4)+'" font-family="JetBrains Mono,monospace" font-size="8" fill="#A9A195">'+o.label+'</text>';}).join('');
+    var sHL=SIG.map(function(s,i){var a=i*2,b=a+0.15,c=a+1.6,e=Math.min(a+1.9,D-0.02);return '<rect x="5" y="'+(s.y-9)+'" width="145" height="18" rx="5" fill="#F6E4DA" stroke="#D97757" stroke-width="1.5" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="'+_kt2(a,b,c,e)+'" dur="'+D+'s" begin="0s" repeatCount="indefinite"/></rect>';}).join('');
+    var oHL=SIG.map(function(s,i){var o=OUT[s.out],a=i*2+1.0,b=a+0.1,c=a+0.8,e=Math.min(a+1.0,D-0.02);return '<rect x="'+OX+'" y="'+(o.y-9)+'" width="145" height="18" rx="5" fill="#E7EADE" stroke="#788C5D" stroke-width="1.5" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="'+_kt2(a,b,c,e)+'" dur="'+D+'s" begin="0s" repeatCount="indefinite"/></rect>';}).join('');
+    var lDots=SIG.map(function(s,i){var a=i*2+0.2,b=a+0.05,c=a+0.35,e=Math.min(a+0.4,D-0.02);var p='M'+SX+','+s.y+' L'+(CX-22)+','+CY;return '<circle r="3" fill="#6A9BCC" opacity="0"><animateMotion path="'+p+'" dur="'+D+'s" begin="0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;'+(a/D).toFixed(4)+';'+(c/D).toFixed(4)+';1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="'+_kt2(a,b,c,e)+'" dur="'+D+'s" begin="0s" repeatCount="indefinite"/></circle>';}).join('');
+    var rDots=SIG.map(function(s,i){var o=OUT[s.out],a=i*2+0.8,b=a+0.05,c=a+0.35,e=Math.min(a+0.4,D-0.02);var p='M'+(CX+22)+','+CY+' L'+OX+','+o.y;return '<circle r="3" fill="#D97757" opacity="0"><animateMotion path="'+p+'" dur="'+D+'s" begin="0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;'+(a/D).toFixed(4)+';'+(c/D).toFixed(4)+';1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="'+_kt2(a,b,c,e)+'" dur="'+D+'s" begin="0s" repeatCount="indefinite"/></circle>';}).join('');
+    var hub2='<g transform="translate('+CX+','+CY+')"><circle r="26" fill="#141413" class="pcl-hub-pulse"/><g transform="translate(-18,-18) scale(0.2571)"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="9" fill="#788C5D"/></g></g><text x="'+CX+'" y="'+(CY+46)+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#A9A195" letter-spacing="2">CHIEF</text>';
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 0 480 232" fill="none" xmlns="http://www.w3.org/2000/svg">'+sBg+oBg+sHL+oHL+sLbl+oLbl+hub2+lDots+rDots+'</svg></div>';
+  } else if (t === 'biz-objects') {
+    // Slot machine: 13 iş nesnesi sırayla, Chief merkez, 6 departman sağ
+    var BOS=[
+      {label:'Müşteri',     depts:[0,1,4]},{label:'Lokasyon',    depts:[2,1,3]},
+      {label:'Teklif',      depts:[0,4]},  {label:'İş Emri',    depts:[1,2,3]},
+      {label:'Proje',       depts:[0,1,5]},{label:'Servis Kaydı',depts:[2,1]},
+      {label:'Görev',       depts:[1,2,5]},{label:'Onay',        depts:[4,5,0]},
+      {label:'Sözleşme',    depts:[4,0,5]},{label:'Ürün',        depts:[3,0]},
+      {label:'Makine',      depts:[3,2]},  {label:'Ekip',        depts:[1,5]},
+      {label:'Saha Noktası',depts:[2,1,3]}
+    ];
+    var BD=[{y:22,label:'Satış'},{y:60,label:'Operasyon'},{y:98,label:'Saha'},{y:136,label:'Üretim'},{y:174,label:'Finans'},{y:212,label:'Yönetim'}];
+    var BDUR=26,BCX=260,BCY=115,SX=5,SW=160,SCY=115,DX=360,DW=150,CL=236,CR=284;
+    function bKT(i,offset){
+      var s=i*2+(offset||0),fi=(s+0.2)/BDUR,ve=(s+1.6)/BDUR,fo=Math.min((s+1.9)/BDUR,(BDUR-0.02)/BDUR);
+      if(i===0&&!offset){return{kt:'0;'+fi.toFixed(4)+';'+ve.toFixed(4)+';'+fo.toFixed(4)+';1',vl:'0;1;1;0;0'};}
+      var sb=(s/BDUR).toFixed(4);return{kt:'0;'+sb+';'+fi.toFixed(4)+';'+ve.toFixed(4)+';'+fo.toFixed(4)+';1',vl:'0;0;1;1;0;0'};
+    }
+    // Slot window
+    var slotBg='<rect x="'+SX+'" y="'+(SCY-19)+'" width="'+SW+'" height="38" rx="9" fill="#FAF9F5" stroke="#DED9CC" stroke-width="1.5"/>';
+    var slotEye='<text x="'+(SX+SW/2)+'" y="'+(SCY-26)+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#D97757" letter-spacing="1.5">İŞ NESNESİ</text>';
+    var slotObjs=BOS.map(function(o,i){var k=bKT(i);return '<rect x="'+SX+'" y="'+(SCY-19)+'" width="'+SW+'" height="38" rx="9" fill="#F6E4DA" stroke="#D97757" stroke-width="1.5" opacity="0"><animate attributeName="opacity" values="'+k.vl+'" keyTimes="'+k.kt+'" dur="'+BDUR+'s" begin="0s" repeatCount="indefinite"/></rect><text x="'+(SX+SW/2)+'" y="'+(SCY+6)+'" text-anchor="middle" font-family="Space Grotesk,system-ui" font-size="14" font-weight="600" fill="#141413" opacity="0">'+o.label+'<animate attributeName="opacity" values="'+k.vl+'" keyTimes="'+k.kt+'" dur="'+BDUR+'s" begin="0s" repeatCount="indefinite"/></text>';}).join('');
+    // Dept chips
+    var dBg=BD.map(function(d){return '<rect x="'+DX+'" y="'+(d.y-14)+'" width="'+DW+'" height="28" rx="7" fill="#F0EDE4" stroke="#DED9CC" stroke-width="1"/>';}).join('');
+    var dBgTxt=BD.map(function(d){return '<text x="'+(DX+10)+'" y="'+(d.y+5)+'" font-family="JetBrains Mono,monospace" font-size="9" fill="#A9A195">'+d.label+'</text>';}).join('');
+    var dHL=BD.map(function(dep,di){var wins=[];BOS.forEach(function(o,i){if(o.depts.indexOf(di)!==-1)wins.push({s:i*2+0.5,e:Math.min(i*2+1.85,BDUR-0.02)});});if(!wins.length)return '';var kt=['0'],vl=['0'];wins.sort(function(x,y){return x.s-y.s;});wins.forEach(function(w){kt.push((w.s/BDUR).toFixed(4),((w.s+0.1)/BDUR).toFixed(4),(w.e/BDUR).toFixed(4),((w.e+0.1)/BDUR).toFixed(4));vl.push('0','1','1','0');});kt.push('1');vl.push('0');return '<rect x="'+DX+'" y="'+(dep.y-14)+'" width="'+DW+'" height="28" rx="7" fill="#E7EADE" stroke="#788C5D" stroke-width="1.5" opacity="0"><animate attributeName="opacity" values="'+vl.join(';')+'" keyTimes="'+kt.join(';')+'" dur="'+BDUR+'s" begin="0s" repeatCount="indefinite"/></rect>';}).join('');
+    // Blue: slot→Chief line + dot
+    var bLines=BOS.map(function(o,i){var k=bKT(i);var s=i*2;return '<line x1="'+(SX+SW)+'" y1="'+SCY+'" x2="'+CL+'" y2="'+BCY+'" stroke="#6A9BCC" stroke-width="1.5" stroke-dasharray="3,4" opacity="0"><animate attributeName="opacity" values="'+k.vl+'" keyTimes="'+k.kt+'" dur="'+BDUR+'s" begin="0s" repeatCount="indefinite"/></line><circle r="3" fill="#6A9BCC" opacity="0"><animateMotion path="M'+(SX+SW)+','+SCY+' L'+CL+','+BCY+'" dur="'+BDUR+'s" begin="0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;'+(s/BDUR).toFixed(4)+';'+Math.min((s+0.5)/BDUR,0.99).toFixed(4)+';1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="'+k.vl+'" keyTimes="'+k.kt+'" dur="'+BDUR+'s" begin="0s" repeatCount="indefinite"/></circle>';}).join('');
+    // Clay: Chief→active depts
+    var cLines=BOS.map(function(o,i){var k=bKT(i,0.4);return o.depts.map(function(di){var dy=BD[di].y;return '<line x1="'+CR+'" y1="'+BCY+'" x2="'+DX+'" y2="'+dy+'" stroke="#D97757" stroke-width="1.5" stroke-dasharray="3,4" opacity="0"><animate attributeName="opacity" values="'+k.vl+'" keyTimes="'+k.kt+'" dur="'+BDUR+'s" begin="0s" repeatCount="indefinite"/></line>';}).join('');}).join('');
+    // Chief hub
+    var bHub='<g transform="translate('+BCX+','+BCY+')"><circle r="24" fill="#141413" class="pcl-hub-pulse"/><g transform="translate(-17,-17) scale(0.2429)"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="9" fill="#788C5D"/></g></g>';
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 0 520 230" fill="none" xmlns="http://www.w3.org/2000/svg">'+slotEye+dBg+dHL+dBgTxt+bHub+bLines+cLines+slotBg+slotObjs+'</svg></div>';
+
+  } else if (t === 'systems-query') {
+    // viewBox 430x200 — scale 1.4x larger than 520x240 in same container
+    var SRC=[{y:72,label:'ERP',ic:'#6A9BCC'},{y:100,label:'CRM',ic:'#788C5D'},{y:128,label:'Veri Tabanı',ic:'#A9A195'}];
+    var COMM=[{y:48,label:'WhatsApp',ic:'#788C5D'},{y:72,label:'E-posta',ic:'#D97757'},{y:96,label:'Telegram',ic:'#A9A195'},{y:120,label:'Slack',ic:'#A9A195'},{y:144,label:'Teams',ic:'#A9A195'}];
+    var QDUR=12,QCX=215,QCY=96;
+    var srcBg=SRC.map(function(s){return '<rect x="4" y="'+(s.y-11)+'" width="118" height="22" rx="6" fill="#F0EDE4" stroke="#DED9CC" stroke-width="1"/><circle cx="16" cy="'+s.y+'" r="4" fill="'+s.ic+'"/><text x="24" y="'+(s.y+4)+'" font-family="JetBrains Mono,monospace" font-size="9" fill="#A9A195">'+s.label+'</text>';}).join('');
+    var commBg=COMM.map(function(c){return '<rect x="308" y="'+(c.y-11)+'" width="118" height="22" rx="6" fill="#F0EDE4" stroke="#DED9CC" stroke-width="1"/><circle cx="320" cy="'+c.y+'" r="4" fill="'+c.ic+'"/><text x="328" y="'+(c.y+4)+'" font-family="JetBrains Mono,monospace" font-size="9" fill="#A9A195">'+c.label+'</text>';}).join('');
+    var hubQ='<g transform="translate('+QCX+','+QCY+')"><circle r="24" fill="#141413" class="pcl-hub-pulse"/><g transform="translate(-17,-17) scale(0.2429)"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="9" fill="#788C5D"/></g></g><text x="'+QCX+'" y="'+(QCY+42)+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#A9A195" letter-spacing="1.5">ML ANALİTİK</text>';
+    var srcDots=SRC.map(function(s,i){var b=(i*1.3).toFixed(1);return '<circle r="2.5" fill="#6A9BCC" opacity="0"><animateMotion path="M122,'+s.y+' L191,'+QCY+'" dur="4s" begin="'+b+'s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.01;0.25;1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.01;0.2;0.25;1" dur="4s" begin="'+b+'s" repeatCount="indefinite"/></circle>';}).join('');
+    var commDots=COMM.map(function(c,i){var b=(i*0.8).toFixed(1);return '<circle r="2.5" fill="#D97757" opacity="0"><animateMotion path="M239,'+QCY+' L308,'+c.y+'" dur="4s" begin="'+b+'s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.01;0.25;1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.01;0.2;0.25;1" dur="4s" begin="'+b+'s" repeatCount="indefinite"/></circle>';}).join('');
+    var QUES=["Hangi kayıt aksiyon gerektiriyor?","Hangi müşteri talebi bekliyor?","Hangi teklif onayda kaldı?","Hangi saha işi kapanmadı?","Hangi süreçte eksik bilgi var?","Hangi yönetici karar vermeli?"];
+    var qBar='<rect x="4" y="166" width="422" height="24" rx="7" fill="#F0EDE4" stroke="#DED9CC" stroke-width="1"/><text x="14" y="182" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#A9A195">Chief\u0027in cevabı:</text>';
+    var qTexts=QUES.map(function(q,qi){
+      var s=qi*2,fi=(s+0.2)/QDUR,vi=(s+1.6)/QDUR,fo=Math.min((s+1.9)/QDUR,(QDUR-0.02)/QDUR);
+      var kt,vl;
+      if(qi===0){kt='0;'+fi.toFixed(4)+';'+vi.toFixed(4)+';'+fo.toFixed(4)+';1';vl='0;1;1;0;0';}
+      else{var sb=(s/QDUR).toFixed(4);kt='0;'+sb+';'+fi.toFixed(4)+';'+vi.toFixed(4)+';'+fo.toFixed(4)+';1';vl='0;0;1;1;0;0';}
+      return '<text x="102" y="182" font-family="JetBrains Mono,monospace" font-size="9" fill="#141413" opacity="0">'+q+'<animate attributeName="opacity" values="'+vl+'" keyTimes="'+kt+'" dur="'+QDUR+'s" begin="0s" repeatCount="indefinite"/></text>';
+    }).join('');
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 0 430 200" fill="none" xmlns="http://www.w3.org/2000/svg">'+srcBg+commBg+hubQ+srcDots+commDots+qBar+qTexts+'</svg></div>';
+  } else if (t === 'multi-agent') {
+    var MAGT=[{cx:212,cy:128,label:'Sınıflama'},{cx:290,cy:75,label:'Veri & Bağlam'},{cx:368,cy:128,label:'Kural & Yetki'},{cx:242,cy:221,label:'Öneri'},{cx:338,cy:221,label:'Koordinatör'}];
+    var MAR=20,MADUR='8s';
+    var maLines=[{x1:228,y1:120,x2:274,y2:81},{x1:306,y1:81,x2:352,y2:120},{x1:218,y1:147,x2:238,y2:202},{x1:362,y1:147,x2:342,y2:202},{x1:262,y1:221,x2:318,y2:221},{x1:296,y1:92,x2:328,y2:202}];
+    var MADOTS=[{p:'M228,120 L274,81',b:'0'},{p:'M306,81 L352,120',b:'0.25'},{p:'M362,147 L342,202',b:'0.5'},{p:'M318,221 L262,221',b:'0.75'},{p:'M238,202 L218,147',b:'1.0'},{p:'M328,202 L296,92',b:'1.25'}];
+    var MADOTS_R=[{p:'M274,81 L228,120',b:'1.5'},{p:'M352,120 L306,81',b:'1.75'},{p:'M342,202 L362,147',b:'2.0'},{p:'M262,221 L318,221',b:'2.25'},{p:'M218,147 L238,202',b:'2.5'},{p:'M296,92 L328,202',b:'2.75'}];
+    var TASKS=['Teklif Değerlendirmesi','İş Emri Oluşturma','Randevu Planlama','Servis Kaydı'];
+    var ma=[];
+    ma.push('<defs><marker id="ma2-arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#788C5D"/></marker></defs>');
+    maLines.forEach(function(l){ma.push('<line x1="'+l.x1+'" y1="'+l.y1+'" x2="'+l.x2+'" y2="'+l.y2+'" stroke="#DED9CC" stroke-width="1" stroke-dasharray="4,5"/>');});
+    MAGT.forEach(function(ag,i){
+      var labelY=ag.cy+MAR+14;
+      ma.push('<circle cx="'+ag.cx+'" cy="'+ag.cy+'" r="'+MAR+'" fill="#141413"/>');
+      ma.push('<g transform="translate('+(ag.cx-14)+','+(ag.cy-14)+') scale(0.2)"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="9" fill="#788C5D"/></g>');
+      ma.push('<circle cx="'+ag.cx+'" cy="'+ag.cy+'" r="26" fill="none" stroke="#6A9BCC" stroke-width="2" opacity="0"><animate attributeName="opacity" values="0;0;0.7;0.7;0;0" keyTimes="0;'+((i*0.3+1)/8).toFixed(4)+';'+((i*0.3+1.3)/8).toFixed(4)+';'+(3.5/8).toFixed(4)+';'+(4/8).toFixed(4)+';1" dur="'+MADUR+'" begin="0s" repeatCount="indefinite"/></circle>');
+      ma.push('<text x="'+ag.cx+'" y="'+labelY+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#A9A195">'+ag.label+'</text>');
+    });
+    MADOTS.forEach(function(d){ma.push('<circle r="3" fill="#D97757" opacity="0"><animateMotion path="'+d.p+'" dur="'+MADUR+'" begin="'+d.b+'s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.01;0.12;1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.01;0.06;0.12;1" dur="'+MADUR+'" begin="'+d.b+'s" repeatCount="indefinite"/></circle>');});
+    MADOTS_R.forEach(function(d){ma.push('<circle r="2.5" fill="#788C5D" opacity="0"><animateMotion path="'+d.p+'" dur="'+MADUR+'" begin="'+d.b+'s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.01;0.12;1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.01;0.06;0.12;1" dur="'+MADUR+'" begin="'+d.b+'s" repeatCount="indefinite"/></circle>');});
+    ma.push('<line x1="290" y1="53" x2="290" y2="26" stroke="#788C5D" stroke-width="2" marker-end="url(#ma2-arrow)" opacity="0"><animate attributeName="opacity" values="0;0;0;1;1;0;0" keyTimes="0;0.56;0.57;0.6;0.9;0.95;1" dur="'+MADUR+'" begin="0s" repeatCount="indefinite"/></line>');
+    ma.push('<circle r="4" fill="#788C5D" opacity="0"><animateMotion path="M290,53 L290,26" dur="'+MADUR+'" begin="0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.57;0.68;1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;0.57;0.63;0.68;1" dur="'+MADUR+'" begin="0s" repeatCount="indefinite"/></circle>');
+    ma.push('<rect x="210" y="2" width="160" height="22" rx="11" fill="#F0EDE4" stroke="#DED9CC" stroke-width="1.5"/>');
+    ma.push('<rect x="210" y="2" width="160" height="22" rx="11" fill="#E7EADE" stroke="#788C5D" stroke-width="2" opacity="0"><animate attributeName="opacity" values="0;0;0;1;1;0;0" keyTimes="0;0.74;0.76;0.78;0.93;0.95;1" dur="'+MADUR+'" begin="0s" repeatCount="indefinite"/></rect>');
+    ma.push('<circle cx="224" cy="13" r="6" fill="none" stroke="#A9A195" stroke-width="1.4"/>');
+    ma.push('<text x="294" y="17" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#A9A195">İnsan Onayı</text>');
+    ma.push('<text x="294" y="17" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#788C5D" opacity="0">İnsan Onayı<animate attributeName="opacity" values="0;0;0;1;1;0;0" keyTimes="0;0.74;0.76;0.78;0.93;0.95;1" dur="'+MADUR+'" begin="0s" repeatCount="indefinite"/></text>');
+    ma.push('<rect x="140" y="268" width="300" height="24" rx="7" fill="#F0EDE4" stroke="#DED9CC" stroke-width="1"/>');
+    ma.push('<rect x="140" y="268" width="300" height="24" rx="7" fill="#F6E4DA" stroke="#D97757" stroke-width="1.5" opacity="0"><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.14;0.19;1" dur="'+MADUR+'" begin="0s" repeatCount="indefinite"/></rect>');
+    var MAD8=8;
+    TASKS.forEach(function(task,ti){
+      var s=ti*2,fi=(s+0.2)/MAD8,ve=(s+1.6)/MAD8,fo=Math.min((s+1.9)/MAD8,(MAD8-0.02)/MAD8);
+      var kt,vals;
+      if(ti===0){kt='0;'+fi.toFixed(4)+';'+ve.toFixed(4)+';'+fo.toFixed(4)+';1';vals='0;1;1;0;0';}
+      else{var sb=(s/MAD8).toFixed(4);kt='0;'+sb+';'+fi.toFixed(4)+';'+ve.toFixed(4)+';'+fo.toFixed(4)+';1';vals='0;0;1;1;0;0';}
+      ma.push('<text x="290" y="284" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#A9A195" opacity="0">Yeni Görev: '+task+'<animate attributeName="opacity" values="'+vals+'" keyTimes="'+kt+'" dur="'+MADUR+'" begin="0s" repeatCount="indefinite"/></text>');
+    });
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="100 0 400 310" fill="none" overflow="visible" xmlns="http://www.w3.org/2000/svg">'+ma.join('')+'</svg></div>';
+  } else if (t === 'role-access') {
+    var RUSERS=[{cy:38,label:'Saha Teknisyeni',ic:'#6A9BCC',access:[0]},{cy:115,label:'Satış Temsilcisi',ic:'#D97757',access:[1]},{cy:192,label:'Yönetici',ic:'#788C5D',access:[0,1,2,3]}];
+    var RPANELS=[{cy:30,label:'İş Emirleri',ic:'#6A9BCC'},{cy:82,label:'Teklifler',ic:'#D97757'},{cy:134,label:'Finans',ic:'#788C5D'},{cy:186,label:'Yönetim Özeti',ic:'#141413'}];
+    var RDUR=12,RCX=260,RCY=115;
+    var rBg=RUSERS.map(function(u){return '<rect x="0" y="'+(u.cy-13)+'" width="148" height="26" rx="7" fill="#F0EDE4" stroke="#DED9CC" stroke-width="1"/><circle cx="13" cy="'+u.cy+'" r="5" fill="'+u.ic+'"/>';}).join('');
+    var rBgTxt=RUSERS.map(function(u){return '<text x="22" y="'+(u.cy+4)+'" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#A9A195">'+u.label+'</text>';}).join('');
+    var pBg=RPANELS.map(function(p){return '<rect x="372" y="'+(p.cy-12)+'" width="143" height="24" rx="6" fill="#F0EDE4" stroke="#DED9CC" stroke-width="1"/><circle cx="385" cy="'+p.cy+'" r="4" fill="'+p.ic+'"/>';}).join('');
+    var pBgTxt=RPANELS.map(function(p){return '<text x="393" y="'+(p.cy+4)+'" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#A9A195">'+p.label+'</text>';}).join('');
+    var hubR='<g transform="translate('+RCX+','+RCY+')"><circle r="24" fill="#141413" class="pcl-hub-pulse"/><g transform="translate(-17,-17) scale(0.2429)"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="9" fill="#788C5D"/></g></g><text x="'+RCX+'" y="'+(RCY+42)+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#A9A195" letter-spacing="1.5">YETKİ KATMANI</text>';
+    var rLines='',rAccessHL='',rDenyHL='',rDots='';
+    function rKT(i){var w=4;var s=i*w,e=s+w-0.2;var b=(s/RDUR).toFixed(4),fi=((s+0.3)/RDUR).toFixed(4),vi=((s+w-0.6)/RDUR).toFixed(4),fo=(e/RDUR).toFixed(4);if(i===0){return{kt:'0;'+fi+';'+vi+';'+fo+';1',vl:'0;1;1;0;0'};}return{kt:'0;'+b+';'+fi+';'+vi+';'+fo+';1',vl:'0;0;1;1;0;0'};}
+    RUSERS.forEach(function(u,ui){
+      var rk=rKT(ui);
+      rLines+='<rect x="0" y="'+(u.cy-13)+'" width="148" height="26" rx="7" fill="#F6E4DA" stroke="#D97757" stroke-width="1.5" opacity="0"><animate attributeName="opacity" values="'+rk.vl+'" keyTimes="'+rk.kt+'" dur="'+RDUR+'s" begin="0s" repeatCount="indefinite"/></rect>';
+      rDots+='<line x1="148" y1="'+u.cy+'" x2="236" y2="'+RCY+'" stroke="#6A9BCC" stroke-width="1.5" stroke-dasharray="4,4" opacity="0"><animate attributeName="opacity" values="'+rk.vl+'" keyTimes="'+rk.kt+'" dur="'+RDUR+'s" begin="0s" repeatCount="indefinite"/></line>';
+      RPANELS.forEach(function(p,pi){
+        var hasAccess=u.access.indexOf(pi)!==-1;
+        if(hasAccess){
+          rAccessHL+='<rect x="372" y="'+(p.cy-12)+'" width="143" height="24" rx="6" fill="#E7EADE" stroke="#788C5D" stroke-width="1.5" opacity="0"><animate attributeName="opacity" values="'+rk.vl+'" keyTimes="'+rk.kt+'" dur="'+RDUR+'s" begin="0s" repeatCount="indefinite"/></rect>';
+          rDots+='<line x1="284" y1="'+RCY+'" x2="372" y2="'+p.cy+'" stroke="#788C5D" stroke-width="1.5" stroke-dasharray="3,4" opacity="0"><animate attributeName="opacity" values="'+rk.vl+'" keyTimes="'+rk.kt+'" dur="'+RDUR+'s" begin="0s" repeatCount="indefinite"/></line>';
+          rDots+='<circle r="3" fill="#788C5D" opacity="0"><animateMotion path="M284,'+RCY+' L372,'+p.cy+'" dur="'+RDUR+'s" begin="'+(ui*4+0.8).toFixed(1)+'s" repeatCount="indefinite" calcMode="linear" keyTimes="0;'+(0.05).toFixed(4)+';'+(0.15).toFixed(4)+';1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;0;0.8;0;0" keyTimes="0;0.05;0.1;0.15;1" dur="'+RDUR+'s" begin="'+(ui*4+0.8).toFixed(1)+'s" repeatCount="indefinite"/></circle>';
+        } else {
+          rDenyHL+='<rect x="372" y="'+(p.cy-12)+'" width="143" height="24" rx="6" fill="rgba(185,28,28,0.06)" stroke="#B91C1C" stroke-width="1" opacity="0"><animate attributeName="opacity" values="'+rk.vl+'" keyTimes="'+rk.kt+'" dur="'+RDUR+'s" begin="0s" repeatCount="indefinite"/></rect>';
+          rDenyHL+='<text x="508" y="'+(p.cy+4)+'" font-size="8" fill="#B91C1C" opacity="0">✕<animate attributeName="opacity" values="'+rk.vl+'" keyTimes="'+rk.kt+'" dur="'+RDUR+'s" begin="0s" repeatCount="indefinite"/></text>';
+        }
+      });
+    });
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 0 520 230" fill="none" xmlns="http://www.w3.org/2000/svg">'+rBg+pBg+rLines+rAccessHL+rDenyHL+rBgTxt+pBgTxt+hubR+rDots+'</svg></div>';
+  } else if (t === 'ml-insights') {
+    var MLSRC=[{y:75,label:'Operasyonel Veri',ic:'#6A9BCC'},{y:115,label:'Finansal Kayıtlar',ic:'#788C5D'},{y:155,label:'Geri Bildirimler',ic:'#D97757'}];
+    var MLDUR=16,MLCX=260,MLCY=115;
+    var INSIGHTS=[
+      {badge:'RİSK',bfill:'#F6DEDE',bstroke:'#B91C1C',btext:'#B91C1C',ic:'#B91C1C',title:'Tahsilat Gecikmesi',desc:'3 müşteride vade aşımı',src:'Kaynak: ERP cari + fatura'},
+      {badge:'FIRSAT',bfill:'#E7EADE',bstroke:'#788C5D',btext:'#5F7049',ic:'#788C5D',title:'Yüksek Dönüşüm Fırsatı',desc:'4 sıcak teklif kritik eşikte',src:'Kaynak: CRM + ziyaret notu'},
+      {badge:'SÜREÇ',bfill:'#E2EAF2',bstroke:'#6A9BCC',btext:'#2C5F8A',ic:'#6A9BCC',title:'SLA Darboğazı',desc:'Saha onayı 18 saat bekliyor',src:'Kaynak: İş emri + SLA log'},
+      {badge:'TAHMİN',bfill:'#F2E3D4',bstroke:'#C08457',btext:'#7A4F2A',ic:'#C08457',title:'Kapasite Açığı Bekleniyor',desc:"Q3'te %23 üretim açığı",src:'Kaynak: Üretim + sipariş trendi'}
+    ];
+    var mlSrcBg=MLSRC.map(function(s){return '<rect x="5" y="'+(s.y-11)+'" width="140" height="22" rx="6" fill="#F0EDE4" stroke="#DED9CC" stroke-width="1"/><circle cx="18" cy="'+s.y+'" r="4" fill="'+s.ic+'"/><text x="26" y="'+(s.y+4)+'" font-family="JetBrains Mono,monospace" font-size="9" fill="#A9A195">'+s.label+'</text>';}).join('');
+    var mlHub='<g transform="translate('+MLCX+','+MLCY+')"><circle r="26" fill="#141413" class="pcl-hub-pulse"/><g transform="translate(-18,-18) scale(0.2571)"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="9" fill="#788C5D"/></g></g><text x="'+MLCX+'" y="'+(MLCY-38)+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#A9A195" letter-spacing="1.5">ML ANALİTİK</text>';
+    var mlSrcDots=MLSRC.map(function(s,i){var b=(i*1.3).toFixed(1);return '<circle r="2.5" fill="#6A9BCC" opacity="0"><animateMotion path="M145,'+s.y+' L234,'+MLCY+'" dur="4s" begin="'+b+'s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.01;0.25;1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.01;0.2;0.25;1" dur="4s" begin="'+b+'s" repeatCount="indefinite"/></circle>';}).join('');
+    var mlCard='<rect x="374" y="65" width="141" height="115" rx="10" fill="#FAF9F5" stroke="#DED9CC" stroke-width="1"/>';
+    var mlInsights=INSIGHTS.map(function(ins,ii){
+      var s=ii*4,fi=(s+0.3)/MLDUR,ve=(s+3.5)/MLDUR,fo=Math.min((s+3.8)/MLDUR,(MLDUR-0.02)/MLDUR);
+      var kt,vl;
+      if(ii===0){kt='0;'+fi.toFixed(4)+';'+ve.toFixed(4)+';'+fo.toFixed(4)+';1';vl='0;1;1;0;0';}
+      else{var sb=(s/MLDUR).toFixed(4);kt='0;'+sb+';'+fi.toFixed(4)+';'+ve.toFixed(4)+';'+fo.toFixed(4)+';1';vl='0;0;1;1;0;0';}
+      var anim='<animate attributeName="opacity" values="'+vl+'" keyTimes="'+kt+'" dur="'+MLDUR+'s" begin="0s" repeatCount="indefinite"/>';
+      return '<g opacity="0">'+anim+
+        '<rect x="384" y="74" width="58" height="16" rx="4" fill="'+ins.bfill+'" stroke="'+ins.bstroke+'" stroke-width="1"/>'+
+        '<circle cx="390" cy="82" r="4" fill="'+ins.ic+'"/>'+
+        '<text x="397" y="86" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600" fill="'+ins.btext+'">'+ins.badge+'</text>'+
+        '<text x="384" y="106" font-family="JetBrains Mono,monospace" font-size="9.5" font-weight="600" fill="#141413">'+ins.title+'</text>'+
+        '<text x="384" y="122" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#6E665A">'+ins.desc+'</text>'+
+        '<text x="384" y="137" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#A9A195" font-style="italic">'+ins.src+'</text>'+
+        '<line x1="384" y1="148" x2="510" y2="148" stroke="#DED9CC" stroke-width="0.8"/>'+
+        '<text x="384" y="160" font-family="JetBrains Mono,monospace" font-size="7" fill="#A9A195">AI Açıklaması</text>'+
+        '</g>';
+    }).join('');
+    var mlDot='<circle r="3" fill="#D97757" opacity="0"><animateMotion path="M286,'+MLCY+' L374,115" dur="'+MLDUR+'s" begin="0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.05;0.15;1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;0;0.9;0;0" keyTimes="0;0.05;0.1;0.15;1" dur="'+MLDUR+'s" begin="0s" repeatCount="indefinite"/></circle>';
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 0 520 240" fill="none" xmlns="http://www.w3.org/2000/svg">'+mlSrcBg+mlHub+mlSrcDots+mlCard+mlInsights+mlDot+'</svg></div>';
+  }
+
+  return '<div class="panim-wrap">' + inner + '</div>';
+}
+
+/* ================================================================
    ORTAK SAYFA RENDERER — 4 ekran, az scroll
    Hero → 3 nokta (narrative) → Müşteri hikayesi → SSS
    ================================================================ */
 function renderRichPage(data, parentLabel, parentHref, slug) {
-  var cs  = data.caseStudy;
   var sc  = PAGE_SCENARIOS[slug] || null;
   var h   = '';
 
-  // Hero — sol: metin, sağ: müşteri kartı
+  // Hero — sol: metin, sağ: animasyon bloğu
   h += '<section class="detail-hero"><div class="container">' +
     crumb([parentLabel, parentHref], [data.h1]) +
     '<div class="hero-split" style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px 56px;align-items:start">' +
@@ -728,17 +1048,7 @@ function renderRichPage(data, parentLabel, parentHref, slug) {
   }
   h += '</div>' +
     '<div class="hero-split-right">' +
-    '<div class="cs-block">' +
-    '<div class="cs-header">' +
-    '<div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
-    '<div><div class="sp-company">' + esc(cs.company) + '</div><div class="sp-industry">' + esc(cs.industry) + '</div></div>' +
-    '</div>' +
-    '<blockquote class="sp-quote">' + esc(cs.quote) + '</blockquote>' +
-    '<div class="sp-metrics">' +
-    cs.results.map(function(r) {
-      return '<div class="sp-metric"><span class="sp-num">' + esc(r.n) + '</span><span class="sp-label">' + esc(r.l) + '</span></div>';
-    }).join('') +
-    '</div></div>' +
+    renderPageAnimation(data.animType || 'signal-flow') +
     '</div>' +
     '</div>' +
     '</div></section>';
@@ -771,6 +1081,8 @@ function renderRichPage(data, parentLabel, parentHref, slug) {
 const PLATFORM_V2_DATA = {
 
   'chief-nedir': {
+    animType: 'chief-layer',
+    bolumStyle: 'zigzag',
     eyebrow: 'Platform',
     cardTitle: 'Chief Nedir?',
     cardDesc: 'Chief\'in işletme içinde nasıl konumlandığını, hangi problemi çözdüğünü ve neden mevcut sistemlerin üzerinde çalışan akıllı işletme katmanı olduğunu anlatır.',
@@ -789,6 +1101,8 @@ const PLATFORM_V2_DATA = {
     },
   },
   'akilli-isletme-katmani': {
+    animType: 'system-connect',
+    bolumStyle: 'zigzag',
     eyebrow: 'Platform',
     cardTitle: 'Akıllı İşletme Katmanı',
     cardDesc: 'ERP/CRM yerine geçmeyen, sistemler arasında anlam, görev, süreç ve yönetim görünürlüğü kuran yapıyı anlatır.',
@@ -807,6 +1121,8 @@ const PLATFORM_V2_DATA = {
     },
   },
   'yonetim-paneli-ve-dashboard': {
+    animType: 'management-dash',
+    bolumStyle: 'timeline',
     eyebrow: 'Platform',
     cardTitle: 'Yönetim Paneli ve Dashboard',
     cardDesc: 'Hem riskleri hem pozitif operasyonel ilerlemeyi görünür hale getiren yönetim ekranını anlatır.',
@@ -825,6 +1141,8 @@ const PLATFORM_V2_DATA = {
     },
   },
   'rol-bazli-yetkilendirme': {
+    animType: 'role-access',
+    bolumStyle: 'timeline',
     eyebrow: 'Platform',
     cardTitle: 'Rol Bazlı Yetkilendirme',
     cardDesc: 'Kullanıcıların rol, departman, lokasyon, müşteri ve süreç kapsamına göre erişimini açıklar.',
@@ -843,6 +1161,8 @@ const PLATFORM_V2_DATA = {
     },
   },
   'chief-nasil-calisir': {
+    animType: 'signal-flow',
+    bolumStyle: 'zigzag',
     eyebrow: 'Platform',
     cardTitle: 'Chief Nasıl Çalışır?',
     cardDesc: 'Chief, dağınık iş bilgisini yakalar, anlar, ilgili veriyle bağlar, göreve dönüştürür ve sonucu öğrenerek süreci iyileştirir.',
@@ -862,6 +1182,8 @@ const PLATFORM_V2_DATA = {
     },
   },
   'sinyalden-aksiyona': {
+    animType: 'signal-to-action',
+    bolumStyle: 'zigzag',
     eyebrow: 'Platform',
     cardTitle: 'Sinyalden Aksiyona',
     cardDesc: 'Toplantı notu, e-posta, WhatsApp, web formu, ERP kaydı veya saha bildirimi Chief içinde takip edilebilir aksiyona dönüşür.',
@@ -880,6 +1202,8 @@ const PLATFORM_V2_DATA = {
     },
   },
   'mevcut-sistemlerle-calisir': {
+    animType: 'systems-query',
+    bolumStyle: 'zigzag',
     eyebrow: 'Platform',
     cardTitle: 'Mevcut Sistemlerle Çalışır',
     cardDesc: 'Chief mevcut ERP, CRM, doküman, iletişim ve saha sistemlerinin üzerinde çalışır; sistemleri değiştirmeden akıllı süreç katmanı oluşturur.',
@@ -898,6 +1222,8 @@ const PLATFORM_V2_DATA = {
     },
   },
   'is-nesnesi-ve-veri-katmani': {
+    animType: 'biz-objects',
+    bolumStyle: 'zigzag',
     eyebrow: 'Platform',
     cardTitle: 'İş Nesnesi ve Veri Katmanı',
     cardDesc: 'Müşteri, lokasyon, teklif, iş emri, görev, ekip, belge ve finansal kayıtlar Chief içinde ortak bir iş modeliyle bağlanır.',
@@ -916,6 +1242,8 @@ const PLATFORM_V2_DATA = {
     },
   },
   'ai-ajanlar-ve-gorev-yonetimi': {
+    animType: 'multi-agent',
+    bolumStyle: 'timeline',
     eyebrow: 'Platform · AI Tabanlı',
     cardTitle: 'AI Süreç Orkestrasyonu',
     cardDesc: 'Chief\'in AI ajanları talebi sınıflandırır, eksik bilgiyi bulur, öneri üretir ve süreci ilgili ekip veya onay noktasına yönlendirir.',
@@ -934,6 +1262,8 @@ const PLATFORM_V2_DATA = {
     },
   },
   'gorev-onay-ve-takip': {
+    animType: 'task-board',
+    bolumStyle: 'timeline',
     eyebrow: 'Platform',
     cardTitle: 'Görev, Onay ve Takip',
     cardDesc: 'Her iş; sorumlu, öncelik, SLA, onay adımı, kapanış kriteri ve yönetim görünürlüğüyle takip edilir.',
@@ -952,6 +1282,8 @@ const PLATFORM_V2_DATA = {
     },
   },
   'surecler-arasi-devir-teslim': {
+    animType: 'handoff-flow',
+    bolumStyle: 'timeline',
     eyebrow: 'Platform',
     cardTitle: 'Süreçler Arası Devir Teslim',
     cardDesc: 'Satıştan operasyona, ofisten sahaya, üretimden finansa geçen işlerde bilgi kaybı ve manuel takip yükü azalır.',
@@ -970,6 +1302,8 @@ const PLATFORM_V2_DATA = {
     },
   },
   'guvenlik-ve-veri-yaklasimi': {
+    animType: 'ml-insights',
+    bolumStyle: 'timeline',
     eyebrow: 'Platform',
     cardTitle: 'Karar Destek, Güvenlik ve Öğrenme',
     cardDesc: 'Chief, yönetim için riskleri, gecikmeleri, fırsatları ve performans göstergelerini görünür kılar; her aksiyondan öğrenir.',
@@ -990,52 +1324,113 @@ const PLATFORM_V2_DATA = {
   },
 };
 
+/* ================================================================
+   BÖLÜM STİL RENDER FONKSİYONLARI — Zigzag + Timeline
+   ================================================================ */
+function renderBolumlerZigzag(bolumler) {
+  var h = '<section class="pb-zigzag-section"><div class="container pb-zigzag">';
+  bolumler.forEach(function(b, i) {
+    var rev = (i % 2 !== 0) ? ' pb-zz-reverse' : '';
+    h += '<div class="pb-zz-row' + rev + '">';
+    // Sol: numara + başlık
+    h += '<div class="pb-zz-head">';
+    h += '<span class="pb-zz-num">0' + (i + 1) + '</span>';
+    h += '<h3 class="pb-zz-title">' + esc(b.baslik) + '</h3>';
+    h += '</div>';
+    // Sağ: metin
+    h += '<div class="pb-zz-body">';
+    if (b.metin) {
+      b.metin.split('\\n').forEach(function(p) {
+        if (p.trim()) h += '<p>' + esc(p.trim()) + '</p>';
+      });
+    }
+    if (b.liste && b.liste.length) {
+      h += '<ul class="pb-list">';
+      b.liste.forEach(function(li) { h += '<li>' + esc(li) + '</li>'; });
+      h += '</ul>';
+    }
+    if (b.metin2) h += '<p>' + esc(b.metin2) + '</p>';
+    h += '</div>';
+    h += '</div>';
+  });
+  h += '</div></section>';
+  return h;
+}
+
+function renderBolumlerTimeline(bolumler) {
+  var h = '<section class="pb-timeline-section"><div class="container"><div class="pb-timeline">';
+  bolumler.forEach(function(b, i) {
+    var isLast = (i === bolumler.length - 1);
+    h += '<div class="pb-tl-item">';
+    h += '<div class="pb-tl-left">';
+    h += '<div class="pb-tl-dot"><span class="pb-tl-num">0' + (i + 1) + '</span></div>';
+    if (!isLast) h += '<div class="pb-tl-line"></div>';
+    h += '</div>';
+    h += '<div class="pb-tl-right">';
+    h += '<h3 class="pb-tl-title">' + esc(b.baslik) + '</h3>';
+    h += '<div class="pb-tl-body">';
+    if (b.metin) {
+      b.metin.split('\\n').forEach(function(p) {
+        if (p.trim()) h += '<p>' + esc(p.trim()) + '</p>';
+      });
+    }
+    if (b.liste && b.liste.length) {
+      h += '<ul class="pb-list">';
+      b.liste.forEach(function(li) { h += '<li>' + esc(li) + '</li>'; });
+      h += '</ul>';
+    }
+    if (b.metin2) h += '<p>' + esc(b.metin2) + '</p>';
+    h += '</div>';
+    h += '</div>';
+    h += '</div>';
+  });
+  h += '</div></div></section>';
+  return h;
+}
+
 function renderPlatformV2Page(slug) {
   var d = PLATFORM_V2_DATA[slug];
   if (!d) return renderPlatformPage(slug);
-  var cs = d.caseStudy;
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['Platform', '#/platform'], [d.h1]) +
-    '<div class="hero-split" style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px 56px;align-items:start">' +
+    '<div class="hero-split" style="display:grid;grid-template-columns:1fr 1fr;gap:48px 56px;align-items:start">' +
     '<div class="hero-split-left">' +
     '<span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
     '<h1 style="margin-top:16px">' + esc(d.h1) + '</h1>' +
     '<p class="lead">' + esc(d.lead) + '</p>' +
     '</div>' +
     '<div class="hero-split-right">' +
-    '<div class="cs-block">' +
-    '<div class="cs-header">' +
-    '<div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
-    '<div><div class="sp-company">' + esc(cs.company) + '</div><div class="sp-industry">' + esc(cs.industry) + '</div></div>' +
-    '</div>' +
-    '<blockquote class="sp-quote">' + esc(cs.quote) + '</blockquote>' +
-    '<div class="sp-metrics">' +
-    cs.results.map(function(r) {
-      return '<div class="sp-metric"><span class="sp-num">' + esc(r.n) + '</span><span class="sp-label">' + esc(r.l) + '</span></div>';
-    }).join('') +
-    '</div></div>' +
+    renderPageAnimation(d.animType || 'signal-flow') +
     '</div>' +
     '</div>' +
     '</div></section>';
 
   // Bölüm sayfaları (doküman metni)
   if (d.bolumler && d.bolumler.length) {
-    d.bolumler.forEach(function(b, i) {
-      var bg = i % 2 === 0 ? 'bg-warm' : '';
-      h += '<section class="' + bg + '" style="padding:52px 0"><div class="container narrow platform-bolum">';
-      h += '<h3>' + esc(b.baslik) + '</h3>';
-      // Multi-paragraph: split on \n
-      if (b.metin) {
-        b.metin.split('\\n').forEach(function(para) {
-          if (para.trim()) h += '<p>' + esc(para.trim()) + '</p>';
-        });
-      }
-      if (b.liste && b.liste.length) {
-        h += '<ul>' + b.liste.map(function(li){ return '<li>' + esc(li) + '</li>'; }).join('') + '</ul>';
-      }
-      if (b.metin2) h += '<p>' + esc(b.metin2) + '</p>';
-      h += '</div></section>';
-    });
+    var bStyle = d.bolumStyle || 'default';
+    if (bStyle === 'zigzag') {
+      h += renderBolumlerZigzag(d.bolumler);
+    } else if (bStyle === 'timeline') {
+      h += renderBolumlerTimeline(d.bolumler);
+    } else {
+      // default: mevcut alternating background stil
+      d.bolumler.forEach(function(b, i) {
+        var bg = i % 2 === 0 ? 'bg-warm' : '';
+        h += '<section class="' + bg + '" style="padding:52px 0"><div class="container narrow platform-bolum">';
+        h += '<h3>' + esc(b.baslik) + '</h3>';
+        // Multi-paragraph: split on \n
+        if (b.metin) {
+          b.metin.split('\\n').forEach(function(para) {
+            if (para.trim()) h += '<p>' + esc(para.trim()) + '</p>';
+          });
+        }
+        if (b.liste && b.liste.length) {
+          h += '<ul>' + b.liste.map(function(li){ return '<li>' + esc(li) + '</li>'; }).join('') + '</ul>';
+        }
+        if (b.metin2) h += '<p>' + esc(b.metin2) + '</p>';
+        h += '</div></section>';
+      });
+    }
   }
 
   return h + finalCTA();
@@ -1883,6 +2278,7 @@ function renderNotFound()          { return _stub('Sayfa Bulunamadı'); }
 
 const SEKTORLER_V2_DATA = {
   'uretim-ve-sanayi': {
+    animType: 'system-connect',
     eyebrow: 'Sektörlere Göre',
     cardTitle: 'Üretim ve Sanayi',
     cardDesc: 'Üretim ve sanayi işletmelerinde teklif, sipariş, teknik doküman, kapasite, malzeme, kalite, termin ve finansal kapanış farklı sistemlerde dağılabilir.',
@@ -1901,6 +2297,7 @@ const SEKTORLER_V2_DATA = {
     },
   },
   'hizmet-ve-saha-operasyonlari': {
+    animType: 'handoff-flow',
     eyebrow: 'Sektörlere Göre',
     cardTitle: 'Hizmet ve Saha Operasyonları',
     cardDesc: 'Saha ekiplerini, teknik servis kayıtlarını, bakım takvimlerini ve kapanış kanıtlarını tek akışta yönetin.',
@@ -1919,6 +2316,7 @@ const SEKTORLER_V2_DATA = {
     },
   },
   'perakende-ve-dagitim': {
+    animType: 'signal-flow',
     eyebrow: 'Sektörlere Göre',
     cardTitle: 'Perakende ve Dağıtım',
     cardDesc: 'Müşteri taleplerini, tedarik zincirini, stok yönetimini ve lokasyon operasyonlarını birleştirin.',
@@ -1937,6 +2335,7 @@ const SEKTORLER_V2_DATA = {
     },
   },
   'kamu-ve-yerel-yonetimler': {
+    animType: 'task-board',
     eyebrow: 'Sektörlere Göre',
     cardTitle: 'Kamu ve Yerel Yönetimler',
     cardDesc: 'Kurumsal süreçleri, başvuru takibini, onay akışlarını ve hizmet kapanışını mevzuat uyumuyla yönetin.',
@@ -1955,6 +2354,7 @@ const SEKTORLER_V2_DATA = {
     },
   },
   'kurumsal-hizmetler': {
+    animType: 'data-model',
     eyebrow: 'Sektörlere Göre',
     cardTitle: 'Kurumsal Hizmetler',
     cardDesc: 'Proje yönetimini, müşteri onay süreçlerini, zaman takibini ve faturalamayı tek platformda birleştirin.',
@@ -1973,6 +2373,7 @@ const SEKTORLER_V2_DATA = {
     },
   },
   'kobi-ve-buyuyen-isletmeler': {
+    animType: 'signal-flow',
     eyebrow: 'Sektörlere Göre',
     cardTitle: 'KOBİ ve Büyüyen İşletmeler',
     cardDesc: 'Büyük ERP yatırımı yapmadan operasyonel görünürlük, süreç disiplini ve yönetim kontrolü kazanın.',
@@ -1996,19 +2397,13 @@ function renderSektorlerV2Page(slug) {
   var d = SEKTORLER_V2_DATA[slug];
   if (!d) return _stub('Sektörler', slug);
 
-  var cs = d.caseStudy;
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['Sektörlere Göre', '#/kullanim-alanlari/sektorlere-gore'], [d.cardTitle]) +
     '<div style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px 56px;align-items:start">' +
     '<div><span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
     '<h1 style="margin-top:16px">' + esc(d.h1) + '</h1>' +
     '<p class="lead">' + esc(d.lead) + '</p></div>' +
-    '<div><div class="cs-block" style="box-shadow:var(--sh-lg)">' +
-    '<div class="cs-header"><div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
-    '<div><div class="sp-company">' + esc(cs.company) + '</div><div class="sp-industry">' + esc(cs.industry) + '</div></div></div>' +
-    '<blockquote class="sp-quote">' + esc(cs.quote) + '</blockquote>' +
-    '<div class="sp-metrics">' + cs.results.map(function(r){ return '<div class="sp-metric"><span class="sp-num">' + esc(r.n) + '</span><span class="sp-label">' + esc(r.l) + '</span></div>'; }).join('') + '</div>' +
-    '</div></div></div>' +
+    '<div>' + renderPageAnimation(d.animType || 'signal-flow') + '</div>' +
     '</div></section>';
 
   d.bolumler.forEach(function(b, i) {
@@ -2050,6 +2445,7 @@ function renderSektorlerV2Listing() {
    ================================================================ */
 const ISLETME_OLCEGI_DATA = {
   'mikro-isletme-girisim': {
+    animType: 'signal-flow',
     cardTitle: 'Mikro İşletme / Girişim',
     cardDesc: 'Freelance çalışanlar, yeni kurulan ekipler, 1-5 çalışan mikro işletmeler ve ilk süreçlerini düzenlemek isteyen girişimler.',
     h1: 'Mikro İşletme / Girişim',
@@ -2067,6 +2463,7 @@ const ISLETME_OLCEGI_DATA = {
     },
   },
   'kucuk-isletme-kobi': {
+    animType: 'task-board',
     cardTitle: 'Küçük İşletme / KOBİ',
     cardDesc: 'İşini oturtmuş, büyüyen ekipler; yaklaşık 5-20 çalışan yapılar. Düzenli satış, teklif, takip ve temel operasyon akışı olan işletmeler.',
     h1: 'Küçük İşletme / KOBİ',
@@ -2084,6 +2481,7 @@ const ISLETME_OLCEGI_DATA = {
     },
   },
   'orta-olcekli-isletme': {
+    animType: 'handoff-flow',
     cardTitle: 'Orta Ölçekli İşletme',
     cardDesc: 'Yaklaşık 20-100 çalışan, ciddi iş hacmi olan ve birden fazla süreci birlikte yöneten ticari şirketler.',
     h1: 'Orta Ölçekli İşletme',
@@ -2101,6 +2499,7 @@ const ISLETME_OLCEGI_DATA = {
     },
   },
   'buyuk-kurumsal-grup-sirketleri': {
+    animType: 'management-dash',
     cardTitle: 'Büyük Kurumsal / Grup Şirketleri',
     cardDesc: '100+ çalışan, çok lokasyonlu, çok sistemli, global veya holding yapıları. İleri entegrasyon, güvenlik ve ölçeklenebilirlik ihtiyacı yüksektir.',
     h1: 'Büyük Kurumsal / Grup Şirketleri',
@@ -2122,19 +2521,14 @@ const ISLETME_OLCEGI_DATA = {
 function renderIsletmeOlcegiPage(slug) {
   var d = ISLETME_OLCEGI_DATA[slug];
   if (!d) return _stub('İşletme Ölçeğine Göre', slug);
-  var cs = d.caseStudy;
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['İşletme Ölçeğine Göre', '#/kullanim-alanlari/isletme-olcegine-gore'], [d.cardTitle]) +
     '<div style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px 56px;align-items:start">' +
     '<div><span class="eyebrow">İŞLETME ÖLÇEĞİNE GÖRE</span>' +
     '<h1 style="margin-top:16px">' + esc(d.h1) + '</h1>' +
     '<p class="lead">' + esc(d.lead) + '</p></div>' +
-    '<div><div class="cs-block" style="box-shadow:var(--sh-lg)">' +
-    '<div class="cs-header"><div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
-    '<div><div class="sp-company">' + esc(cs.company) + '</div><div class="sp-industry">' + esc(cs.industry) + '</div></div></div>' +
-    '<blockquote class="sp-quote">' + esc(cs.quote) + '</blockquote>' +
-    '<div class="sp-metrics">' + cs.results.map(function(r){ return '<div class="sp-metric"><span class="sp-num">' + esc(r.n) + '</span><span class="sp-label">' + esc(r.l) + '</span></div>'; }).join('') + '</div>' +
-    '</div></div></div></div></section>';
+    '<div>' + renderPageAnimation(d.animType || 'signal-flow') + '</div>' +
+    '</div></section>';
   d.bolumler.forEach(function(b, i) {
     h += '<section class="' + (i%2===0?'bg-warm':'') + '" style="padding:52px 0"><div class="container narrow platform-bolum"><h3>' + esc(b.baslik) + '</h3>';
     b.metin.split('\\n').forEach(function(line){ if (line.trim()) h += '<p>' + esc(line.trim()) + '</p>'; });
@@ -2474,6 +2868,7 @@ function renderSektorlerListing() {
    ================================================================ */
 const IS_SURECLERI_DATA = {
   'yonetimsel-dogal-dil-veri-stratejik-aksiyon': {
+    animType: 'management-dash',
     featured: true, cat: 'YÖNETİM', catKey: 'yonetim', icon: 'spark',
     eyebrow: 'ÖNE ÇIKAN YÖNETİM KATMANI / İŞ SÜRECİ',
     cardTitle: 'Yönetimsel Doğal Dil, Veri Erişimi ve Stratejik Aksiyon',
@@ -2550,6 +2945,7 @@ const IS_SURECLERI_DATA = {
     metrics: [{ n:'Anlık', l:'Veri erişimi' },{ n:'%100', l:'Kaynak kayıt bağlantısı' },{ n:'< 1 saat', l:'KPI\'dan aksiyona' },{ n:'Tam', l:'Denetim izi' }],
   },
   'talep-potansiyel-musteri-firsat-yonetimi': {
+    animType: 'signal-flow',
     featured: false, cat: 'SATIŞ VE TEKLİF', catKey: 'satis', icon: 'target',
     eyebrow: 'Satış & Teklif',
     cardTitle: 'Talep, Potansiyel Müşteri ve Fırsat Yönetimi',
@@ -2619,6 +3015,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'Talep, Potansiyel Müşteri ve Fırsat Yönetimi sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'satis-ekibi-ziyaret-yonetimi': {
+    animType: 'handoff-flow',
     featured: false, cat: 'SATIŞ VE TEKLİF', catKey: 'satis', icon: 'map',
     eyebrow: 'Satış & Teklif',
     cardTitle: 'Satış Ekibi ve Ziyaret Yönetimi',
@@ -2688,6 +3085,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'Satış Ekibi ve Ziyaret Yönetimi sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'teklif-talebi-bilgi-tamamlama': {
+    animType: 'task-board',
     featured: false, cat: 'SATIŞ VE TEKLİF', catKey: 'satis', icon: 'doc',
     eyebrow: 'Satış & Teklif',
     cardTitle: 'Teklif Talebi ve Bilgi Tamamlama',
@@ -2757,6 +3155,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'Teklif Talebi ve Bilgi Tamamlama sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'fiyatlama-marj-onay': {
+    animType: 'task-board',
     featured: false, cat: 'SATIŞ VE TEKLİF', catKey: 'satis', icon: 'target',
     eyebrow: 'Satış & Teklif',
     cardTitle: 'Fiyatlama, Marj ve Onay',
@@ -2826,6 +3225,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'Fiyatlama, Marj ve Onay sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'tekliften-siparise-gecis': {
+    animType: 'handoff-flow',
     featured: false, cat: 'SATIŞ VE TEKLİF', catKey: 'satis', icon: 'arrow',
     eyebrow: 'Satış & Teklif',
     cardTitle: 'Tekliften Siparişe Geçiş',
@@ -2895,6 +3295,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'Tekliften Siparişe Geçiş sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'is-emri-saha-planlama': {
+    animType: 'task-board',
     featured: false, cat: 'OPERASYON VE SAHA', catKey: 'operasyon', icon: 'wrench',
     eyebrow: 'Operasyon & Saha',
     cardTitle: 'İş Emri ve Saha Planlama',
@@ -2965,6 +3366,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'İş Emri ve Saha Planlama sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'bakim-ariza-teknik-servis': {
+    animType: 'task-board',
     featured: false, cat: 'OPERASYON VE SAHA', catKey: 'operasyon', icon: 'clock',
     eyebrow: 'Operasyon & Saha',
     cardTitle: 'Bakım, Arıza ve Teknik Servis',
@@ -3036,6 +3438,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'Bakım, Arıza ve Teknik Servis sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'montaj-proje-uygulama': {
+    animType: 'handoff-flow',
     featured: false, cat: 'OPERASYON VE SAHA', catKey: 'operasyon', icon: 'layers',
     eyebrow: 'Operasyon & Saha',
     cardTitle: 'Montaj ve Proje Uygulama',
@@ -3106,6 +3509,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'Montaj ve Proje Uygulama sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'uretim-planlama-kapasite': {
+    animType: 'management-dash',
     featured: false, cat: 'ÜRETİM, TEDARİK VE KALİTE', catKey: 'uretim', icon: 'factory',
     eyebrow: 'Üretim, Tedarik & Kalite',
     cardTitle: 'Üretim Planlama ve Kapasite',
@@ -3177,6 +3581,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'Üretim Planlama ve Kapasite sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'stok-yedek-parca-tedarik': {
+    animType: 'signal-flow',
     featured: false, cat: 'ÜRETİM, TEDARİK VE KALİTE', catKey: 'uretim', icon: 'db',
     eyebrow: 'Üretim, Tedarik & Kalite',
     cardTitle: 'Stok, Yedek Parça ve Tedarik',
@@ -3246,6 +3651,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'Stok, Yedek Parça ve Tedarik sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'kalite-uygunsuzluk-duzeltici-faaliyet': {
+    animType: 'task-board',
     featured: false, cat: 'ÜRETİM, TEDARİK VE KALİTE', catKey: 'uretim', icon: 'check',
     eyebrow: 'Üretim, Tedarik & Kalite',
     cardTitle: 'Kalite Uygunsuzluk ve Düzeltici Faaliyet',
@@ -3316,6 +3722,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'Kalite Uygunsuzluk ve Düzeltici Faaliyet sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'fatura-tahsilat-is-kapanisi': {
+    animType: 'management-dash',
     featured: false, cat: 'FİNANSAL KAPANIŞ', catKey: 'finans', icon: 'doc',
     eyebrow: 'Finansal Kapanış',
     cardTitle: 'Fatura, Tahsilat ve İş Kapanışı',
@@ -3386,6 +3793,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'Fatura, Tahsilat ve İş Kapanışı sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'musteri-geri-bildirimi-iyilestirme': {
+    animType: 'signal-flow',
     featured: false, cat: 'PAYDAŞ DENEYİMİ', catKey: 'paydas', icon: 'star',
     eyebrow: 'Paydaş Deneyimi',
     cardTitle: 'Müşteri Geri Bildirimi ve İyileştirme',
@@ -3456,6 +3864,7 @@ const IS_SURECLERI_DATA = {
     ctaText: 'Müşteri Geri Bildirimi ve İyileştirme sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
   'calisan-deneyimi-ik-aksiyonlari': {
+    animType: 'signal-flow',
     featured: false, cat: 'PAYDAŞ DENEYİMİ', catKey: 'paydas', icon: 'users',
     eyebrow: 'Paydaş Deneyimi',
     cardTitle: 'Çalışan Deneyimi ve İK Aksiyonları',
@@ -3770,7 +4179,6 @@ function renderIsSureciListing() {
 function renderIsSureciPage(slug) {
   var d = IS_SURECLERI_DATA[slug];
   if (!d) return renderNotFound();
-  var cs = IS_SURECLERI_CS[slug] || IS_SURECLERI_CS[_kuSlug(slug)];
   var isFeatured = d.featured || false;
 
   // HERO
@@ -3780,12 +4188,8 @@ function renderIsSureciPage(slug) {
     '<div><span class="eyebrow">' + esc(d.eyebrow) + '</span>' +
     '<h1 style="margin-top:16px">' + esc(d.h1) + '</h1>' +
     '<p class="lead">' + esc(d.lead) + '</p></div>' +
-    '<div>' + (cs ? '<div class="cs-block" style="box-shadow:var(--sh-lg)">' +
-      '<div class="cs-header"><div class="sp-logo-img-wrap"><img src="' + cs.logo + '" alt="' + esc(cs.company) + '" class="sp-logo-img"></div>' +
-      '<div><div class="sp-company">' + esc(cs.company) + '</div><div class="sp-industry">' + esc(cs.industry) + '</div></div></div>' +
-      '<blockquote class="sp-quote">' + esc(cs.quote) + '</blockquote>' +
-      '<div class="sp-metrics">' + (d.metrics||[]).map(function(m){ return '<div class="sp-metric"><span class="sp-num">' + esc(m.n) + '</span><span class="sp-label">' + esc(m.l) + '</span></div>'; }).join('') + '</div></div>' : '') +
-    '</div></div></div></section>';
+    '<div>' + renderPageAnimation(d.animType || 'signal-flow') + '</div>' +
+    '</div></div></section>';
 
   // BU SÜREÇ NEYİ ÇÖZER?
   h += '<section style="padding:52px 0" class="bg-warm"><div class="container narrow">' +
