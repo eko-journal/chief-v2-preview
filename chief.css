@@ -2278,10 +2278,7 @@ h1 em.highlight {
   15%,30%  { box-shadow: 0 0 0 6px rgba(106,155,204,.18), 0 4px 16px rgba(20,20,19,.22); }
 }
 
-/* ---- Responsive: mobilde animasyonları gizle ---- */
-@media (max-width: 768px) {
-  .panim-wrap { display: none; }
-}
+/* ---- Responsive: mobilde animasyonlar görünür ---- */
 
 /* ================================================================
    PLATFORM BÖLÜM STİLLERİ — Zigzag + Timeline
@@ -2412,13 +2409,20 @@ h1 em.highlight {
    ================================================================ */
 @media (max-width: 768px) {
 
-  /* Hero split: tek kolon, metin üst, animasyon gizli */
+  /* Hero split: tek kolon, metin üst, animasyon altta */
   .hero-split {
     grid-template-columns: 1fr !important;
-    gap: 32px 0 !important;
+    gap: 28px 0 !important;
   }
-  .hero-split .panim-wrap { display: none !important; }
-  .hero-split .pcl-wrap  { display: none !important; }
+  /* Animasyonlar mobilde görünür, tam genişlik */
+  .hero-split .panim-wrap,
+  .hero-split .pcl-wrap {
+    display: block !important;
+    max-width: 100% !important;
+    padding: 16px 12px !important;
+  }
+  /* SVG animasyonları mobilde tam genişlik */
+  .hero-split .pcl-svg { width: 100% !important; height: auto !important; }
 
   /* Zigzag: tek kolon */
   .pb-zz-row {
