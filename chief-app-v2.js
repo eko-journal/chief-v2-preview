@@ -67,11 +67,11 @@ const MEGA = {
     cols: [
       { label: 'İş Süreçlerine Göre', items: [
         { href: '#/kullanim-alanlari/is-sureclerine-gore/yonetim-katmani', title: 'Yönetim Katmanı',              desc: '' },
-        { href: '#/is-surecleri',                                              title: 'Satış ve Teklif',              desc: '' },
-        { href: '#/is-surecleri',                                              title: 'Operasyon ve Saha',            desc: '' },
-        { href: '#/is-surecleri',                                              title: 'Üretim, Tedarik ve Kalite',    desc: '' },
+        { href: '#/kullanim-alanlari/is-sureclerine-gore/satis-ve-teklif',       title: 'Satış ve Teklif',              desc: '' },
+        { href: '#/kullanim-alanlari/is-sureclerine-gore/operasyon-ve-saha',      title: 'Operasyon ve Saha',            desc: '' },
+        { href: '#/kullanim-alanlari/is-sureclerine-gore/uretim-tedarik-kalite', title: 'Üretim, Tedarik ve Kalite',    desc: '' },
         { href: '#/kullanim-alanlari/is-sureclerine-gore/finans',                  title: 'Finans',                       desc: '' },
-        { href: '#/is-surecleri',                                              title: 'Paydaş Deneyimi',              desc: '' },
+        { href: '#/kullanim-alanlari/is-sureclerine-gore/paydas-deneyimi',       title: 'Paydaş Deneyimi',              desc: '' },
       ]},
       { label: 'Sektörlere Göre', items: [
         { href: '#/kullanim-alanlari/sektorlere-gore/uretim-ve-sanayi', title: 'Üretim ve Sanayi',               desc: '' },
@@ -970,7 +970,7 @@ function renderPageAnimation(type) {
     var upDots=SYS.map(function(s,i){var b=(ST*i).toFixed(2);var p='M'+s.x+','+WBOT+' L'+CX+','+WTOP;return '<circle r="3.5" fill="#6A9BCC" opacity="0"><animateMotion path="'+p+'" dur="'+DUR+'s" begin="'+b+'s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.25;1" keyPoints="0;1;1"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.02;0.05;0.22;0.27;1" dur="'+DUR+'s" begin="'+b+'s" repeatCount="indefinite"/></circle>';}).join('');
     var downDots=SYS.map(function(s,i){var b=(ST*i+ST*0.6).toFixed(2);var p='M'+CX+','+WTOP+' L'+s.x+','+WBOT;return '<circle r="3.5" fill="#D97757" opacity="0"><animateMotion path="'+p+'" dur="'+DUR+'s" begin="'+b+'s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.25;1" keyPoints="0;1;1"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.02;0.05;0.22;0.27;1" dur="'+DUR+'s" begin="'+b+'s" repeatCount="indefinite"/></circle>';}).join('');
     var hub='<g transform="translate('+CX+','+CY+')"><circle r="26" fill="#141413" class="pcl-hub-pulse"/><g transform="translate(-18,-18) scale(0.2571)"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="9" fill="#788C5D"/></g></g><text x="'+CX+'" y="'+(CY+46)+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#A9A195" letter-spacing="2">CHIEF</text>';
-    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 0 504 186" fill="none" xmlns="http://www.w3.org/2000/svg">'+wires+nodes+hub+upDots+downDots+'</svg></div>';
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 -70 504 330" fill="none" xmlns="http://www.w3.org/2000/svg">'+wires+nodes+hub+upDots+downDots+'</svg></div>';
   } else if (t === 'signal-to-action') {
     var SIG=[
       {y:18, label:'Müşteri talebi', out:0},
@@ -996,7 +996,7 @@ function renderPageAnimation(type) {
     var lDots=SIG.map(function(s,i){var a=i*2+0.2,b=a+0.05,c=a+0.35,e=Math.min(a+0.4,D-0.02);var p='M'+SX+','+s.y+' L'+(CX-22)+','+CY;return '<circle r="3" fill="#6A9BCC" opacity="0"><animateMotion path="'+p+'" dur="'+D+'s" begin="0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;'+(a/D).toFixed(4)+';'+(c/D).toFixed(4)+';1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="'+_kt2(a,b,c,e)+'" dur="'+D+'s" begin="0s" repeatCount="indefinite"/></circle>';}).join('');
     var rDots=SIG.map(function(s,i){var o=OUT[s.out],a=i*2+0.8,b=a+0.05,c=a+0.35,e=Math.min(a+0.4,D-0.02);var p='M'+(CX+22)+','+CY+' L'+OX+','+o.y;return '<circle r="3" fill="#D97757" opacity="0"><animateMotion path="'+p+'" dur="'+D+'s" begin="0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;'+(a/D).toFixed(4)+';'+(c/D).toFixed(4)+';1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="'+_kt2(a,b,c,e)+'" dur="'+D+'s" begin="0s" repeatCount="indefinite"/></circle>';}).join('');
     var hub2='<g transform="translate('+CX+','+CY+')"><circle r="26" fill="#141413" class="pcl-hub-pulse"/><g transform="translate(-18,-18) scale(0.2571)"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="9" fill="#788C5D"/></g></g><text x="'+CX+'" y="'+(CY+46)+'" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#A9A195" letter-spacing="2">CHIEF</text>';
-    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 0 480 232" fill="none" xmlns="http://www.w3.org/2000/svg">'+sBg+oBg+sHL+oHL+sLbl+oLbl+hub2+lDots+rDots+'</svg></div>';
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 -50 480 340" fill="none" xmlns="http://www.w3.org/2000/svg">'+sBg+oBg+sHL+oHL+sLbl+oLbl+hub2+lDots+rDots+'</svg></div>';
   } else if (t === 'biz-objects') {
     // Slot machine: 13 iş nesnesi sırayla, Chief merkez, 6 departman sağ
     var BOS=[
@@ -1029,7 +1029,7 @@ function renderPageAnimation(type) {
     var cLines=BOS.map(function(o,i){var k=bKT(i,0.4);return o.depts.map(function(di){var dy=BD[di].y;return '<line x1="'+CR+'" y1="'+BCY+'" x2="'+DX+'" y2="'+dy+'" stroke="#D97757" stroke-width="1.5" stroke-dasharray="3,4" opacity="0"><animate attributeName="opacity" values="'+k.vl+'" keyTimes="'+k.kt+'" dur="'+BDUR+'s" begin="0s" repeatCount="indefinite"/></line>';}).join('');}).join('');
     // Chief hub
     var bHub='<g transform="translate('+BCX+','+BCY+')"><circle r="24" fill="#141413" class="pcl-hub-pulse"/><g transform="translate(-17,-17) scale(0.2429)"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="9" fill="#788C5D"/></g></g>';
-    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 0 520 230" fill="none" xmlns="http://www.w3.org/2000/svg">'+slotEye+dBg+dHL+dBgTxt+bHub+bLines+cLines+slotBg+slotObjs+'</svg></div>';
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 -50 520 340" fill="none" xmlns="http://www.w3.org/2000/svg">'+slotEye+dBg+dHL+dBgTxt+bHub+bLines+cLines+slotBg+slotObjs+'</svg></div>';
 
   } else if (t === 'systems-query') {
     // viewBox 430x200 — scale 1.4x larger than 520x240 in same container
@@ -1050,7 +1050,7 @@ function renderPageAnimation(type) {
       else{var sb=(s/QDUR).toFixed(4);kt='0;'+sb+';'+fi.toFixed(4)+';'+vi.toFixed(4)+';'+fo.toFixed(4)+';1';vl='0;0;1;1;0;0';}
       return '<text x="102" y="182" font-family="JetBrains Mono,monospace" font-size="9" fill="#141413" opacity="0">'+q+'<animate attributeName="opacity" values="'+vl+'" keyTimes="'+kt+'" dur="'+QDUR+'s" begin="0s" repeatCount="indefinite"/></text>';
     }).join('');
-    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 0 430 200" fill="none" xmlns="http://www.w3.org/2000/svg">'+srcBg+commBg+hubQ+srcDots+commDots+qBar+qTexts+'</svg></div>';
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="-20 -50 470 320" fill="none" xmlns="http://www.w3.org/2000/svg">'+srcBg+commBg+hubQ+srcDots+commDots+qBar+qTexts+'</svg></div>';
   } else if (t === 'multi-agent') {
     var MAGT=[{cx:212,cy:128,label:'Sınıflama'},{cx:290,cy:75,label:'Veri & Bağlam'},{cx:368,cy:128,label:'Kural & Yetki'},{cx:242,cy:221,label:'Öneri'},{cx:338,cy:221,label:'Koordinatör'}];
     var MAR=20,MADUR='8s';
@@ -1115,7 +1115,7 @@ function renderPageAnimation(type) {
         }
       });
     });
-    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 0 520 230" fill="none" xmlns="http://www.w3.org/2000/svg">'+rBg+pBg+rLines+rAccessHL+rDenyHL+rBgTxt+pBgTxt+hubR+rDots+'</svg></div>';
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 -50 520 340" fill="none" xmlns="http://www.w3.org/2000/svg">'+rBg+pBg+rLines+rAccessHL+rDenyHL+rBgTxt+pBgTxt+hubR+rDots+'</svg></div>';
   } else if (t === 'ml-insights') {
     var MLSRC=[{y:75,label:'Operasyonel Veri',ic:'#6A9BCC'},{y:115,label:'Finansal Kayıtlar',ic:'#788C5D'},{y:155,label:'Geri Bildirimler',ic:'#D97757'}];
     var MLDUR=16,MLCX=260,MLCY=115;
@@ -1147,7 +1147,658 @@ function renderPageAnimation(type) {
         '</g>';
     }).join('');
     var mlDot='<circle r="3" fill="#D97757" opacity="0"><animateMotion path="M286,'+MLCY+' L374,115" dur="'+MLDUR+'s" begin="0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.05;0.15;1" keyPoints="0;0;1;1"/><animate attributeName="opacity" values="0;0;0.9;0;0" keyTimes="0;0.05;0.1;0.15;1" dur="'+MLDUR+'s" begin="0s" repeatCount="indefinite"/></circle>';
-    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 0 520 240" fill="none" xmlns="http://www.w3.org/2000/svg">'+mlSrcBg+mlHub+mlSrcDots+mlCard+mlInsights+mlDot+'</svg></div>';
+    return '<div class="panim-wrap pcl-wrap"><svg class="pcl-svg" viewBox="0 -40 520 340" fill="none" xmlns="http://www.w3.org/2000/svg">'+mlSrcBg+mlHub+mlSrcDots+mlCard+mlInsights+mlDot+'</svg></div>';
+  } else if (t === 'satis-teklif-dash') {
+    var stCss = '<style>'
+      + '.st-wrap{position:relative;width:100%;background:#fff;border-radius:16px;overflow:hidden;font-family:Space Grotesk,system-ui}'
+      + '.st-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;pointer-events:none;gap:18px;padding:20px 24px 52px}'
+      + '.st-s0{animation:st-s0 16s linear infinite}.st-s1{animation:st-s1 16s linear infinite}.st-s2{animation:st-s2 16s linear infinite}.st-s3{animation:st-s3 16s linear infinite}'
+      + '@keyframes st-s0{0%,1%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}'
+      + '@keyframes st-s1{0%,25%{opacity:0}27%,47%{opacity:1}50%,100%{opacity:0}}'
+      + '@keyframes st-s2{0%,50%{opacity:0}52%,72%{opacity:1}75%,100%{opacity:0}}'
+      + '@keyframes st-s3{0%,75%{opacity:0}77%,97%{opacity:1}100%{opacity:0}}'
+      + '.st-hub{width:68px;height:68px;background:#141413;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 12px rgba(120,140,93,.08),0 0 0 24px rgba(120,140,93,.03)}'
+      + '.st-chip{position:absolute;font-family:JetBrains Mono,monospace;font-size:10.5px;background:#F0EDE4;border:1px solid #DED9CC;border-radius:6px;padding:6px 12px;color:#6E665A;white-space:nowrap}'
+      + '.sch1{top:14%;left:4%}.sch2{top:14%;right:4%}.sch3{top:49%;right:2%}.sch4{bottom:20%;right:6%}.sch5{bottom:20%;left:3%}.sch6{top:49%;left:2%}'
+      + '.stp{position:absolute;width:5px;height:5px;border-radius:50%;animation:stpfade 1.8s ease-in-out infinite}'
+      + '.stp1{top:32%;left:22%;background:#788C5D;--sx:-55px;--sy:-10px;animation-delay:0s}'
+      + '.stp2{top:32%;right:24%;background:#6A9BCC;--sx:55px;--sy:-10px;animation-delay:.35s}'
+      + '.stp3{top:53%;right:20%;background:#D97757;--sx:70px;--sy:4px;animation-delay:.65s}'
+      + '.stp4{bottom:32%;right:24%;background:#788C5D;--sx:54px;--sy:28px;animation-delay:.25s}'
+      + '.stp5{bottom:32%;left:22%;background:#6A9BCC;--sx:-54px;--sy:28px;animation-delay:.5s}'
+      + '.stp6{top:52%;left:11%;background:#D97757;--sx:-70px;--sy:0px;animation-delay:.15s}'
+      + '@keyframes stpfade{0%{opacity:0;transform:translate(var(--sx),var(--sy))}20%{opacity:.9}80%{opacity:.6}100%{opacity:0;transform:translate(0,0)}}'
+      + '.st-pipewrap{position:relative;width:92%;max-width:360px}'
+      + '.st-pipeline{display:flex;align-items:flex-start;gap:0}'
+      + '.st-pstage{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px}'
+      + '.st-pbox{width:68px;height:68px;border-radius:13px;display:flex;align-items:center;justify-content:center;border:1.5px solid #D4CFC6}'
+      + '.st-pbox.sage{background:#EFF2EA;border-color:#A8B890}.st-pbox.blue{background:#E8EFF8;border-color:#96B8D9}.st-pbox.muted{background:#F4F2EE;border-color:#C0BAB0}.st-pbox.clay{background:#FBF0EC;border-color:#E8A98E}'
+      + '.st-pnum{font-size:21px;font-weight:700;color:#141413;line-height:1;letter-spacing:-.02em}'
+      + '.st-ptag{font-family:JetBrains Mono,monospace;font-size:9.5px;color:#A9A195;text-transform:uppercase;letter-spacing:.03em}'
+      + '.st-parr{flex:1;height:2px;background:linear-gradient(90deg,#D4CFC6,#A9A195);flex-shrink:0;align-self:flex-start;margin-top:33px;position:relative}'
+      + '.st-parr::after{content:"";position:absolute;right:-1px;top:-4px;border-left:7px solid #A9A195;border-top:5px solid transparent;border-bottom:5px solid transparent}'
+      + '.st-pdot{position:absolute;top:31px;left:0;width:10px;height:10px;border-radius:50%;background:#D97757;box-shadow:0 0 10px rgba(217,119,87,.6);animation:stpdot 2.2s ease-in-out infinite}'
+      + '@keyframes stpdot{0%{left:8px;opacity:0;transform:scale(.5)}10%{opacity:1;transform:scale(1)}88%{opacity:1;transform:scale(1)}100%{left:calc(100% - 18px);opacity:0;transform:scale(.5)}}'
+      + '.st-dealrow{display:flex;align-items:center;gap:14px}'
+      + '.st-srcico{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center}'
+      + '.st-srcico.wa{background:#E7F2E9;border:1.5px solid #5B9E6B}'
+      + '.st-srclbl{font-family:JetBrains Mono,monospace;font-size:10px;color:#A9A195;text-align:center;margin-top:5px}'
+      + '.st-flowcol{display:flex;flex-direction:column;align-items:center;gap:4px}'
+      + '.st-flowline{width:48px;height:2px;background:linear-gradient(90deg,#5B9E6B,#D97757);border-radius:2px;position:relative;overflow:hidden}'
+      + '.st-flowdot{position:absolute;top:0;left:-6px;width:6px;height:2px;background:rgba(255,255,255,.85);border-radius:1px;animation:stflowdot 1.4s ease-in-out infinite}'
+      + '@keyframes stflowdot{0%{left:-6px;opacity:0}20%{opacity:1}80%{opacity:1}100%{left:100%;opacity:0}}'
+      + '.st-flowtxt{font-family:JetBrains Mono,monospace;font-size:9px;color:#A9A195}'
+      + '.st-chiefsm{width:44px;height:44px;background:#141413;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 5px}'
+      + '.st-taskcard{background:#FAF9F5;border:1.5px solid #DED9CC;border-radius:12px;padding:14px 16px;min-width:148px}'
+      + '.st-taskh{font-size:13px;font-weight:600;color:#141413;margin-bottom:7px;line-height:1.3}'
+      + '.st-taskr{font-family:JetBrains Mono,monospace;font-size:10px;color:#6E665A;margin-bottom:3px}'
+      + '.st-taskb{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 9px;border-radius:100px;background:#E7EADE;color:#5F7049;margin-top:6px}'
+      + '.st-taskb::before{content:"";width:5px;height:5px;border-radius:50%;background:#788C5D;flex-shrink:0}'
+      + '.st-kgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:320px}'
+      + '.st-kpi{background:#FAFAF8;border:1px solid #E9E5D9;border-radius:11px;padding:13px 15px}'
+      + '.st-klbl{font-family:JetBrains Mono,monospace;font-size:9.5px;color:#A9A195;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:4px}'
+      + '.st-kval{font-size:26px;font-weight:700;letter-spacing:-1.5px;color:#141413}'
+      + '.st-kbar{height:4px;border-radius:2px;margin-top:7px}'
+      + '.stkbs{background:linear-gradient(90deg,#788C5D,#A5B888)}.stkbb{background:linear-gradient(90deg,#6A9BCC,#9DC0E8)}.stkbc{background:linear-gradient(90deg,#D97757,#EBC3B0)}.stkbd{background:linear-gradient(90deg,#141413,#6E665A)}'
+      + '.st-cap{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);border-top:1px solid #ECE8DD;padding:10px 18px;font-size:11px;color:#6E665A;display:flex;align-items:center;gap:8px}'
+      + '.st-cap b{color:#141413;font-weight:600}'
+      + '.st-bnum{width:18px;height:18px;border-radius:50%;background:#D97757;color:#fff;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}'
+      + '</style>';
+    var stChiefSvg = '<svg viewBox="0 0 140 140" width="36" height="36" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#788C5D"/></svg>';
+    var stChiefSm = '<svg viewBox="0 0 140 140" width="22" height="22" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#788C5D"/></svg>';
+    var stWaSvg = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5B9E6B" stroke-width="1.8" stroke-linecap="round"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.7.3 1.26.49 1.7.62.7.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35z"/><path d="M20.5 3.5A11 11 0 0 0 3.2 16.8L2 22l5.3-1.4A11 11 0 1 0 20.5 3.5z"/></svg>';
+    var stS0 = '<div class="st-stage st-s0">'
+      + '<div class="st-hub">' + stChiefSvg + '</div>'
+      + '<div class="st-chip sch1">Yeni talep geldi</div>'
+      + '<div class="st-chip sch2">Teklif güncellendi</div>'
+      + '<div class="st-chip sch3">Görüşme planlandı</div>'
+      + '<div class="st-chip sch4">Kapanış yakın</div>'
+      + '<div class="st-chip sch5">Risk tespiti</div>'
+      + '<div class="st-chip sch6">Saha ziyareti</div>'
+      + '<div class="stp stp1"></div><div class="stp stp2"></div><div class="stp stp3"></div>'
+      + '<div class="stp stp4"></div><div class="stp stp5"></div><div class="stp stp6"></div>'
+      + '<div class="st-cap"><b>Tüm satış sinyalleri Chief\'te birleşiyor</b></div>'
+      + '</div>';
+    var stS1 = '<div class="st-stage st-s1">'
+      + '<div class="st-pipewrap">'
+      + '<div class="st-pipeline">'
+      + '<div class="st-pstage"><div class="st-pbox sage"><div class="st-pnum">32</div></div><div class="st-ptag">Fırsat</div></div>'
+      + '<div class="st-parr"></div>'
+      + '<div class="st-pstage"><div class="st-pbox blue"><div class="st-pnum">14</div></div><div class="st-ptag">Görüşme</div></div>'
+      + '<div class="st-parr"></div>'
+      + '<div class="st-pstage"><div class="st-pbox muted"><div class="st-pnum">18</div></div><div class="st-ptag">Teklif</div></div>'
+      + '<div class="st-parr"></div>'
+      + '<div class="st-pstage"><div class="st-pbox clay"><div class="st-pnum" style="font-size:18px">%41</div></div><div class="st-ptag">Kazanım</div></div>'
+      + '</div>'
+      + '<div class="st-pdot"></div>'
+      + '</div>'
+      + '<div class="st-cap"><span class="st-bnum">2</span><b>Fırsattan kapanışa tam görünürlük</b></div>'
+      + '</div>';
+    var stS2 = '<div class="st-stage st-s2">'
+      + '<div class="st-dealrow">'
+      + '<div><div class="st-srcico wa">' + stWaSvg + '</div><div class="st-srclbl">Müşteri A</div></div>'
+      + '<div class="st-flowcol"><div class="st-flowline"><div class="st-flowdot"></div></div><div class="st-flowtxt">işleniyor</div></div>'
+      + '<div><div class="st-chiefsm">' + stChiefSm + '</div><div class="st-srclbl">Chief</div></div>'
+      + '<div class="st-flowcol"><div class="st-flowline"><div class="st-flowdot" style="animation-delay:.7s"></div></div><div class="st-flowtxt">görev oluştu</div></div>'
+      + '<div class="st-taskcard"><div class="st-taskh">Görüşme planla</div>'
+      + '<div class="st-taskr">Müşteri A · Ali K.</div>'
+      + '<div class="st-taskr">14 Haz · 10:00</div>'
+      + '<div class="st-taskb">Atandı</div></div>'
+      + '</div>'
+      + '<div class="st-cap"><span class="st-bnum">3</span><b>Talep yakalandı, görev oluşturuldu</b></div>'
+      + '</div>';
+    var stS3 = '<div class="st-stage st-s3">'
+      + '<div class="st-kgrid">'
+      + '<div class="st-kpi"><span class="st-klbl">Açık Fırsat</span><div class="st-kval">32</div><div class="st-kbar stkbs" style="width:75%"></div></div>'
+      + '<div class="st-kpi"><span class="st-klbl">Görüşme</span><div class="st-kval">14</div><div class="st-kbar stkbb" style="width:55%"></div></div>'
+      + '<div class="st-kpi"><span class="st-klbl">Teklif</span><div class="st-kval">18</div><div class="st-kbar stkbd" style="width:60%"></div></div>'
+      + '<div class="st-kpi"><span class="st-klbl">Dönüş Oranı</span><div class="st-kval">%41</div><div class="st-kbar stkbc" style="width:41%"></div></div>'
+      + '</div>'
+      + '<div class="st-cap"><b>Satış ve Teklif — anlık yönetim</b></div>'
+      + '</div>';
+    return stCss + '<div class="st-wrap">' + stS0 + stS1 + stS2 + stS3 + '</div>';
+  } else if (t === 'operasyon-saha-dash') {
+    var osCss = '<style>'
+      + '.os-wrap{position:relative;width:100%;background:#fff;border-radius:16px;overflow:hidden;font-family:Space Grotesk,system-ui}'
+      + '.os-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;pointer-events:none;gap:18px;padding:20px 24px 52px}'
+      + '.os-s0{animation:os-s0 16s linear infinite}.os-s1{animation:os-s1 16s linear infinite}.os-s2{animation:os-s2 16s linear infinite}.os-s3{animation:os-s3 16s linear infinite}'
+      + '@keyframes os-s0{0%,1%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}'
+      + '@keyframes os-s1{0%,25%{opacity:0}27%,47%{opacity:1}50%,100%{opacity:0}}'
+      + '@keyframes os-s2{0%,50%{opacity:0}52%,72%{opacity:1}75%,100%{opacity:0}}'
+      + '@keyframes os-s3{0%,75%{opacity:0}77%,97%{opacity:1}100%{opacity:0}}'
+      + '.os-hub{width:68px;height:68px;background:#141413;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 12px rgba(106,155,204,.08),0 0 0 24px rgba(106,155,204,.03)}'
+      + '.os-chip{position:absolute;font-family:JetBrains Mono,monospace;font-size:10.5px;background:#F0EDE4;border:1px solid #DED9CC;border-radius:6px;padding:6px 12px;color:#6E665A;white-space:nowrap}'
+      + '.och1{top:14%;left:4%}.och2{top:14%;right:4%}.och3{top:49%;right:2%}.och4{bottom:20%;right:6%}.och5{bottom:20%;left:3%}.och6{top:49%;left:2%}'
+      + '.osp{position:absolute;width:5px;height:5px;border-radius:50%;animation:ospfade 1.8s ease-in-out infinite}'
+      + '.osp1{top:32%;left:22%;background:#6A9BCC;--sx:-55px;--sy:-10px;animation-delay:0s}'
+      + '.osp2{top:32%;right:24%;background:#788C5D;--sx:55px;--sy:-10px;animation-delay:.35s}'
+      + '.osp3{top:53%;right:20%;background:#D97757;--sx:70px;--sy:4px;animation-delay:.65s}'
+      + '.osp4{bottom:32%;right:24%;background:#6A9BCC;--sx:54px;--sy:28px;animation-delay:.25s}'
+      + '.osp5{bottom:32%;left:22%;background:#788C5D;--sx:-54px;--sy:28px;animation-delay:.5s}'
+      + '.osp6{top:52%;left:11%;background:#D97757;--sx:-70px;--sy:0px;animation-delay:.15s}'
+      + '@keyframes ospfade{0%{opacity:0;transform:translate(var(--sx),var(--sy))}20%{opacity:.9}80%{opacity:.6}100%{opacity:0;transform:translate(0,0)}}'
+      + '.os-pipewrap{position:relative;width:92%;max-width:360px}'
+      + '.os-pipeline{display:flex;align-items:flex-start;gap:0}'
+      + '.os-pstage{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px}'
+      + '.os-pbox{width:68px;height:68px;border-radius:13px;display:flex;align-items:center;justify-content:center;border:1.5px solid #D4CFC6}'
+      + '.os-pbox.blue{background:#E8EFF8;border-color:#96B8D9}.os-pbox.sage{background:#EFF2EA;border-color:#A8B890}.os-pbox.clay{background:#FBF0EC;border-color:#E8A98E}.os-pbox.muted{background:#F4F2EE;border-color:#C0BAB0}'
+      + '.os-pnum{font-size:21px;font-weight:700;color:#141413;line-height:1;letter-spacing:-.02em}'
+      + '.os-ptag{font-family:JetBrains Mono,monospace;font-size:9.5px;color:#A9A195;text-transform:uppercase;letter-spacing:.03em}'
+      + '.os-parr{flex:1;height:2px;background:linear-gradient(90deg,#D4CFC6,#A9A195);flex-shrink:0;align-self:flex-start;margin-top:33px;position:relative}'
+      + '.os-parr::after{content:"";position:absolute;right:-1px;top:-4px;border-left:7px solid #A9A195;border-top:5px solid transparent;border-bottom:5px solid transparent}'
+      + '.os-pdot{position:absolute;top:31px;left:0;width:10px;height:10px;border-radius:50%;background:#6A9BCC;box-shadow:0 0 10px rgba(106,155,204,.6);animation:ospdot 2.2s ease-in-out infinite}'
+      + '@keyframes ospdot{0%{left:8px;opacity:0;transform:scale(.5)}10%{opacity:1;transform:scale(1)}88%{opacity:1;transform:scale(1)}100%{left:calc(100% - 18px);opacity:0;transform:scale(.5)}}'
+      + '.os-dealrow{display:flex;align-items:center;gap:14px}'
+      + '.os-srcico{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center}'
+      + '.os-srcico.wo{background:#E8EFF8;border:1.5px solid #6A9BCC}'
+      + '.os-srclbl{font-family:JetBrains Mono,monospace;font-size:10px;color:#A9A195;text-align:center;margin-top:5px}'
+      + '.os-flowcol{display:flex;flex-direction:column;align-items:center;gap:4px}'
+      + '.os-flowline{width:48px;height:2px;background:linear-gradient(90deg,#6A9BCC,#788C5D);border-radius:2px;position:relative;overflow:hidden}'
+      + '.os-flowdot{position:absolute;top:0;left:-6px;width:6px;height:2px;background:rgba(255,255,255,.85);border-radius:1px;animation:osflowdot 1.4s ease-in-out infinite}'
+      + '@keyframes osflowdot{0%{left:-6px;opacity:0}20%{opacity:1}80%{opacity:1}100%{left:100%;opacity:0}}'
+      + '.os-flowtxt{font-family:JetBrains Mono,monospace;font-size:9px;color:#A9A195}'
+      + '.os-chiefsm{width:44px;height:44px;background:#141413;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 5px}'
+      + '.os-taskcard{background:#FAF9F5;border:1.5px solid #DED9CC;border-radius:12px;padding:14px 16px;min-width:148px}'
+      + '.os-taskh{font-size:13px;font-weight:600;color:#141413;margin-bottom:7px;line-height:1.3}'
+      + '.os-taskr{font-family:JetBrains Mono,monospace;font-size:10px;color:#6E665A;margin-bottom:3px}'
+      + '.os-taskb{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 9px;border-radius:100px;background:#E0EBF5;color:#3E6A99;margin-top:6px}'
+      + '.os-taskb::before{content:"";width:5px;height:5px;border-radius:50%;background:#6A9BCC;flex-shrink:0}'
+      + '.os-kgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:320px}'
+      + '.os-kpi{background:#FAFAF8;border:1px solid #E9E5D9;border-radius:11px;padding:13px 15px}'
+      + '.os-klbl{font-family:JetBrains Mono,monospace;font-size:9.5px;color:#A9A195;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:4px}'
+      + '.os-kval{font-size:26px;font-weight:700;letter-spacing:-1.5px;color:#141413}'
+      + '.os-kbar{height:4px;border-radius:2px;margin-top:7px}'
+      + '.oskbb{background:linear-gradient(90deg,#6A9BCC,#9DC0E8)}.oskbs{background:linear-gradient(90deg,#788C5D,#A5B888)}.oskbc{background:linear-gradient(90deg,#D97757,#EBC3B0)}.oskbm{background:linear-gradient(90deg,#A9A195,#C8C3B8)}'
+      + '.os-cap{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);border-top:1px solid #ECE8DD;padding:10px 18px;font-size:11px;color:#6E665A;display:flex;align-items:center;gap:8px}'
+      + '.os-cap b{color:#141413;font-weight:600}'
+      + '.os-bnum{width:18px;height:18px;border-radius:50%;background:#6A9BCC;color:#fff;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}'
+      + '</style>';
+    var osChiefSvg = '<svg viewBox="0 0 140 140" width="36" height="36" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#6A9BCC" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#788C5D"/></svg>';
+    var osChiefSm = '<svg viewBox="0 0 140 140" width="22" height="22" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#6A9BCC" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#788C5D"/></svg>';
+    var osWoSvg = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6A9BCC" stroke-width="1.8" stroke-linecap="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg>';
+    var osS0 = '<div class="os-stage os-s0">'
+      + '<div class="os-hub">' + osChiefSvg + '</div>'
+      + '<div class="os-chip och1">Yeni iş emri</div>'
+      + '<div class="os-chip och2">Rota güncellendi</div>'
+      + '<div class="os-chip och3">Gecikme tespiti</div>'
+      + '<div class="os-chip och4">Kapanış formu</div>'
+      + '<div class="os-chip och5">Ekipman bildirimi</div>'
+      + '<div class="os-chip och6">Saha görevi</div>'
+      + '<div class="osp osp1"></div><div class="osp osp2"></div><div class="osp osp3"></div>'
+      + '<div class="osp osp4"></div><div class="osp osp5"></div><div class="osp osp6"></div>'
+      + '<div class="os-cap"><b>Saha operasyonu sinyalleri Chief\'te birleşiyor</b></div>'
+      + '</div>';
+    var osS1 = '<div class="os-stage os-s1">'
+      + '<div class="os-pipewrap">'
+      + '<div class="os-pipeline">'
+      + '<div class="os-pstage"><div class="os-pbox blue"><div class="os-pnum">18</div></div><div class="os-ptag">Planlama</div></div>'
+      + '<div class="os-parr"></div>'
+      + '<div class="os-pstage"><div class="os-pbox sage"><div class="os-pnum">12</div></div><div class="os-ptag">Rotada</div></div>'
+      + '<div class="os-parr"></div>'
+      + '<div class="os-pstage"><div class="os-pbox clay"><div class="os-pnum">5</div></div><div class="os-ptag">Gecikme</div></div>'
+      + '<div class="os-parr"></div>'
+      + '<div class="os-pstage"><div class="os-pbox muted"><div class="os-pnum">9</div></div><div class="os-ptag">Tamam</div></div>'
+      + '</div>'
+      + '<div class="os-pdot"></div>'
+      + '</div>'
+      + '<div class="os-cap"><span class="os-bnum">2</span><b>İş emirleri plandan kapanışa izleniyor</b></div>'
+      + '</div>';
+    var osS2 = '<div class="os-stage os-s2">'
+      + '<div class="os-dealrow">'
+      + '<div><div class="os-srcico wo">' + osWoSvg + '</div><div class="os-srclbl">İş Emri</div></div>'
+      + '<div class="os-flowcol"><div class="os-flowline"><div class="os-flowdot"></div></div><div class="os-flowtxt">işleniyor</div></div>'
+      + '<div><div class="os-chiefsm">' + osChiefSm + '</div><div class="os-srclbl">Chief</div></div>'
+      + '<div class="os-flowcol"><div class="os-flowline"><div class="os-flowdot" style="animation-delay:.7s"></div></div><div class="os-flowtxt">atama yapıldı</div></div>'
+      + '<div class="os-taskcard"><div class="os-taskh">Saha ataması</div>'
+      + '<div class="os-taskr">Teknisyen A · Bölge 3</div>'
+      + '<div class="os-taskr">14 Haz · 09:00</div>'
+      + '<div class="os-taskb">Rotada</div></div>'
+      + '</div>'
+      + '<div class="os-cap"><span class="os-bnum">3</span><b>İş emri alındı, saha ataması yapıldı</b></div>'
+      + '</div>';
+    var osS3 = '<div class="os-stage os-s3">'
+      + '<div class="os-kgrid">'
+      + '<div class="os-kpi"><span class="os-klbl">Aktif İş</span><div class="os-kval">18</div><div class="os-kbar oskbb" style="width:75%"></div></div>'
+      + '<div class="os-kpi"><span class="os-klbl">Rotada</span><div class="os-kval">12</div><div class="os-kbar oskbs" style="width:55%"></div></div>'
+      + '<div class="os-kpi"><span class="os-klbl">Gecikme</span><div class="os-kval">5</div><div class="os-kbar oskbc" style="width:28%"></div></div>'
+      + '<div class="os-kpi"><span class="os-klbl">Tamamlandı</span><div class="os-kval">9</div><div class="os-kbar oskbm" style="width:50%"></div></div>'
+      + '</div>'
+      + '<div class="os-cap"><b>Operasyon ve Saha — anlık yönetim</b></div>'
+      + '</div>';
+    return osCss + '<div class="os-wrap">' + osS0 + osS1 + osS2 + osS3 + '</div>';
+  } else if (t === 'uretim-tedarik-dash') {
+    var utkCss = '<style>'
+      + '.utk-wrap{position:relative;width:100%;background:#fff;border-radius:16px;overflow:hidden;font-family:Space Grotesk,system-ui}'
+      + '.utk-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;pointer-events:none;gap:18px;padding:20px 24px 52px}'
+      + '.utk-s0{animation:utk-s0 16s linear infinite}.utk-s1{animation:utk-s1 16s linear infinite}.utk-s2{animation:utk-s2 16s linear infinite}.utk-s3{animation:utk-s3 16s linear infinite}'
+      + '@keyframes utk-s0{0%,1%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}'
+      + '@keyframes utk-s1{0%,25%{opacity:0}27%,47%{opacity:1}50%,100%{opacity:0}}'
+      + '@keyframes utk-s2{0%,50%{opacity:0}52%,72%{opacity:1}75%,100%{opacity:0}}'
+      + '@keyframes utk-s3{0%,75%{opacity:0}77%,97%{opacity:1}100%{opacity:0}}'
+      + '.utk-hub{width:68px;height:68px;background:#141413;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 12px rgba(120,140,93,.08),0 0 0 24px rgba(120,140,93,.03)}'
+      + '.utk-chip{position:absolute;font-family:JetBrains Mono,monospace;font-size:10.5px;background:#F0EDE4;border:1px solid #DED9CC;border-radius:6px;padding:6px 12px;color:#6E665A;white-space:nowrap}'
+      + '.uch1{top:14%;left:4%}.uch2{top:14%;right:4%}.uch3{top:49%;right:2%}.uch4{bottom:20%;right:6%}.uch5{bottom:20%;left:3%}.uch6{top:49%;left:2%}'
+      + '.utk-p{position:absolute;width:5px;height:5px;border-radius:50%;animation:utkpfade 1.8s ease-in-out infinite}'
+      + '.utk-p1{top:32%;left:22%;background:#788C5D;--sx:-55px;--sy:-10px;animation-delay:0s}'
+      + '.utk-p2{top:32%;right:24%;background:#D97757;--sx:55px;--sy:-10px;animation-delay:.35s}'
+      + '.utk-p3{top:53%;right:20%;background:#788C5D;--sx:70px;--sy:4px;animation-delay:.65s}'
+      + '.utk-p4{bottom:32%;right:24%;background:#6A9BCC;--sx:54px;--sy:28px;animation-delay:.25s}'
+      + '.utk-p5{bottom:32%;left:22%;background:#D97757;--sx:-54px;--sy:28px;animation-delay:.5s}'
+      + '.utk-p6{top:52%;left:11%;background:#6A9BCC;--sx:-70px;--sy:0px;animation-delay:.15s}'
+      + '@keyframes utkpfade{0%{opacity:0;transform:translate(var(--sx),var(--sy))}20%{opacity:.9}80%{opacity:.6}100%{opacity:0;transform:translate(0,0)}}'
+      + '.utk-pipewrap{position:relative;width:92%;max-width:360px}'
+      + '.utk-pipeline{display:flex;align-items:flex-start;gap:0}'
+      + '.utk-pstage{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px}'
+      + '.utk-pbox{width:68px;height:68px;border-radius:13px;display:flex;align-items:center;justify-content:center;border:1.5px solid #D4CFC6}'
+      + '.utk-pbox.sage{background:#EFF2EA;border-color:#A8B890}.utk-pbox.clay{background:#FBF0EC;border-color:#E8A98E}.utk-pbox.muted{background:#F4F2EE;border-color:#C0BAB0}.utk-pbox.blue{background:#E8EFF8;border-color:#96B8D9}'
+      + '.utk-pnum{font-size:21px;font-weight:700;color:#141413;line-height:1;letter-spacing:-.02em}'
+      + '.utk-ptag{font-family:JetBrains Mono,monospace;font-size:9.5px;color:#A9A195;text-transform:uppercase;letter-spacing:.03em}'
+      + '.utk-parr{flex:1;height:2px;background:linear-gradient(90deg,#D4CFC6,#A9A195);flex-shrink:0;align-self:flex-start;margin-top:33px;position:relative}'
+      + '.utk-parr::after{content:"";position:absolute;right:-1px;top:-4px;border-left:7px solid #A9A195;border-top:5px solid transparent;border-bottom:5px solid transparent}'
+      + '.utk-pdot{position:absolute;top:31px;left:0;width:10px;height:10px;border-radius:50%;background:#788C5D;box-shadow:0 0 10px rgba(120,140,93,.6);animation:utkpdot 2.2s ease-in-out infinite}'
+      + '@keyframes utkpdot{0%{left:8px;opacity:0;transform:scale(.5)}10%{opacity:1;transform:scale(1)}88%{opacity:1;transform:scale(1)}100%{left:calc(100% - 18px);opacity:0;transform:scale(.5)}}'
+      + '.utk-dealrow{display:flex;align-items:center;gap:14px}'
+      + '.utk-srcico{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center}'
+      + '.utk-srcico.wo{background:#EFF2EA;border:1.5px solid #788C5D}'
+      + '.utk-srclbl{font-family:JetBrains Mono,monospace;font-size:10px;color:#A9A195;text-align:center;margin-top:5px}'
+      + '.utk-flowcol{display:flex;flex-direction:column;align-items:center;gap:4px}'
+      + '.utk-flowline{width:48px;height:2px;background:linear-gradient(90deg,#788C5D,#D97757);border-radius:2px;position:relative;overflow:hidden}'
+      + '.utk-flowdot{position:absolute;top:0;left:-6px;width:6px;height:2px;background:rgba(255,255,255,.85);border-radius:1px;animation:utkflowdot 1.4s ease-in-out infinite}'
+      + '@keyframes utkflowdot{0%{left:-6px;opacity:0}20%{opacity:1}80%{opacity:1}100%{left:100%;opacity:0}}'
+      + '.utk-flowtxt{font-family:JetBrains Mono,monospace;font-size:9px;color:#A9A195}'
+      + '.utk-chiefsm{width:44px;height:44px;background:#141413;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 5px}'
+      + '.utk-taskcard{background:#FAF9F5;border:1.5px solid #DED9CC;border-radius:12px;padding:14px 16px;min-width:148px}'
+      + '.utk-taskh{font-size:13px;font-weight:600;color:#141413;margin-bottom:7px;line-height:1.3}'
+      + '.utk-taskr{font-family:JetBrains Mono,monospace;font-size:10px;color:#6E665A;margin-bottom:3px}'
+      + '.utk-taskb{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 9px;border-radius:100px;background:#E7EADE;color:#5F7049;margin-top:6px}'
+      + '.utk-taskb::before{content:"";width:5px;height:5px;border-radius:50%;background:#788C5D;flex-shrink:0}'
+      + '.utk-kgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:320px}'
+      + '.utk-kpi{background:#FAFAF8;border:1px solid #E9E5D9;border-radius:11px;padding:13px 15px}'
+      + '.utk-klbl{font-family:JetBrains Mono,monospace;font-size:9.5px;color:#A9A195;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:4px}'
+      + '.utk-kval{font-size:26px;font-weight:700;letter-spacing:-1.5px;color:#141413}'
+      + '.utk-kbar{height:4px;border-radius:2px;margin-top:7px}'
+      + '.utkbs{background:linear-gradient(90deg,#788C5D,#A5B888)}.utkbc{background:linear-gradient(90deg,#D97757,#EBC3B0)}.utkbm{background:linear-gradient(90deg,#A9A195,#C8C3B8)}.utkbb{background:linear-gradient(90deg,#6A9BCC,#9DC0E8)}'
+      + '.utk-cap{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);border-top:1px solid #ECE8DD;padding:10px 18px;font-size:11px;color:#6E665A;display:flex;align-items:center;gap:8px}'
+      + '.utk-cap b{color:#141413;font-weight:600}'
+      + '.utk-bnum{width:18px;height:18px;border-radius:50%;background:#788C5D;color:#fff;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}'
+      + '</style>';
+    var utkChiefSvg = '<svg viewBox="0 0 140 140" width="36" height="36" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#788C5D" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#D97757"/></svg>';
+    var utkChiefSm = '<svg viewBox="0 0 140 140" width="22" height="22" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#788C5D" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#D97757"/></svg>';
+    var utkWoSvg = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#788C5D" stroke-width="1.8" stroke-linecap="round"><path d="M2 20h20M4 20V8l6 4V8l6 4V4h4v16"/></svg>';
+    var utkS0 = '<div class="utk-stage utk-s0">'
+      + '<div class="utk-hub">' + utkChiefSvg + '</div>'
+      + '<div class="utk-chip uch1">İş emri geldi</div>'
+      + '<div class="utk-chip uch2">Termin riski</div>'
+      + '<div class="utk-chip uch3">Makine durumu</div>'
+      + '<div class="utk-chip uch4">Kalite kontrolü</div>'
+      + '<div class="utk-chip uch5">Tedarik güncel</div>'
+      + '<div class="utk-chip uch6">Kapasite bilgisi</div>'
+      + '<div class="utk-p utk-p1"></div><div class="utk-p utk-p2"></div><div class="utk-p utk-p3"></div>'
+      + '<div class="utk-p utk-p4"></div><div class="utk-p utk-p5"></div><div class="utk-p utk-p6"></div>'
+      + '<div class="utk-cap"><b>Üretim sinyalleri Chief\'te birleşiyor</b></div>'
+      + '</div>';
+    var utkS1 = '<div class="utk-stage utk-s1">'
+      + '<div class="utk-pipewrap">'
+      + '<div class="utk-pipeline">'
+      + '<div class="utk-pstage"><div class="utk-pbox sage"><div class="utk-pnum">24</div></div><div class="utk-ptag">İş Emri</div></div>'
+      + '<div class="utk-parr"></div>'
+      + '<div class="utk-pstage"><div class="utk-pbox clay"><div class="utk-pnum">5</div></div><div class="utk-ptag">Termin Risk</div></div>'
+      + '<div class="utk-parr"></div>'
+      + '<div class="utk-pstage"><div class="utk-pbox muted"><div class="utk-pnum">9</div></div><div class="utk-ptag">Makine</div></div>'
+      + '<div class="utk-parr"></div>'
+      + '<div class="utk-pstage"><div class="utk-pbox blue"><div class="utk-pnum">11</div></div><div class="utk-ptag">Kontrol</div></div>'
+      + '</div>'
+      + '<div class="utk-pdot"></div>'
+      + '</div>'
+      + '<div class="utk-cap"><span class="utk-bnum">2</span><b>Üretim hattı anlık izleniyor</b></div>'
+      + '</div>';
+    var utkS2 = '<div class="utk-stage utk-s2">'
+      + '<div class="utk-dealrow">'
+      + '<div><div class="utk-srcico wo">' + utkWoSvg + '</div><div class="utk-srclbl">İş Emri</div></div>'
+      + '<div class="utk-flowcol"><div class="utk-flowline"><div class="utk-flowdot"></div></div><div class="utk-flowtxt">işleniyor</div></div>'
+      + '<div><div class="utk-chiefsm">' + utkChiefSm + '</div><div class="utk-srclbl">Chief</div></div>'
+      + '<div class="utk-flowcol"><div class="utk-flowline"><div class="utk-flowdot" style="animation-delay:.7s"></div></div><div class="utk-flowtxt">plan oluştu</div></div>'
+      + '<div class="utk-taskcard"><div class="utk-taskh">Üretim planı</div>'
+      + '<div class="utk-taskr">Hat B · Shift 1</div>'
+      + '<div class="utk-taskr">14 Haz · Kapasite %87</div>'
+      + '<div class="utk-taskb">Üretimde</div></div>'
+      + '</div>'
+      + '<div class="utk-cap"><span class="utk-bnum">3</span><b>İş emri alındı, üretim planlandı</b></div>'
+      + '</div>';
+    var utkS3 = '<div class="utk-stage utk-s3">'
+      + '<div class="utk-kgrid">'
+      + '<div class="utk-kpi"><span class="utk-klbl">Açık İş Emri</span><div class="utk-kval">24</div><div class="utk-kbar utkbs" style="width:80%"></div></div>'
+      + '<div class="utk-kpi"><span class="utk-klbl">Termin Risk</span><div class="utk-kval">5</div><div class="utk-kbar utkbc" style="width:25%"></div></div>'
+      + '<div class="utk-kpi"><span class="utk-klbl">Makine Aktif</span><div class="utk-kval">9</div><div class="utk-kbar utkbm" style="width:60%"></div></div>'
+      + '<div class="utk-kpi"><span class="utk-klbl">Kalite Kontrol</span><div class="utk-kval">11</div><div class="utk-kbar utkbb" style="width:45%"></div></div>'
+      + '</div>'
+      + '<div class="utk-cap"><b>Üretim, Tedarik ve Kalite — anlık yönetim</b></div>'
+      + '</div>';
+    return utkCss + '<div class="utk-wrap">' + utkS0 + utkS1 + utkS2 + utkS3 + '</div>';
+  } else if (t === 'finans-dash') {
+    var finCss = '<style>'
+      + '.fin-wrap{position:relative;width:100%;background:#fff;border-radius:16px;overflow:hidden;font-family:Space Grotesk,system-ui}'
+      + '.fin-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;pointer-events:none;gap:18px;padding:20px 24px 52px}'
+      + '.fin-s0{animation:fin-s0 16s linear infinite}.fin-s1{animation:fin-s1 16s linear infinite}.fin-s2{animation:fin-s2 16s linear infinite}.fin-s3{animation:fin-s3 16s linear infinite}'
+      + '@keyframes fin-s0{0%,1%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}'
+      + '@keyframes fin-s1{0%,25%{opacity:0}27%,47%{opacity:1}50%,100%{opacity:0}}'
+      + '@keyframes fin-s2{0%,50%{opacity:0}52%,72%{opacity:1}75%,100%{opacity:0}}'
+      + '@keyframes fin-s3{0%,75%{opacity:0}77%,97%{opacity:1}100%{opacity:0}}'
+      + '.fin-hub{width:68px;height:68px;background:#141413;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 12px rgba(217,119,87,.08),0 0 0 24px rgba(217,119,87,.03)}'
+      + '.fin-chip{position:absolute;font-family:JetBrains Mono,monospace;font-size:10.5px;background:#F0EDE4;border:1px solid #DED9CC;border-radius:6px;padding:6px 12px;color:#6E665A;white-space:nowrap}'
+      + '.fch1{top:14%;left:4%}.fch2{top:14%;right:4%}.fch3{top:49%;right:2%}.fch4{bottom:20%;right:6%}.fch5{bottom:20%;left:3%}.fch6{top:49%;left:2%}'
+      + '.finp{position:absolute;width:5px;height:5px;border-radius:50%;animation:finpfade 1.8s ease-in-out infinite}'
+      + '.finp1{top:32%;left:22%;background:#D97757;--sx:-55px;--sy:-10px;animation-delay:0s}'
+      + '.finp2{top:32%;right:24%;background:#6A9BCC;--sx:55px;--sy:-10px;animation-delay:.35s}'
+      + '.finp3{top:53%;right:20%;background:#D97757;--sx:70px;--sy:4px;animation-delay:.65s}'
+      + '.finp4{bottom:32%;right:24%;background:#788C5D;--sx:54px;--sy:28px;animation-delay:.25s}'
+      + '.finp5{bottom:32%;left:22%;background:#6A9BCC;--sx:-54px;--sy:28px;animation-delay:.5s}'
+      + '.finp6{top:52%;left:11%;background:#788C5D;--sx:-70px;--sy:0px;animation-delay:.15s}'
+      + '@keyframes finpfade{0%{opacity:0;transform:translate(var(--sx),var(--sy))}20%{opacity:.9}80%{opacity:.6}100%{opacity:0;transform:translate(0,0)}}'
+      + '.fin-pipewrap{position:relative;width:92%;max-width:360px}'
+      + '.fin-pipeline{display:flex;align-items:flex-start;gap:0}'
+      + '.fin-pstage{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px}'
+      + '.fin-pbox{width:68px;height:68px;border-radius:13px;display:flex;align-items:center;justify-content:center;border:1.5px solid #D4CFC6}'
+      + '.fin-pbox.blue{background:#E8EFF8;border-color:#96B8D9}.fin-pbox.sage{background:#EFF2EA;border-color:#A8B890}.fin-pbox.clay{background:#FBF0EC;border-color:#E8A98E}.fin-pbox.muted{background:#F4F2EE;border-color:#C0BAB0}'
+      + '.fin-pnum{font-size:18px;font-weight:700;color:#141413;line-height:1;letter-spacing:-.02em}'
+      + '.fin-ptag{font-family:JetBrains Mono,monospace;font-size:9.5px;color:#A9A195;text-transform:uppercase;letter-spacing:.03em}'
+      + '.fin-parr{flex:1;height:2px;background:linear-gradient(90deg,#D4CFC6,#A9A195);flex-shrink:0;align-self:flex-start;margin-top:33px;position:relative}'
+      + '.fin-parr::after{content:"";position:absolute;right:-1px;top:-4px;border-left:7px solid #A9A195;border-top:5px solid transparent;border-bottom:5px solid transparent}'
+      + '.fin-pdot{position:absolute;top:31px;left:0;width:10px;height:10px;border-radius:50%;background:#D97757;box-shadow:0 0 10px rgba(217,119,87,.6);animation:finpdot 2.2s ease-in-out infinite}'
+      + '@keyframes finpdot{0%{left:8px;opacity:0;transform:scale(.5)}10%{opacity:1;transform:scale(1)}88%{opacity:1;transform:scale(1)}100%{left:calc(100% - 18px);opacity:0;transform:scale(.5)}}'
+      + '.fin-dealrow{display:flex;align-items:center;gap:14px}'
+      + '.fin-srcico{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center}'
+      + '.fin-srcico.ap{background:#E8EFF8;border:1.5px solid #6A9BCC}'
+      + '.fin-srclbl{font-family:JetBrains Mono,monospace;font-size:10px;color:#A9A195;text-align:center;margin-top:5px}'
+      + '.fin-flowcol{display:flex;flex-direction:column;align-items:center;gap:4px}'
+      + '.fin-flowline{width:48px;height:2px;background:linear-gradient(90deg,#6A9BCC,#D97757);border-radius:2px;position:relative;overflow:hidden}'
+      + '.fin-flowdot{position:absolute;top:0;left:-6px;width:6px;height:2px;background:rgba(255,255,255,.85);border-radius:1px;animation:finflowdot 1.4s ease-in-out infinite}'
+      + '@keyframes finflowdot{0%{left:-6px;opacity:0}20%{opacity:1}80%{opacity:1}100%{left:100%;opacity:0}}'
+      + '.fin-flowtxt{font-family:JetBrains Mono,monospace;font-size:9px;color:#A9A195}'
+      + '.fin-chiefsm{width:44px;height:44px;background:#141413;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 5px}'
+      + '.fin-taskcard{background:#FAF9F5;border:1.5px solid #DED9CC;border-radius:12px;padding:14px 16px;min-width:148px}'
+      + '.fin-taskh{font-size:13px;font-weight:600;color:#141413;margin-bottom:7px;line-height:1.3}'
+      + '.fin-taskr{font-family:JetBrains Mono,monospace;font-size:10px;color:#6E665A;margin-bottom:3px}'
+      + '.fin-taskb{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 9px;border-radius:100px;background:#F6E4DA;color:#A65F3D;margin-top:6px}'
+      + '.fin-taskb::before{content:"";width:5px;height:5px;border-radius:50%;background:#D97757;flex-shrink:0}'
+      + '.fin-kgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:320px}'
+      + '.fin-kpi{background:#FAFAF8;border:1px solid #E9E5D9;border-radius:11px;padding:13px 15px}'
+      + '.fin-klbl{font-family:JetBrains Mono,monospace;font-size:9.5px;color:#A9A195;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:4px}'
+      + '.fin-kval{font-size:22px;font-weight:700;letter-spacing:-1px;color:#141413}'
+      + '.fin-kbar{height:4px;border-radius:2px;margin-top:7px}'
+      + '.finkbb{background:linear-gradient(90deg,#6A9BCC,#9DC0E8)}.finkbs{background:linear-gradient(90deg,#788C5D,#A5B888)}.finkbc{background:linear-gradient(90deg,#D97757,#EBC3B0)}.finkbm{background:linear-gradient(90deg,#A9A195,#C8C3B8)}'
+      + '.fin-cap{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);border-top:1px solid #ECE8DD;padding:10px 18px;font-size:11px;color:#6E665A;display:flex;align-items:center;gap:8px}'
+      + '.fin-cap b{color:#141413;font-weight:600}'
+      + '.fin-bnum{width:18px;height:18px;border-radius:50%;background:#D97757;color:#fff;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}'
+      + '</style>';
+    var finChiefSvg = '<svg viewBox="0 0 140 140" width="36" height="36" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#6A9BCC"/></svg>';
+    var finChiefSm = '<svg viewBox="0 0 140 140" width="22" height="22" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#6A9BCC"/></svg>';
+    var finApSvg = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6A9BCC" stroke-width="1.8" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    var finS0 = '<div class="fin-stage fin-s0">'
+      + '<div class="fin-hub">' + finChiefSvg + '</div>'
+      + '<div class="fin-chip fch1">Masraf onayı</div>'
+      + '<div class="fin-chip fch2">Nakit hareketi</div>'
+      + '<div class="fin-chip fch3">Bütçe sapması</div>'
+      + '<div class="fin-chip fch4">Fatura geldi</div>'
+      + '<div class="fin-chip fch5">Mutabakat açık</div>'
+      + '<div class="fin-chip fch6">Ödeme planı</div>'
+      + '<div class="finp finp1"></div><div class="finp finp2"></div><div class="finp finp3"></div>'
+      + '<div class="finp finp4"></div><div class="finp finp5"></div><div class="finp finp6"></div>'
+      + '<div class="fin-cap"><b>Finans sinyalleri Chief\'te birleşiyor</b></div>'
+      + '</div>';
+    var finS1 = '<div class="fin-stage fin-s1">'
+      + '<div class="fin-pipewrap">'
+      + '<div class="fin-pipeline">'
+      + '<div class="fin-pstage"><div class="fin-pbox blue"><div class="fin-pnum">9</div></div><div class="fin-ptag">Onay</div></div>'
+      + '<div class="fin-parr"></div>'
+      + '<div class="fin-pstage"><div class="fin-pbox sage"><div class="fin-pnum" style="font-size:14px">₺1,8M</div></div><div class="fin-ptag">Nakit</div></div>'
+      + '<div class="fin-parr"></div>'
+      + '<div class="fin-pstage"><div class="fin-pbox clay"><div class="fin-pnum">4</div></div><div class="fin-ptag">Sapma</div></div>'
+      + '<div class="fin-parr"></div>'
+      + '<div class="fin-pstage"><div class="fin-pbox muted"><div class="fin-pnum">16</div></div><div class="fin-ptag">Fatura</div></div>'
+      + '</div>'
+      + '<div class="fin-pdot"></div>'
+      + '</div>'
+      + '<div class="fin-cap"><span class="fin-bnum">2</span><b>Onaydan kapanışa finans hattı izleniyor</b></div>'
+      + '</div>';
+    var finS2 = '<div class="fin-stage fin-s2">'
+      + '<div class="fin-dealrow">'
+      + '<div><div class="fin-srcico ap">' + finApSvg + '</div><div class="fin-srclbl">Onay talebi</div></div>'
+      + '<div class="fin-flowcol"><div class="fin-flowline"><div class="fin-flowdot"></div></div><div class="fin-flowtxt">değerlendiriliyor</div></div>'
+      + '<div><div class="fin-chiefsm">' + finChiefSm + '</div><div class="fin-srclbl">Chief</div></div>'
+      + '<div class="fin-flowcol"><div class="fin-flowline"><div class="fin-flowdot" style="animation-delay:.7s"></div></div><div class="fin-flowtxt">iletildi</div></div>'
+      + '<div class="fin-taskcard"><div class="fin-taskh">Bütçe aşımı onayı</div>'
+      + '<div class="fin-taskr">Proje B · ₺42K aşım</div>'
+      + '<div class="fin-taskr">CFO onayı gerekli</div>'
+      + '<div class="fin-taskb">Eskalasyon</div></div>'
+      + '</div>'
+      + '<div class="fin-cap"><span class="fin-bnum">3</span><b>Sapma tespit edildi, onay escalate edildi</b></div>'
+      + '</div>';
+    var finS3 = '<div class="fin-stage fin-s3">'
+      + '<div class="fin-kgrid">'
+      + '<div class="fin-kpi"><span class="fin-klbl">Onay Bekleyen</span><div class="fin-kval">9</div><div class="fin-kbar finkbb" style="width:45%"></div></div>'
+      + '<div class="fin-kpi"><span class="fin-klbl">Nakit Akışı</span><div class="fin-kval">₺1,8M</div><div class="fin-kbar finkbs" style="width:72%"></div></div>'
+      + '<div class="fin-kpi"><span class="fin-klbl">Maliyet Sapma</span><div class="fin-kval">4</div><div class="fin-kbar finkbc" style="width:30%"></div></div>'
+      + '<div class="fin-kpi"><span class="fin-klbl">Fatura İşlemde</span><div class="fin-kval">16</div><div class="fin-kbar finkbm" style="width:60%"></div></div>'
+      + '</div>'
+      + '<div class="fin-cap"><b>Finans — anlık yönetim</b></div>'
+      + '</div>';
+    return finCss + '<div class="fin-wrap">' + finS0 + finS1 + finS2 + finS3 + '</div>';
+  } else if (t === 'paydas-dash') {
+    var pdCss = '<style>'
+      + '.pd-wrap{position:relative;width:100%;background:#fff;border-radius:16px;overflow:hidden;font-family:Space Grotesk,system-ui}'
+      + '.pd-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;pointer-events:none;gap:18px;padding:20px 24px 52px}'
+      + '.pd-s0{animation:pd-s0 16s linear infinite}.pd-s1{animation:pd-s1 16s linear infinite}.pd-s2{animation:pd-s2 16s linear infinite}.pd-s3{animation:pd-s3 16s linear infinite}'
+      + '@keyframes pd-s0{0%,1%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}'
+      + '@keyframes pd-s1{0%,25%{opacity:0}27%,47%{opacity:1}50%,100%{opacity:0}}'
+      + '@keyframes pd-s2{0%,50%{opacity:0}52%,72%{opacity:1}75%,100%{opacity:0}}'
+      + '@keyframes pd-s3{0%,75%{opacity:0}77%,97%{opacity:1}100%{opacity:0}}'
+      + '.pd-hub{width:68px;height:68px;background:#141413;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 12px rgba(106,155,204,.08),0 0 0 24px rgba(106,155,204,.03)}'
+      + '.pd-chip{position:absolute;font-family:JetBrains Mono,monospace;font-size:10.5px;background:#F0EDE4;border:1px solid #DED9CC;border-radius:6px;padding:6px 12px;color:#6E665A;white-space:nowrap}'
+      + '.pch1{top:14%;left:4%}.pch2{top:14%;right:4%}.pch3{top:49%;right:2%}.pch4{bottom:20%;right:6%}.pch5{bottom:20%;left:3%}.pch6{top:49%;left:2%}'
+      + '.pdp{position:absolute;width:5px;height:5px;border-radius:50%;animation:pdpfade 1.8s ease-in-out infinite}'
+      + '.pdp1{top:32%;left:22%;background:#6A9BCC;--sx:-55px;--sy:-10px;animation-delay:0s}'
+      + '.pdp2{top:32%;right:24%;background:#D97757;--sx:55px;--sy:-10px;animation-delay:.35s}'
+      + '.pdp3{top:53%;right:20%;background:#788C5D;--sx:70px;--sy:4px;animation-delay:.65s}'
+      + '.pdp4{bottom:32%;right:24%;background:#6A9BCC;--sx:54px;--sy:28px;animation-delay:.25s}'
+      + '.pdp5{bottom:32%;left:22%;background:#788C5D;--sx:-54px;--sy:28px;animation-delay:.5s}'
+      + '.pdp6{top:52%;left:11%;background:#D97757;--sx:-70px;--sy:0px;animation-delay:.15s}'
+      + '@keyframes pdpfade{0%{opacity:0;transform:translate(var(--sx),var(--sy))}20%{opacity:.9}80%{opacity:.6}100%{opacity:0;transform:translate(0,0)}}'
+      + '.pd-pipewrap{position:relative;width:92%;max-width:360px}'
+      + '.pd-pipeline{display:flex;align-items:flex-start;gap:0}'
+      + '.pd-pstage{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px}'
+      + '.pd-pbox{width:68px;height:68px;border-radius:13px;display:flex;align-items:center;justify-content:center;border:1.5px solid #D4CFC6}'
+      + '.pd-pbox.blue{background:#E8EFF8;border-color:#96B8D9}.pd-pbox.clay{background:#FBF0EC;border-color:#E8A98E}.pd-pbox.sage{background:#EFF2EA;border-color:#A8B890}.pd-pbox.muted{background:#F4F2EE;border-color:#C0BAB0}'
+      + '.pd-pnum{font-size:20px;font-weight:700;color:#141413;line-height:1;letter-spacing:-.02em}'
+      + '.pd-ptag{font-family:JetBrains Mono,monospace;font-size:9.5px;color:#A9A195;text-transform:uppercase;letter-spacing:.03em}'
+      + '.pd-parr{flex:1;height:2px;background:linear-gradient(90deg,#D4CFC6,#A9A195);flex-shrink:0;align-self:flex-start;margin-top:33px;position:relative}'
+      + '.pd-parr::after{content:"";position:absolute;right:-1px;top:-4px;border-left:7px solid #A9A195;border-top:5px solid transparent;border-bottom:5px solid transparent}'
+      + '.pd-pdot{position:absolute;top:31px;left:0;width:10px;height:10px;border-radius:50%;background:#6A9BCC;box-shadow:0 0 10px rgba(106,155,204,.6);animation:pdpdot 2.2s ease-in-out infinite}'
+      + '@keyframes pdpdot{0%{left:8px;opacity:0;transform:scale(.5)}10%{opacity:1;transform:scale(1)}88%{opacity:1;transform:scale(1)}100%{left:calc(100% - 18px);opacity:0;transform:scale(.5)}}'
+      + '.pd-dealrow{display:flex;align-items:center;gap:14px}'
+      + '.pd-srcico{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center}'
+      + '.pd-srcico.fb{background:#E8EFF8;border:1.5px solid #6A9BCC}'
+      + '.pd-srclbl{font-family:JetBrains Mono,monospace;font-size:10px;color:#A9A195;text-align:center;margin-top:5px}'
+      + '.pd-flowcol{display:flex;flex-direction:column;align-items:center;gap:4px}'
+      + '.pd-flowline{width:48px;height:2px;background:linear-gradient(90deg,#6A9BCC,#788C5D);border-radius:2px;position:relative;overflow:hidden}'
+      + '.pd-flowdot{position:absolute;top:0;left:-6px;width:6px;height:2px;background:rgba(255,255,255,.85);border-radius:1px;animation:pdflowdot 1.4s ease-in-out infinite}'
+      + '@keyframes pdflowdot{0%{left:-6px;opacity:0}20%{opacity:1}80%{opacity:1}100%{left:100%;opacity:0}}'
+      + '.pd-flowtxt{font-family:JetBrains Mono,monospace;font-size:9px;color:#A9A195}'
+      + '.pd-chiefsm{width:44px;height:44px;background:#141413;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 5px}'
+      + '.pd-taskcard{background:#FAF9F5;border:1.5px solid #DED9CC;border-radius:12px;padding:14px 16px;min-width:148px}'
+      + '.pd-taskh{font-size:13px;font-weight:600;color:#141413;margin-bottom:7px;line-height:1.3}'
+      + '.pd-taskr{font-family:JetBrains Mono,monospace;font-size:10px;color:#6E665A;margin-bottom:3px}'
+      + '.pd-taskb{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 9px;border-radius:100px;background:#F6E4DA;color:#A65F3D;margin-top:6px}'
+      + '.pd-taskb::before{content:"";width:5px;height:5px;border-radius:50%;background:#D97757;flex-shrink:0}'
+      + '.pd-kgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:320px}'
+      + '.pd-kpi{background:#FAFAF8;border:1px solid #E9E5D9;border-radius:11px;padding:13px 15px}'
+      + '.pd-klbl{font-family:JetBrains Mono,monospace;font-size:9.5px;color:#A9A195;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:4px}'
+      + '.pd-kval{font-size:26px;font-weight:700;letter-spacing:-1.5px;color:#141413}'
+      + '.pd-kbar{height:4px;border-radius:2px;margin-top:7px}'
+      + '.pdkbb{background:linear-gradient(90deg,#6A9BCC,#9DC0E8)}.pdkbc{background:linear-gradient(90deg,#D97757,#EBC3B0)}.pdkbs{background:linear-gradient(90deg,#788C5D,#A5B888)}.pdkbm{background:linear-gradient(90deg,#A9A195,#C8C3B8)}'
+      + '.pd-cap{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);border-top:1px solid #ECE8DD;padding:10px 18px;font-size:11px;color:#6E665A;display:flex;align-items:center;gap:8px}'
+      + '.pd-cap b{color:#141413;font-weight:600}'
+      + '.pd-bnum{width:18px;height:18px;border-radius:50%;background:#6A9BCC;color:#fff;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}'
+      + '</style>';
+    var pdChiefSvg = '<svg viewBox="0 0 140 140" width="36" height="36" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#6A9BCC" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#D97757"/></svg>';
+    var pdChiefSm = '<svg viewBox="0 0 140 140" width="22" height="22" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#6A9BCC" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#D97757"/></svg>';
+    var pdFbSvg = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6A9BCC" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+    var pdS0 = '<div class="pd-stage pd-s0">'
+      + '<div class="pd-hub">' + pdChiefSvg + '</div>'
+      + '<div class="pd-chip pch1">Müşteri bildirimi</div>'
+      + '<div class="pd-chip pch2">Bayi geri bildirimi</div>'
+      + '<div class="pd-chip pch3">Öncelikli konu</div>'
+      + '<div class="pd-chip pch4">Çözüm doğrulandı</div>'
+      + '<div class="pd-chip pch5">Trend sinyali</div>'
+      + '<div class="pd-chip pch6">Geri dönüş bekleniyor</div>'
+      + '<div class="pdp pdp1"></div><div class="pdp pdp2"></div><div class="pdp pdp3"></div>'
+      + '<div class="pdp pdp4"></div><div class="pdp pdp5"></div><div class="pdp pdp6"></div>'
+      + '<div class="pd-cap"><b>Paydaş sinyalleri Chief\'te birleşiyor</b></div>'
+      + '</div>';
+    var pdS1 = '<div class="pd-stage pd-s1">'
+      + '<div class="pd-pipewrap">'
+      + '<div class="pd-pipeline">'
+      + '<div class="pd-pstage"><div class="pd-pbox blue"><div class="pd-pnum">42</div></div><div class="pd-ptag">Bildirim</div></div>'
+      + '<div class="pd-parr"></div>'
+      + '<div class="pd-pstage"><div class="pd-pbox clay"><div class="pd-pnum">8</div></div><div class="pd-ptag">Aksiyon</div></div>'
+      + '<div class="pd-parr"></div>'
+      + '<div class="pd-pstage"><div class="pd-pbox sage"><div class="pd-pnum" style="font-size:16px">%78</div></div><div class="pd-ptag">Memnun</div></div>'
+      + '<div class="pd-parr"></div>'
+      + '<div class="pd-pstage"><div class="pd-pbox muted"><div class="pd-pnum">21</div></div><div class="pd-ptag">Kapatıldı</div></div>'
+      + '</div>'
+      + '<div class="pd-pdot"></div>'
+      + '</div>'
+      + '<div class="pd-cap"><span class="pd-bnum">2</span><b>Bildirimden kapanışa paydaş döngüsü</b></div>'
+      + '</div>';
+    var pdS2 = '<div class="pd-stage pd-s2">'
+      + '<div class="pd-dealrow">'
+      + '<div><div class="pd-srcico fb">' + pdFbSvg + '</div><div class="pd-srclbl">Bildirim</div></div>'
+      + '<div class="pd-flowcol"><div class="pd-flowline"><div class="pd-flowdot"></div></div><div class="pd-flowtxt">sınıflandırıldı</div></div>'
+      + '<div><div class="pd-chiefsm">' + pdChiefSm + '</div><div class="pd-srclbl">Chief</div></div>'
+      + '<div class="pd-flowcol"><div class="pd-flowline"><div class="pd-flowdot" style="animation-delay:.7s"></div></div><div class="pd-flowtxt">aksiyon açıldı</div></div>'
+      + '<div class="pd-taskcard"><div class="pd-taskh">Öncelikli konu</div>'
+      + '<div class="pd-taskr">Müşteri A · tekrar</div>'
+      + '<div class="pd-taskr">Destek Ekibi · Bugün</div>'
+      + '<div class="pd-taskb">Eskalasyon</div></div>'
+      + '</div>'
+      + '<div class="pd-cap"><span class="pd-bnum">3</span><b>Tekrar eden konu tespit edildi, eskalasyon yapıldı</b></div>'
+      + '</div>';
+    var pdS3 = '<div class="pd-stage pd-s3">'
+      + '<div class="pd-kgrid">'
+      + '<div class="pd-kpi"><span class="pd-klbl">Aktif Bildirim</span><div class="pd-kval">42</div><div class="pd-kbar pdkbb" style="width:70%"></div></div>'
+      + '<div class="pd-kpi"><span class="pd-klbl">Aksiyon</span><div class="pd-kval">8</div><div class="pd-kbar pdkbc" style="width:30%"></div></div>'
+      + '<div class="pd-kpi"><span class="pd-klbl">Memnuniyet</span><div class="pd-kval">%78</div><div class="pd-kbar pdkbs" style="width:78%"></div></div>'
+      + '<div class="pd-kpi"><span class="pd-klbl">Kapatıldı</span><div class="pd-kval">21</div><div class="pd-kbar pdkbm" style="width:55%"></div></div>'
+      + '</div>'
+      + '<div class="pd-cap"><b>Paydaş Deneyimi — anlık yönetim</b></div>'
+      + '</div>';
+    return pdCss + '<div class="pd-wrap">' + pdS0 + pdS1 + pdS2 + pdS3 + '</div>';
+  } else if (t === 'yonetim-nl-dash') {
+    var ynCss = '<style>'
+      + '.yn-wrap{position:relative;width:100%;background:#fff;border-radius:16px;overflow:hidden;font-family:Space Grotesk,system-ui}'
+      + '.yn-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;pointer-events:none;gap:14px;padding:18px 22px 50px}'
+      + '.yn-s0{animation:yn-s0 16s linear infinite}.yn-s1{animation:yn-s1 16s linear infinite}.yn-s2{animation:yn-s2 16s linear infinite}.yn-s3{animation:yn-s3 16s linear infinite}'
+      + '@keyframes yn-s0{0%,1%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}'
+      + '@keyframes yn-s1{0%,25%{opacity:0}27%,47%{opacity:1}50%,100%{opacity:0}}'
+      + '@keyframes yn-s2{0%,50%{opacity:0}52%,72%{opacity:1}75%,100%{opacity:0}}'
+      + '@keyframes yn-s3{0%,75%{opacity:0}77%,97%{opacity:1}100%{opacity:0}}'
+      // Hub stage
+      + '.yn-hub{width:68px;height:68px;background:#141413;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 12px rgba(120,140,93,.08),0 0 0 24px rgba(120,140,93,.03)}'
+      + '.yn-chip{position:absolute;font-family:JetBrains Mono,monospace;font-size:10.5px;background:#F0EDE4;border:1px solid #DED9CC;border-radius:6px;padding:6px 12px;color:#6E665A;white-space:nowrap}'
+      + '.ynch1{top:14%;left:4%}.ynch2{top:14%;right:4%}.ynch3{top:49%;right:2%}.ynch4{bottom:20%;right:6%}.ynch5{bottom:20%;left:3%}.ynch6{top:49%;left:2%}'
+      + '.ynp{position:absolute;width:5px;height:5px;border-radius:50%;animation:ynpfade 1.8s ease-in-out infinite}'
+      + '.ynp1{top:32%;left:22%;background:#141413;--sx:-55px;--sy:-10px;animation-delay:0s}'
+      + '.ynp2{top:32%;right:24%;background:#788C5D;--sx:55px;--sy:-10px;animation-delay:.35s}'
+      + '.ynp3{top:53%;right:20%;background:#D97757;--sx:70px;--sy:4px;animation-delay:.65s}'
+      + '.ynp4{bottom:32%;right:24%;background:#141413;--sx:54px;--sy:28px;animation-delay:.25s}'
+      + '.ynp5{bottom:32%;left:22%;background:#6A9BCC;--sx:-54px;--sy:28px;animation-delay:.5s}'
+      + '.ynp6{top:52%;left:11%;background:#788C5D;--sx:-70px;--sy:0px;animation-delay:.15s}'
+      + '@keyframes ynpfade{0%{opacity:0;transform:translate(var(--sx),var(--sy))}20%{opacity:.9}80%{opacity:.6}100%{opacity:0;transform:translate(0,0)}}'
+      // NL conversation stage (stage 1) — synced animations to 16s cycle
+      + '.yn-conv{width:100%;max-width:380px;display:flex;flex-direction:column;gap:9px}'
+      + '.yn-flow-label{font-family:JetBrains Mono,monospace;font-size:9.5px;color:#A9A195;text-transform:uppercase;letter-spacing:.06em;text-align:center;margin-bottom:2px}'
+      + '.yn-bubble{border-radius:12px;padding:10px 14px}'
+      + '.yn-q{background:#F4F2EE;border:1px solid #E0DDD5}'
+      + '.yn-ans{background:#EFF2EA;border:1px solid #C4D0B4}'
+      + '.yn-act-row{background:#141413;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px}'
+      + '.yn-step-tag{font-family:JetBrains Mono,monospace;font-size:8.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}'
+      + '.yn-q .yn-step-tag{color:#A9A195}.yn-ans .yn-step-tag{color:#5F7049}'
+      + '.yn-bubble-text{font-size:12px;color:#141413;line-height:1.45;font-weight:500}'
+      + '.yn-src{font-family:JetBrains Mono,monospace;font-size:8.5px;color:#A9A195;margin-top:5px}'
+      + '.yn-act-icon{width:24px;height:24px;border-radius:50%;background:#788C5D;display:flex;align-items:center;justify-content:center;flex-shrink:0}'
+      + '.yn-act-text{font-size:11px;font-weight:600;color:#FAF9F5;line-height:1.3}'
+      + '.yn-act-sub{font-family:JetBrains Mono,monospace;font-size:8.5px;color:#A9A195}'
+      // Sequential fade-in keyed to stage 1 window (27-47% of 16s)
+      + '.yn-q{animation:yn-qa 16s linear infinite}'
+      + '.yn-ans{animation:yn-aa 16s linear infinite}'
+      + '.yn-act-row{animation:yn-acta 16s linear infinite}'
+      + '@keyframes yn-qa{0%,26%{opacity:0;transform:translateY(6px)}28%,46%{opacity:1;transform:translateY(0)}47%,100%{opacity:0;transform:translateY(6px)}}'
+      + '@keyframes yn-aa{0%,31%{opacity:0;transform:translateY(6px)}34%,46%{opacity:1;transform:translateY(0)}47%,100%{opacity:0;transform:translateY(6px)}}'
+      + '@keyframes yn-acta{0%,36%{opacity:0;transform:scale(.94)}39%,46%{opacity:1;transform:scale(1)}47%,100%{opacity:0;transform:scale(.94)}}'
+      // Query processing stage (stage 2)
+      + '.yn-query-wrap{width:100%;max-width:380px}'
+      + '.yn-query-box{background:#FAFAF8;border:1.5px solid #E0DDD5;border-radius:12px;padding:14px 16px;margin-bottom:10px}'
+      + '.yn-query-label{font-family:JetBrains Mono,monospace;font-size:9px;color:#A9A195;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}'
+      + '.yn-query-text{font-size:13px;font-weight:600;color:#141413;line-height:1.4}'
+      + '.yn-sources{display:flex;gap:7px;flex-wrap:wrap}'
+      + '.yn-src-tag{font-family:JetBrains Mono,monospace;font-size:9px;background:#F0EDE4;border:1px solid #DED9CC;border-radius:4px;padding:3px 8px;color:#6E665A}'
+      // KPI stage (stage 3)
+      + '.yn-kgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:320px}'
+      + '.yn-kpi{background:#FAFAF8;border:1px solid #E9E5D9;border-radius:11px;padding:13px 15px}'
+      + '.yn-klbl{font-family:JetBrains Mono,monospace;font-size:9.5px;color:#A9A195;text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:4px}'
+      + '.yn-kval{font-size:24px;font-weight:700;letter-spacing:-1px;color:#141413}'
+      + '.yn-kbar{height:4px;border-radius:2px;margin-top:7px}'
+      + '.ynkbs{background:linear-gradient(90deg,#788C5D,#A5B888)}.ynkbc{background:linear-gradient(90deg,#D97757,#EBC3B0)}.ynkbb{background:linear-gradient(90deg,#6A9BCC,#9DC0E8)}.ynkbm{background:linear-gradient(90deg,#A9A195,#C8C3B8)}'
+      // Caption
+      + '.yn-cap{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);border-top:1px solid #ECE8DD;padding:10px 18px;font-size:11px;color:#6E665A;display:flex;align-items:center;gap:8px}'
+      + '.yn-cap b{color:#141413;font-weight:600}'
+      + '.yn-bnum{width:18px;height:18px;border-radius:50%;background:#141413;color:#fff;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}'
+      + '</style>';
+    var ynChiefSvg = '<svg viewBox="0 0 140 140" width="36" height="36" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#FAF9F5" stroke-width="14" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#D97757"/></svg>';
+    var ynCheckSvg = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    var ynS0 = '<div class="yn-stage yn-s0">'
+      + '<div class="yn-hub">' + ynChiefSvg + '</div>'
+      + '<div class="yn-chip ynch1">KPI sapması sorgusu</div>'
+      + '<div class="yn-chip ynch2">Strateji seçeneği</div>'
+      + '<div class="yn-chip ynch3">Toplantı aksiyonu</div>'
+      + '<div class="yn-chip ynch4">Bütçe analizi</div>'
+      + '<div class="yn-chip ynch5">Saha gecikmeleri</div>'
+      + '<div class="yn-chip ynch6">Hedef sapması</div>'
+      + '<div class="ynp ynp1"></div><div class="ynp ynp2"></div><div class="ynp ynp3"></div>'
+      + '<div class="ynp ynp4"></div><div class="ynp ynp5"></div><div class="ynp ynp6"></div>'
+      + '<div class="yn-cap"><b>Yönetim sinyalleri Chief\'te birleşiyor</b></div>'
+      + '</div>';
+    var ynS1 = '<div class="yn-stage yn-s1">'
+      + '<div class="yn-conv">'
+      + '<div class="yn-flow-label">Yönetici sordu · Chief yanıtladı · Aksiyon başlatıldı</div>'
+      + '<div class="yn-bubble yn-q"><div class="yn-step-tag">Yönetici sordu</div><div class="yn-bubble-text">Bu ay satış neden hedefin altında kaldı?</div></div>'
+      + '<div class="yn-bubble yn-ans"><div class="yn-step-tag">Chief yanıtladı</div><div class="yn-bubble-text">3 kanalda %18 sapma — teklif dönüşümü düştü, 2 büyük hesap gecikti</div><div class="yn-src">Kaynak: 47 teklif · 12 müşteri kaydı · ERP</div></div>'
+      + '<div class="yn-act-row"><div class="yn-act-icon">' + ynCheckSvg + '</div><div><div class="yn-act-text">Aksiyon başlatıldı</div><div class="yn-act-sub">Satış Müdürü\'ne bilgi talebi açıldı</div></div></div>'
+      + '</div>'
+      + '<div class="yn-cap"><span class="yn-bnum">2</span><b>Yönetici sordu → Chief yanıtladı → Aksiyon başlatıldı</b></div>'
+      + '</div>';
+    var ynS2 = '<div class="yn-stage yn-s2">'
+      + '<div class="yn-query-wrap">'
+      + '<div class="yn-query-box"><div class="yn-query-label">Aktif sorgu işleniyor</div><div class="yn-query-text">Önümüzdeki ay kapasite darboğazı beklenen üretim hatları ve önerilen aksiyonlar</div></div>'
+      + '<div class="yn-sources">'
+      + '<span class="yn-src-tag">Üretim emirleri</span>'
+      + '<span class="yn-src-tag">Makine kapasitesi</span>'
+      + '<span class="yn-src-tag">Bakım takvimi</span>'
+      + '<span class="yn-src-tag">Sipariş tahmini</span>'
+      + '</div>'
+      + '</div>'
+      + '<div class="yn-cap"><span class="yn-bnum">3</span><b>Kaynak veriyle desteklenmiş yanıt hazırlanıyor</b></div>'
+      + '</div>';
+    var ynS3 = '<div class="yn-stage yn-s3">'
+      + '<div class="yn-kgrid">'
+      + '<div class="yn-kpi"><span class="yn-klbl">Yanıtlanan Soru</span><div class="yn-kval">12</div><div class="yn-kbar ynkbs" style="width:70%"></div></div>'
+      + '<div class="yn-kpi"><span class="yn-klbl">KPI Sapması</span><div class="yn-kval">7</div><div class="yn-kbar ynkbc" style="width:35%"></div></div>'
+      + '<div class="yn-kpi"><span class="yn-klbl">Açık Aksiyon</span><div class="yn-kval">23</div><div class="yn-kbar ynkbb" style="width:60%"></div></div>'
+      + '<div class="yn-kpi"><span class="yn-klbl">Senaryo Hazır</span><div class="yn-kval">+3</div><div class="yn-kbar ynkbm" style="width:45%"></div></div>'
+      + '</div>'
+      + '<div class="yn-cap"><b>Yönetim Katmanı — anlık görünürlük</b></div>'
+      + '</div>';
+    return ynCss + '<div class="yn-wrap">' + ynS0 + ynS1 + ynS2 + ynS3 + '</div>';
   }
 
   return '<div class="panim-wrap">' + inner + '</div>';
@@ -2987,7 +3638,7 @@ function renderSektorlerListing() {
    ================================================================ */
 const IS_SURECLERI_DATA = {
   'yonetimsel-dogal-dil-veri-stratejik-aksiyon': {
-    animType: 'management-dash',
+    animType: 'yonetim-nl-dash',
     featured: true, cat: 'YÖNETİM', catKey: 'yonetim', icon: 'spark',
     eyebrow: 'ÖNE ÇIKAN YÖNETİM KATMANI / İŞ SÜRECİ',
     cardTitle: 'Yönetimsel Doğal Dil, Veri Erişimi ve Stratejik Aksiyon',
@@ -3060,8 +3711,63 @@ const IS_SURECLERI_DATA = {
       'Aksiyon kapanış oranı','Tekrar eden yönetim riskleri','Strateji senaryosu gerçekleşen etkisi',
       'AI önerisi insan onayı izlenebilirliği',
     ],
-    ctaText: 'Yönetimsel Doğal Dil, Veri Erişimi ve Stratejik Aksiyon sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
+    ctaText: 'Yönetim Katmanı süreçlerinizi Chief ile modelleyin.',
+    ctaHeadline: 'Yönetim Stratejinizi Chief ile modellemek için görüşme planlayın.',
     metrics: [{ n:'Anlık', l:'Veri erişimi' },{ n:'%100', l:'Kaynak kayıt bağlantısı' },{ n:'< 1 saat', l:'KPI\'dan aksiyona' },{ n:'Tam', l:'Denetim izi' }],
+    kartlar: [
+      {
+        baslik: 'Doğal Dil ile Veri Erişimi',
+        metrik: '12', birim: 'soru yanıtlandı',
+        alt: ['8 kaynak veriyle desteklendi', '4 eksik veri tespit edildi'],
+        durum: 'Veri bağlantısı aktif', durumClass: 'aktif', renk: 'sage', ikon: 'chat',
+        metin: 'Yöneticiler doğal dille soru sorar; Chief ilgili veri alanlarını kaynak kayıtlarla birleştirerek yanıtlar. Yanıtlar teklif, iş emri, fatura, üretim ve geri bildirim verileriyle desteklenir. Eksik veya çelişkili veri tespit edildiğinde bilgi talebi açılır.',
+        liste: [
+          'Yönetici rolü ve yetkisine göre erişilebilir veri belirlenir',
+          'Soru; müşteri, teklif, iş emri, üretim veya finans nesneleriyle eşleştirilir',
+          'Kaynak kayıt bağlantısı her yanıtta görünürdür',
+          'Düşük güven skoru veya eksik veri otomatik bilgi talebine dönüşür',
+        ],
+      },
+      {
+        baslik: 'KPI Sapma ve Trend Analizi',
+        metrik: '7', birim: 'KPI sapması var',
+        alt: ['3 kritik sapma', '4 trend izleniyor'],
+        durum: 'Sapma izleniyor', durumClass: 'uyari', renk: 'clay', ikon: 'bars',
+        metin: 'Satış, operasyon, üretim ve finans KPI\'ları anlık izlenir; hedef sapması tespit edildiğinde neden-sonuç analizi yapılır ve aksiyon önerisi üretilir. Yönetici sapmanın hangi kanalda, bölgede veya süreçte oluştuğunu kaynak veriyle görür.',
+        liste: [
+          'Tüm departman KPI\'ları tek yönetim görünümünde izlenir',
+          'Sapma; kanal, bölge, ürün ve ekip bazında açıklanır',
+          'Kritik sapma yönetim bildirimi ve eskalasyon tetikler',
+          'KPI trend analizi strateji seçeneklerine bağlanır',
+        ],
+      },
+      {
+        baslik: 'Aksiyon ve Görev Takibi',
+        metrik: '23', birim: 'açık aksiyon',
+        alt: ['8 bu hafta kapanacak', '5 gecikme riski'],
+        durum: 'Aksiyon takibi', durumClass: 'bilgi', renk: 'blue', ikon: 'check',
+        metin: 'Yönetim kararları ve toplantı çıktıları görev ve onay akışına dönüştürülür. Her aksiyonun sahibi, hedef tarihi ve ilerleme durumu takip edilir. Kapanmayan veya geciken aksiyonlar yönetim gündemine otomatik eklenir.',
+        liste: [
+          'Toplantı kararları otomatik aksiyon listesine dönüşür',
+          'Aksiyon sahibi, tarih ve kapanış kriteri kayıt altında',
+          'Geciken aksiyonlar yönetim brifingine dahil edilir',
+          'Aksiyon kapanış oranı ve ortalama süre raporlanır',
+        ],
+      },
+      {
+        baslik: 'Stratejik Karar Desteği',
+        metrik: '+3', birim: 'senaryo hazır',
+        alt: ['2 yönetici onayı bekleniyor', '1 pilot başladı'],
+        durum: 'Karar sürecinde', durumClass: 'izlen', renk: 'muted', ikon: 'layers',
+        metin: 'Stratejik kararlar için senaryo analizi, alternatif öneriler ve beklenen etki hesaplamaları üretilir. Karar alındığında görev, onay veya proje akışı başlatılır. Tüm kararlar, gerekçeler ve veri kaynakları denetim izinde saklanır.',
+        liste: [
+          'Kapasite, fiyat, tahsilat veya süreç senaryoları üretilir',
+          'Alternatif strateji seçenekleri karşılaştırmalı analiz ile sunulur',
+          'Karar onay akışı yönetici hiyerarşisine göre yönlendirilir',
+          'Tüm karar gerekçeleri ve veri bağlantıları denetim izinde',
+        ],
+      },
+    ],
   },
   'talep-potansiyel-musteri-firsat-yonetimi': {
     animType: 'signal-flow',
@@ -3412,6 +4118,374 @@ const IS_SURECLERI_DATA = {
       'İlk planlama gecikmesi',
     ],
     ctaText: 'Tekliften Siparişe Geçiş sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
+  },
+  'satis-ve-teklif': {
+    animType: 'satis-teklif-dash',
+    featured: true, cat: 'SATIŞ VE TEKLİF', catKey: 'satis', icon: 'target',
+    eyebrow: 'Kullanım Alanı · İş Süreçleri',
+    cardTitle: 'Satış ve Teklif',
+    cardDesc: 'Müşteri taleplerini, fırsatları, görüşmeleri ve teklifleri tek satış hattında yönetin.',
+    cardSub: 'Fırsattan kapanışa — tüm satış süreci görünür ve yönetilebilir.',
+    h1: 'Satış ve teklif süreciniz fırsattan kapanışa görünür.',
+    lead: 'Müşteri taleplerini yakalayın, fırsatları takip edin, görüşmeleri planlayın, teklifleri hazırlayın ve kapanışları kayıt altına alın — satış hattınızın her aşaması Chief ile görünür ve yönetilebilir.',
+    problem: 'Müşteri talepleri farklı kanallardan gelir; fırsatlar takip edilmez; görüşme notları kişisel dosyalara dağılır; teklifler onay darboğazında bekler; kaybedilen fırsatların nedeni analiz edilmez. Sonuç: satış ekibi sahada, yönetim karanlıkta.',
+    steps: [
+      { num: '01', title: 'Talebi yakala', body: 'WhatsApp, e-posta, web formu veya CRM üzerinden gelen her müşteri sinyali otomatik yakalanır ve sınıflandırılır.' },
+      { num: '02', title: 'Fırsata dönüştür', body: 'Talep potansiyel müşteri veya mevcut müşteri akışına yönlendirilir; eksik bilgi tamamlanır, öncelik atanır.' },
+      { num: '03', title: 'Teklif hazırla', body: 'Doğrulanmış bilgiyle teklif süreci başlar; fiyat, marj ve onay kuralları kontrollü biçimde çalışır.' },
+      { num: '04', title: 'Sonucu kapat', body: 'Onaylanan teklif siparişe veya operasyona aktarılır; kaybedilen fırsatlar nedeniyle kayıt altına alınır.' },
+    ],
+    kpis: [
+      'Açık fırsat sayısı ve yaşı',
+      'Teklif dönüşüm oranı',
+      'Görüşmeden teklife geçen süre',
+      'Onay darboğazı süresi',
+      'Risk altındaki fırsatlar',
+      'Kaybedilen fırsat nedenleri',
+    ],
+    nlQueries: [
+      '30 günden uzun süredir hareketsiz açık fırsatları listele.',
+      'Bu hafta teklife dönüşmesi gereken görüşmeleri özetle.',
+      'Onay bekleyen tekliflerde kim darboğaz oluşturuyor?',
+      'Geçen çeyrekten bu yana teklif dönüşüm oranı nasıl değişti?',
+    ],
+    ozelDurumlar: [
+      'Aynı müşteriden paralel teklif talepleri gelebilir.',
+      'Fiyat onayı yönetici yetkisi dışına çıkabilir — yeniden onay gerekir.',
+      'Rekabetçi ortamda teklif revizyonu hızı kritik hale gelir.',
+      'Kayıp fırsatların sistematik analizi satış stratejisini besler.',
+    ],
+    ctaText: 'Satış ve Teklif sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
+    kartlar: [
+      {
+        baslik: 'Fırsat ve Müşteri Takibi',
+        metrik: '32', birim: 'açık fırsat',
+        alt: ['8 yeni talep', '5 müşteri dönüş bekliyor'],
+        durum: 'Satış akışı aktif', durumClass: 'aktif', renk: 'sage', ikon: 'users',
+        metin: 'Farklı kanallardan gelen müşteri talepleri — e-posta, WhatsApp, web formu veya CRM — Chief tarafından otomatik yakalanır ve sınıflandırılır. Açık fırsatlar öncelik ve yaşlarıyla görünürdür; hiçbir talep takipsiz kalmaz.',
+        liste: [
+          'Çok kanallı talep yakalama — e-posta, WhatsApp, web formu, CRM',
+          'Müşteri ve talep türüne göre otomatik sınıflandırma',
+          'Eksik bilgi doğal diyalogla tamamlanır',
+          'Hareketsiz fırsatlar için otomatik hatırlatma ve eskalasyon',
+        ],
+      },
+      {
+        baslik: 'Görüşme ve Saha Planı',
+        metrik: '14', birim: 'görüşme planlandı',
+        alt: ['6 saha ziyareti', '3 toplantı aksiyonu açık'],
+        durum: 'Ekip takibi yapılıyor', durumClass: 'bilgi', renk: 'blue', ikon: 'cal',
+        metin: 'Müşteri görüşmeleri ve saha ziyaretleri artık arşivde kaybolmaz. Her görüşmeden çıkan karar ve taahhüt Chief tarafından aksiyon listesine dönüştürülür. Saha ekibinin planı, toplantı aksiyonlarıyla birlikte tek görünümde yönetilir.',
+        liste: [
+          'Görüşme notlarından otomatik karar ve aksiyon çıkarımı',
+          'Taahhüt sahibi ve hedef tarih belirleme',
+          'Saha ziyareti planlama ve önceliklendirme',
+          'Açık toplantı aksiyonları yönetim görünürlüğünde',
+        ],
+      },
+      {
+        baslik: 'Teklif Süreci',
+        metrik: '18', birim: 'teklif takipte',
+        alt: ['5 teklif revizyonda', '4 teklif onay bekliyor'],
+        durum: 'Teklifler izleniyor', durumClass: 'izlen', renk: 'muted', ikon: 'doc',
+        metin: 'Chief, müşteri talebini fiyat listesi, stok durumu ve sözleşme koşullarıyla birleştirerek teklif taslağını hazırlar. Marj ve yetki kuralları otomatik kontrol edilir; onay zinciri doğru seviyeye iletilir. Revizyon geçmişi kayıt altındadır.',
+        liste: [
+          'ERP/CRM, fiyat ve stok entegrasyonu ile otomatik taslak hazırlama',
+          'Marj, iskonto ve yetki kuralı kontrolü',
+          'Çok seviyeli onay zinciri ve darboğaz takibi',
+          'Teklif sürüm geçmişi ve onay kararları denetim izinde',
+        ],
+      },
+      {
+        baslik: 'Kazanım ve Risk',
+        metrik: '%41', birim: 'teklif dönüş oranı',
+        alt: ['3 fırsat riskte', '2 fiyat kararı bekliyor'],
+        durum: 'Karar gerekiyor', durumClass: 'uyari', renk: 'clay', ikon: 'warn',
+        metin: 'Satış performansı anlık ve sorgulanabilirdir. Risk altındaki fırsatlar zamanında tespit edilir; kaybedilen tekliflerin nedenleri sistematik olarak analiz edilir. Yönetim, hangi fırsatların kritik müdahale gerektirdiğini gerçek zamanlı görür.',
+        liste: [
+          'Risk altındaki fırsatların gerçek zamanlı tespiti',
+          'Kaybedilen tekliflerin neden-sonuç analizi',
+          'Teklif dönüşüm oranı ve trend takibi',
+          'Bekleyen fiyat kararları önceliklendirilir ve eskalasyona hazırlanır',
+        ],
+      },
+    ],
+  },
+  'operasyon-ve-saha': {
+    animType: 'operasyon-saha-dash',
+    featured: true, cat: 'OPERASYON VE SAHA', catKey: 'operasyon', icon: 'map',
+    eyebrow: 'Kullanım Alanı · İş Süreçleri',
+    cardTitle: 'Operasyon ve Saha',
+    cardDesc: 'Saha planını, rota ve ekipman atamalarını, gecikmeleri ve kanıtlı kapanışları tek akışta yönetin.',
+    cardSub: 'İş emrinden kanıtlı kapanışa — saha operasyonunuz görünür ve kontrol altında.',
+    h1: 'Saha operasyonunuz plandan kapanışa kesintisiz görünür.',
+    lead: 'İş emirlerini planlayın, ekip ve ekipman atamalarını takip edin, gecikmeleri gerçek zamanlı tespit edin ve her işi kanıtlı biçimde kapatın — sahadan gelen her sinyal Chief ile aksiyon ve yönetim görünürlüğüne dönüşür.',
+    problem: 'Saha işleri telefon ve mesajlarla koordine edilir; ekibin nerede olduğu bilinmez; gecikme haberi geç gelir; kapanış belgeleri eksik kalır. Sonuç: yönetim sahayı anlık göremez, müdahale her zaman geç kalır.',
+    steps: [
+      { num: '01', title: 'Günlük plan kur', body: 'İş emirleri öncelik, lokasyon, SLA ve ekipman ihtiyacına göre planlanır; ekiplere rota ve görev atanır.' },
+      { num: '02', title: 'Sahayı takip et', body: 'Ekibin konumu, iş ilerlemesi ve malzeme kullanımı anlık izlenir; olası gecikmeler önceden tespit edilir.' },
+      { num: '03', title: 'Gecikmeye müdahale et', body: 'Gecikme veya kaynak sorunu tespit edildiğinde aksiyon önerilir; öncelik ve atama anında güncellenir.' },
+      { num: '04', title: 'Kanıtlı kapat', body: 'Form, fotoğraf, imza veya ölçüm ile iş belgelenmiş kapanır; müşteri onayı sisteme işlenir.' },
+    ],
+    kpis: [
+      'Aktif saha iş sayısı ve tamamlanma oranı',
+      'Gecikme oranı ve ortalama gecikme süresi',
+      'İlk ziyarette çözüm oranı',
+      'Ekipman kullanım ve bakım süresi',
+      'Günlük plandan sapma oranı',
+      'Kanıtsız kapanış oranı',
+    ],
+    nlQueries: [
+      'Bugün planın gerisinde kalan işleri ve sorumlularını göster.',
+      'Bakım bekleyen ekipmanları ve etkilediği rotaları listele.',
+      'Bu hafta saha formunu tamamlamayan kapanışlar neler?',
+      'Bölge 3\'te kaç iş gecikme riski taşıyor?',
+    ],
+    ozelDurumlar: [
+      'Ekipman arızası saha planını anlık değiştirmek zorunda bırakabilir.',
+      'Teknisyen dışarıdan form göndermezse kapanış belgelenemez.',
+      'Aynı anda birden fazla acil iş geldiğinde öncelik kuralı devreye girer.',
+      'Müşteri lokasyona erişim vermezse rota ve zaman penceresi güncellenmek zorundadır.',
+    ],
+    ctaText: 'Operasyon ve Saha süreçlerinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
+    kartlar: [
+      {
+        baslik: 'Saha Planı',
+        metrik: '18', birim: 'aktif saha işi',
+        alt: ['6 iş bugün kapanacak', '4 iş yeniden planlandı'],
+        durum: 'Günlük plan izleniyor', durumClass: 'bilgi', renk: 'blue', ikon: 'map',
+        metin: 'Günlük saha planı, iş emirlerini lokasyon, öncelik, SLA ve ekipman ihtiyacına göre düzenler. Yeniden planlanan işler ve bugün kapanması gereken görevler tek görünümde izlenir. Plandan sapma anlık tespit edilir.',
+        liste: [
+          'İş emirleri öncelik, lokasyon ve SLA\'ya göre otomatik planlanır',
+          'Yeniden planlanan ve ertelenen işler yönetim görünümünde',
+          'Günlük kapasite ve iş yükü dağılımı anlık izlenir',
+          'Plandan sapmalar Chief tarafından raporlanır ve escalate edilir',
+        ],
+      },
+      {
+        baslik: 'Rota, Kişi ve Ekipman',
+        metrik: '12', birim: 'ziyaret rotada',
+        alt: ['9 personel atandı', '7 ekipman eşleşti'],
+        durum: 'Saha uygunluğu kontrol ediliyor', durumClass: 'aktif', renk: 'sage', ikon: 'truck',
+        metin: 'Doğru işi doğru kişiye atamak için yetkinlik, lokasyon, mevcut iş yükü ve ekipman uygunluğu aynı anda değerlendirilir. Rotalar optimize edilir; her personel ve ekipmanın durumu anlık görünürdür.',
+        liste: [
+          'Yetkinlik, bölge ve iş yüküne göre otomatik personel önerisi',
+          'Ekipman uygunluk ve bakım durumu eşleştirmede kontrol edilir',
+          'Rota optimizasyonu zaman ve yakıt tasarrufu sağlar',
+          'Atama değişiklikleri ekibe anlık bildirim ile iletilir',
+        ],
+      },
+      {
+        baslik: 'Gecikme ve Müdahale',
+        metrik: '5', birim: 'iş planın gerisinde',
+        alt: ['2 rota gecikme riski', '1 ekipman bakım bekliyor'],
+        durum: 'Öncelikli takip', durumClass: 'uyari', renk: 'clay', ikon: 'warn',
+        metin: 'Saha gecikmeleri reaktif değil proaktif yönetilir. Rota gecikme riski, ekipman arızası veya kaynak eksikliği önceden tespit edilir; aksiyon önerisi ve eskalasyon otomatik tetiklenir. Müdahale her zaman zamanında yapılır.',
+        liste: [
+          'Gecikme riski gerçek zamanlı tespit ve uyarı sistemi',
+          'Ekipman bakım ve arıza bildirimleri aksiyon listesine dönüşür',
+          'Öncelik güncelleme ve yeniden atama tek adımda yapılır',
+          'Gecikme nedenleri ve etkileri yönetim raporunda görünür',
+        ],
+      },
+      {
+        baslik: 'Kapanış ve Kanıt',
+        metrik: '9', birim: 'iş tamamlandı',
+        alt: ['4 saha formu bekliyor', '3 kanıtlı kapanış geldi'],
+        durum: 'Kapanış kontrolü', durumClass: 'izlen', renk: 'muted', ikon: 'check',
+        metin: 'Her iş, saha formları ve dijital kanıtlarla belgelenerek kapatılır. Eksik form veya onay bekleyen kapanışlar otomatik işaretlenir. Müşteri onayı sisteme işlenir; tüm kapanış belgeleri denetim izinde saklanır.',
+        liste: [
+          'Form, fotoğraf, imza ve ölçüm ile kanıtlı kapanış akışı',
+          'Eksik belge veya form bekleyen işler otomatik flaglenir',
+          'Müşteri onayı dijital olarak sisteme işlenir',
+          'Tüm kapanış kanıtları denetim ve garanti süreçlerinde erişilebilir',
+        ],
+      },
+    ],
+  },
+  'uretim-tedarik-kalite': {
+    animType: 'uretim-tedarik-dash',
+    featured: true, cat: 'ÜRETİM, TEDARİK VE KALİTE', catKey: 'uretim', icon: 'factory',
+    eyebrow: 'Kullanım Alanı · İş Süreçleri',
+    cardTitle: 'Üretim, Tedarik ve Kalite',
+    cardDesc: 'İş emirlerini, termin planlarını, ekipman kapasitesini ve kalite kontrollerini tek akışta yönetin.',
+    cardSub: 'Üretim emrinden kalite onayına — tüm süreç görünür ve kontrol altında.',
+    h1: 'Üretim süreciniz iş emrinden kalite onayına görünür.',
+    lead: 'İş emirlerini takip edin, termin risklerini önceden tespit edin, ekipman ve kapasite durumunu izleyin, kalite kontrollerini yönetin — üretim hattınızın her aşaması Chief ile görünür ve yönetilebilir.',
+    problem: 'İş emirleri tablolarda takip edilir; termin riskleri geç fark edilir; ekipman arızaları planı bozar; kalite uygunsuzlukları tespit edildiğinde düzeltmek için zaman kalmayabilir. Sonuç: üretim gecikmesi, müşteri taahhüdü riski.',
+    steps: [
+      { num: '01', title: 'İş emrini planla', body: 'İş emirleri kapasite, malzeme, ekipman ve yetkinlik durumuna göre değerlendirilir; üretim sırasına alınır.' },
+      { num: '02', title: 'Termini koru', body: 'Termin riski taşıyan işler proaktif olarak tespit edilir; gecikme önlemi veya müşteri bilgilendirmesi zamanında yapılır.' },
+      { num: '03', title: 'Kapasite yönet', body: 'Ekipman durumu, bakım takvimi ve kapasite yoğunluğu anlık izlenir; darboğazlar önceden görülür.' },
+      { num: '04', title: 'Kalite onayla', body: 'Üretim çıktıları standart kontrol listesiyle doğrulanır; uygunsuzluklar açık tutulur ve uzman onayına iletilir.' },
+    ],
+    kpis: [
+      'Açık iş emri sayısı ve tamamlanma oranı',
+      'Termin riskli iş emri oranı',
+      'Ekipman kullanım ve bakım süresi',
+      'Kapasite yoğunluğu ve darboğaz indeksi',
+      'Kalite kontrol geçme oranı',
+      'Açık uygunsuzluk sayısı ve ortalama kapanma süresi',
+    ],
+    nlQueries: [
+      'Termin riski taşıyan iş emirlerini ve nedenlerini listele.',
+      'Bugün bakım gerektiren ekipmanlar hangi iş emirlerini etkiliyor?',
+      'Uzman onayı bekleyen kalite kontrollerini özetle.',
+      'Kapasite yoğunluğu en yüksek hat hangisi, alternatif var mı?',
+    ],
+    ozelDurumlar: [
+      'Tedarik gecikmesi iş emrinin tüm terminini etkileyebilir.',
+      'Ekipman arızası aynı anda birden fazla üretim emrini durdurabilir.',
+      'Kalite uygunsuzluğu müşteriye gitmeden önce kapatılmalıdır.',
+      'Acil sipariş standart üretim sırasını bozabilir — öncelik kuralı devreye girer.',
+    ],
+    ctaText: 'Üretim, Tedarik ve Kalite süreçlerinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
+    kartlar: [
+      {
+        baslik: 'İş Emirleri',
+        metrik: '24', birim: 'açık iş emri',
+        alt: ['8 iş üretimde', '5 iş planlamada'],
+        durum: 'Üretim akışı aktif', durumClass: 'aktif', renk: 'sage', ikon: 'factory',
+        metin: 'Üretim hattındaki tüm iş emirleri anlık izlenir. Hangi iş üretimde, hangisi planlamada, hangisi malzeme veya onay beklediği tek görünümde takip edilir. Üretim akışını tıkayan iş emirleri proaktif olarak tespit edilir.',
+        liste: [
+          'İş emirleri durum, öncelik ve terminle birlikte listelenir',
+          'Üretimde ve planlamadaki işler ayrı görünümde izlenir',
+          'Malzeme veya onay bekleyen işler flaglenir',
+          'Tamamlanan iş emirleri sonraki süreçlere otomatik aktarılır',
+        ],
+      },
+      {
+        baslik: 'Termin ve Plan',
+        metrik: '5', birim: 'iş emri termin riski taşıyor',
+        alt: ['2 iş gecikti', '4 rota güncellendi'],
+        durum: 'Plan revizyonu', durumClass: 'uyari', renk: 'clay', ikon: 'clock',
+        metin: 'Termin riski erken tespit edilir ve müdahale zamanında yapılır. Geciken veya gecikme riski taşıyan iş emirleri önceliklendirilir; müşteri taahhütlerine etkisi değerlendirilir. Rota ve plan güncellemeleri Chief tarafından koordine edilir.',
+        liste: [
+          'Termin riski taşıyan iş emirleri erken uyarı sistemiyle tespit edilir',
+          'Gecikme nedeni ve etki analizi otomatik yapılır',
+          'Öncelik güncellemesi ve alternatif plan önerisi',
+          'Müşteri taahhüdü etkilenirse bilgilendirme akışı tetiklenir',
+        ],
+      },
+      {
+        baslik: 'Ekipman ve Kapasite',
+        metrik: '9', birim: 'makine aktif',
+        alt: ['2 ekipman bakımda', '3 kapasite yoğunluğu var'],
+        durum: 'Kapasite izleniyor', durumClass: 'izlen', renk: 'muted', ikon: 'cpu',
+        metin: 'Ekipman durumu ve üretim kapasitesi anlık izlenir. Bakımda olan makinelerin etkilediği iş emirleri tespit edilir; kapasite yoğunluğu olan hatlar görünürdür. Bakım planlaması ve kapasite dengeleme Chief tarafından koordine edilir.',
+        liste: [
+          'Makine durumu: aktif, bakımda, arızalı anlık görünür',
+          'Kapasite yoğunluğu hat ve vardiya bazında izlenir',
+          'Bakım takvimi üretim planıyla entegre yönetilir',
+          'Ekipman arızası etki analizi ve yeniden planlama önerisi',
+        ],
+      },
+      {
+        baslik: 'Yetkinlik ve Kalite',
+        metrik: '11', birim: 'kontrol bekliyor',
+        alt: ['3 uzman onayı gerekli', '2 uygunsuzluk açık'],
+        durum: 'Kalite takipte', durumClass: 'bilgi', renk: 'blue', ikon: 'shield',
+        metin: 'Üretim çıktılarının kalite kontrol süreci tamamen görünürdür. Uzman onayı bekleyen kontroller önceliklendirilir; açık uygunsuzluklar kapatılana kadar takip edilir. Kalite sonuçları yönetim görünürlüğünde tutulur.',
+        liste: [
+          'Kalite kontrol listesi üretim çıktısıyla otomatik eşleştirilir',
+          'Uzman onayı gerektiren kontroller ilgili kişiye iletilir',
+          'Açık uygunsuzluklar kapatılana kadar takipte kalır',
+          'Kalite trend ve uygunsuzluk nedenleri raporlanır',
+        ],
+      },
+    ],
+  },
+  'finans': {
+    animType: 'finans-dash',
+    featured: true, cat: 'FİNANS', catKey: 'finans', icon: 'bars',
+    eyebrow: 'Kullanım Alanı · İş Süreçleri',
+    cardTitle: 'Finans',
+    cardDesc: 'Onay bekleyen işlemleri, nakit akışını, maliyet sapmalarını ve fatura mutabakatını tek görünümde yönetin.',
+    cardSub: 'Onaydan kapanışa — finans sürecinin her aşaması görünür ve kontrol altında.',
+    h1: 'Finans süreciniz onaydan kapanışa görünür ve kontrol altında.',
+    lead: 'Onay bekleyen işlemleri hızlandırın, nakit akışını anlık izleyin, maliyet sapmalarını proaktif tespit edin ve fatura mutabakatlarını eksiksiz kapatın — finans hattınızın her aşaması Chief ile görünür ve yönetilebilir.',
+    problem: 'Onay süreçleri e-postada kaybolur; nakit girişi ve çıkışı farklı sistemlerde izlenir; maliyet sapması fark edildiğinde bütçe çoktan aşılmıştır; fatura mutabakatları elle kontrol edilir. Sonuç: gecikmeli karar, artan finansal risk.',
+    steps: [
+      { num: '01', title: 'Onayı hızlandır', body: 'Masraf, ödeme ve bütçe aşımı onay talepleri doğru kişiye iletilir; darboğaz ve gecikme anlık görünür.' },
+      { num: '02', title: 'Nakit akışını izle', body: 'Planlı ödemeler, beklenen tahsilatlar ve gerçekleşen hareketler tek görünümde izlenir; akış anomalileri tespit edilir.' },
+      { num: '03', title: 'Sapmayı tespit et', body: 'Proje ve departman bütçeleri anlık takip edilir; sapma tespit edildiğinde aksiyon önerisi ve eskalasyon tetiklenir.' },
+      { num: '04', title: 'Mutabakatı kapat', body: 'Faturalar, ödeme emirleri ve muhasebe kayıtları eşleştirilir; mutabakat farkları işaretlenir ve kapatılır.' },
+    ],
+    kpis: [
+      'Onay bekleyen işlem sayısı ve ortalama onay süresi',
+      'Nakit akış pozisyonu ve beklenen tahsilat riski',
+      'Bütçe sapma oranı ve etkilenen kalem sayısı',
+      'Fatura eşleşme oranı ve açık mutabakat sayısı',
+      'Bütçe aşımı yapan proje ve departman sayısı',
+      'Vadesi geçen ödeme ve tahsilat tutarı',
+    ],
+    nlQueries: [
+      '48 saati aşan onay bekleyen işlemleri ve sorumluları listele.',
+      'Bu ay bütçesini aşan projeler hangileri ve sapma nedeni nedir?',
+      'Eşleşmeyen faturalar hangileri, fark miktarları nedir?',
+      'Önümüzdeki 30 günde beklenen nakit giriş-çıkış dengesi nedir?',
+    ],
+    ozelDurumlar: [
+      'Bütçe aşımı onayı birden fazla hiyerarşik seviye gerektirebilir.',
+      'Dövizli işlemlerde kur farkı mutabakatta uyumsuzluğa yol açabilir.',
+      'Fatura ile iş emri arasında kapsam farkı varsa onay adımı eklenir.',
+      'Dönem kapanışında bekleyen mutabakat kayıtları öncelikli işleme alınır.',
+    ],
+    ctaText: 'Finans süreçlerinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
+    kartlar: [
+      {
+        baslik: 'Onay Bekleyen İşlemler',
+        metrik: '9', birim: 'işlem onay bekliyor',
+        alt: ['4 masraf kontrol edildi', '2 bütçe aşımı takipte'],
+        durum: 'Onay süreci aktif', durumClass: 'bilgi', renk: 'blue', ikon: 'check',
+        metin: 'Masraf, ödeme ve bütçe aşımı onay talepleri doğru kişiye iletilir; hangi onayın kimde beklediği, ne kadar süredir beklendiği anlık görünürdür. Darboğaz oluşturan onaylar eskalasyona hazırlanır.',
+        liste: [
+          'Onay talepleri ilgili yetkili ve hiyerarşi seviyesine otomatik iletilir',
+          'Bütçe aşımı olan işlemler öncelikli sıraya alınır',
+          'Geciken onaylar yönetim görünümünde flaglenir',
+          'Onay geçmişi ve karar gerekçeleri denetim izinde tutulur',
+        ],
+      },
+      {
+        baslik: 'Nakit Akışı',
+        metrik: '₺1,8M', birim: 'hareket izleniyor',
+        alt: ['₺420K ödeme planlandı', '₺310K giriş bekleniyor'],
+        durum: 'Akış kontrol altında', durumClass: 'aktif', renk: 'sage', ikon: 'bars',
+        metin: 'Planlı ödemeler, beklenen tahsilatlar ve gerçekleşen nakit hareketleri tek görünümde izlenir. Nakit akış pozisyonu anlık hesaplanır; anomali veya beklenmeyen değişiklikler tespit edilir ve ilgili birimlere iletilir.',
+        liste: [
+          'Planlı ödeme ve tahsilatlar takvime göre izlenir',
+          'Gerçekleşen ve beklenen nakit pozisyonu karşılaştırılır',
+          'Geciken tahsilat ve ödeme riskleri erken uyarı sistemiyle tespit edilir',
+          'Nakit akış tahmini ve haftalık projeksiyon otomatik oluşturulur',
+        ],
+      },
+      {
+        baslik: 'Maliyet Takibi',
+        metrik: '4', birim: 'maliyet sapması var',
+        alt: ['2 proje bütçesi aştı', '3 kalem inceleniyor'],
+        durum: 'Sapma analizi', durumClass: 'uyari', renk: 'clay', ikon: 'bolt',
+        metin: 'Proje ve departman bütçeleri anlık takip edilir; harcama sapması tespit edildiğinde neden-sonuç analizi yapılır ve aksiyon önerisi üretilir. Bütçe aşımı oluşmadan önce uyarı verilir; aşım olduğunda eskalasyon tetiklenir.',
+        liste: [
+          'Bütçe-gerçekleşme karşılaştırması proje ve departman bazında',
+          'Sapma eşiği aşıldığında otomatik uyarı ve eskalasyon',
+          'Harcama kalemleri inceleme ve onay akışına alınır',
+          'Bütçe sapma nedenleri yönetim raporuna dahil edilir',
+        ],
+      },
+      {
+        baslik: 'Fatura ve Mutabakat',
+        metrik: '16', birim: 'fatura işlemde',
+        alt: ['5 mutabakat bekliyor', '3 kayıt eşleşmedi'],
+        durum: 'Finans kapanışı', durumClass: 'izlen', renk: 'muted', ikon: 'doc',
+        metin: 'Faturalar, ödeme emirleri ve muhasebe kayıtları otomatik eşleştirilir; uyumsuzluklar işaretlenir ve ilgili kişiye iletilir. Dönem kapanışı için bekleyen mutabakat sayısı anlık görünürdür; kapanış zamanında yapılır.',
+        liste: [
+          'Fatura ve ödeme emri otomatik eşleştirme ve doğrulama',
+          'Eşleşmeyen kayıtlar detay ve fark bilgisiyle işaretlenir',
+          'Mutabakat süreci ve kapanış takvimi izlenir',
+          'Dönem kapanışı hazırlık durumu yönetim görünümünde',
+        ],
+      },
+    ],
   },
   'is-emri-saha-planlama': {
     animType: 'task-board',
@@ -3911,6 +4985,98 @@ const IS_SURECLERI_DATA = {
     ],
     ctaText: 'Fatura, Tahsilat ve İş Kapanışı sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.',
   },
+  'paydas-deneyimi': {
+    animType: 'paydas-dash',
+    featured: true, cat: 'PAYDAŞ DENEYİMİ', catKey: 'paydas', icon: 'star',
+    eyebrow: 'Kullanım Alanı · İş Süreçleri',
+    cardTitle: 'Paydaş Deneyimi',
+    cardDesc: 'Gelen bildirimleri, öncelikli konuları, memnuniyet sinyallerini ve kapanışları tek akışta yönetin.',
+    cardSub: 'Bildirimden çözüme — paydaş deneyiminin her aşaması görünür ve kontrol altında.',
+    h1: 'Paydaş deneyimi bildirimden çözüme görünür ve yönetilebilir.',
+    lead: 'Müşteri, bayi ve paydaşlardan gelen bildirimleri yakalayın, öncelikli konuları aksiyona dönüştürün, memnuniyet trendlerini izleyin ve her konuyu geri dönüşle kapatın — paydaş deneyiminin tüm döngüsü Chief ile yönetilebilir.',
+    problem: 'Geri bildirimler farklı kanallardan gelir ve takipsiz kalır; öncelikli konular fark edilmeden tekrarlanır; memnuniyet sinyalleri geç okunur; çözüm yapıldığında paydaşa geri dönüş unutulur. Sonuç: tekrarlayan şikayetler, hasar gören ilişkiler.',
+    steps: [
+      { num: '01', title: 'Bildirimi yakala', body: 'Müşteri, bayi ve paydaşlardan gelen her bildirim — şikayet, öneri, talep — otomatik yakalanır ve sınıflandırılır.' },
+      { num: '02', title: 'Önceliği belirle', body: 'Yüksek öncelikli konular tespit edilir; tekrarlayan veya birden fazla paydaşı etkileyen bildirimler önce işleme alınır.' },
+      { num: '03', title: 'Memnuniyeti izle', body: 'Olumlu ve olumsuz sinyaller trend bazında takip edilir; iyileşen ve kötüleşen alanlar görünürdür.' },
+      { num: '04', title: 'Çözümü kapat', body: 'Her konu çözümle kapatılır; paydaşa geri dönüş yapılır ve çözüm doğrulanır. Kapatılmayan konular takipte kalır.' },
+    ],
+    kpis: [
+      'Aktif geri bildirim sayısı ve yaşı',
+      'Aksiyona dönüşen konu oranı',
+      'Ortalama çözüm süresi',
+      'Memnuniyet trend skoru',
+      'Tekrarlayan konu oranı',
+      'Geri dönüşsüz kapanış oranı',
+    ],
+    nlQueries: [
+      'Son 30 günde en çok tekrarlanan şikayet konuları neler?',
+      'Aksiyona dönüşmeyen öncelikli konuları ve sorumlularını listele.',
+      'Memnuniyet skoru düşen müşteri segmenti var mı?',
+      'Geri dönüş bekleyen kapalı konuları göster.',
+    ],
+    ozelDurumlar: [
+      'Aynı konuyu birden fazla paydaş bildirirse öncelik otomatik yükselir.',
+      'Negatif trend eşiği aşıldığında yönetim bildirimi tetiklenir.',
+      'Çözüm doğrulanmadan kapanış yapılırsa konu takipte kalır.',
+      'Bayi bildirimleri müşteri bildirimleriyle farklı akışta yönetilebilir.',
+    ],
+    ctaText: 'Paydaş Deneyimi süreçlerinizi Chief ile modelleyin.',
+    kartlar: [
+      {
+        baslik: 'Gelen Bildirimler',
+        metrik: '42', birim: 'aktif geri bildirim',
+        alt: ['18 müşteri talebi', '9 bayi bildirimi'],
+        durum: 'Bildirimler izleniyor', durumClass: 'bilgi', renk: 'blue', ikon: 'chat',
+        metin: 'Müşteri, bayi ve paydaşlardan gelen her geri bildirim — şikayet, öneri veya talep — Chief tarafından otomatik yakalanır ve türüne göre sınıflandırılır. Kaynağa göre farklı akışlara yönlendirilen bildirimler hiçbir şekilde takipsiz kalmaz.',
+        liste: [
+          'Çok kanallı bildirim yakalama — e-posta, WhatsApp, form, sistem',
+          'Tür, kaynak ve öncelik bazında otomatik sınıflandırma',
+          'Müşteri ve bayi bildirimleri ayrı akışlarda yönetilir',
+          'Sahipsiz veya yanıtsız bildirimler otomatik uyarı ile flaglenir',
+        ],
+      },
+      {
+        baslik: 'Öncelikli Konular',
+        metrik: '8', birim: 'konu aksiyona dönüştü',
+        alt: ['3 müşteri öncelikli', '2 konu tekrarlandı'],
+        durum: 'Aksiyon takibi', durumClass: 'uyari', renk: 'clay', ikon: 'bolt',
+        metin: 'Tekrarlayan veya birden fazla paydaşı etkileyen bildirimler öncelikli konu olarak işaretlenir ve aksiyona dönüştürülür. Her aksiyonun sahibi, hedef tarihi ve ilerleme durumu anlık izlenir. Çözülmeyen öncelikli konular eskalasyona hazırlanır.',
+        liste: [
+          'Tekrarlayan ve yüksek etkili konular otomatik önceliklendirilir',
+          'Aksiyon sahibi, hedef tarih ve durum takibi',
+          'Aksiyona dönüşmeyen konular yönetim görünümünde flaglenir',
+          'Öncelikli konu trendi ve çözüm oranı raporlanır',
+        ],
+      },
+      {
+        baslik: 'Memnuniyet Sinyali',
+        metrik: '%78', birim: 'olumlu trend',
+        alt: ['6 negatif sinyal', '4 konu iyileştirildi'],
+        durum: 'Trend izleniyor', durumClass: 'aktif', renk: 'sage', ikon: 'bars',
+        metin: 'Geri bildirimlerden elde edilen memnuniyet sinyalleri trend bazında izlenir. Olumlu ve olumsuz sinyaller segmentlere göre analiz edilir; iyileşen ve kötüleşen alanlar görünürdür. Negatif trend eşiği aşıldığında yönetim bildirimi tetiklenir.',
+        liste: [
+          'Geri bildirimlerden otomatik memnuniyet skoru hesaplama',
+          'Segment ve kanal bazında trend analizi',
+          'Negatif sinyal artışı yönetim uyarısına dönüşür',
+          'İyileştirilen konular etki analizi ile raporlanır',
+        ],
+      },
+      {
+        baslik: 'Kapanış ve Geri Dönüş',
+        metrik: '21', birim: 'konu kapatıldı',
+        alt: ['7 geri dönüş bekliyor', '5 çözüm doğrulandı'],
+        durum: 'Deneyim kapanışı', durumClass: 'izlen', renk: 'muted', ikon: 'check',
+        metin: 'Her bildirim çözümle kapatılır ve paydaşa geri dönüş yapılır. Geri dönüş tamamlanmadan kapanış onaylanmaz; çözüm doğrulama adımı otomatik talep edilir. Dönem kapanışında bekleyen geri dönüşler öncelikli işleme alınır.',
+        liste: [
+          'Çözüm kaydedilmeden konu kapatılamaz',
+          'Paydaşa geri dönüş akışı otomatik tetiklenir',
+          'Çözüm doğrulama onayı paydaştan alınır',
+          'Kapatılan konular deneyim raporuna dahil edilir',
+        ],
+      },
+    ],
+  },
   'musteri-geri-bildirimi-iyilestirme': {
     animType: 'signal-flow',
     featured: false, cat: 'PAYDAŞ DENEYİMİ', catKey: 'paydas', icon: 'star',
@@ -4202,7 +5368,7 @@ function _isKatman() {
 /* ---- URL slug mapping: yeni kısa slug → data key ---- */
 var KULLANIM_SLUG_MAP = {
   'yonetim-katmani': 'yonetimsel-dogal-dil-veri-stratejik-aksiyon',
-  'finans':          'fatura-tahsilat-is-kapanisi',
+  'finans':          'finans',
 };
 function _kuSlug(slug) { return KULLANIM_SLUG_MAP[slug] || slug; }
 
@@ -4214,6 +5380,46 @@ window.isCatFilter = function(btn, cat) {
     card.style.display = (cat === '*' || card.getAttribute('data-cat') === cat) ? '' : 'none';
   });
 };
+
+/* ---- Kart + Metin Zigzag bölümü ---- */
+function renderIsSureciKartlarSection(kartlar) {
+  var icoSvg = {
+    users: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    cal:   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+    doc:   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+    warn:  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+    target:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+  };
+  var h = '';
+  kartlar.forEach(function(k, i) {
+    var rev = (i % 2 !== 0) ? ' isk-rev' : '';
+    var bg  = (i % 2 !== 0) ? ' bg-warm' : '';
+    var kartHtml = '<div class="isk-card c-' + k.renk + '">'
+      + '<div class="isk-cico ' + k.renk + '">' + (icoSvg[k.ikon] || icoSvg.doc) + '</div>'
+      + '<div class="isk-ctitle">' + esc(k.baslik) + '</div>'
+      + '<div class="isk-val">' + esc(k.metrik) + '</div>'
+      + '<div class="isk-unit">' + esc(k.birim) + '</div>'
+      + '<div class="isk-subs">' + k.alt.map(function(s){ return '<div class="isk-sub">' + esc(s) + '</div>'; }).join('') + '</div>'
+      + '<div class="isk-divider"></div>'
+      + '<div class="isk-badge ' + k.durumClass + '">' + esc(k.durum) + '</div>'
+      + '</div>';
+    var listeHtml = k.liste && k.liste.length
+      ? '<ul class="isk-text-list">' + k.liste.map(function(li){ return '<li>' + esc(li) + '</li>'; }).join('') + '</ul>'
+      : '';
+    var metinHtml = '<div class="isk-text-col">'
+      + '<span class="isk-text-num">0' + (i + 1) + '</span>'
+      + '<h3 class="isk-text-h">' + esc(k.baslik) + '</h3>'
+      + '<p class="isk-text-p">' + esc(k.metin) + '</p>'
+      + listeHtml
+      + '</div>';
+    h += '<section class="isk-section' + bg + '"><div class="container">'
+      + '<div class="isk-row' + rev + '">'
+      + '<div class="isk-kart-col">' + kartHtml + '</div>'
+      + metinHtml
+      + '</div></div></section>';
+  });
+  return h;
+}
 
 /* ---- Listing ---- */
 function renderIsSureciListing() {
@@ -4310,114 +5516,98 @@ function renderIsSureciPage(slug) {
     '<div class="hero-split-right">' + renderPageAnimation(d.animType || 'signal-flow') + '</div>' +
     '</div></div></section>';
 
-  // BU SÜREÇ NEYİ ÇÖZER?
-  h += '<section style="padding:52px 0" class="bg-warm"><div class="container narrow">' +
-    '<div class="section-head" style="margin-bottom:18px"><span class="eyebrow">Bu süreç neyi çözer?</span></div>' +
-    '<p style="font-size:17px;line-height:1.75;color:var(--t-body)">' + esc(d.problem) + '</p></div></section>';
-
-  // Bölüm 3 + 4 (tüm sayfalarda)
-  h += _isOmurga();
-  h += _isKatman();
-
-  // ÖNE ÇIKAN YÖNETİM DENEYİMİ (sadece featured)
-  if (isFeatured && d.yone && d.yone.length) {
-    h += '<section style="padding:52px 0"><div class="container">' +
-      '<div class="section-head"><span class="eyebrow">Öne çıkan yönetim deneyimi</span></div>' +
-      '<div class="yone-grid">' +
-      d.yone.map(function(y){ return '<div class="yone-card"><span class="yone-label">' + esc(y.label) + '</span><p>' + esc(y.text) + '</p></div>'; }).join('') +
-      '</div></div></section>';
-  }
-
-  // ÖRNEK YÖNETİCİ AKIŞI (sadece featured)
-  if (isFeatured && d.ornekAkis && d.ornekAkis.length) {
-    h += '<section style="padding:52px 0" class="bg-warm"><div class="container">' +
-      '<div class="section-head"><span class="eyebrow">Örnek yönetici akışı</span></div>' +
-      '<div class="ornek-akis"><span class="akis-label">Yönetici sordu → Chief yanıtladı → Aksiyon başlatıldı</span>' +
-      d.ornekAkis.map(function(s){ return '<div class="akis-step"><div class="akis-step-num">' + esc(s.num) + '</div><div class="akis-step-body"><p><strong>' + esc(s.title) + ':</strong> ' + esc(s.body) + '</p></div></div>'; }).join('') +
-      '</div></div></section>';
-  }
-
-  // SÜREÇ AMACI TABLOSU
-  if (d.amac) {
-    h += '<section style="padding:52px 0"><div class="container">' +
-      '<div class="section-head"><span class="eyebrow">Süreç amacı, girdileri ve çıktıları</span></div>' +
-      '<table class="is-amac-table">' +
-      '<tr><td>Süreç amacı</td><td>' + esc(d.amac) + '</td></tr>' +
-      '<tr><td>Girdiler</td><td>' + esc(d.girdiler) + '</td></tr>' +
-      '<tr><td>Çıktılar</td><td>' + esc(d.ciktilar) + '</td></tr>' +
-      '</table></div></section>';
-  }
-
-  // SÜREÇ AKIŞ ADIMLARI
-  if (d.steps && d.steps.length) {
-    h += '<section style="padding:52px 0" class="bg-warm"><div class="container">' +
-      '<div class="section-head"><span class="eyebrow">Chief bu süreci nasıl yönetir?</span></div>' +
-      '<div class="proc-steps-grid">';
-    var isNewFormat = typeof d.steps[0] === 'string';
-    if (isNewFormat) {
-      d.steps.forEach(function(s,i){
-        h += '<div class="proc-step"><div class="proc-step-num">0' + (i+1) + '</div><div><p>' + esc(s) + '</p></div></div>';
-      });
-    } else {
-      d.steps.forEach(function(s){
-        h += '<div class="proc-step"><div class="proc-step-num">' + esc(s.num) + '</div><div><h4>' + esc(s.title) + '</h4><p>' + esc(s.body) + '</p></div></div>';
-      });
+  // KART BÖLÜMLER (yeni format) veya ESKİ BÖLÜMLER
+  if (d.kartlar && d.kartlar.length) {
+    h += renderIsSureciKartlarSection(d.kartlar);
+  } else {
+    // BU SÜREÇ NEYİ ÇÖZER?
+    if (d.problem) {
+      h += '<section style="padding:52px 0" class="bg-warm"><div class="container narrow">' +
+        '<div class="section-head" style="margin-bottom:18px"><span class="eyebrow">Bu süreç neyi çözer?</span></div>' +
+        '<p style="font-size:17px;line-height:1.75;color:var(--t-body)">' + esc(d.problem) + '</p></div></section>';
     }
-    h += '</div></div></section>';
+    // Bölüm 3 + 4
+    h += _isOmurga();
+    h += _isKatman();
+    // ÖNE ÇIKAN YÖNETİM DENEYİMİ
+    if (isFeatured && d.yone && d.yone.length) {
+      h += '<section style="padding:52px 0"><div class="container">' +
+        '<div class="section-head"><span class="eyebrow">Öne çıkan yönetim deneyimi</span></div>' +
+        '<div class="yone-grid">' +
+        d.yone.map(function(y){ return '<div class="yone-card"><span class="yone-label">' + esc(y.label) + '</span><p>' + esc(y.text) + '</p></div>'; }).join('') +
+        '</div></div></section>';
+    }
+    // ÖRNEK YÖNETİCİ AKIŞI
+    if (isFeatured && d.ornekAkis && d.ornekAkis.length) {
+      h += '<section style="padding:52px 0" class="bg-warm"><div class="container">' +
+        '<div class="section-head"><span class="eyebrow">Örnek yönetici akışı</span></div>' +
+        '<div class="ornek-akis"><span class="akis-label">Yönetici sordu → Chief yanıtladı → Aksiyon başlatıldı</span>' +
+        d.ornekAkis.map(function(s){ return '<div class="akis-step"><div class="akis-step-num">' + esc(s.num) + '</div><div class="akis-step-body"><p><strong>' + esc(s.title) + ':</strong> ' + esc(s.body) + '</p></div></div>'; }).join('') +
+        '</div></div></section>';
+    }
+    // SÜREÇ AMACI
+    if (d.amac) {
+      h += '<section style="padding:52px 0"><div class="container">' +
+        '<div class="section-head"><span class="eyebrow">Süreç amacı, girdileri ve çıktıları</span></div>' +
+        '<table class="is-amac-table">' +
+        '<tr><td>Süreç amacı</td><td>' + esc(d.amac) + '</td></tr>' +
+        '<tr><td>Girdiler</td><td>' + esc(d.girdiler) + '</td></tr>' +
+        '<tr><td>Çıktılar</td><td>' + esc(d.ciktilar) + '</td></tr>' +
+        '</table></div></section>';
+    }
+    // SÜREÇ AKIŞ ADIMLARI
+    if (d.steps && d.steps.length) {
+      h += '<section style="padding:52px 0" class="bg-warm"><div class="container">' +
+        '<div class="section-head"><span class="eyebrow">Chief bu süreci nasıl yönetir?</span></div>' +
+        '<div class="proc-steps-grid">';
+      var isNewFormat = typeof d.steps[0] === 'string';
+      if (isNewFormat) {
+        d.steps.forEach(function(s,i){ h += '<div class="proc-step"><div class="proc-step-num">0' + (i+1) + '</div><div><p>' + esc(s) + '</p></div></div>'; });
+      } else {
+        d.steps.forEach(function(s){ h += '<div class="proc-step"><div class="proc-step-num">' + esc(s.num) + '</div><div><h4>' + esc(s.title) + '</h4><p>' + esc(s.body) + '</p></div></div>'; });
+      }
+      h += '</div></div></section>';
+    }
+    // KARAR NOKTALARI
+    if (d.kararlar && d.kararlar.length) {
+      h += '<section style="padding:52px 0"><div class="container">' +
+        '<div class="section-head"><span class="eyebrow">Karar noktaları ve iş kuralları</span></div>' +
+        '<table class="is-karar-table"><tr><th>Karar noktası</th><th>Girdi</th><th>Chief aksiyonu</th></tr>' +
+        d.kararlar.map(function(k){ return '<tr><td>' + esc(k.nokta) + '</td><td>' + esc(k.girdi) + '</td><td>' + esc(k.aksiyon) + '</td></tr>'; }).join('') +
+        '</table></div></section>';
+    }
+    // NL SORGULAR
+    if (d.nlQueries && d.nlQueries.length) {
+      h += '<section style="padding:52px 0" class="bg-warm"><div class="container">' +
+        '<div class="nl-chat-wrap"><span class="nl-chat-intro">Yönetici Chief\'e sorar</span>' +
+        '<p class="nl-chat-sub">Yönetici doğal dil ile soru sorabilir, veri üzerinden strateji geliştirebilir, ilgili ekiplerden bilgi talep edebilir veya doğrudan görev/onay açabilir.</p>' +
+        '<div class="nl-bubbles">' +
+        d.nlQueries.map(function(q){ return '<div class="nl-bubble"><div class="nl-bubble-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="nl-bubble-text">' + esc(q) + '</div></div>'; }).join('') +
+        '</div></div></div></section>';
+    }
+    // ÖZEL DURUMLAR
+    if (d.ozelDurumlar && d.ozelDurumlar.length) {
+      h += '<section style="padding:52px 0"><div class="container">' +
+        '<div class="section-head"><span class="eyebrow">Dikkat edilmesi gereken özel durumlar</span></div>' +
+        '<div class="durumlar-grid">' +
+        d.ozelDurumlar.map(function(t){ return '<div class="durum-card"><p>' + esc(t) + '</p></div>'; }).join('') +
+        '</div></div></section>';
+    }
+    // KRİTİK KPI
+    if (d.kpis && d.kpis.length) {
+      h += '<section style="padding:40px 0" class="bg-warm"><div class="container">' +
+        '<div class="section-head" style="margin-bottom:18px"><span class="eyebrow">Kritik KPI ve yönetim çıktıları</span></div>' +
+        '<div class="kpi-grid">' +
+        d.kpis.map(function(t){ return '<div class="kpi-item"><span class="kpi-dash">—</span>' + esc(t) + '</div>'; }).join('') +
+        '</div></div></section>';
+    }
   }
-
-  // KARAR NOKTALARI TABLOSU
-  if (d.kararlar && d.kararlar.length) {
-    h += '<section style="padding:52px 0"><div class="container">' +
-      '<div class="section-head"><span class="eyebrow">Karar noktaları ve iş kuralları</span></div>' +
-      '<table class="is-karar-table">' +
-      '<tr><th>Karar noktası</th><th>Girdi</th><th>Chief aksiyonu</th></tr>' +
-      d.kararlar.map(function(k){ return '<tr><td>' + esc(k.nokta) + '</td><td>' + esc(k.girdi) + '</td><td>' + esc(k.aksiyon) + '</td></tr>'; }).join('') +
-      '</table></div></section>';
-  }
-
-  // NL SORGU ÖRNEKLERİ (chat bubbles)
-  if (d.nlQueries && d.nlQueries.length) {
-    h += '<section style="padding:52px 0" class="bg-warm"><div class="container">' +
-      '<div class="nl-chat-wrap">' +
-      '<span class="nl-chat-intro">Yönetici Chief\'e sorar</span>' +
-      '<p class="nl-chat-sub">Yönetici doğal dil ile soru sorabilir, veri üzerinden strateji geliştirebilir, ilgili ekiplerden bilgi talep edebilir veya doğrudan görev/onay açabilir.</p>' +
-      '<div class="nl-bubbles">' +
-      d.nlQueries.map(function(q){
-        return '<div class="nl-bubble"><div class="nl-bubble-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>' +
-        '<div class="nl-bubble-text">' + esc(q) + '</div></div>';
-      }).join('') +
-      '</div></div></div></section>';
-  }
-
-  // ÖZEL DURUMLAR
-  if (d.ozelDurumlar && d.ozelDurumlar.length) {
-    h += '<section style="padding:52px 0"><div class="container">' +
-      '<div class="section-head"><span class="eyebrow">Dikkat edilmesi gereken özel durumlar</span></div>' +
-      '<div class="durumlar-grid">' +
-      d.ozelDurumlar.map(function(t){ return '<div class="durum-card"><p>' + esc(t) + '</p></div>'; }).join('') +
-      '</div></div></section>';
-  }
-
-  // KRİTİK KPI
-  if (d.kpis && d.kpis.length) {
-    h += '<section style="padding:40px 0" class="bg-warm"><div class="container">' +
-      '<div class="section-head" style="margin-bottom:18px"><span class="eyebrow">Kritik KPI ve yönetim çıktıları</span></div>' +
-      '<div class="kpi-grid">' +
-      d.kpis.map(function(t){ return '<div class="kpi-item"><span class="kpi-dash">—</span>' + esc(t) + '</div>'; }).join('') +
-      '</div></div></section>';
-  }
-
-  // İNSAN DENETİMİ
-  h += '<section style="padding:40px 0"><div class="container narrow">' +
-    '<div class="denetim-block"><p>Chief sınıflandırma, özetleme, öneri üretme, bilgi tamamlama, görev açma ve karar desteği işlevlerini kurumsal rol ve yetki sınırları içinde yürütür. Fiyat, kapsam, müşteri taahhüdü, finansal kabul, kalite kapanışı, kritik saha ataması, çalışan gizliliği veya stratejik yönetim kararı gibi noktalarda insan denetimi korunur. Tüm öneriler, veri kaynakları, karar gerekçeleri ve açılan görevler denetim izine bağlanır.</p></div>' +
-    '</div></section>';
 
   // KAPANIS CTA
-  var ctaText = d.ctaText || (d.cardTitle + ' sürecinizi Chief ile modelleyin; mevcut sistemlerinizi değiştirmeden bilgiyi sorumluluk, karar, aksiyon ve yönetim görünürlüğüyle birleştirin.');
+  var ctaTitle = d.ctaHeadline || ((d.cardTitle || d.eyebrow || 'Bu süreç') + ' süreçlerinizi Chief ile modellemek için görüşme planlayın.');
   h += '<section class="final-cta"><div class="container">' +
-    '<h2>' + esc(ctaText) + '</h2>' +
-    '<div class="cta-row"><a href="#/demo-talep-et" class="btn btn-clay btn-lg">Bu Süreç İçin Demo Talep Edin</a>' +
+    '<h2>' + esc(ctaTitle) + '</h2>' +
+    '<div class="cta-row"><a href="#/demo-talep-et" class="btn btn-clay btn-lg">Görüşme Planlayın ' + ico('arrow', 16) + '</a>' +
     '<a href="#/is-surecleri" class="btn on-dark-ghost btn-lg">Tüm süreçlere dön</a></div>' +
     '</div></section>';
 
