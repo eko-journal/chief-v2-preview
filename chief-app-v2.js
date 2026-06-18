@@ -3099,7 +3099,7 @@ const SEKTORLER_V2_DATA = {
     cardTitle: 'Perakende ve Dağıtım',
     cardDesc: 'Müşteri taleplerini, tedarik zincirini, stok yönetimini ve lokasyon operasyonlarını birleştirin.',
     h1: 'Perakende ve Dağıtım',
-    lead: 'Chief, perakende ve dağıtım işletmelerinde satıştan teslikata, müşteri talebinden tedarike uzanan akışları mevcut sistemleri değiştirmeden tek görünüme bağlar.',
+    lead: 'Chief, perakende ve dağıtım işletmelerinde satıştan teslimata, müşteri talebinden tedarike uzanan akışları mevcut sistemleri değiştirmeden tek görünüme bağlar.',
     bolumler: [
       { baslik: 'Satış ve teklif akışı', metin: 'Farklı kanallardan gelen talepler — web, telefon, saha, bayi — tek akışta toplanır. Fırsat önceliklendirilir, teklif hazırlanır, onay zinciri işler. Kayıp fırsat ve sahipsiz talep azalır.' },
       { baslik: 'Stok ve tedarik görünürlüğü', metin: 'Hangi ürünün hangi lokasyonda, ne zaman kritik olacağı önceden görülür. Tedarik aksiyonu erken başlatılır; son anda eksiklik ve operasyon kesintisi önlenir.' },
