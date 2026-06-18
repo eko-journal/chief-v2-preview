@@ -1787,7 +1787,7 @@ h1 em.highlight {
 /* ================================================================
    PCL (platform canvas layer) — 7 yeni animasyon tipi
    ================================================================ */
-.pcl-wrap { padding: 18px 14px; }
+.pcl-wrap { padding: 0; }
 .pcl-svg { width: 100%; height: auto; display: block; overflow: visible; }
 .pcl-hub-pulse { animation: pcl-hub-glow 4s ease-in-out infinite; }
 @keyframes pcl-hub-glow {
@@ -2289,8 +2289,7 @@ h1 em.highlight {
 /* Tüm animasyon wrap'ları — tutarlı 360px yükseklik */
 .pr-wrap, .ua-wrap, .hs-wrap, .km-wrap, .kb-wrap,
 .kh-wrap, .kk-wrap, .mk-wrap, .ot-wrap, .bk-wrap {
-  height: 100% !important;
-  min-height: 0 !important;
+  height: 360px !important;
   width: 100% !important;
 }
 
