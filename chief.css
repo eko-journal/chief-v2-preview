@@ -2286,15 +2286,15 @@ h1 em.highlight {
 
 /* Stage-based wrap — altın oran çerçeve */
 
-/* Tüm animasyon wrap'ları — tutarlı 360px yükseklik */
-.pr-wrap, .ua-wrap, .hs-wrap, .km-wrap, .kb-wrap,
-.kh-wrap, .kk-wrap, .mk-wrap, .ot-wrap, .bk-wrap {
+/* panim-wrap içindeki animasyon wrapları */
+.pr-wrap, .ua-wrap, .hs-wrap, .km-wrap, .kb-wrap, .kh-wrap {
   height: 360px !important;
   width: 100% !important;
 }
 
-/* İş Süreçleri bağımsız wraplar: panim-wrap ile aynı görünüm */
-.st-wrap, .os-wrap, .utk-wrap, .fin-wrap, .pd-wrap, .yn-wrap {
+/* Bağımsız standalone animasyon wrapları (İş Süreçleri + İşletme Ölçeği) */
+.st-wrap, .os-wrap, .utk-wrap, .fin-wrap, .pd-wrap, .yn-wrap,
+.mk-wrap, .kk-wrap, .ot-wrap, .bk-wrap {
   height: 360px !important;
   width: 100% !important;
   background: var(--ivory) !important;
