@@ -1776,7 +1776,9 @@ h1 em.highlight {
   border-radius: 16px;
   padding: 36px;
   max-width: 820px;
-  min-height: 340px;
+  aspect-ratio: 1.618 / 1;
+  height: auto;
+  min-height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2284,11 +2286,26 @@ h1 em.highlight {
    ANİMASYON ÖLÇEKLENDİRME — Orantısal büyütme
    ================================================================ */
 
-/* Stage-based wrap yükseklikleri */
+/* Stage-based wrap — altın oran çerçeve */
+
+/* panim-wrap içine yerleşik iç wraplar: ebeveyni doldur */
 .pr-wrap, .ua-wrap, .hs-wrap, .km-wrap, .kb-wrap,
-.kh-wrap, .kk-wrap, .mk-wrap, .ot-wrap, .bk-wrap,
+.kh-wrap, .kk-wrap, .mk-wrap, .ot-wrap, .bk-wrap {
+  height: 100% !important;
+  align-self: stretch !important;
+  min-height: 0 !important;
+  width: 100% !important;
+}
+
+/* İş Süreçleri bağımsız wraplar: kendi altın oran oranı */
 .st-wrap, .os-wrap, .utk-wrap, .fin-wrap, .pd-wrap, .yn-wrap {
-  height: 420px !important;
+  aspect-ratio: 1.618 / 1 !important;
+  height: auto !important;
+  min-height: 260px !important;
+  width: 100% !important;
+  background: var(--ivory) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
 }
 
 /* Ortak caption bar */
