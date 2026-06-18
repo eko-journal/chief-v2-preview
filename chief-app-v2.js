@@ -3345,6 +3345,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Eksiksiz ve standartlaştırılmış talep kaydı','Tekrar veri girişinin azalması ve kaynak mesajın korunması','Talep türü, öncelik, sorumlu ve hedef yanıt süresinin belirlenmesi','Teklife, keşfe, teknik değerlendirmeye veya hizmet kaydına hazır iş dosyası','Geciken ve yanıtsız talepler için otomatik hatırlatma ve eskalasyon'],
     yetenekler: ['Çok kanallı sinyal yakalama','Yapay zekâ ile niyet ve içerik sınıflandırma','Doğal diyalogla eksik bilgi tamamlama','ERP/CRM ve ürün verisiyle bağlam kurma','Kural tabanlı yönlendirme, SLA ve denetim izi'],
     kimler: 'Satış, teknik satış, müşteri hizmetleri, proje satış, teklif ve iş geliştirme ekipleri için uygundur.',
+    icon: '📨',
+    short: 'Dağınık talep kanallarını eksiksiz yapılandırılmış kayda dönüştür',
   },
   'mesajdan-goreve-ve-takibe': {
     cat: 'TALEP, SATIŞ VE TEKLİF',
@@ -3355,6 +3357,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Mesajlarda kaybolmayan atanmış görevler','Açık sorumluluk, hedef tarih ve öncelik','Gecikme ve bekleyen iş görünürlüğü','Kaynak mesajla görevin aynı denetim izinde tutulması','Kapanış kanıtı ve görev performans verisi'],
     yetenekler: ['Metinden aksiyon ve varlık çıkarımı','Rol ve iş yüküne göre atama','Görev, bildirim, SLA ve eskalasyon motoru','Belge ve kanıt yönetimi','Aktivite geçmişi ve yönetim görünürlüğü'],
     kimler: 'Müşteri hizmetleri, operasyon, satış, satın alma, finans, idari işler ve saha koordinasyon ekiplerinde mesaj trafiğinin yüksek olduğu tüm birimler için uygundur.',
+    icon: '✅',
+    short: 'Mesajda kalan yapılacak işi sorumlu ve tarihli göreve çevir',
   },
   'gorusmeden-aksiyona': {
     cat: 'TALEP, SATIŞ VE TEKLİF',
@@ -3365,6 +3369,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Toplantıdan çıkan net karar ve aksiyon listesi','Taahhüt sahibi ve hedef tarih görünürlüğü','Açık sorular ve risklerin ayrı takibi','Görüşme, görev ve sonuç arasında kesintisiz iz','Haftalık takip ve yönetim özetine otomatik veri'],
     yetenekler: ['Not ve transkript analizi','Karar, taahhüt, risk ve aksiyon ayrıştırma','İş nesneleriyle bağlam eşleştirme','Görev ve hatırlatma oluşturma','Denetim izi ve yönetim görünümlüğü'],
     kimler: 'Satış, proje yönetimi, müşteri başarı, teknik danışmanlık, operasyon yönetimi ve üst yönetim ekipleri için uygundur.',
+    icon: '🎯',
+    short: 'Toplantı kararlarını takip sahibi belli aksiyon listesine dönüştür',
   },
   'teklif-hazirlama-ve-onay': {
     cat: 'TALEP, SATIŞ VE TEKLİF',
@@ -3375,6 +3381,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Standart ve izlenebilir teklif dosyası','Marj, iskonto ve yetki kurallarına uygunluk','Onay süresinin ve bekleyen onayların görünürlüğü','Teklif sürümleri, gerekçeler ve onay geçmişi','Onaylı tekliften sonraki sürece otomatik devir'],
     yetenekler: ['ERP/CRM, fiyat ve stok entegrasyonu','Teklif taslağı ve belge üretimi','Politika, kural ve onay motoru','İnsan onayı ve istisna yönetimi','Sürüm, denetim izi ve süreç orkestrasyonu'],
     kimler: 'Satış, teknik satış, teklif, finans, ticari kontrol, satın alma ve operasyon planlama ekiplerinin birlikte çalıştığı B2B süreçler için uygundur.',
+    icon: '📋',
+    short: 'Teklifi kurallarla hazırla, doğru yetki seviyesinde onayla',
   },
   'onayli-tekliften-uretim-planina': {
     cat: 'OPERASYON VE SAHA',
@@ -3385,6 +3393,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Satıştan üretime eksiksiz ve izlenebilir devir','Teknik iş paketi ve üretim/montaj iş emirleri','Malzeme, kapasite ve teslim risklerinin erken görünürlüğü','Bölümler arası yeniden veri girişinin azalması','Sipariş, üretim, kalite ve teslim durumunun tek zincirde izlenmesi'],
     yetenekler: ['Teklif ve sipariş bağlamı','ERP/MRP, stok ve ürün ağacı entegrasyonu','Kapasite ve kaynak kuralı','İş emri ve bağımlılık yönetimi','Risk, SLA ve yönetim görünürlüğü'],
     kimler: 'Özel üretim, makine ve ekipman, metal işleme, elektromekanik montaj, proje bazlı imalat ve siparişe göre üretim yapan işletmeler için uygundur.',
+    icon: '🏭',
+    short: 'Onaylı siparişi tekrar veri girmeden üretim planına aktar',
   },
   'onayli-tekliften-saha-is-emrine': {
     cat: 'OPERASYON VE SAHA',
@@ -3395,6 +3405,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Satıştan sahaya standart iş devri','Doğru lokasyon, ekip, yetkinlik ve ekipman planı','Eksiksiz saha iş emri ve kontrol listesi','Müşteri randevusu ve operasyon bilgilendirmesi','Saha sonucu, faturalama ve müşteri geçmişi arasında bağlantı'],
     yetenekler: ['Teklif/siparişten iş emrine orkestrasyon','Lokasyon, varlık ve müşteri bağlamı','Yetkinlik ve kaynak eşleştirme','Planlama, bildirim ve mobil görev','ERP/CRM ve finans akışına geri yazma'],
     kimler: 'Kurulum, teknik servis, bakım, enerji, çevre hizmetleri, altyapı, telekom, tesis yönetimi ve proje bazlı saha operasyonları için uygundur.',
+    icon: '🔧',
+    short: 'Kabul edilen hizmeti yetkin ekip ve planla saha iş emrine çevir',
   },
   'bakim-ariza-ve-teknik-servis': {
     cat: 'OPERASYON VE SAHA',
@@ -3405,6 +3417,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Planlı bakım ve arıza kayıtlarının tek görünümü','SLA ve etki bazlı doğru önceliklendirme','Ekipman geçmişiyle desteklenen servis kararı','Doğru ekip, yedek parça ve saha hazırlığı','Kronik arıza, tekrar servis ve bakım performansı içgörüsü'],
     yetenekler: ['Takvim, çağrı, form ve IoT sinyali yakalama','Varlık ve servis geçmişi bağlamı','Öncelik, SLA ve ekip atama kuralları','Mobil iş emri ve kontrol listesi','Kök neden, kapanış ve bakım planı güncelleme'],
     kimler: 'Teknik servis sağlayıcıları, üretim tesisleri, tesis yönetimi, enerji, makine ve ekipman şirketleri ile bakım sözleşmesi yöneten işletmeler için uygundur.',
+    icon: '⚙️',
+    short: 'Bakım takvimi ve arıza bildirimini tek öncelikli servis akışında yönet',
   },
   'saha-is-emri-ve-kanitli-kapanis': {
     cat: 'OPERASYON VE SAHA',
@@ -3415,6 +3429,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Standart saha uygulaması ve eksiksiz iş kaydı','Konum, süre ve görev ilerleme görünürlüğü','Fotoğraf, ölçüm, imza ve belgeyle kanıtlı kapanış','Parça, süre ve ek iş bilgilerinin finans ve stok sistemine aktarılması','Tekrar ziyaret ve eksik kapanış riskinin azalması'],
     yetenekler: ['Mobil görev ve saha kontrol listesi','Konum, zaman ve aktivite kaydı','Medya, form, ölçüm ve imza yönetimi','Kapanış kuralı ve istisna yönetimi','Finans, stok, garanti ve memnuniyet akışlarıyla bağlantı'],
     kimler: 'Saha servis, bakım, kurulum, denetim, montaj, altyapı ve proje ekipleri ile işin yapıldığını kanıtla kapatması gereken tüm operasyonlar için uygundur.',
+    icon: '📸',
+    short: 'Saha işini kanıt, kontrol listesi ve müşteri onayıyla belgele',
   },
   'kalite-uygunsuzlugundan-duzeltici-aksiyona': {
     cat: 'KALİTE VE KAYNAK YÖNETİMİ',
@@ -3425,6 +3441,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Uygunsuzluk, geçici önlem ve düzeltici faaliyet arasında bağlantı','Kök neden, sorumlu ve hedef tarih görünürlüğü','Ürün, parti, müşteri ve tedarikçi etkisinin izlenmesi','Etkinlik doğrulaması yapılmadan kapanmayan kayıt','Tekrarlayan hata ve iyileştirme performansı içgörüsü'],
     yetenekler: ['Form, ölçüm ve şikâyet sinyali','Etki ve öncelik sınıflandırma','Görev, onay ve CAPA takibi','Varlık, parti, müşteri ve tedarikçi bağlamı','Kanıtlı doğrulama ve denetim izi'],
     kimler: 'Kalite, üretim, tedarikçi kalite, saha servis, müşteri hizmetleri, operasyon ve sürekli iyileştirme ekipleri için uygundur.',
+    icon: '🔍',
+    short: 'Uygunsuzluğu kök nedenine kadar izle, düzeltici faaliyeti doğrula',
   },
   'kritik-stoktan-tedarik-aksiyonuna': {
     cat: 'KALİTE VE KAYNAK YÖNETİMİ',
@@ -3435,6 +3453,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Bağlamdan kopuk alarm yerine gerekçeli stok aksiyonu','Açık talep, sipariş ve tedarik durumunun birlikte görünmesi','Satın alma, transfer veya ikame önerisi','Onaylı ve izlenebilir tedarik kararı','Stok kaynaklı üretim, saha ve teslimat riskinin erken görünürlüğü'],
     yetenekler: ['ERP/WMS/MRP ve sipariş verisi entegrasyonu','Eşik, tahmin ve tüketim sinyali','Kural tabanlı alternatif ve karar önerisi','Satın alma/transfer görevi ve onay akışı','Risk ve kapanış takibi'],
     kimler: 'Satın alma, depo, üretim planlama, bakım, saha operasyon, tedarik zinciri ve finans ekipleri için uygundur.',
+    icon: '📦',
+    short: 'Stok riskini açık siparişlerle değerlendir, gerekçeli tedarik aksiyonu üret',
   },
   'servis-sonrasi-memnuniyet-ve-geri-bildirim': {
     cat: 'PAYDAŞ DENEYİMİ',
@@ -3445,6 +3465,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Hizmet kapanışıyla zamanlanmış otomatik geri bildirim','Skorun yanında duygu, tema ve açık metin içgörüsü','Müşteri, iş emri, ekip ve hizmet türü bazında analiz','Olumsuz deneyime hızlı müdahale','Servis kalitesi ve ekip performansı için öğrenme döngüsü'],
     yetenekler: ['Kapanış tetikleyicisi ve kanal orkestrasyonu','Diyalog tabanlı geri bildirim','Duygu, tema ve risk analizi','Operasyon verisiyle bağlam eşleştirme','Aksiyon, bildirim ve yönetim görünümü'],
     kimler: 'Teknik servis, kurulum, teslimat, saha hizmeti, bakım, müşteri başarı ve satış sonrası ekipleri için uygundur.',
+    icon: '⭐',
+    short: 'Servis kapanışının ardından geri bildirimi operasyona bağla',
   },
   'riskli-musteri-iyilestirme-aksiyonu': {
     cat: 'PAYDAŞ DENEYİMİ',
@@ -3455,6 +3477,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Müşteri riskinin tek skora bağlı kalmadan erken tespiti','Tüm açık sorun ve taahhütlerin müşteri bağlamında görünmesi','Net sorumlu, hedef yanıt ve çözüm planı','Müşteriyle yapılan iletişim ve telafi geçmişi','Kayıp riski, tekrar şikâyet ve iyileştirme başarısı içgörüsü'],
     yetenekler: ['Çoklu sinyal ve duygu analizi','CRM, servis, görev ve finans bağlamı','Risk sınıflandırma ve öncelik kuralı','Görev, SLA, eskalasyon ve yönetici görünümü','Sonuç doğrulama ve kapalı döngü öğrenme'],
     kimler: 'Müşteri deneyimi, müşteri başarı, satış, teknik servis, operasyon ve kilit müşteri yönetimi ekipleri için uygundur.',
+    icon: '🛡️',
+    short: 'Çoklu sinyalden müşteri kaybı riskini erken tespit et',
   },
   'calisan-geri-bildiriminden-ik-aksiyonuna': {
     cat: 'PAYDAŞ DENEYİMİ',
@@ -3465,6 +3489,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Gizlilik kurallarına uygun tema ve trend analizi','Raporlanan içgörüden sorumlusu belli aksiyonlara geçiş','Kritik çalışan deneyimi risklerinin erken görünürlüğü','Aksiyon durumu ve çalışanlara geri bildirim şeffaflığı','Dönemler arasında ölçülebilir iyileşme takibi'],
     yetenekler: ['Çok kanallı ve diyalog tabanlı geri bildirim','Anonimlik, erişim ve minimum örneklem politikaları','Tema, duygu, trend ve risk analizi','Aksiyon, onay ve takip yönetimi','Yönetim brifingi ve kapalı döngü ölçüm'],
     kimler: 'İnsan kaynakları, çalışan deneyimi, organizasyonel gelişim, iş sağlığı ve güvenliği ile kurum yönetimi ekipleri için uygundur.',
+    icon: '👥',
+    short: 'Çalışan geri bildirimini gizliliği koruyarak aksiyona taşı',
   },
   'fatura-vade-ve-tahsilat-takibi': {
     cat: 'FİNANS VE YÖNETİM',
@@ -3475,6 +3501,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Vade öncesi ve sonrası kontrollü tahsilat takibi','Müşteri iletişimi, ödeme sözü ve itiraz geçmişi','Finans ve satış ekipleri arasında net sorumluluk','Geciken ve riskli alacakların yönetim görünürlüğü','Tahsilat kapanışı ve müşteri risk verisinin güncellenmesi'],
     yetenekler: ['ERP/muhasebe ve CRM entegrasyonu','Tarih, tutar, müşteri ve risk kuralları','Çok kanallı bildirim ve iletişim taslağı','Görev, onay, SLA ve eskalasyon','Ödeme sinyaliyle otomatik kapanış'],
     kimler: 'Finans, muhasebe, satış operasyonu, müşteri yönetimi ve kredi risk ekipleri için uygundur.',
+    icon: '💰',
+    short: 'Vadeden tahsilata müşteri iletişimini ve finans görevlerini tek akışta yönet',
   },
   'haftalik-yonetim-brifingi': {
     cat: 'FİNANS VE YÖNETİM',
@@ -3485,6 +3513,8 @@ const KULLANIM_SENARYOLARI_DATA = {
     ciktilar: ['Rakam yığını yerine eyleme dönük haftalık özet','Hedef sapması, gecikme, risk ve blokaj görünürlüğü','Her bulgunun kaynak kaydına izlenebilir bağlantısı','Karar gerektiren maddelerin ayrı listesi','Yönetim kararlarının görev ve takip akışına dönüşmesi'],
     yetenekler: ['Çoklu sistem ve iş nesnesi bağlamı','KPI, trend, sapma ve istisna analizi','Doğal dilde özet ve gerekçelendirme','Kaynak bağlantısı ve denetim izi','Karardan göreve kapalı döngü yönetim'],
     kimler: 'Üst yönetim, birim yöneticileri, operasyon merkezi, satış ve finans yönetimi ile haftalık performans toplantısı yürüten ekipler için uygundur.',
+    icon: '📊',
+    short: 'KPI sapmalarını ve riskleri otomatik yönetim özetine dönüştür',
   },
 };
 
@@ -3494,89 +3524,108 @@ function renderKullanimSenaryoPage(slug) {
 
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['Kullanım Senaryoları', '#/kullanim-alanlari/kullanim-senaryolari'], [d.h1]) +
-    '<span class="eyebrow">' + esc(d.cat) + ' / KULLANIM SENARYOSU</span>' +
-    '<h1 style="margin-top:16px;max-width:760px">' + esc(d.h1) + '</h1>' +
-    '<p class="lead" style="max-width:680px">' + esc(d.lead) + '</p>' +
+    '<span class="eyebrow">' + esc(d.cat) + '</span>' +
+    '<h1 style="margin-top:12px;max-width:760px">' + esc(d.h1) + '</h1>' +
+    '<p class="lead" style="max-width:680px;margin-top:16px">' + esc(d.lead) + '</p>' +
     '</div></section>';
 
-  // Bu akış neyi çözer?
-  h += '<section class="bg-warm" style="padding:48px 0"><div class="container narrow">' +
-    '<div class="section-head" style="margin-bottom:14px"><span class="eyebrow">Bu akış neyi çözer?</span></div>' +
-    '<p style="font-size:16px;color:var(--t-body);line-height:1.8">' + esc(d.problem) + '</p>' +
-    '</div></section>';
+  h += '<section class="bg-warm" style="padding:40px 0"><div class="container narrow">' +
+    '<div class="sc-problem">' +
+    '<div class="sc-problem-label">Bu akış neyi çözer?</div>' +
+    '<p class="sc-problem-text">' + esc(d.problem) + '</p>' +
+    '</div></div></section>';
 
-  // Akış nasıl çalışır?
-  h += '<section style="padding:52px 0"><div class="container">' +
-    '<div class="section-head"><span class="eyebrow">Akış nasıl çalışır?</span></div>' +
-    '<div class="senaryo-steps">';
+  h += '<section style="padding:56px 0"><div class="container">' +
+    '<div class="sc-steps-header">' +
+    '<div class="section-head" style="margin-bottom:0"><span class="eyebrow">Akış nasıl çalışır?</span></div>' +
+    '<span class="sc-steps-count">' + d.steps.length + ' adım</span>' +
+    '</div><div class="sc-steps">';
   d.steps.forEach(function(step, i) {
-    // step format: "1. Talebi yakalar. Açıklama..."
-    var parts = step.split('. ');
-    var title = parts[0] + '. ' + (parts[1] || '');
-    var body = parts.slice(2).join('. ');
-    h += '<div class="senaryo-step"><div class="senaryo-step-num">0' + (i+1) + '</div>' +
-      '<div><p><strong>' + esc(title.trim()) + '</strong>' + (body ? ' ' + esc(body.trim()) : '') + '</p></div></div>';
+    var dotIdx = step.indexOf('. ');
+    var title = dotIdx > -1 ? step.substring(0, dotIdx) : step;
+    var body  = dotIdx > -1 ? step.substring(dotIdx + 2) : '';
+    h += '<div class="sc-step">' +
+      '<div class="sc-step-num">0' + (i + 1) + '</div>' +
+      '<div class="sc-step-body">' +
+      '<div class="sc-step-title">' + esc(title) + '</div>' +
+      (body ? '<p class="sc-step-desc">' + esc(body) + '</p>' : '') +
+      '</div></div>';
   });
   h += '</div></div></section>';
 
-  // Akışın ürettiği sonuçlar
-  h += '<section class="bg-warm" style="padding:48px 0"><div class="container">' +
+  h += '<section class="bg-warm" style="padding:52px 0"><div class="container">' +
     '<div class="section-head"><span class="eyebrow">Akışın ürettiği sonuçlar</span></div>' +
-    '<div class="senaryo-ciktilar">';
-  d.ciktilar.forEach(function(c){ h += '<div class="senaryo-cikti">' + esc(c) + '</div>'; });
+    '<div class="sc-outcomes">';
+  d.ciktilar.forEach(function(c) {
+    h += '<div class="sc-outcome"><span class="sc-outcome-check">✓</span><span>' + esc(c) + '</span></div>';
+  });
   h += '</div></div></section>';
 
-  // Yetenekler + Kimler için
-  h += '<section style="padding:48px 0"><div class="container">' +
-    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:40px 56px">' +
-    '<div><div class="section-head" style="margin-bottom:16px"><span class="eyebrow">Bu akışta kullanılan Chief yetenekleri</span></div>' +
-    '<div class="senaryo-yetenekler">' +
-    d.yetenekler.map(function(y){ return '<span class="senaryo-yetenek">' + esc(y) + '</span>'; }).join('') +
+  h += '<section style="padding:52px 0"><div class="container">' +
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px 64px">' +
+    '<div><div class="section-head" style="margin-bottom:20px"><span class="eyebrow">Chief yetenekleri</span></div>' +
+    '<div class="sc-caps">' +
+    d.yetenekler.map(function(y) { return '<span class="sc-cap">' + esc(y) + '</span>'; }).join('') +
     '</div></div>' +
-    '<div><div class="section-head" style="margin-bottom:16px"><span class="eyebrow">Kimler için uygundur?</span></div>' +
-    '<div class="senaryo-kimler">' + esc(d.kimler) + '</div>' +
-    '<div class="senaryo-denetim">AI sınıflandırır, önerir ve takip eder; kritik karar ve onaylarda insan denetimi korunur.</div>' +
+    '<div><div class="section-head" style="margin-bottom:20px"><span class="eyebrow">Kimler için uygundur?</span></div>' +
+    '<p class="sc-who">' + esc(d.kimler) + '</p>' +
+    '<div class="sc-ai-note">AI sınıflandırır, önerir ve takip eder — kritik karar ve onaylarda insan denetimi korunur.</div>' +
     '</div></div></div></section>';
 
-  // CTA
   h += '<section class="final-cta"><div class="container">' +
     '<h2>' + esc(d.h1) + ' akışını Chief ile kurun.</h2>' +
     '<p class="lead">Akışı mevcut sistemlerinize, yetki matrisinize ve operasyon kurallarınıza göre uyarlayarak devreye alın.</p>' +
     '<div class="cta-row"><a href="#/demo-talep-et" class="btn btn-clay btn-lg">Demo Talep Et ' + ico('arrow',16) + '</a>' +
     '<a href="#/kullanim-alanlari/kullanim-senaryolari" class="btn on-dark-ghost btn-lg">Tüm senaryolar</a></div>' +
     '</div></section>';
+
   return h;
 }
 
 function renderKullanimSenaryolariListing() {
+  var catColors = {
+    'TALEP, SATIŞ VE TEKLİF':      '#D97757',
+    'OPERASYON VE SAHA':           '#6A9BCC',
+    'KALİTE VE KAYNAK YÖNETİMİ':  '#788C5D',
+    'PAYDAŞ DENEYİMİ':             '#D97757',
+    'FİNANS VE YÖNETİM':           '#141413'
+  };
   var cats = {
-    'TALEP, SATIŞ VE TEKLİF': ['gelen-talebi-yakala-ve-tamamla','mesajdan-goreve-ve-takibe','gorusmeden-aksiyona','teklif-hazirlama-ve-onay'],
-    'OPERASYON VE SAHA': ['onayli-tekliften-uretim-planina','onayli-tekliften-saha-is-emrine','bakim-ariza-ve-teknik-servis','saha-is-emri-ve-kanitli-kapanis'],
+    'TALEP, SATIŞ VE TEKLİF':     ['gelen-talebi-yakala-ve-tamamla','mesajdan-goreve-ve-takibe','gorusmeden-aksiyona','teklif-hazirlama-ve-onay'],
+    'OPERASYON VE SAHA':          ['onayli-tekliften-uretim-planina','onayli-tekliften-saha-is-emrine','bakim-ariza-ve-teknik-servis','saha-is-emri-ve-kanitli-kapanis'],
     'KALİTE VE KAYNAK YÖNETİMİ': ['kalite-uygunsuzlugundan-duzeltici-aksiyona','kritik-stoktan-tedarik-aksiyonuna'],
-    'PAYDAŞ DENEYİMİ': ['servis-sonrasi-memnuniyet-ve-geri-bildirim','riskli-musteri-iyilestirme-aksiyonu','calisan-geri-bildiriminden-ik-aksiyonuna'],
-    'FİNANS VE YÖNETİM': ['fatura-vade-ve-tahsilat-takibi','haftalik-yonetim-brifingi'],
+    'PAYDAŞ DENEYİMİ':            ['servis-sonrasi-memnuniyet-ve-geri-bildirim','riskli-musteri-iyilestirme-aksiyonu','calisan-geri-bildiriminden-ik-aksiyonuna'],
+    'FİNANS VE YÖNETİM':          ['fatura-vade-ve-tahsilat-takibi','haftalik-yonetim-brifingi'],
   };
 
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['Kullanım Senaryoları']) +
     '<span class="eyebrow">CHIEF KULLANIM SENARYOLARI</span>' +
-    '<h1 style="margin-top:16px;max-width:720px">Kullanım Senaryoları</h1>' +
-    '<p class="lead" style="max-width:680px">Teklif talebinden saha kapanışına, bakım planından tahsilat takibine kadar yaygın iş senaryoları için tasarlanmış akışlarla daha hızlı başlayın. Her akışı mevcut sistemlerinize, kurallarınıza ve ekip yapınıza göre uyarlayın.</p>' +
+    '<h1 style="margin-top:16px;max-width:720px">15 hazır iş akışı</h1>' +
+    '<p class="lead" style="max-width:660px">Teklif talebinden saha kapanışına, bakım planından tahsilat takibine kadar yaygın iş senaryoları için tasarlanmış akışlarla hızlı başlayın. Her akışı mevcut sistemlerinize, yetki matrisinize ve ekip yapınıza göre uyarlayın.</p>' +
     '<div class="cta-row" style="margin-top:24px"><a href="#/demo-talep-et" class="btn btn-clay btn-lg">Demo Talep Et</a></div>' +
     '</div></section>';
 
   Object.keys(cats).forEach(function(catName) {
-    h += '<section style="padding:48px 0"><div class="container">' +
-      '<div class="section-head"><span class="eyebrow">' + esc(catName) + '</span></div>' +
-      '<div class="cards-grid">';
-    cats[catName].forEach(function(slug, n) {
+    var color = catColors[catName] || '#141413';
+    h += '<section style="padding:52px 0 36px"><div class="container">' +
+      '<div class="sc-cat-header"><span class="sc-cat-dot" style="background:' + color + '"></span>' +
+      '<span class="sc-cat-label">' + esc(catName) + '</span></div>' +
+      '<div class="sc-grid">';
+    cats[catName].forEach(function(slug) {
       var d = KULLANIM_SENARYOLARI_DATA[slug];
       if (!d) return;
-      h += '<a class="card" href="#/kullanim-alanlari/kullanim-senaryolari/' + slug + '">' +
-        '<div class="card-ico ' + (n%3===1?'sage':n%3===2?'blue':'') + '">' + ico('flow', 20) + '</div>' +
-        '<h4>' + esc(d.h1) + '</h4>' +
-        '<p>' + esc(d.lead.substring(0, 100)) + (d.lead.length > 100 ? '...' : '') + '</p>' +
-        '<span class="card-foot btn-link">Akışı İncele ' + ico('arrow',15) + '</span></a>';
+      h += '<a class="sc-card" href="#/kullanim-alanlari/kullanim-senaryolari/' + slug + '">' +
+        '<div class="sc-card-top">' +
+        '<div class="sc-card-icon">' + (d.icon || '⚡') + '</div>' +
+        '<span class="sc-card-cat" style="color:' + color + '">' + esc(catName) + '</span>' +
+        '</div>' +
+        '<div class="sc-card-title">' + esc(d.h1) + '</div>' +
+        '<div class="sc-card-short">' + esc(d.short || '') + '</div>' +
+        '<div class="sc-card-footer">' +
+        '<span class="sc-card-steps">' + d.steps.length + ' adım</span>' +
+        '<span class="sc-card-cta">Akışı İncele ' + ico('arrow', 14) + '</span>' +
+        '</div></a>';
     });
     h += '</div></div></section>';
   });
