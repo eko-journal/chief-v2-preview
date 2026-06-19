@@ -3060,7 +3060,7 @@ function renderYasal(slug) {
   var pages = {
     kvkk: {
       title: 'Kişisel Verilerin Korunması (KVKK)',
-      updated: '01 Ocak 2025',
+      updated: '01 Haziran 2026',
       sections: [
         { h: 'Veri Sorumlusu', p: 'Datafors Yazılım ve Danışmanlık A.Ş. ("Chief"), 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında veri sorumlusu sıfatıyla hareket etmektedir. İletişim: info@datafors.com' },
         { h: 'İşlenen Kişisel Veriler', p: 'Chief platformunu kullanan gerçek kişilere ait ad-soyad, kurumsal e-posta adresi, telefon numarası, görev/departman bilgisi ve sistem erişim log kayıtları işlenmektedir. Ödeme bilgileri doğrudan Chief altyapısında tutulmaz; lisanslı ödeme sağlayıcıları aracılığıyla işlenir.' },
@@ -3074,7 +3074,7 @@ function renderYasal(slug) {
     },
     gizlilik: {
       title: 'Gizlilik Politikası',
-      updated: '01 Ocak 2025',
+      updated: '01 Haziran 2026',
       sections: [
         { h: 'Kapsam', p: 'Bu Gizlilik Politikası; chiefai.com.tr web sitesini ve Chief platformunu kullanan kişilerin kişisel verilerinin nasıl toplandığını, işlendiğini ve korunduğunu açıklamaktadır. Platform hizmetini kullanmakla bu politikayı kabul etmiş sayılırsınız.' },
         { h: 'Toplanan Veriler', p: 'Kayıt ve oturum aşamasında ad-soyad, kurumsal e-posta ve parola hash değeri toplanır. Platform kullanımı sırasında IP adresi, tarayıcı ve işletim sistemi bilgisi, oturum süresi ve eylem logları teknik amaçlarla işlenir. Üçüncü taraf sistemlerden (ERP, CRM, e-posta) gelen veriler yalnızca Chief iş akışlarının çalıştırılması amacıyla işlenir; bu veriler satılmaz, kiralanmaz veya reklam amaçlı kullanılmaz.' },
@@ -3088,7 +3088,7 @@ function renderYasal(slug) {
     },
     guvenlik: {
       title: 'Güvenlik',
-      updated: '01 Ocak 2025',
+      updated: '01 Haziran 2026',
       sections: [
         { h: 'Veri Mimarisi', p: 'Chief, verinizin kendi altyapınızda kalmasını temel tasarım ilkesi olarak benimser. On-premise ve özel bulut kurulum seçenekleriyle verileriniz kurumunuzun sunucularından ayrılmaz. Paylaşımlı bulut kullanımı tercih edildiğinde tenant izolasyonu uygulanır; farklı müşterilere ait veriler mantıksal olarak ayrılır.' },
         { h: 'Şifreleme', p: 'Aktarım sırasında TLS 1.3 protokolü uygulanır; eski protokol sürümleri (TLS 1.0, 1.1) devre dışıdır. Depolama sırasında AES-256 şifreleme kullanılır. Veritabanı yedekleri şifreli olarak saklanır ve şifreleme anahtarları ayrı bir anahtar yönetim sistemi (KMS) ile korunur.' },
@@ -3101,7 +3101,7 @@ function renderYasal(slug) {
     },
     cerez: {
       title: 'Çerez Politikası',
-      updated: '01 Ocak 2025',
+      updated: '01 Haziran 2026',
       sections: [
         { h: 'Çerez Nedir?', p: 'Çerezler, tarayıcınız aracılığıyla cihazınıza yerleştirilen küçük metin dosyalarıdır. Web sitelerinin oturum bilgilerini hatırlamasını, kullanım istatistikleri toplamasını ve işlevselliği kişiselleştirmesini sağlarlar.' },
         { h: 'Zorunlu Çerezler', p: 'Bu çerezler platformun temel işlevleri için gereklidir ve devre dışı bırakılamazlar. Oturum yönetimi, CSRF koruması ve yük dengeleme gibi güvenlik ve teknik işlevleri yerine getirirler. Kişisel veri içermezler ve oturum bitiminde silinirler.' },
@@ -3134,7 +3134,7 @@ function renderYasal(slug) {
   }
 
   var h = '<section class="detail-hero"><div class="container">' +
-    crumb([{href:'#/yasal', label:'Yasal'}, p.title]) +
+    crumb(['Yasal', '#/yasal'], p.title) +
     '<h1 style="margin-top:16px;max-width:760px">' + esc(p.title) + '</h1>' +
     '<p class="lead" style="color:var(--t-muted);font-size:14px">Son güncelleme: ' + p.updated + '</p>' +
     '</div></section>';
