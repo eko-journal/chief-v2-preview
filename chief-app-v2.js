@@ -285,13 +285,13 @@ function _drawerHead() {
 }
 
 function _drawerRoot() {
-  return '<div class="m-drawer-nav"><div class="m-panel' + (_drawerGoBack ? ' going-back' : '') + '">' +
-    '<button class="m-nav-btn" data-panel="platform">Platform <span class="m-chev">›</span></button>' +
-    '<button class="m-nav-btn" data-panel="kullanim-alanlari">Kullanım Alanları <span class="m-chev">›</span></button>' +
+  return '<div class="m-drawer-nav">' +
+    '<a class="m-flat" href="#/platform">Platform</a>' +
+    '<a class="m-flat" href="#/kullanim-alanlari">Kullanım Alanları</a>' +
     '<a class="m-flat" href="#/fiyatlandirma">Fiyatlandırma</a>' +
     '<a class="m-flat" href="#/partnerler">Partnerlik</a>' +
     '<a class="m-flat" href="#/hakkimizda">Hakkımızda</a>' +
-    '</div></div>' +
+    '</div>' +
     '<div class="m-drawer-foot">' +
     '<a href="#" id="mLoginTrigger" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center">Giriş</a>' +
     '<a href="#" data-cal="open" class="btn btn-clay btn-lg" style="width:100%;justify-content:center">Görüşme Planla</a>' +
