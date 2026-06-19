@@ -3000,62 +3000,72 @@ function renderHakkimizda() {
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['Hakkımızda']) +
     '<span class="eyebrow">Hakkımızda</span>' +
-    '<h1 style="margin-top:16px;max-width:760px">Operasyonu görünür kılan platform.</h1>' +
-    '<p class="lead" style="max-width:600px">Chief, işletmelerin ERP\'sinde, e-postasında ve operasyonel sistemlerinde kaybolan sinyalleri aksiyona çevirmek için tasarlandı.</p>' +
-    '<blockquote class="rp-scenario">Her şirketin bir komuta merkezi vardır — ama çoğunun ekranı yoktur. Veriler ERP\'de, kararlar WhatsApp\'ta, sorumluluk belirsizdir. Chief bu boşluğu kapatır.<cite>Chief · Native AI Operasyon Platformu</cite></blockquote>' +
+    '<h1 style="margin-top:16px;max-width:760px">Geleceğin iş yapma biçimlerine yön veren platform.</h1>' +
+    '<p class="lead" style="max-width:640px">Akademik titizlik, mühendislik disiplini ve reel sektör deneyimini bir araya getirerek kurumların geleceğe daha güçlü, daha çevik ve daha bilinçli hazırlanmasına katkı sunuyoruz.</p>' +
     '</div></section>';
 
-  // Değerler
-  h += '<section><div class="container">' +
-    '<div class="section-head"><span class="eyebrow">Nasıl çalışırız</span></div>' +
-    '<div class="rich-points">' +
-    '<div class="rp-item"><div class="rp-icon">' + ico('spark', 22) + '</div><div>' +
-    '<h3>İnsan denetimi her zaman</h3>' +
-    '<p>Chief hiçbir zaman tek başına karar vermez. Her öneri gerekçesiyle sunulur, uygulama kararı insana aittir. Kara kutu yoktur.</p>' +
-    '</div></div>' +
-    '<div class="rp-item"><div class="rp-icon sage">' + ico('layers', 22) + '</div><div>' +
-    '<h3>Mevcut sistemlerin üzerinde</h3>' +
-    '<p>ERP değiştirmek yok, CRM geçişi yok. Chief kurduğunuz altyapının üzerinde çalışır — değer gününden itibaren eklenir.</p>' +
-    '</div></div>' +
-    '<div class="rp-item"><div class="rp-icon blue">' + ico('handshake', 22) + '</div><div>' +
-    '<h3>Gerçek operasyondan öğrenir</h3>' +
-    '<p>Her müşteri farklı çalışır. Hazır şablonlar başlangıç noktasıdır — asıl değer operasyonunuzu tanıdıktan sonra üretilir.</p>' +
-    '</div></div>' +
+  // Hakkımızda ana metin
+  h += '<section><div class="container"><div style="max-width:760px;margin:0 auto">' +
+
+    '<p class="hk-para">Chief; Endüstriyel Üretim, IoT, İstatistik, Fizik, Matematiksel Optimizasyon ve Yapay Zekâ alanlarında uzman; hem akademik literatüre hem de reel sektörün dinamiklerine hâkim çekirdek bir ekip tarafından hayata geçirilmiştir.</p>' +
+
+    '<p class="hk-para">Chief, 2016 yılından bu yana IoT, kurumsal yazılım, yapay zekâ, optimizasyon ve karar destek teknolojileri alanında projeler geliştiren deneyimli bir ekip tarafından hayata geçirilmiştir.</p>' +
+
+    '<p class="hk-para">Boğaziçi University Technopark bünyesinde faaliyet gösteren Chief, bu teknik ve sektörel birikimi geleceğin iş yapma biçimlerini şekillendirecek bağımsız bir ürün vizyonuna dönüştürmektedir.</p>' +
+
+    '<p class="hk-para">Akademik dünya ile kurulan stratejik bağlar, alanında uzman akademisyenler ve sektör profesyonelleriyle yürütülen multidisipliner çalışmalar; Finans\'tan Enerji\'ye, Üretim\'den Perakende\'ye kadar uzanan geniş uygulama deneyimiyle birleşerek; Chief\'in arkasındaki düşünce yapısını ve gelecek vizyonunu şekillendirmiştir.</p>' +
+
+    '<div class="hk-divider"></div>' +
+
+    '<p class="hk-para">Bugün sektör dinamikleri, kurumların karar alma biçimleri ve iş yapma yöntemleri hızla dönüşüyor. Veri, süreç, insan, sistem ve yapay zekâ arasındaki sınırlar yeniden tanımlanırken; kurumların yalnızca dijitalleşmeye değil, daha akıllı, daha bağlantılı ve daha öngörülü çalışma biçimlerine ihtiyacı doğuyor.</p>' +
+
+    '<p class="hk-para">Chief, bu dönüşümün yalnızca takipçisi olmayı değil; geleceğin iş yapma biçimlerine yön veren, yeni yöntem ve kavramların oluşmasına katkı sunan öncü bir teknoloji şirketi olmayı hedefler.</p>' +
+
+    '<p class="hk-para hk-vision">Hayalimiz; Chief\'in geliştirdiği yaklaşım, yöntem ve ürünlerle yalnızca bugünün kurumlarına çözüm sunması değil, geleceğin dünyasında işlerin nasıl yönetileceğine dair kalıcı bir iz bırakmasıdır.</p>' +
+
+    '<p class="hk-para">Bu vizyonla Chief; akademik titizlik, mühendislik disiplini ve reel sektör deneyimini bir araya getirerek kurumların geleceğe daha güçlü, daha çevik ve daha bilinçli hazırlanmasına katkı sunmak için geliştirilmiştir.</p>' +
+
     '</div></div></section>';
 
-  // Kimiz
+  // Uzmanlık + Ortaklıklar
   h += '<section class="bg-warm"><div class="container">' +
-    '<div class="section-head"><span class="eyebrow">Ekip</span><h2>Chief\'i kim geliştiriyor?</h2></div>' +
-    '<div style="max-width:720px">' +
-    '<p style="font-size:16px;line-height:1.8;color:var(--t-body);margin:0 0 20px">Chief, yapay zeka, optimizasyon, istatistik ve IoT alanlarından akademisyen ve profesyonellerden oluşan disiplinlerarası bir ekip tarafından geliştirilmektedir. Ekibimizin araştırma altyapısı Boğaziçi Üniversitesi JEDI Araştırma Merkezi ve Atatürk Üniversitesi işbirlikleriyle desteklenmektedir.</p>' +
-    '<p style="font-size:16px;line-height:1.8;color:var(--t-body);margin:0 0 32px">Operasyonel AI gerçek dünya koşullarında çalışır — teorik derinlik ile saha deneyimini birleştiriyoruz. Chief bu yaklaşımın ürünüdür: akademik titizlikle, kurumsal pratikle.</p>' +
-    '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;margin-bottom:32px">' +
-    '<div style="padding:18px 20px;background:var(--ivory);border-radius:var(--r-md);border:1px solid var(--border)">' +
-    '<div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:6px">Araştırma Ortağı</div>' +
-    '<div style="font-size:14px;font-weight:600;color:var(--ink)">Boğaziçi Üniversitesi</div>' +
-    '<div style="font-size:12.5px;color:var(--t-muted);margin-top:2px">JEDI Araştırma Merkezi</div>' +
-    '</div>' +
-    '<div style="padding:18px 20px;background:var(--ivory);border-radius:var(--r-md);border:1px solid var(--border)">' +
-    '<div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:6px">Araştırma Ortağı</div>' +
-    '<div style="font-size:14px;font-weight:600;color:var(--ink)">Atatürk Üniversitesi</div>' +
-    '<div style="font-size:12.5px;color:var(--t-muted);margin-top:2px">Erzurum</div>' +
-    '</div>' +
-    '<div style="padding:18px 20px;background:var(--ivory);border-radius:var(--r-md);border:1px solid var(--border)">' +
-    '<div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:6px">Ekip Uzmanlığı</div>' +
-    '<div style="font-size:14px;font-weight:600;color:var(--ink)">AI · Optimizasyon</div>' +
-    '<div style="font-size:12.5px;color:var(--t-muted);margin-top:2px">İstatistik · IoT</div>' +
-    '</div>' +
-    '</div>' +
-    '<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">' +
-    '<div><div style="font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:4px">Konum</div>' +
-    '<div style="font-size:15px;color:var(--ink)">Kandilli Teknopark, İstanbul</div></div>' +
-    '<div><div style="font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:4px">İletişim</div>' +
-    '<a href="mailto:info@chiefai.com.tr" style="font-size:15px;color:var(--clay);text-decoration:none">info@chiefai.com.tr</a></div>' +
-    '<div><div style="font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:4px">Telefon</div>' +
-    '<a href="tel:+902166062209" style="font-size:15px;color:var(--clay);text-decoration:none">+90 216 606 22 09</a></div>' +
-    '</div></div></div></section>';
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px 64px;max-width:900px">' +
 
-  return h;
+    '<div>' +
+    '<div class="section-head" style="margin-bottom:20px"><span class="eyebrow">Ekip Uzmanlığı</span></div>' +
+    '<div style="display:flex;flex-wrap:wrap;gap:8px">' +
+    ['Yapay Zekâ', 'Matematiksel Optimizasyon', 'İstatistik', 'IoT', 'Endüstriyel Üretim', 'Fizik', 'Kurumsal Yazılım', 'Karar Destek'].map(function(t) {
+      return '<span style="background:var(--ivory);border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-size:13px;font-weight:500;color:var(--ink)">' + t + '</span>';
+    }).join('') +
+    '</div></div>' +
+
+    '<div>' +
+    '<div class="section-head" style="margin-bottom:20px"><span class="eyebrow">Akademik İşbirlikleri</span></div>' +
+    '<div style="display:flex;flex-direction:column;gap:12px">' +
+    '<div style="background:var(--ivory);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px">' +
+    '<div style="font-size:13px;font-weight:700;color:var(--ink)">Boğaziçi University Technopark</div>' +
+    '<div style="font-size:12px;color:var(--t-muted);margin-top:2px">JEDI Araştırma Merkezi · İstanbul</div>' +
+    '</div>' +
+    '<div style="background:var(--ivory);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px">' +
+    '<div style="font-size:13px;font-weight:700;color:var(--ink)">Atatürk Üniversitesi</div>' +
+    '<div style="font-size:12px;color:var(--t-muted);margin-top:2px">Araştırma İşbirliği · Erzurum</div>' +
+    '</div>' +
+    '</div></div>' +
+
+    '</div>' +
+
+    '<div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:32px;align-items:center">' +
+    '<div><div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:4px">İletişim</div>' +
+    '<a href="mailto:info@chiefai.com.tr" style="font-size:15px;color:var(--clay);text-decoration:none">info@chiefai.com.tr</a></div>' +
+    '<div><div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:4px">Telefon</div>' +
+    '<a href="tel:+902166062209" style="font-size:15px;color:var(--clay);text-decoration:none">+90 216 606 22 09</a></div>' +
+    '<div><div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:4px">Web</div>' +
+    '<a href="https://chiefai.com.tr" style="font-size:15px;color:var(--clay);text-decoration:none">chiefai.com.tr</a></div>' +
+    '</div>' +
+
+    '</div></section>';
+
+  return h + finalCTA();
 }
 
 /* ================================================================

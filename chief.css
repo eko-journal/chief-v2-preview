@@ -507,6 +507,11 @@ section.tight { padding: 68px 0; }
 .mobile-toggle.is-open .icon-ham { display: none; }
 .mobile-toggle.is-open .icon-close { display: block; }
 
+/* ===== HAKKIMIZDA ===== */
+.hk-para { font-size: 17px; line-height: 1.85; color: var(--t-body); margin: 0 0 24px; }
+.hk-vision { font-size: 18px; font-style: italic; color: var(--ink); border-left: 3px solid var(--clay); padding-left: 20px; margin-left: 0; }
+.hk-divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
 /* ============================================================ HERO */
 .hero { padding: 68px 0 110px; position: relative; overflow: hidden; }
 .hero::before {
