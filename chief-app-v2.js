@@ -134,14 +134,8 @@ const FOOTER_COLS = {
     ['#/kullanim-alanlari/kullanim-senaryolari',      'Kullanım Senaryoları'],
     ['#/fiyatlandirma',                               'Fiyatlandırma'],
   ]],
-  'fc-entegrasyonlar': ['Entegrasyonlar', [
-    ['#/entegrasyonlar',                              'Tüm Entegrasyonlar'],
-    ['#/entegrasyonlar',                              'ERP'],
-    ['#/entegrasyonlar',                              'CRM'],
-    ['#/entegrasyonlar',                              'E-posta ve WhatsApp'],
-    ['#/entegrasyonlar',                              'API ve Veri Tabanı'],
-  ]],
   'fc-sirket': ['Şirket', [
+    ['#/entegrasyonlar',                          'Entegrasyonlar'],
     ['#/partnerler',                              'Partnerlik'],
     ['#/hakkimizda',                              'Hakkımızda'],
   ]],
@@ -294,7 +288,6 @@ function _drawerRoot() {
   return '<div class="m-drawer-nav"><div class="m-panel' + (_drawerGoBack ? ' going-back' : '') + '">' +
     '<button class="m-nav-btn" data-panel="platform">Platform <span class="m-chev">›</span></button>' +
     '<button class="m-nav-btn" data-panel="kullanim-alanlari">Kullanım Alanları <span class="m-chev">›</span></button>' +
-    '<a class="m-flat" href="#/entegrasyonlar">Entegrasyonlar</a>' +
     '<a class="m-flat" href="#/fiyatlandirma">Fiyatlandırma</a>' +
     '<a class="m-flat" href="#/partnerler">Partnerlik</a>' +
     '<a class="m-flat" href="#/hakkimizda">Hakkımızda</a>' +

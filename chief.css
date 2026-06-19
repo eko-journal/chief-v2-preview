@@ -271,6 +271,8 @@ section.tight { padding: 68px 0; }
 .nav-cta { margin-left: auto; display: flex; align-items: center; gap: 10px; }
 .nav-cta-link { display: inline-flex; align-items: center; font-family: var(--f-ui); font-weight: 500; font-size: 14.5px; color: rgba(250,249,245,.7); text-decoration: none; padding: 8px 13px; border-radius: var(--r-md); transition: color .18s, background .18s; white-space: nowrap; }
 .nav-cta-link:hover { color: var(--ivory); background: rgba(250,249,245,.08); }
+.nav-cta-btn { color: var(--ink) !important; background: var(--ivory); border-radius: var(--r-md); padding: 8px 18px; font-weight: 600; }
+.nav-cta-btn:hover { background: #fff !important; color: var(--ink) !important; }
 .btn-sm { padding: 8px 18px; font-size: 13.5px; }
 .mobile-toggle { display: none; padding: 8px; border-radius: var(--r-sm); color: var(--ink); }
 .mobile-toggle:hover { background: var(--warm); }
