@@ -3148,7 +3148,7 @@ function renderYasal(slug) {
     '<p style="font-size:14px;color:var(--t-muted)">Sorularınız için: <a href="mailto:info@datafors.com" style="color:var(--clay)">info@datafors.com</a></p>' +
     '</div></div></section>';
 
-  return h + finalCTA();
+  return h;
 }
 
 /* ================================================================
