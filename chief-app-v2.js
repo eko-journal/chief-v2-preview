@@ -2545,7 +2545,7 @@ function renderEntegrasyonlar() {
     '<span class="eyebrow">Entegrasyonlar</span>' +
     '<h1 style="margin-top:16px;max-width:760px">Mevcut sistemlerinizi değiştirmeden Chief ile birlikte çalıştırın</h1>' +
     '<p class="lead" style="max-width:680px">Chief; ERP, CRM, muhasebe, e-posta, WhatsApp, Slack, Teams, web formu, Excel, API, veri tabanı, saha formu, IoT ve BI sistemlerinden gelen bilgileri iş süreçlerine, görevlere, onaylara ve yönetim görünürlüğüne bağlar.</p>' +
-    '<blockquote class="rp-scenario">TAK-Umwelt, SAP ERP\'sini ve WhatsApp Business\'ını değiştirmedi. Chief her ikisini de okudu, birbirine bağladı. Bakım talebi WhatsApp\'tan geldi, iş emri SAP\'a yazıldı — 9 dakikada.<cite>TAK-Umwelt GmbH · Çevre Teknolojisi, Almanya</cite></blockquote>' +
+    '<blockquote class="rp-scenario">TAK-Umwelt, ERP\'sini ve şirket içi mesaj ortamı Slack\'i değiştirmedi. Chief her ikisini de okudu, birbirine bağladı. Bakım talebi Slack\'den geldi, iş emri ERP\'ye yazıldı — 3 dakikada.<cite>TAK-Umwelt GmbH · Çevre Teknolojisi, Almanya</cite></blockquote>' +
     '</div></section>';
 
   h += '<section><div class="container">';
