@@ -35,6 +35,7 @@
 
     <div class="nav-cta">
       <a href="#/partnerler" class="nav-cta-link">Partnerlik</a>
+      <a href="#" class="nav-cta-link" id="loginTrigger">Giriş</a>
     </div>
   </div>
   <div id="megaContainer"></div>
@@ -900,6 +901,57 @@
 
 </main>
 
+<!-- ============================ LOGIN MODAL ============================ -->
+<div class="login-overlay" id="loginOverlay" role="dialog" aria-modal="true" aria-label="Chief Giriş">
+  <div class="login-panel">
+    <button class="login-close" id="loginClose" aria-label="Kapat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" width="15" height="15"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="login-logo">
+      <svg viewBox="0 0 140 140" width="32" height="32" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="11" stroke-linecap="round"/><circle cx="70" cy="70" r="7" fill="#788C5D"/></svg>
+      <span class="login-logo-word">Chief</span>
+    </div>
+    <h2 class="login-title">Hesabınıza giriş yapın</h2>
+    <p class="login-sub">Chief operasyon platformuna hoş geldiniz.</p>
+    <form class="login-form" id="loginForm" action="https://app.chiefai.com.tr" method="get" onsubmit="window.location.href='https://app.chiefai.com.tr';return false;">
+      <div class="login-field">
+        <label class="login-label" for="loginEmail">E-posta</label>
+        <input class="login-input" id="loginEmail" type="email" placeholder="ad@sirket.com" autocomplete="email" required />
+      </div>
+      <div class="login-field">
+        <label class="login-label" for="loginPassword">Şifre</label>
+        <input class="login-input" id="loginPassword" type="password" placeholder="••••••••" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="login-btn">Giriş Yap</button>
+    </form>
+    <div class="login-footer">
+      Hesabınız yok mu?
+      <a href="#" data-cal="open" class="login-demo-link">Demo talep edin</a>
+    </div>
+  </div>
+</div>
+
+<style>
+.login-overlay{position:fixed;inset:0;background:rgba(20,20,19,.55);backdrop-filter:blur(6px);z-index:9000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
+.login-overlay.open{opacity:1;pointer-events:all}
+.login-panel{background:#FAF9F5;border-radius:20px;padding:40px 36px 32px;width:100%;max-width:420px;position:relative;box-shadow:0 24px 64px rgba(20,20,19,.18)}
+.login-close{position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;color:#A9A195;padding:4px;line-height:1;border-radius:6px}
+.login-close:hover{color:#141413;background:#F0EDE4}
+.login-logo{display:flex;align-items:center;gap:9px;margin-bottom:24px}
+.login-logo-word{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:20px;color:#141413;letter-spacing:-.02em}
+.login-title{font-family:'Space Grotesk',system-ui,sans-serif;font-size:22px;font-weight:700;color:#141413;margin-bottom:6px}
+.login-sub{font-size:14px;color:#888;margin-bottom:28px}
+.login-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.login-label{font-size:13px;font-weight:600;color:#141413}
+.login-input{border:1px solid #DED9CC;border-radius:10px;padding:11px 14px;font-size:15px;font-family:'Space Grotesk',system-ui,sans-serif;background:#fff;color:#141413;outline:none;transition:border-color .15s}
+.login-input:focus{border-color:#D97757}
+.login-btn{width:100%;background:#D97757;color:#fff;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:600;font-family:'Space Grotesk',system-ui,sans-serif;cursor:pointer;margin-top:4px;transition:background .15s}
+.login-btn:hover{background:#c4654a}
+.login-footer{text-align:center;font-size:13px;color:#888;margin-top:20px}
+.login-demo-link{color:#D97757;font-weight:600;text-decoration:none}
+.login-demo-link:hover{text-decoration:underline}
+</style>
+
 <!-- ============================ CALENDAR MODAL (body-level, tüm sayfalarda erişilebilir) ============================ -->
 <div class="cal-overlay" id="calOverlay" role="dialog" aria-modal="true" aria-label="Keşif Görüşmesi Planla">
   <div class="cal-panel">
@@ -1030,5 +1082,19 @@
 
 <script src="chief-app-v2.js" charset="utf-8"></script>
 <script src="chief-animations.js" charset="utf-8"></script>
+<script>
+(function(){
+  var overlay = document.getElementById('loginOverlay');
+  var trigger = document.getElementById('loginTrigger');
+  var closeBtn = document.getElementById('loginClose');
+  if(!overlay) return;
+  function open(e){ if(e) e.preventDefault(); overlay.classList.add('open'); document.getElementById('loginEmail').focus(); }
+  function close(){ overlay.classList.remove('open'); }
+  if(trigger) trigger.addEventListener('click', open);
+  if(closeBtn) closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 </body>
 </html>
