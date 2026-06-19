@@ -285,9 +285,29 @@ function _drawerHead() {
 }
 
 function _drawerRoot() {
+  var platItems = '';
+  MEGA.platform.cols.forEach(function(col) {
+    platItems += '<span class="m-sub-label">' + esc(col.label) + '</span>';
+    col.items.forEach(function(it) {
+      platItems += '<a class="m-sub-link" href="' + it.href + '">' + esc(it.title) + '</a>';
+    });
+  });
+  var kulItems = '';
+  MEGA['kullanim-alanlari'].cols.forEach(function(col) {
+    kulItems += '<span class="m-sub-label">' + esc(col.label) + '</span>';
+    col.items.forEach(function(it) {
+      kulItems += '<a class="m-sub-link" href="' + it.href + '">' + esc(it.title) + '</a>';
+    });
+  });
   return '<div class="m-drawer-nav">' +
-    '<a class="m-flat" href="#/platform">Platform</a>' +
-    '<a class="m-flat" href="#/kullanim-alanlari">Kullanım Alanları</a>' +
+    '<div class="m-acc-item">' +
+      '<button class="m-acc-trigger" data-acc="plat">Platform <span class="m-acc-chev">›</span></button>' +
+      '<div class="m-acc-body" id="m-acc-plat">' + platItems + '</div>' +
+    '</div>' +
+    '<div class="m-acc-item">' +
+      '<button class="m-acc-trigger" data-acc="kul">Kullanım Alanları <span class="m-acc-chev">›</span></button>' +
+      '<div class="m-acc-body" id="m-acc-kul">' + kulItems + '</div>' +
+    '</div>' +
     '<a class="m-flat" href="#/fiyatlandirma">Fiyatlandırma</a>' +
     '<a class="m-flat" href="#/partnerler">Partnerlik</a>' +
     '<a class="m-flat" href="#/hakkimizda">Hakkımızda</a>' +
@@ -330,11 +350,13 @@ function buildDrawer() {
     if (lo) { lo.classList.add('open'); var em = document.getElementById('loginEmail'); if(em) em.focus(); }
   });
 
-  drawer.querySelectorAll('.m-nav-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      _drawerState  = btn.getAttribute('data-panel');
-      _drawerGoBack = false;
-      buildDrawer();
+  drawer.querySelectorAll('.m-acc-trigger').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var key = btn.getAttribute('data-acc');
+      var body = document.getElementById('m-acc-' + key);
+      var isOpen = btn.classList.contains('open');
+      btn.classList.toggle('open', !isOpen);
+      if (body) body.classList.toggle('open', !isOpen);
     });
   });
 
