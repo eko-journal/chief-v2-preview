@@ -722,6 +722,8 @@ a.card { color: inherit; }
 .final-cta h2 { color: var(--ivory); max-width: 720px; margin: 18px auto; }
 .final-cta .lead { color: var(--on-dark-muted); max-width: 580px; margin: 0 auto 34px; }
 .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.final-cta .btn-ghost { color: var(--ivory); border-color: rgba(250,249,245,.35); }
+.final-cta .btn-ghost:hover { background: rgba(250,249,245,.1); border-color: var(--ivory); box-shadow: none; }
 
 /* ============================================================ FOOTER */
 .site-footer { background: var(--ink); color: var(--on-dark); padding: 76px 0 34px; }
