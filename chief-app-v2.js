@@ -142,10 +142,7 @@ const FOOTER_COLS = {
     ['#/entegrasyonlar',                              'API ve Veri Tabanı'],
   ]],
   'fc-sirket': ['Şirket', [
-    ['#/partnerlik',                              'Partnerlik'],
-    ['#/demo-talep-et',                           'Demo Talep Et'],
-    ['https://app.chiefai.com.tr',                'Giriş'],
-    ['#/kaynaklar',                               'Kaynaklar'],
+    ['#/partnerler',                              'Partnerlik'],
     ['#/hakkimizda',                              'Hakkımızda'],
   ]],
   'fc-yasal': ['Yasal', [
