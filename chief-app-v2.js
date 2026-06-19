@@ -265,36 +265,79 @@ const mToggle = document.getElementById('mobileToggle');
 let _drawerState   = 'root';
 let _drawerGoBack  = false;
 
+// Backdrop
+var _backdrop = (function() {
+  var el = document.createElement('div');
+  el.className = 'm-backdrop';
+  el.id = 'mBackdrop';
+  document.body.appendChild(el);
+  return el;
+})();
+
+function _closeDrawer() {
+  drawer.classList.remove('show');
+  _backdrop.classList.remove('show');
+  if (mToggle) mToggle.classList.remove('is-open');
+  _drawerState = 'root';
+}
+
+function _drawerHead() {
+  return '<div class="m-drawer-head">' +
+    '<a class="m-drawer-logo" href="#/">' +
+      '<svg viewBox="0 0 140 140" width="26" height="26" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="11" stroke-linecap="round"/><circle cx="70" cy="70" r="7" fill="#788C5D"/></svg>' +
+      '<span class="m-drawer-logo-word">Chief</span>' +
+    '</a>' +
+    '<button class="m-close-btn" id="mDrawerClose" aria-label="Menüyü kapat">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
+    '</button>' +
+  '</div>';
+}
+
 function _drawerRoot() {
-  return '<button class="m-nav-btn" data-panel="platform">Platform <span class="m-chev">›</span></button>' +
+  return '<div class="m-drawer-nav"><div class="m-panel' + (_drawerGoBack ? ' going-back' : '') + '">' +
+    '<button class="m-nav-btn" data-panel="platform">Platform <span class="m-chev">›</span></button>' +
     '<button class="m-nav-btn" data-panel="kullanim-alanlari">Kullanım Alanları <span class="m-chev">›</span></button>' +
     '<a class="m-flat" href="#/entegrasyonlar">Entegrasyonlar</a>' +
     '<a class="m-flat" href="#/fiyatlandirma">Fiyatlandırma</a>' +
-    '<a class="m-flat" href="#/kaynaklar">Kaynaklar</a>' +
-    '<a class="m-flat" href="#/partnerlik">Partnerlik</a>' +
-    '<div style="margin-top:22px;display:flex;flex-direction:column;gap:10px">' +
-    '<a href="https://app.chiefai.com.tr" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center">Giriş</a>' +
-    '<a href="#" data-cal="open" class="btn btn-clay btn-lg" style="width:100%;justify-content:center">Demo Talep Et</a>' +
+    '<a class="m-flat" href="#/partnerler">Partnerlik</a>' +
+    '</div></div>' +
+    '<div class="m-drawer-foot">' +
+    '<a href="#" id="mLoginTrigger" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center">Giriş</a>' +
+    '<a href="#" data-cal="open" class="btn btn-clay btn-lg" style="width:100%;justify-content:center">Görüşme Planla</a>' +
     '</div>';
 }
 
 function _drawerPanel(key) {
   const m = MEGA[key];
   const label = key === 'platform' ? 'Platform' : 'Kullanım Alanları';
-  let h = '<button class="m-back" id="mDrawerBack">' +
+  let nav = '<div class="m-drawer-nav"><div class="m-panel' + (_drawerGoBack ? ' going-back' : '') + '">' +
+    '<button class="m-back" id="mDrawerBack">' +
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>' +
     label + '</button>';
   m.cols.forEach(col => {
-    h += '<span class="m-panel-label">' + esc(col.label) + '</span>';
-    col.items.forEach(it => { h += '<a class="m-flat-link" href="' + it.href + '">' + esc(it.title) + '</a>'; });
+    nav += '<span class="m-panel-label">' + esc(col.label) + '</span>';
+    col.items.forEach(it => { nav += '<a class="m-flat-link" href="' + it.href + '">' + esc(it.title) + '</a>'; });
   });
-  return h;
+  nav += '</div></div>';
+  return nav;
 }
 
 function buildDrawer() {
-  const inner = _drawerState === 'root' ? _drawerRoot() : _drawerPanel(_drawerState);
-  drawer.innerHTML = '<div class="m-panel' + (_drawerGoBack ? ' going-back' : '') + '">' + inner + '</div>';
+  const isRoot = _drawerState === 'root';
+  const content = isRoot ? _drawerRoot() : _drawerPanel(_drawerState);
+  drawer.innerHTML = _drawerHead() + content;
   _drawerGoBack = false;
+
+  var closeBtn = document.getElementById('mDrawerClose');
+  if (closeBtn) closeBtn.addEventListener('click', _closeDrawer);
+
+  var mLoginBtn = document.getElementById('mLoginTrigger');
+  if (mLoginBtn) mLoginBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    _closeDrawer();
+    var lo = document.getElementById('loginOverlay');
+    if (lo) { lo.classList.add('open'); var em = document.getElementById('loginEmail'); if(em) em.focus(); }
+  });
 
   drawer.querySelectorAll('.m-nav-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -304,7 +347,7 @@ function buildDrawer() {
     });
   });
 
-  const backBtn = document.getElementById('mDrawerBack');
+  var backBtn = document.getElementById('mDrawerBack');
   if (backBtn) backBtn.addEventListener('click', () => {
     _drawerGoBack = true;
     _drawerState  = 'root';
@@ -312,21 +355,22 @@ function buildDrawer() {
   });
 
   drawer.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      drawer.classList.remove('show');
-      _drawerState = 'root';
-    });
+    a.addEventListener('click', () => { _closeDrawer(); });
   });
 }
 
+_backdrop.addEventListener('click', _closeDrawer);
+
 if (mToggle) {
+  mToggle.innerHTML =
+    '<span class="icon-ham"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></span>' +
+    '<span class="icon-close"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>';
+
   mToggle.addEventListener('click', () => {
-    if (!drawer.classList.contains('show')) {
-      _drawerState = 'root';
-      buildDrawer();
-    }
-    drawer.classList.toggle('show');
-    mToggle.setAttribute('aria-label', drawer.classList.contains('show') ? 'Menüyü kapat' : 'Menüyü aç');
+    const isOpen = drawer.classList.contains('show');
+    if (!isOpen) { _drawerState = 'root'; buildDrawer(); drawer.classList.add('show'); _backdrop.classList.add('show'); mToggle.classList.add('is-open'); }
+    else { _closeDrawer(); }
+    mToggle.setAttribute('aria-label', !isOpen ? 'Menüyü kapat' : 'Menüyü aç');
   });
 }
 
