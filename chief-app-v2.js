@@ -293,8 +293,8 @@ function _drawerRoot() {
     '<a class="m-flat" href="#/hakkimizda">Hakkımızda</a>' +
     '</div>' +
     '<div class="m-drawer-foot">' +
-    '<a href="#" id="mLoginTrigger" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center">Giriş</a>' +
     '<a href="#" data-cal="open" class="btn btn-clay btn-lg" style="width:100%;justify-content:center">Görüşme Planla</a>' +
+    '<a href="#" id="mLoginTrigger" class="btn" style="width:100%;justify-content:center;border:1.5px solid var(--border);color:var(--ink);background:transparent">Giriş</a>' +
     '</div>';
 }
 
