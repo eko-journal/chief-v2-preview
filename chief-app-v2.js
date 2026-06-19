@@ -1801,6 +1801,51 @@ function renderPageAnimation(type) {
     return ynCss + '<div class="yn-wrap">' + ynS0 + ynS1 + ynS2 + ynS3 + '</div>';
   }
 
+  } else if (t === 'senaryo-talep-anim') {
+    return '<style>.snt-wrap{position:relative;width:100%;height:360px;background:#FAF9F5;border:1px solid #DED9CC;border-radius:16px;overflow:hidden;font-family:\'Space Grotesk\',system-ui}.snt-st{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;padding:16px 20px 36px;opacity:0;pointer-events:none}.snt-st.a0{animation:snt0 10s linear infinite}.snt-st.a1{animation:snt1 10s linear infinite}.snt-st.a2{animation:snt2 10s linear infinite}.snt-st.a3{animation:snt3 10s linear infinite}@keyframes snt0{0%,0.5%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}@keyframes snt1{0%,25%{opacity:0}28%,47%{opacity:1}50%,100%{opacity:0}}@keyframes snt2{0%,50%{opacity:0}53%,72%{opacity:1}75%,100%{opacity:0}}@keyframes snt3{0%,75%{opacity:0}78%,97%{opacity:1}100%{opacity:0}}.snt-cap{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:\'JetBrains Mono\',monospace;font-size:10px;color:#A9A195}.snt-cap b{color:#141413;font-family:\'Space Grotesk\',system-ui;font-size:11px;font-weight:600}.snt-bdg{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#D97757;color:#fff;font-size:8px;font-weight:700;vertical-align:middle;margin-right:4px}.snt-ch{font-family:\'JetBrains Mono\',monospace;font-size:11px;background:#F0EDE4;border:1px solid #DED9CC;border-radius:7px;padding:8px 14px;color:#6E665A}.snt-logo{display:inline-flex;align-items:center;gap:8px}.snt-logo span{font-weight:700;font-size:15px;letter-spacing:-.01em;color:#141413}.snt-bub{background:#E7F3E8;border-radius:12px 12px 12px 4px;padding:10px 14px;font-size:13px;max-width:220px;align-self:flex-start}.snt-task{background:#FAF9F5;border:1.5px solid #D97757;border-radius:10px;padding:10px 16px;width:240px}.snt-task-lbl{font-family:\'JetBrains Mono\',monospace;font-size:8px;color:#D97757;margin-bottom:5px}.snt-task-h{font-size:13px;color:#141413;font-weight:600;margin-bottom:3px}.snt-task-m{font-family:\'JetBrains Mono\',monospace;font-size:9px;color:#A9A195}.snt-kg{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:290px}.snt-k{background:#FAFAF8;border:1px solid #E9E5D9;border-radius:10px;padding:13px}.snt-kl{font-family:\'JetBrains Mono\',monospace;font-size:7.5px;color:#A9A195;display:block;margin-bottom:3px}.snt-kv{font-size:21px;font-weight:700;color:#141413;letter-spacing:-1px}.snt-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}.snt-box{background:#F0EDE4;border:1px solid #DED9CC;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600}.snt-arr{font-size:18px;color:#D97757}.snt-pill{display:inline-flex;align-items:center;gap:5px;background:#FAF9F5;border:1px solid #DED9CC;border-radius:10px;padding:6px 12px}.snt-pill span{font-weight:700;font-size:13px;color:#141413}</style>' +
+    '<div class="snt-wrap">' +
+    '<div class="snt-st a0"><div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><div class="snt-ch">💬 WhatsApp</div><div class="snt-ch">📧 E-posta</div><div class="snt-ch">🌐 Web Form</div></div><div style="font-size:22px;color:#D97757">↓</div><div class="snt-logo"><svg viewBox="0 0 140 140" width="38" height="38" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="13" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#788C5D"/></svg><span>Chief</span></div><div class="snt-cap">Kanaldan bağımsız sinyal yakalama</div></div>' +
+    '<div class="snt-st a1"><div class="snt-bub">"Teklif almak istiyorum"</div><div style="font-size:18px;color:#D97757">↓</div><div class="snt-task"><div class="snt-task-lbl">→ Görev oluşturuldu</div><div class="snt-task-h">Teklif Hazırla</div><div class="snt-task-m">Atandı: Selin K. · Öncelik: Yüksek</div></div><div class="snt-cap"><span class="snt-bdg">1</span><b>Mesajdan göreve otomatik</b></div></div>' +
+    '<div class="snt-st a2"><div class="snt-kg"><div class="snt-k"><span class="snt-kl">Yakalanan Talep</span><div class="snt-kv">94%</div></div><div class="snt-k"><span class="snt-kl">Yanıt Süresi</span><div class="snt-kv">45dk</div></div><div class="snt-k"><span class="snt-kl">Kayıp Talep</span><div class="snt-kv">0</div></div><div class="snt-k"><span class="snt-kl">Dönüşüm</span><div class="snt-kv">78%</div></div></div><div class="snt-cap">Hiçbir talep kaybolmuyor</div></div>' +
+    '<div class="snt-st a3"><div class="snt-flow"><div class="snt-box">📨 Talep</div><div class="snt-arr">→</div><div class="snt-pill"><svg viewBox="0 0 140 140" width="20" height="20" fill="none"><path d="M107 39A48 48 0 1 0 107 101" stroke="#D97757" stroke-width="13" stroke-linecap="round"/><circle cx="70" cy="70" r="8" fill="#788C5D"/></svg><span>Chief</span></div><div class="snt-arr">→</div><div class="snt-box">📋 Teklif</div></div><div class="snt-cap"><span class="snt-bdg">3</span><b>Teklif sürecine hazır devir</b></div></div>' +
+    '</div>';
+
+  } else if (t === 'senaryo-saha-anim') {
+    return '<style>.sns-wrap{position:relative;width:100%;height:360px;background:#FAF9F5;border:1px solid #DED9CC;border-radius:16px;overflow:hidden;font-family:\'Space Grotesk\',system-ui}.sns-st{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;padding:16px 20px 36px;opacity:0;pointer-events:none}.sns-st.a0{animation:sns0 10s linear infinite}.sns-st.a1{animation:sns1 10s linear infinite}.sns-st.a2{animation:sns2 10s linear infinite}.sns-st.a3{animation:sns3 10s linear infinite}@keyframes sns0{0%,0.5%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}@keyframes sns1{0%,25%{opacity:0}28%,47%{opacity:1}50%,100%{opacity:0}}@keyframes sns2{0%,50%{opacity:0}53%,72%{opacity:1}75%,100%{opacity:0}}@keyframes sns3{0%,75%{opacity:0}78%,97%{opacity:1}100%{opacity:0}}.sns-cap{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:\'JetBrains Mono\',monospace;font-size:10px;color:#A9A195}.sns-cap b{color:#141413;font-family:\'Space Grotesk\',system-ui;font-size:11px;font-weight:600}.sns-bdg{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#D97757;color:#fff;font-size:8px;font-weight:700;vertical-align:middle;margin-right:4px}.sns-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}.sns-box{background:#F0EDE4;border:1px solid #DED9CC;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;text-align:center}.sns-arr{font-size:18px;color:#D97757}.sns-card{background:#FAF9F5;border:1.5px solid #D97757;border-radius:10px;padding:12px 16px;width:240px}.sns-card-h{font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:.06em;color:#D97757;text-transform:uppercase;margin-bottom:8px}.sns-row{display:flex;justify-content:space-between;font-family:\'JetBrains Mono\',monospace;font-size:9.5px;color:#A9A195;margin-bottom:5px}.sns-val{color:#6E665A;font-weight:500}.sns-chk{display:flex;flex-direction:column;gap:8px;width:220px}.sns-ci{display:flex;align-items:center;gap:8px;font-size:12px}.sns-ok{color:#22C55E;font-weight:700}.sns-pend{color:#DED9CC;font-weight:700}.sns-kg{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:290px}.sns-k{background:#FAFAF8;border:1px solid #E9E5D9;border-radius:10px;padding:13px}.sns-kl{font-family:\'JetBrains Mono\',monospace;font-size:7.5px;color:#A9A195;display:block;margin-bottom:3px}.sns-kv{font-size:21px;font-weight:700;color:#141413;letter-spacing:-1px}</style>' +
+    '<div class="sns-wrap">' +
+    '<div class="sns-st a0"><div class="sns-flow"><div class="sns-box" style="border-color:#D97757;color:#D97757">Sipariş</div><div class="sns-arr">→</div><div class="sns-box" style="border-color:#6A9BCC;color:#6A9BCC">Planlama</div><div class="sns-arr">→</div><div class="sns-box" style="border-color:#788C5D;color:#788C5D">Saha</div></div><div class="sns-cap">Satıştan sahaya eksiksiz devir</div></div>' +
+    '<div class="sns-st a1"><div class="sns-card"><div class="sns-card-h">İŞ EMRİ #4821</div><div class="sns-row"><span>Lokasyon</span><span class="sns-val">İstanbul Kadıköy</span></div><div class="sns-row"><span>Ekip</span><span class="sns-val">Ahmet K. + Murat S.</span></div><div class="sns-row"><span>Durum</span><span class="sns-val" style="color:#6A9BCC;font-weight:600">🚗 Yolda</span></div></div><div class="sns-cap"><span class="sns-bdg">1</span><b>Doğru ekip, doğru yer</b></div></div>' +
+    '<div class="sns-st a2"><div class="sns-chk"><div class="sns-ci"><span class="sns-ok">✓</span> Ekipman kontrol</div><div class="sns-ci"><span class="sns-ok">✓</span> Güvenlik formu</div><div class="sns-ci"><span class="sns-ok">✓</span> Müşteri bilgilendirme</div><div class="sns-ci"><span class="sns-pend">•</span> Kapanış kanıtı</div></div><div class="sns-cap"><span class="sns-bdg">2</span><b>Adım adım doğrulama</b></div></div>' +
+    '<div class="sns-st a3"><div class="sns-kg"><div class="sns-k"><span class="sns-kl">SLA Uyumu</span><div class="sns-kv">94%</div></div><div class="sns-k"><span class="sns-kl">İlk Seferde</span><div class="sns-kv">87%</div></div><div class="sns-k"><span class="sns-kl">Kanıtlı Kapanış</span><div class="sns-kv">100%</div></div><div class="sns-k"><span class="sns-kl">Geri Dönüş</span><div class="sns-kv">–62%</div></div></div><div class="sns-cap">Kanıtla kapanan saha operasyonu</div></div>' +
+    '</div>';
+
+  } else if (t === 'senaryo-kalite-anim') {
+    return '<style>.snk-wrap{position:relative;width:100%;height:360px;background:#FAF9F5;border:1px solid #DED9CC;border-radius:16px;overflow:hidden;font-family:\'Space Grotesk\',system-ui}.snk-st{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;padding:16px 20px 36px;opacity:0;pointer-events:none}.snk-st.a0{animation:snk0 10s linear infinite}.snk-st.a1{animation:snk1 10s linear infinite}.snk-st.a2{animation:snk2 10s linear infinite}.snk-st.a3{animation:snk3 10s linear infinite}@keyframes snk0{0%,0.5%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}@keyframes snk1{0%,25%{opacity:0}28%,47%{opacity:1}50%,100%{opacity:0}}@keyframes snk2{0%,50%{opacity:0}53%,72%{opacity:1}75%,100%{opacity:0}}@keyframes snk3{0%,75%{opacity:0}78%,97%{opacity:1}100%{opacity:0}}.snk-cap{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:\'JetBrains Mono\',monospace;font-size:10px;color:#A9A195}.snk-cap b{color:#141413;font-family:\'Space Grotesk\',system-ui;font-size:11px;font-weight:600}.snk-bdg{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#D97757;color:#fff;font-size:8px;font-weight:700;vertical-align:middle;margin-right:4px}.snk-alert{background:#FEF2F2;border:1px solid #D97757;border-radius:10px;padding:14px 16px;width:260px}.snk-ah{font-weight:700;font-size:12px;color:#D97757;margin-bottom:6px}.snk-flow{display:flex;flex-direction:column;gap:8px;width:240px}.snk-step{background:#F0EDE4;border:1px solid #DED9CC;border-radius:7px;padding:8px 12px;font-size:12px;font-weight:600}.snk-step-a{border-color:#D97757;color:#D97757;background:#FEF2F2}.snk-step-ok{border-color:#788C5D;color:#788C5D;background:#E7EADE}.snk-arrow{text-align:center;color:#DED9CC;font-size:14px}.snk-card{background:#FAF9F5;border:1px solid #DED9CC;border-radius:10px;padding:12px 16px;width:240px}.snk-ch{font-family:\'JetBrains Mono\',monospace;font-size:9px;color:#D97757;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}.snk-prog{background:#F0EDE4;border-radius:6px;overflow:hidden;margin-bottom:8px;height:8px}.snk-pfill{height:100%;width:75%;background:#788C5D;border-radius:6px}.snk-row{display:flex;justify-content:space-between;font-family:\'JetBrains Mono\',monospace;font-size:9px;color:#A9A195;margin-bottom:4px}.snk-kg{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:290px}.snk-k{background:#FAFAF8;border:1px solid #E9E5D9;border-radius:10px;padding:13px}.snk-kl{font-family:\'JetBrains Mono\',monospace;font-size:7.5px;color:#A9A195;display:block;margin-bottom:3px}.snk-kv{font-size:21px;font-weight:700;color:#141413;letter-spacing:-1px}</style>' +
+    '<div class="snk-wrap">' +
+    '<div class="snk-st a0"><div class="snk-alert"><div class="snk-ah">⚠️ Uygunsuzluk Tespit Edildi</div><div style="font-size:12px;color:#555">Parti #B2241 · Ürün: Vana 32mm</div><div style="font-size:12px;color:#555;margin-top:4px">Kaynak: Saha Formu</div></div><div class="snk-cap">Sinyal yakalandı, aksiyon başlatıldı</div></div>' +
+    '<div class="snk-st a1"><div class="snk-flow"><div class="snk-step snk-step-a">① Geçici Önlem</div><div class="snk-arrow">↓</div><div class="snk-step">② Kök Neden Analizi</div><div class="snk-arrow">↓</div><div class="snk-step snk-step-ok">③ Düzeltici Faaliyet</div></div><div class="snk-cap"><span class="snk-bdg">1</span><b>Kök nedene kadar izleme</b></div></div>' +
+    '<div class="snk-st a2"><div class="snk-card"><div class="snk-ch">Düzeltici Faaliyet</div><div class="snk-prog"><div class="snk-pfill"></div></div><div class="snk-row"><span>Hedef</span><span style="color:#6E665A">15 Tem.</span></div><div class="snk-row"><span>Sorumlu</span><span style="color:#6E665A">Kalite Ekibi</span></div></div><div class="snk-cap"><span class="snk-bdg">2</span><b>Sorumlu ve tarih belirlendi</b></div></div>' +
+    '<div class="snk-st a3"><div class="snk-kg"><div class="snk-k"><span class="snk-kl">Kapalı CAPA</span><div class="snk-kv">12</div></div><div class="snk-k"><span class="snk-kl">Tekrar Oranı</span><div class="snk-kv">–71%</div></div><div class="snk-k"><span class="snk-kl">Etkinlik</span><div class="snk-kv">94%</div></div><div class="snk-k"><span class="snk-kl">Açık Risk</span><div class="snk-kv">2</div></div></div><div class="snk-cap">Tekrarlayan hata azaltıldı</div></div>' +
+    '</div>';
+
+  } else if (t === 'senaryo-paydas-anim') {
+    return '<style>.snp-wrap{position:relative;width:100%;height:360px;background:#FAF9F5;border:1px solid #DED9CC;border-radius:16px;overflow:hidden;font-family:\'Space Grotesk\',system-ui}.snp-st{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:16px 20px 36px;opacity:0;pointer-events:none}.snp-st.a0{animation:snp0 10s linear infinite}.snp-st.a1{animation:snp1 10s linear infinite}.snp-st.a2{animation:snp2 10s linear infinite}.snp-st.a3{animation:snp3 10s linear infinite}@keyframes snp0{0%,0.5%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}@keyframes snp1{0%,25%{opacity:0}28%,47%{opacity:1}50%,100%{opacity:0}}@keyframes snp2{0%,50%{opacity:0}53%,72%{opacity:1}75%,100%{opacity:0}}@keyframes snp3{0%,75%{opacity:0}78%,97%{opacity:1}100%{opacity:0}}.snp-cap{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:\'JetBrains Mono\',monospace;font-size:10px;color:#A9A195}.snp-cap b{color:#141413;font-family:\'Space Grotesk\',system-ui;font-size:11px;font-weight:600}.snp-bdg{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#D97757;color:#fff;font-size:8px;font-weight:700;vertical-align:middle;margin-right:4px}.snp-tag-ok{background:rgba(120,140,93,.15);color:#788C5D;border-radius:6px;padding:5px 10px;font-size:12px;font-weight:600}.snp-conv{display:flex;flex-direction:column;gap:6px;width:260px}.snp-sys{background:#F0EDE4;border-radius:8px;padding:8px 12px;font-size:12px}.snp-user{background:#dce8f5;border-radius:12px 12px 2px 12px;padding:8px 12px;font-size:12px;align-self:flex-end}.snp-card{background:#FAF9F5;border:1px solid #DED9CC;border-radius:10px;padding:12px 16px;width:240px}.snp-ch{font-family:\'JetBrains Mono\',monospace;font-size:9px;color:#888;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}.snp-row{display:flex;justify-content:space-between;align-items:center;font-family:\'JetBrains Mono\',monospace;font-size:10px;color:#A9A195;margin-bottom:5px}.snp-ok{background:rgba(120,140,93,.15);color:#788C5D;border-radius:4px;padding:2px 7px;font-size:9px;font-weight:600}.snp-kg{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:290px}.snp-k{background:#FAFAF8;border:1px solid #E9E5D9;border-radius:10px;padding:13px}.snp-kl{font-family:\'JetBrains Mono\',monospace;font-size:7.5px;color:#A9A195;display:block;margin-bottom:3px}.snp-kv{font-size:21px;font-weight:700;color:#141413;letter-spacing:-1px}</style>' +
+    '<div class="snp-wrap">' +
+    '<div class="snp-st a0"><div style="display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap"><div class="snp-tag-ok">✓ Servis Kapandı</div><span style="font-size:16px;color:#D97757">→</span><div style="font-size:12px;color:#888">WhatsApp 09:14</div></div><div class="snp-sys" style="width:240px">💬 "Hizmetimizi değerlendirdiniz mi?"</div><div class="snp-cap">Doğru anda, doğru kanaldan ulaş</div></div>' +
+    '<div class="snp-st a1"><div class="snp-conv"><div class="snp-sys">💬 "Hizmetimizi nasıl değerlendirirsiniz? (1–5)"</div><div class="snp-user">4 ⭐</div><div class="snp-sys">💬 "En beğendiğiniz ne oldu?"</div><div class="snp-user">Ekip çok hızlıydı</div></div><div class="snp-cap"><span class="snp-bdg">1</span><b>Diyalog tabanlı geri bildirim</b></div></div>' +
+    '<div class="snp-st a2"><div class="snp-card"><div class="snp-ch">Analiz</div><div class="snp-row"><span>Duygu</span><span class="snp-ok">Olumlu 78%</span></div><div class="snp-row"><span>Tema</span><span style="color:#6E665A">Hız / Ekip</span></div><div class="snp-row"><span>Risk</span><span class="snp-ok">Düşük</span></div></div><div class="snp-cap"><span class="snp-bdg">2</span><b>Duygu ve tema analizi</b></div></div>' +
+    '<div class="snp-st a3"><div class="snp-kg"><div class="snp-k"><span class="snp-kl">Yanıt Oranı</span><div class="snp-kv">68%</div></div><div class="snp-k"><span class="snp-kl">Ort. Skor</span><div class="snp-kv">4.3</div></div><div class="snp-k"><span class="snp-kl">Şikayet Müd.</span><div class="snp-kv">2.1s</div></div><div class="snp-k"><span class="snp-kl">İyileştirme</span><div class="snp-kv">+18%</div></div></div><div class="snp-cap">Operasyona bağlı içgörü</div></div>' +
+    '</div>';
+
+  } else if (t === 'senaryo-finans-anim') {
+    return '<style>.snf-wrap{position:relative;width:100%;height:360px;background:#FAF9F5;border:1px solid #DED9CC;border-radius:16px;overflow:hidden;font-family:\'Space Grotesk\',system-ui}.snf-st{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;padding:16px 20px 36px;opacity:0;pointer-events:none}.snf-st.a0{animation:snf0 10s linear infinite}.snf-st.a1{animation:snf1 10s linear infinite}.snf-st.a2{animation:snf2 10s linear infinite}.snf-st.a3{animation:snf3 10s linear infinite}@keyframes snf0{0%,0.5%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}@keyframes snf1{0%,25%{opacity:0}28%,47%{opacity:1}50%,100%{opacity:0}}@keyframes snf2{0%,50%{opacity:0}53%,72%{opacity:1}75%,100%{opacity:0}}@keyframes snf3{0%,75%{opacity:0}78%,97%{opacity:1}100%{opacity:0}}.snf-cap{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:\'JetBrains Mono\',monospace;font-size:10px;color:#A9A195}.snf-cap b{color:#141413;font-family:\'Space Grotesk\',system-ui;font-size:11px;font-weight:600}.snf-bdg{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#D97757;color:#fff;font-size:8px;font-weight:700;vertical-align:middle;margin-right:4px}.snf-src{display:flex;gap:8px;justify-content:center}.snf-chip{font-family:\'JetBrains Mono\',monospace;font-size:11px;background:#F0EDE4;border:1px solid #DED9CC;border-radius:7px;padding:8px 14px;color:#6E665A}.snf-box{background:#F0EDE4;border:1px solid #D97757;border-radius:8px;padding:8px 24px;font-size:13px;font-weight:600;color:#D97757}.snf-brief{background:#FAF9F5;border:1px solid #DED9CC;border-radius:10px;padding:14px 16px;width:260px}.snf-bh{font-family:\'JetBrains Mono\',monospace;font-size:9px;color:#888;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}.snf-brow{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #F0EDE4;font-size:12px}.snf-brow:last-child{border-bottom:none}.snf-tw{background:rgba(217,119,87,.15);color:#D97757;border-radius:4px;padding:2px 7px;font-size:9px;font-weight:600}.snf-tok{background:rgba(120,140,93,.15);color:#788C5D;border-radius:4px;padding:2px 7px;font-size:9px;font-weight:600}.snf-dec{background:#FAF9F5;border:1px solid #DED9CC;border-radius:10px;padding:12px 16px;width:260px}.snf-dec-h{font-family:\'JetBrains Mono\',monospace;font-size:9px;color:#D97757;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}.snf-dec-row{font-size:11px;color:#555;padding:4px 0;border-bottom:1px solid #F0EDE4}.snf-dec-row:last-child{border-bottom:none}.snf-kg{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:290px}.snf-k{background:#FAFAF8;border:1px solid #E9E5D9;border-radius:10px;padding:13px}.snf-kl{font-family:\'JetBrains Mono\',monospace;font-size:7.5px;color:#A9A195;display:block;margin-bottom:3px}.snf-kv{font-size:21px;font-weight:700;color:#141413;letter-spacing:-1px}</style>' +
+    '<div class="snf-wrap">' +
+    '<div class="snf-st a0"><div class="snf-src"><div class="snf-chip">ERP</div><div class="snf-chip">CRM</div><div class="snf-chip">Saha</div></div><div style="font-size:18px;color:#D97757">↓</div><div class="snf-box">BRİFİNG</div><div class="snf-cap">Tüm kaynaklardan otomatik derleme</div></div>' +
+    '<div class="snf-st a1"><div class="snf-brief"><div class="snf-bh">Yönetim Brifingi — Bu Hafta</div><div class="snf-brow"><span>⚠️ SLA Riski</span><span class="snf-tw">4 kritik</span></div><div class="snf-brow"><span>▼ Teklif Dön.</span><span class="snf-tw">–12% sapma</span></div><div class="snf-brow"><span>✓ Tahsilat</span><span class="snf-tok">142 kapalı</span></div></div><div class="snf-cap"><span class="snf-bdg">1</span><b>İstisna öne çıkar</b></div></div>' +
+    '<div class="snf-st a2"><div class="snf-dec"><div class="snf-dec-h">Karar Gerektiren</div><div class="snf-dec-row">Ekip kapasitesi artırılsın mı?</div><div class="snf-dec-row">Müşteri X için vade uzatılsın mı?</div></div><div class="snf-cap"><span class="snf-bdg">2</span><b>Karar maddesi hazır</b></div></div>' +
+    '<div class="snf-st a3"><div class="snf-kg"><div class="snf-k"><span class="snf-kl">Raporlama Süresi</span><div class="snf-kv">–85%</div></div><div class="snf-k"><span class="snf-kl">Karar İzli</span><div class="snf-kv">92%</div></div><div class="snf-k"><span class="snf-kl">Erken Tespit</span><div class="snf-kv">+3g</div></div><div class="snf-k"><span class="snf-kl">Aksiyon Kapama</span><div class="snf-kv">87%</div></div></div><div class="snf-cap">Karardan aksiyona döngü</div></div>' +
+    '</div>';
+
   return '<div class="panim-wrap">' + inner + '</div>';
 }
 
@@ -3347,6 +3392,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Satış, teknik satış, müşteri hizmetleri, proje satış, teklif ve iş geliştirme ekipleri için uygundur.',
     icon: '📨',
     short: 'Dağınık talep kanallarını eksiksiz yapılandırılmış kayda dönüştür',
+    animType: 'senaryo-talep-anim',
+    bolumler: [
+      {baslik: 'Hangi kanaldan gelirse gelsin, kaçmaz', metin: 'E-posta, WhatsApp, web formu veya CRM üzerinden gelen her talep yakalanır. Kaynak mesaj bağlantısıyla birlikte sisteme alınır, sınıflandırılır ve takibe girer.'},
+      {baslik: 'Eksik bilgi otomatik tamamlanır', metin: 'Chief, mevcut CRM ve ERP verisiyle talebi zenginleştirir. Eksik alan varsa müşteriye ya da iç ekibe doğal diyalogla hedefli sorular sorar; gerekli bilgi toplandıktan sonra akış ilerler.'},
+      {baslik: 'Doğru ekip, doğru anda devreye girer', metin: 'Talep türü, öncelik ve SLA kuralına göre sorumlu ekip atanır. Geciken veya yanıtsız talepler otomatik eskalasyona girerek yönetim görünirlüğüne taşınır.'},
+      {baslik: 'Teklif sürecine hazır yapılandırılmış dosya', metin: 'Talep özeti, müşteri bağlamı, öncelik ve notlar tek dosyada toplanır. Teklif ekibi yeniden veri toplamaz; direkt üretmeye başlar.'},
+    ],
   },
   'mesajdan-goreve-ve-takibe': {
     cat: 'TALEP, SATIŞ VE TEKLİF',
@@ -3359,6 +3411,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Müşteri hizmetleri, operasyon, satış, satın alma, finans, idari işler ve saha koordinasyon ekiplerinde mesaj trafiğinin yüksek olduğu tüm birimler için uygundur.',
     icon: '✅',
     short: 'Mesajda kalan yapılacak işi sorumlu ve tarihli göreve çevir',
+    animType: 'senaryo-talep-anim',
+    bolumler: [
+      {baslik: 'Her mesaj içindeki iş görünür hale gelir', metin: 'Gelen mesajlardaki yapılacak iş, taahhüt ve sorular otomatik tespit edilir. Mesajın içinde kalmaz; göreve dönüşür. Hangi mesajdan hangi görevin açıldığı her zaman izlenebilir kalır.'},
+      {baslik: 'Sorumluluk ve tarih net belirlenir', metin: 'Görev oluşturulurken konu, öncelik, son tarih ve sorumlu kişi yapılandırılır. Kim yapacak ve ne zamana kadar sorularının yanıtsız kalması engellenir.'},
+      {baslik: 'Gecikme görünür, eskalasyon otomatik', metin: 'Yaklaşan son tarih, yanıtsız görev veya bağımlı iş durumunda bildirim ve eskalasyon devreye girer. Yönetici bizzat takip etmek zorunda kalmaz.'},
+      {baslik: 'Kanıtla kapatılır, denetim izi tutulur', metin: 'Görev tamamlanırken yanıt, belge veya onay gibi tanımlı kanıt istenir. Kaynak mesajla bağlantı korunur; denetim izi bütündür.'},
+    ],
   },
   'gorusmeden-aksiyona': {
     cat: 'TALEP, SATIŞ VE TEKLİF',
@@ -3371,6 +3430,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Satış, proje yönetimi, müşteri başarı, teknik danışmanlık, operasyon yönetimi ve üst yönetim ekipleri için uygundur.',
     icon: '🎯',
     short: 'Toplantı kararlarını takip sahibi belli aksiyon listesine dönüştür',
+    animType: 'senaryo-talep-anim',
+    bolumler: [
+      {baslik: 'Toplantı kararları kaybolmaz', metin: 'Not, transkript veya toplantı özeti ilgili müşteri, proje ya da süreçle ilişkilendirilir. Karar ve taahhütler ayrıştırılarak görünür hale gelir; kimin ne söylediği belirsizleşmez.'},
+      {baslik: 'Her taahhüdün sahibi ve tarihi var', metin: 'Toplantıdan çıkan aksiyonlar, açık sorular ve riskler ayrı kategorilerde izlenir. Kimin ne yapacağı ve ne zamana kadar bitmesi gerektiği netleşir.'},
+      {baslik: 'Farklı yorumlar önlenir', metin: 'Chief, alınan kararı standart bir formatta kayıt altına alır. Ekipler arası yorum farkından kaynaklanan hatalar azalır; takip toplantısına herkes aynı bilgiyle gelir.'},
+      {baslik: 'Sonuç görüşmeye bağlı kalır', metin: 'Tamamlanan işler, geciken taahhütler ve yeni riskler toplantı kaydının içinde görünür. Haftalık takip ve yönetim özetine otomatik veri sağlanır.'},
+    ],
   },
   'teklif-hazirlama-ve-onay': {
     cat: 'TALEP, SATIŞ VE TEKLİF',
@@ -3383,6 +3449,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Satış, teknik satış, teklif, finans, ticari kontrol, satın alma ve operasyon planlama ekiplerinin birlikte çalıştığı B2B süreçler için uygundur.',
     icon: '📋',
     short: 'Teklifi kurallarla hazırla, doğru yetki seviyesinde onayla',
+    animType: 'senaryo-talep-anim',
+    bolumler: [
+      {baslik: 'Teklif verileri tek yerden gelir', metin: 'ERP, fiyat listesi, stok, maliyet ve müşteri geçmişi otomatik olarak bağlanır. Satış ekibi farklı sistemlere bakarak veri toplamaz; teklif taslağı standart şablonla hazırlanır.'},
+      {baslik: 'Marj ve iskonto kuralları otomatik kontrol edilir', metin: 'Teklif üretilirken marj, iskonto limiti ve kredi riski kuralları arka planda çalışır. Kural dışı teklifler onaya gitmeden tespit edilir; manuel kontrol yükü azalır.'},
+      {baslik: 'Doğru yetkili, doğru anda onaylar', metin: 'Tutar, marj veya müşteri segmentine göre onay zinciri otomatik belirlenir. Kim onaylayacak belirsizliği kalmaz; onay süresi ve bekleyen onaylar her zaman görünürdür.'},
+      {baslik: 'Onaylı tekliften sonraki süreç başlar', metin: 'Müşteri kabülü alındığında üretim, saha veya sipariş akışı otomatik tetiklenir. Satış ve operasyon arasındaki geçiş manuel değil, kurallı ve izlenebilir olur.'},
+    ],
   },
   'onayli-tekliften-uretim-planina': {
     cat: 'OPERASYON VE SAHA',
@@ -3395,6 +3468,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Özel üretim, makine ve ekipman, metal işleme, elektromekanik montaj, proje bazlı imalat ve siparişe göre üretim yapan işletmeler için uygundur.',
     icon: '🏭',
     short: 'Onaylı siparişi tekrar veri girmeden üretim planına aktar',
+    animType: 'senaryo-saha-anim',
+    bolumler: [
+      {baslik: 'Sipariş detayları üretimi başlatır', metin: 'Onaylanan teklif veya sipariş, teknik gereksinim ve teslim taahhütleriyle birlikte üretim sürecinin başlangıç noktası olur. Yeniden veri girişi gerekmez; satış bağlamı üretim ekibine eksiksiz ulaşır.'},
+      {baslik: 'Malzeme, kapasite ve süre bir arada görülür', metin: 'Ürün ağacı, stok durumu, kapasite ve teslim tarihi eş zamanlı kontrol edilir. Planlama kararı eksik veriyle alınmaz; kaynaklar gerçekçi bilgiye göre düzenlenir.'},
+      {baslik: 'Riskler üretim başlamadan görünür', metin: 'Malzeme açığı, kapasite çakışması veya teslim riski tespit edildiğinde ilgili ekibe aksiyon açılır. Sürpriz gecikmeler azalır; müşteri taahhüdbü korunur.'},
+      {baslik: 'Sipariş, üretim ve teslimat tek zincirde', metin: 'Üretim ilerlemesi satış ve müşteri görünümüne geri taşınır. Durum sorgulamak için kimse kimseyi aramak zorunda kalmaz; büttün süreç izlenebilir kalır.'},
+    ],
   },
   'onayli-tekliften-saha-is-emrine': {
     cat: 'OPERASYON VE SAHA',
@@ -3407,6 +3487,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Kurulum, teknik servis, bakım, enerji, çevre hizmetleri, altyapı, telekom, tesis yönetimi ve proje bazlı saha operasyonları için uygundur.',
     icon: '🔧',
     short: 'Kabul edilen hizmeti yetkin ekip ve planla saha iş emrine çevir',
+    animType: 'senaryo-saha-anim',
+    bolumler: [
+      {baslik: 'Satış taahhüdbü sahaya eksiksiz ulaşır', metin: 'Teklif kapsamı, teknik şartlar ve teslim koşulları saha ekibine standart iş emri formatında iletilir. Eksik bağlam nedeniyle hatalı müdahale ve yeniden ziyaret riski azalır.'},
+      {baslik: 'Doğru ekip, doğru ekipmanla gider', metin: 'Saha iş emri oluşturulurken yetkinlik, bölge, vardiya ve malzeme ihtiyaçları eşleştirilir. Saha çalışanı hazırsız müdahale yapmaz; ilk seferde doğru iş yapma oranı artar.'},
+      {baslik: 'Müşteri ve saha ekibi önceden bilgilidir', metin: 'Randevu, hazırlık koşulları ve değişiklikler ilgili taraflara otomatik iletilir. Koordinasyon için ayrı mesajlaşma trafiği oluşmaz.'},
+      {baslik: 'Saha sonucu faturaya bağlanır', metin: 'İş emri kapandığında faturalama, stok düşümü ve müşteri geçmişi güncelleme akışı başlar. Manuel aktarım ve gecikme olmadan finans süreci ilerler.'},
+    ],
   },
   'bakim-ariza-ve-teknik-servis': {
     cat: 'OPERASYON VE SAHA',
@@ -3419,6 +3506,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Teknik servis sağlayıcıları, üretim tesisleri, tesis yönetimi, enerji, makine ve ekipman şirketleri ile bakım sözleşmesi yöneten işletmeler için uygundur.',
     icon: '⚙️',
     short: 'Bakım takvimi ve arıza bildirimini tek öncelikli servis akışında yönet',
+    animType: 'senaryo-saha-anim',
+    bolumler: [
+      {baslik: 'Bakım ve arıza tek akışta yönetilir', metin: 'Takvimde yaklaşan bakım, müşteri bildirimi veya IoT alarmı aynı servis akışına girer. Farklı kanallardan gelen sinyaller önceliklendirilir; hangi müdahalenin önce gideceği net olur.'},
+      {baslik: 'Servis kararı ekipman geçmişiyle verilir', metin: 'Varlık, önceki servisler, garanti durumu ve kullanılan parçalar otomatik bağlanır. Ekip sahaya gitmeden önce tüm bağlamı görür; yerinde keşif süresi azalır.'},
+      {baslik: 'Doğru öncelik, doğru ekip', metin: 'Güvenlik etkisi, SLA ve üretim kaybına göre önceliklendirme yapılır. Kritik müdahale doğru uzmanlıkla yapılır; yanlış ekip sahadaki kaynakları boşa harcamaz.'},
+      {baslik: 'Kapanış öğrenmeye dönüşür', metin: 'Servis sonucu ekipman geçmişine yazılır, kök neden kaydedilir ve sonraki bakım tarihi güncellenir. Kronik arızalar için görünürlük oluşur; önleyici bakım planı güçlenir.'},
+    ],
   },
   'saha-is-emri-ve-kanitli-kapanis': {
     cat: 'OPERASYON VE SAHA',
@@ -3431,6 +3525,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Saha servis, bakım, kurulum, denetim, montaj, altyapı ve proje ekipleri ile işin yapıldığını kanıtla kapatması gereken tüm operasyonlar için uygundur.',
     icon: '📸',
     short: 'Saha işini kanıt, kontrol listesi ve müşteri onayıyla belgele',
+    animType: 'senaryo-saha-anim',
+    bolumler: [
+      {baslik: 'Ekip sahada tam donanımlı çalışır', metin: 'İş emri, kontrol listesi, teknik talimat ve güvenlik notları mobil cihaza iletilir. Saha çalışanı hazırsız müdahale yapmaz; tüm bilgi parmağının ucunda olur.'},
+      {baslik: 'Her adım kayıt altına alınır', metin: 'Başlangıç check-in, süre, kullanılan parça ve ek iş bilgileri anlık kaydedilir. Merkez ne yapıldığını gerçek zamanlı görür; iş sonrası raporlamaya gerek kalmaz.'},
+      {baslik: 'Kapanış kanıtla doğrulanır', metin: 'Fotoğraf, ölçüm, müşteri imzası veya dijital onay olmadan iş kapanmaz. Tamamlandı demek artık yetmez; kanıt zorunludur.'},
+      {baslik: 'Kapanış sonrası akışlar otomatik başlar', metin: 'Fatura, stok düşümü, garanti kaydı ve memnuniyet takibi kapanış sinyaliyle tetiklenir. Manuel tetikleme gerektirmeyen bu geçişler gecikme ve hata riskini ortadan kaldırır.'},
+    ],
   },
   'kalite-uygunsuzlugundan-duzeltici-aksiyona': {
     cat: 'KALİTE VE KAYNAK YÖNETİMİ',
@@ -3443,6 +3544,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Kalite, üretim, tedarikçi kalite, saha servis, müşteri hizmetleri, operasyon ve sürekli iyileştirme ekipleri için uygundur.',
     icon: '🔍',
     short: 'Uygunsuzluğu kök nedenine kadar izle, düzeltici faaliyeti doğrula',
+    animType: 'senaryo-kalite-anim',
+    bolumler: [
+      {baslik: 'Uygunsuzluk raporla kalmaz', metin: 'Kalite formu, müşteri şikayeti veya saha tespiti aksiyona bağlanır. Kayıt açılmış ama aksiyon atanmamış uygunsuzluk kalmaz; her kayıt sorumluya ve tarihe bağıdır.'},
+      {baslik: 'Etki ve öncelik sınıflandırılır', metin: 'Ürün, parti, müşteri ve güvenlik etkisine göre aciliyet belirlenir. Kritik uygunsuzluk öncelikli müdahale alır; karantina veya sevkiyat durdurma gibi geçici önlemler hızla devreye girer.'},
+      {baslik: 'Kök neden araştırması izlenir', metin: 'Sorumlu, yöntem ve hedef tarih atanır. Kök neden bulunmadan ve düzeltici faaliyet tamamlanmadan kayıt kapanmaz; tekrarlayan hatalar için veri birikir.'},
+      {baslik: 'Etkinlik kanıtlanmadan kapatılmaz', metin: 'Düzeltici faaliyetin işe yaradığı ölçüm, denetim veya yönetici onayıyla doğrulanır. Kapalı döngü yaklaşım sayesinde aynı uygunsuzluğun tekrar etme oranı azalır.'},
+    ],
   },
   'kritik-stoktan-tedarik-aksiyonuna': {
     cat: 'KALİTE VE KAYNAK YÖNETİMİ',
@@ -3455,6 +3563,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Satın alma, depo, üretim planlama, bakım, saha operasyon, tedarik zinciri ve finans ekipleri için uygundur.',
     icon: '📦',
     short: 'Stok riskini açık siparişlerle değerlendir, gerekçeli tedarik aksiyonu üret',
+    animType: 'senaryo-kalite-anim',
+    bolumler: [
+      {baslik: 'Alarm değil, bağlamlı sinyal', metin: 'Minimum seviye uyarısı açık sipariş, üretim planı ve saha ihtiyacıyla birlikte değerlendirilir. Gerçekten acil olan ile beklenen tedarikle kapanacak durum ayrıştırılır.'},
+      {baslik: 'Ne alınacak, ne kadar, neden?', metin: 'Talep bağlamı, tedarik durumu ve alternatifler birlikte görülerek gereççeli aksiyon önerisi üretilir. Satın alma, transfer veya ikame seçenekleri karşılaştırılır.'},
+      {baslik: 'Onay süreci otomatik çalışır', metin: 'Tutar ve kritikliğe göre doğru onay zinciri başlatılır. Acil satın almalar bile yetki kurallarına uygun ilerler; yetkisiz harcama riski azalır.'},
+      {baslik: 'Stok riski ürerime ulaşmadan kapatılır', metin: 'Tedarik süreci izlenir; beklenen kapanış tarihi geçirilirse riskli iş emirleri görünür hale gelir. Üretim veya saha durmasından önce müdahale mümkün olur.'},
+    ],
   },
   'servis-sonrasi-memnuniyet-ve-geri-bildirim': {
     cat: 'PAYDAŞ DENEYİMİ',
@@ -3467,6 +3582,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Teknik servis, kurulum, teslimat, saha hizmeti, bakım, müşteri başarı ve satış sonrası ekipleri için uygundur.',
     icon: '⭐',
     short: 'Servis kapanışının ardından geri bildirimi operasyona bağla',
+    animType: 'senaryo-paydas-anim',
+    bolumler: [
+      {baslik: 'Doğru an, doğru kanal', metin: 'Servis kapandıktan kısa süre sonra WhatsApp, SMS veya e-posta üzeerinden otomatik ulaşılır. Gecikmiş ve bağlamdan kopuk geri bildirim alınmaz; müşteri deneyimi tazeyken yakalanır.'},
+      {baslik: 'Skor değil, gerçek içgörü', metin: 'Kısa diyalogla skor, duygu, tema ve açık metin bir arada toplanır. İyi ya da kötü yerine neyin iyi, neyin kötü olduğu anlaşılır; operasyonel iyileştirme için somut veri üretilir.'},
+      {baslik: 'Geri bildirim operasyona bağlanır', metin: 'Yanıt; iş emri, ekip, ürün ve hizmet türüyle ilişkilendirilir. Hangi hizmet tipinde, hangi ekipte sorun olduğu görülür; içgörü değil aksiyon üretilir.'},
+      {baslik: 'Olumsuz deneyim aksiyon başlatır', metin: 'Düşük skor veya şikayet tespit edildiğinde iyileştirme akışı tetiklenir. Müşteri sineye çekilmez; müdahale edilir ve sonuç izlenir.'},
+    ],
   },
   'riskli-musteri-iyilestirme-aksiyonu': {
     cat: 'PAYDAŞ DENEYİMİ',
@@ -3479,6 +3601,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Müşteri deneyimi, müşteri başarı, satış, teknik servis, operasyon ve kilit müşteri yönetimi ekipleri için uygundur.',
     icon: '🛡️',
     short: 'Çoklu sinyalden müşteri kaybı riskini erken tespit et',
+    animType: 'senaryo-paydas-anim',
+    bolumler: [
+      {baslik: 'Risk tek kaynaktan okunmaz', metin: 'Düşük memnuniyet, geciken servis, SLA ihlali ve açık taahhüt birlikte değerlendirilir. Sadece NPS düşükken değil, birden fazla sinyalin çakıştığı anda tespit edilir.'},
+      {baslik: 'Müşteri bağlamı tam görülür', metin: 'Aktif işler, sözleşme, gelir ve geçmiş şikayet kaydı bir ekranda sunulur. İyileştirme sorumlusu tam resmi görür; yanlış veya eksik bilgiyle hareket etmez.'},
+      {baslik: 'Sahiplik ve yanıt süresi net belirlenir', metin: 'Müşteri yöneticisi, operasyon veya yönetim seviyesinde aksiyon sahibi ve hedef tarih atanır. Kimin ne zaman ne yapacağı belirsiz kalmaz.'},
+      {baslik: 'Çözüm doğrulanır, döngü kapanır', metin: 'İletişim, yeniden servis veya telafi adımları izlenir. Risk seviyesinin düştüğü doğrulanmadan müşteri güvende sayılmaz; iyileştirme başarısı ölçülür.'},
+    ],
   },
   'calisan-geri-bildiriminden-ik-aksiyonuna': {
     cat: 'PAYDAŞ DENEYİMİ',
@@ -3491,6 +3620,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'İnsan kaynakları, çalışan deneyimi, organizasyonel gelişim, iş sağlığı ve güvenliği ile kurum yönetimi ekipleri için uygundur.',
     icon: '👥',
     short: 'Çalışan geri bildirimini gizliliği koruyarak aksiyona taşı',
+    animType: 'senaryo-paydas-anim',
+    bolumler: [
+      {baslik: 'Geri bildirim güvenli ortamda toplanır', metin: 'Anonimlik, minimum grup büyüklüğü ve rol bazlı erişim kuralları otomatik uygulanır. Çalışanlar korkusuzca ifade eder; gizlilik politikaları hiçbir adımda ihlal edilmez.'},
+      {baslik: 'Tema ve risk otomatik çıkarılır', metin: 'Memnuniyet, iş yükü, yönetim ve gelişim gibi temalar yapay zeka ile ayrıştırılır. Yüzlerce yanıt saatler içinde özetlenir; raporlama yerine aksiyona zaman kalır.'},
+      {baslik: 'Aksiyon sorumlusu ve tarihi belirlenir', metin: 'Her bulgu için İK, yönetici veya ilgili birimin aksiyon alması, hedef tarih ve ölçütü tanımlanır. Değerlendiriyoruz belirsizliği kalmaz; plan vardır.'},
+      {baslik: 'Çalışanlar değişimi görür', metin: 'Alınan aksiyonlar ve sonuçları çalışanlara geri bildirilir. Anket yapılıp hiçbir şey değişmeme döngüsü kırılır; güven inşa edilir.'},
+    ],
   },
   'fatura-vade-ve-tahsilat-takibi': {
     cat: 'FİNANS VE YÖNETİM',
@@ -3503,6 +3639,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Finans, muhasebe, satış operasyonu, müşteri yönetimi ve kredi risk ekipleri için uygundur.',
     icon: '💰',
     short: 'Vadeden tahsilata müşteri iletişimini ve finans görevlerini tek akışta yönet',
+    animType: 'senaryo-finans-anim',
+    bolumler: [
+      {baslik: 'Vade gelmeden kontrol tamamlanır', metin: 'Faturanın iletildiği, eksik belge veya itiraz olmadığı ve ilgili satış kaydıyla eşleştiği otomatik doğrulanır. Gecikme vade sonrası değil, öncesinde önlenir.'},
+      {baslik: 'İletişim müşteriye ve konuya göre kurulur', metin: 'Otomatik hatırlatma genel bir mesaj değildir; müşteri segmenti, tutar ve vadeye göre uyarlanır. Tonlama ilişkiyi korurken tahsilat sürecini hızlandırır.'},
+      {baslik: 'Gecikmenin nedeni ayrıştırılır', metin: 'Ödeme sözü, itiraz, mutabakat farkı veya finansal risk farklı kategorilerde işlenir. Her durum kendi aksiyon planını getirir; tek tip takip yerine bağlama özgü yanıt verilir.'},
+      {baslik: 'Finans ve satış aynı tabloyu görür', metin: 'Geciken alacak, riskli müşteri ve açık anlaşmazlıklar tek görünümde sunulur. Kim takip ediyor sorusu kalmaz; sorumluluk nettir.'},
+    ],
   },
   'haftalik-yonetim-brifingi': {
     cat: 'FİNANS VE YÖNETİM',
@@ -3515,6 +3658,13 @@ const KULLANIM_SENARYOLARI_DATA = {
     kimler: 'Üst yönetim, birim yöneticileri, operasyon merkezi, satış ve finans yönetimi ile haftalık performans toplantısı yürüten ekipler için uygundur.',
     icon: '📊',
     short: 'KPI sapmalarını ve riskleri otomatik yönetim özetine dönüştür',
+    animType: 'senaryo-finans-anim',
+    bolumler: [
+      {baslik: 'Veri değil, istisna görünür', metin: 'KPI sapması, gecikme, SLA ihlali ve blokaj otomatik tespit edilir. Yönetici rakam yığınına değil, dikkat gerektiren konuya odaklanır; önemli olan öne çıkar.'},
+      {baslik: 'Her bulgu kaynağına bağlıdır', metin: 'Raporda görülen her istisna ilgili müşteri, proje, ekip veya görev kaydına bağlanır. Neden sorusu bir tık uzakta yanıtlanır; veriyi doğrulamak için farklı sisteme geçmek gerekmez.'},
+      {baslik: 'Karar gerektiren maddeler öne çıkar', metin: 'Yönetim onayı, kaynak değişikliği veya risk kabülü isteyen konular ayrı listede gösterilir. Toplantı gündemine hazır gelir; karar almak kolaylaşır.'},
+      {baslik: 'Karar aksiyona dönüşür', metin: 'Toplantı sonucu veya yönetim kararı görev, onay ve takip akışına bağlanır. Brifingden sonraki adım belirsiz kalmaz; kapalı döngü yönetim sağlanır.'},
+    ],
   },
 };
 
@@ -3524,62 +3674,16 @@ function renderKullanimSenaryoPage(slug) {
 
   var h = '<section class="detail-hero"><div class="container">' +
     crumb(['Kullanım Alanları', '#/kullanim-alanlari'], ['Kullanım Senaryoları', '#/kullanim-alanlari/kullanim-senaryolari'], [d.h1]) +
-    '<span class="eyebrow">' + esc(d.cat) + '</span>' +
-    '<h1 style="margin-top:12px;max-width:760px">' + esc(d.h1) + '</h1>' +
-    '<p class="lead" style="max-width:680px;margin-top:16px">' + esc(d.lead) + '</p>' +
+    '<div class="hero-split" style="display:grid;grid-template-columns:1fr 1fr;gap:48px 56px;align-items:start">' +
+    '<div class="hero-split-left"><span class="eyebrow">Kullanım Senaryosu</span>' +
+    '<h1 style="margin-top:16px">' + esc(d.h1) + '</h1>' +
+    '<p class="lead">' + esc(d.lead) + '</p></div>' +
+    '<div class="hero-split-right">' + renderPageAnimation(d.animType || 'signal-flow') + '</div>' +
     '</div></section>';
 
-  h += '<section class="bg-warm" style="padding:40px 0"><div class="container narrow">' +
-    '<div class="sc-problem">' +
-    '<div class="sc-problem-label">Bu akış neyi çözer?</div>' +
-    '<p class="sc-problem-text">' + esc(d.problem) + '</p>' +
-    '</div></div></section>';
+  h += renderBolumlerZigzag(d.bolumler || []);
 
-  h += '<section style="padding:56px 0"><div class="container">' +
-    '<div class="sc-steps-header">' +
-    '<div class="section-head" style="margin-bottom:0"><span class="eyebrow">Akış nasıl çalışır?</span></div>' +
-    '<span class="sc-steps-count">' + d.steps.length + ' adım</span>' +
-    '</div><div class="sc-steps">';
-  d.steps.forEach(function(step, i) {
-    var dotIdx = step.indexOf('. ');
-    var title = dotIdx > -1 ? step.substring(0, dotIdx) : step;
-    var body  = dotIdx > -1 ? step.substring(dotIdx + 2) : '';
-    h += '<div class="sc-step">' +
-      '<div class="sc-step-num">0' + (i + 1) + '</div>' +
-      '<div class="sc-step-body">' +
-      '<div class="sc-step-title">' + esc(title) + '</div>' +
-      (body ? '<p class="sc-step-desc">' + esc(body) + '</p>' : '') +
-      '</div></div>';
-  });
-  h += '</div></div></section>';
-
-  h += '<section class="bg-warm" style="padding:52px 0"><div class="container">' +
-    '<div class="section-head"><span class="eyebrow">Akışın ürettiği sonuçlar</span></div>' +
-    '<div class="sc-outcomes">';
-  d.ciktilar.forEach(function(c) {
-    h += '<div class="sc-outcome"><span class="sc-outcome-check">✓</span><span>' + esc(c) + '</span></div>';
-  });
-  h += '</div></div></section>';
-
-  h += '<section style="padding:52px 0"><div class="container">' +
-    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px 64px">' +
-    '<div><div class="section-head" style="margin-bottom:20px"><span class="eyebrow">Chief yetenekleri</span></div>' +
-    '<div class="sc-caps">' +
-    d.yetenekler.map(function(y) { return '<span class="sc-cap">' + esc(y) + '</span>'; }).join('') +
-    '</div></div>' +
-    '<div><div class="section-head" style="margin-bottom:20px"><span class="eyebrow">Kimler için uygundur?</span></div>' +
-    '<p class="sc-who">' + esc(d.kimler) + '</p>' +
-    '<div class="sc-ai-note">AI sınıflandırır, önerir ve takip eder — kritik karar ve onaylarda insan denetimi korunur.</div>' +
-    '</div></div></div></section>';
-
-  h += '<section class="final-cta"><div class="container">' +
-    '<h2>' + esc(d.h1) + ' akışını Chief ile kurun.</h2>' +
-    '<p class="lead">Akışı mevcut sistemlerinize, yetki matrisinize ve operasyon kurallarınıza göre uyarlayarak devreye alın.</p>' +
-    '<div class="cta-row"><a href="#/demo-talep-et" class="btn btn-clay btn-lg">Demo Talep Et ' + ico('arrow',16) + '</a>' +
-    '<a href="#/kullanim-alanlari/kullanim-senaryolari" class="btn on-dark-ghost btn-lg">Tüm senaryolar</a></div>' +
-    '</div></section>';
-
-  return h;
+  return h + finalCTA();
 }
 
 function renderKullanimSenaryolariListing() {
