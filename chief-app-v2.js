@@ -2678,10 +2678,10 @@ function renderFiyatlandirma() {
 
   /* ---- SAAS PAKET KARTLARI ---- */
   var saasSegments = [
-    { name:'Mikro İşletme / Girişim', fiyatDili:'Başlangıç seviyesinde temel SaaS', kimler:'Freelance, yeni kurulanlar, 1-5 çalışan mikro KOBİ veya ilk süreçlerini Chief\'e taşımak isteyen küçük ekipler.', cta:'Kullanımı Simüle Et', ctaHref:'#chiefSim', featured:false },
-    { name:'Küçük İşletme / KOBİ', fiyatDili:'Kullanıma göre ölçeklenir', kimler:'İşini otutmuş, büyüyen ekipler; 5-20 çalışan yapılar. Düzenli satış, teklif, takip ve temel operasyon akışı olan işletmeler.', cta:'Randevu Talep Et', ctaHref:'#', featured:true },
+    { name:'Mikro İşletme / Girişim', fiyatDili:'Başlangıç seviyesinde temel SaaS', kimler:'Freelance, yeni kurulanlar, 1-5 çalışan mikro KOBİ veya ilk süreçlerini Chief\'e taşımak isteyen küçük ekipler.', cta:'Sürecinizi Birlikte Modelleyelim', ctaHref:'#', featured:false },
+    { name:'Küçük İşletme / KOBİ', fiyatDili:'Kullanıma göre ölçeklenir', kimler:'İşini otutmuş, büyüyen ekipler; 5-20 çalışan yapılar. Düzenli satış, teklif, takip ve temel operasyon akışı olan işletmeler.', cta:'Sürecinizi Birlikte Modelleyelim', ctaHref:'#', featured:true },
     { name:'Orta Ölçekli İşletme', fiyatDili:'Ciddi hacim ve çoklu süreç kullanımı', kimler:'20-100 çalışan, satış + operasyon + saha/servis/üretim süreçlerini birlikte yöneten ticari şirketler.', cta:'Sürecinizi Birlikte Modelleyelim', ctaHref:'#', featured:false },
-    { name:'Büyük Kurumsal / Grup Şirketleri', fiyatDili:'Kurumsal kullanım ve ileri entegrasyon', kimler:'100+ çalışan, çok lokasyonlu, global yapılar, holdingler veya gelişmiş güvenlik/entegrasyon ihtiyacı olan kurumlar.', cta:'Kurumsal Görüşme Planla', ctaHref:'#', featured:false },
+    { name:'Büyük Kurumsal / Grup Şirketleri', fiyatDili:'Kurumsal kullanım ve ileri entegrasyon', kimler:'100+ çalışan, çok lokasyonlu, global yapılar, holdingler veya gelişmiş güvenlik/entegrasyon ihtiyacı olan kurumlar.', cta:'Sürecinizi Birlikte Modelleyelim', ctaHref:'#', featured:false },
   ];
 
   h += '<section style="padding:60px 0"><div class="container">' +
