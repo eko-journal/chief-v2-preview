@@ -192,7 +192,7 @@ const megaC = document.getElementById('megaContainer');
 
 function buildMega(key) {
   const m = MEGA[key]; if (!m) return '';
-  const colClass = m.cols.length >= 4 ? 'mega-4col' : 'mega-2col';
+  const colClass = m.cols.length >= 4 ? 'mega-4col' : m.cols.length <= 2 ? 'mega-2col' : '';
   return '<div class="mega" data-mega-panel="' + key + '">' +
     '<div class="mega-inner ' + colClass + '">' +
     m.cols.map(col =>
