@@ -3134,7 +3134,7 @@ function renderYasal(slug) {
   }
 
   var h = '<section class="detail-hero"><div class="container">' +
-    crumb(['Yasal', '#/yasal'], p.title) +
+    crumb(['Yasal', '#/yasal'], [p.title]) +
     '<h1 style="margin-top:16px;max-width:760px">' + esc(p.title) + '</h1>' +
     '<p class="lead" style="color:var(--t-muted);font-size:14px">Son güncelleme: ' + p.updated + '</p>' +
     '</div></section>';
