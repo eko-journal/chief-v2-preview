@@ -3025,43 +3025,15 @@ function renderHakkimizda() {
 
     '</div></div></section>';
 
-  // Uzmanlık + Ortaklıklar
   h += '<section class="bg-warm"><div class="container">' +
-    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px 64px;max-width:900px">' +
-
-    '<div>' +
-    '<div class="section-head" style="margin-bottom:20px"><span class="eyebrow">Ekip Uzmanlığı</span></div>' +
-    '<div style="display:flex;flex-wrap:wrap;gap:8px">' +
-    ['Yapay Zekâ', 'Matematiksel Optimizasyon', 'İstatistik', 'IoT', 'Endüstriyel Üretim', 'Fizik', 'Kurumsal Yazılım', 'Karar Destek'].map(function(t) {
-      return '<span style="background:var(--ivory);border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-size:13px;font-weight:500;color:var(--ink)">' + t + '</span>';
-    }).join('') +
-    '</div></div>' +
-
-    '<div>' +
-    '<div class="section-head" style="margin-bottom:20px"><span class="eyebrow">Akademik İşbirlikleri</span></div>' +
-    '<div style="display:flex;flex-direction:column;gap:12px">' +
-    '<div style="background:var(--ivory);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px">' +
-    '<div style="font-size:13px;font-weight:700;color:var(--ink)">Boğaziçi University Technopark</div>' +
-    '<div style="font-size:12px;color:var(--t-muted);margin-top:2px">JEDI Araştırma Merkezi · İstanbul</div>' +
-    '</div>' +
-    '<div style="background:var(--ivory);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px">' +
-    '<div style="font-size:13px;font-weight:700;color:var(--ink)">Atatürk Üniversitesi</div>' +
-    '<div style="font-size:12px;color:var(--t-muted);margin-top:2px">Araştırma İşbirliği · Erzurum</div>' +
-    '</div>' +
-    '</div></div>' +
-
-    '</div>' +
-
-    '<div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:32px;align-items:center">' +
+    '<div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center">' +
     '<div><div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:4px">İletişim</div>' +
     '<a href="mailto:info@chiefai.com.tr" style="font-size:15px;color:var(--clay);text-decoration:none">info@chiefai.com.tr</a></div>' +
     '<div><div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:4px">Telefon</div>' +
     '<a href="tel:+902166062209" style="font-size:15px;color:var(--clay);text-decoration:none">+90 216 606 22 09</a></div>' +
     '<div><div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:4px">Web</div>' +
     '<a href="https://chiefai.com.tr" style="font-size:15px;color:var(--clay);text-decoration:none">chiefai.com.tr</a></div>' +
-    '</div>' +
-
-    '</div></section>';
+    '</div></div></section>';
 
   return h + finalCTA();
 }
