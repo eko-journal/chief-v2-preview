@@ -140,11 +140,10 @@ const FOOTER_COLS = {
     ['#/hakkimizda',                              'Hakkımızda'],
   ]],
   'fc-yasal': ['Yasal', [
-    ['#/platform/guvenlik-ve-veri-yaklasimi',     'Güvenlik'],
-    ['#/kaynaklar',                               'KVKK'],
-    ['#/kaynaklar',                               'Gizlilik Politikası'],
-    ['#/kaynaklar',                               'Çerez Politikası'],
-    ['mailto:info@chiefai.com.tr',               'İletişim'],
+    ['#/yasal/kvkk',                              'KVKK'],
+    ['#/yasal/gizlilik',                          'Gizlilik Politikası'],
+    ['#/yasal/guvenlik',                          'Güvenlik'],
+    ['#/yasal/cerez',                             'Çerez Politikası'],
   ]],
 };
 
@@ -461,6 +460,7 @@ function go() {
   else if (sec === 'partnerler')           { html = renderPartnerler();        label = 'Partner Ağı'; }
   else if (sec === 'kaynaklar')             { html = renderKaynaklar();         label = 'Kaynaklar'; }
   else if (sec === 'hakkimizda')           { html = renderHakkimizda();        label = 'Hakkımızda'; }
+  else if (sec === 'yasal')               { html = renderYasal(slug);         label = slug ? ({kvkk:'KVKK',gizlilik:'Gizlilik Politikası',guvenlik:'Güvenlik',cerez:'Çerez Politikası'}[slug]||'Yasal') : 'Yasal'; }
   else if (sec === 'blog' && slug)         { html = renderBlogPost(slug);      label = 'Blog'; }
   else if (sec === 'blog')                 { html = renderBlog();              label = 'Blog'; }
   else if (sec === 'demo-talep-et')        { html = renderDemo();              label = 'Demo Talep Et'; }
@@ -3048,6 +3048,104 @@ function renderHakkimizda() {
     '<a href="tel:+902166062209" style="font-size:15px;color:var(--clay);text-decoration:none">+90 216 606 22 09</a></div>' +
     '<div><div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:4px">Web</div>' +
     '<a href="https://chiefai.com.tr" style="font-size:15px;color:var(--clay);text-decoration:none">chiefai.com.tr</a></div>' +
+    '</div></div></section>';
+
+  return h + finalCTA();
+}
+
+/* ================================================================
+   YASAL SAYFALAR
+   ================================================================ */
+function renderYasal(slug) {
+  var pages = {
+    kvkk: {
+      title: 'Kişisel Verilerin Korunması (KVKK)',
+      updated: '01 Ocak 2025',
+      sections: [
+        { h: 'Veri Sorumlusu', p: 'Datafors Yazılım ve Danışmanlık A.Ş. ("Chief"), 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında veri sorumlusu sıfatıyla hareket etmektedir. İletişim: info@datafors.com' },
+        { h: 'İşlenen Kişisel Veriler', p: 'Chief platformunu kullanan gerçek kişilere ait ad-soyad, kurumsal e-posta adresi, telefon numarası, görev/departman bilgisi ve sistem erişim log kayıtları işlenmektedir. Ödeme bilgileri doğrudan Chief altyapısında tutulmaz; lisanslı ödeme sağlayıcıları aracılığıyla işlenir.' },
+        { h: 'Kişisel Veri İşleme Amaçları', p: 'Veriler; platform hizmetinin sunulması, kullanıcı kimlik doğrulaması, teknik destek sağlanması, yasal yükümlülüklerin yerine getirilmesi ve sözleşme ilişkisinin yürütülmesi amaçlarıyla işlenmektedir. Açık rıza alınmadan pazarlama iletişimi gönderilmez.' },
+        { h: 'Hukuki Dayanak', p: 'Kişisel veriler; KVKK md. 5/2(c) kapsamında sözleşmenin ifası, md. 5/2(ç) kapsamında hukuki yükümlülüğün yerine getirilmesi ve md. 5/2(f) kapsamında meşru menfaat hukuki gerekçeleriyle işlenmektedir. Bu kapsamlar dışında kalan işlemler için açık rıza alınmaktadır.' },
+        { h: 'Verilerin Aktarımı', p: 'Kişisel veriler; bulut altyapı sağlayıcıları (veri merkezi hizmeti), lisanslı ödeme sağlayıcıları ve yasal zorunluluk halinde yetkili kamu kurumlarıyla paylaşılabilir. Yurt dışına aktarım ancak yeterli koruma güvencesinin sağlandığı ülkelere ve KVKK md. 9 çerçevesinde gerçekleştirilir.' },
+        { h: 'Saklama Süreleri', p: 'Platform kullanım kayıtları aktif sözleşme süresi boyunca ve sözleşme bitiminden itibaren 3 yıl saklanır. Yasal defter ve belge niteliğindeki kayıtlar Türk Ticaret Kanunu uyarınca 10 yıl muhafaza edilir. Talep halinde belirli veriler daha erken silinebilir; silme, imha ve anonimleştirme işlemleri Kişisel Veri Saklama ve İmha Politikası çerçevesinde yürütülür.' },
+        { h: 'KVKK Kapsamındaki Haklarınız', p: 'KVKK md. 11 uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, yurt içi veya yurt dışında aktarıldığı üçüncü kişileri bilme, eksik veya yanlış işlenmiş olması halinde düzeltilmesini isteme, KVKK md. 7 çerçevesinde silinmesini veya yok edilmesini isteme, itiraz etme ve zararın giderilmesini talep etme haklarına sahipsiniz.' },
+        { h: 'Başvuru Yöntemi', p: 'KVKK kapsamındaki taleplerinizi info@datafors.com adresine yazılı olarak iletebilirsiniz. Başvurular 30 gün içinde yanıtlanır. Talep edilen bilginin ayrıca bir maliyet gerektirmesi durumunda Kişisel Verileri Koruma Kurulu tarafından belirlenen tarifeye göre ücret alınabilir.' },
+      ]
+    },
+    gizlilik: {
+      title: 'Gizlilik Politikası',
+      updated: '01 Ocak 2025',
+      sections: [
+        { h: 'Kapsam', p: 'Bu Gizlilik Politikası; chiefai.com.tr web sitesini ve Chief platformunu kullanan kişilerin kişisel verilerinin nasıl toplandığını, işlendiğini ve korunduğunu açıklamaktadır. Platform hizmetini kullanmakla bu politikayı kabul etmiş sayılırsınız.' },
+        { h: 'Toplanan Veriler', p: 'Kayıt ve oturum aşamasında ad-soyad, kurumsal e-posta ve parola hash değeri toplanır. Platform kullanımı sırasında IP adresi, tarayıcı ve işletim sistemi bilgisi, oturum süresi ve eylem logları teknik amaçlarla işlenir. Üçüncü taraf sistemlerden (ERP, CRM, e-posta) gelen veriler yalnızca Chief iş akışlarının çalıştırılması amacıyla işlenir; bu veriler satılmaz, kiralanmaz veya reklam amaçlı kullanılmaz.' },
+        { h: 'Verilerin Kullanım Amaçları', p: 'Toplanan veriler; platform erişimi ve kimlik doğrulaması, teknik destek ve hata çözümü, sistem performansının izlenmesi, ürün geliştirme ve kullanıcı deneyiminin iyileştirilmesi ile yasal yükümlülüklerin yerine getirilmesi amacıyla kullanılır.' },
+        { h: 'Üçüncü Taraflarla Paylaşım', p: 'Chief; altyapı hizmeti (veri merkezi, hosting), ödeme işleme ve e-posta iletimi için sınırlı sayıda alt işleyen firmadan hizmet almaktadır. Bu firmalarla kişisel veri işleme sözleşmeleri yapılmıştır. Kişisel veriler ticari amaçla üçüncü taraflara satılmaz. Yetkili kamu kurumlarının yasal taleplerine KVKK ve ilgili mevzuat çerçevesinde yanıt verilir.' },
+        { h: 'Veri Güvenliği', p: 'Veriler aktarım sırasında TLS 1.3 şifreleme, depolama sırasında AES-256 şifreleme ile korunur. Üretim sistemlerine erişim çok faktörlü doğrulama ile kısıtlanmıştır. Güvenlik açığı bildirim prosedürü ve düzenli sızma testleri uygulanmaktadır. Ayrıntılar için Güvenlik sayfasını inceleyebilirsiniz.' },
+        { h: 'Çerezler', p: 'Web sitesi; zorunlu oturum çerezleri ve anonim kullanım istatistikleri için analitik çerezler kullanmaktadır. Analitik çerezler tercih yapılmadan etkinleştirilmez. Ayrıntılar için Çerez Politikası sayfasını inceleyebilirsiniz.' },
+        { h: 'Politika Değişiklikleri', p: 'Bu politika değiştirildiğinde güncel versiyon chiefai.com.tr/yasal/gizlilik adresinde yayınlanır ve kayıtlı kullanıcılara e-posta ile bildirim gönderilir. Önemli değişiklikler için 30 gün önceden uyarı yapılır.' },
+        { h: 'İletişim', p: 'Gizlilik ile ilgili sorularınız için: info@datafors.com' },
+      ]
+    },
+    guvenlik: {
+      title: 'Güvenlik',
+      updated: '01 Ocak 2025',
+      sections: [
+        { h: 'Veri Mimarisi', p: 'Chief, verinizin kendi altyapınızda kalmasını temel tasarım ilkesi olarak benimser. On-premise ve özel bulut kurulum seçenekleriyle verileriniz kurumunuzun sunucularından ayrılmaz. Paylaşımlı bulut kullanımı tercih edildiğinde tenant izolasyonu uygulanır; farklı müşterilere ait veriler mantıksal olarak ayrılır.' },
+        { h: 'Şifreleme', p: 'Aktarım sırasında TLS 1.3 protokolü uygulanır; eski protokol sürümleri (TLS 1.0, 1.1) devre dışıdır. Depolama sırasında AES-256 şifreleme kullanılır. Veritabanı yedekleri şifreli olarak saklanır ve şifreleme anahtarları ayrı bir anahtar yönetim sistemi (KMS) ile korunur.' },
+        { h: 'Kimlik Doğrulama ve Erişim Kontrolü', p: 'Chief platformu çok faktörlü doğrulama (MFA), SSO (SAML 2.0 / OIDC) ve rol bazlı erişim kontrolü (RBAC) destekler. Her kullanıcı yalnızca tanımlı rolüne ait verileri ve işlemleri görüntüleyebilir. Yönetici erişimleri ayrıca denetim kaydına alınır.' },
+        { h: 'Denetim ve İzlenebilirlik', p: 'Platform üzerinde gerçekleştirilen her işlem — kim, ne zaman, hangi kayıt üzerinde, hangi değişikliği yaptı — tam denetim kaydıyla saklanır. Denetim logları değiştirilemez ve yetkisiz silme işlemlerine karşı korunur. Log kayıtları sözleşme süresi boyunca ve sonrasında 1 yıl daha erişilebilir tutulur.' },
+        { h: 'Uyumluluk', p: 'Chief; 6698 sayılı KVKK ve AB Genel Veri Koruma Tüzüğü (GDPR) ile uyumlu şekilde tasarlanmıştır. Yurt dışı operasyonlar için GDPR onaylı kurulum yapılandırması sunulmaktadır. Veri işleme sözleşmesi (DPA) kurumsal müşterilerle imzalanmakta; saklama ve imha politikaları belgelenmektedir.' },
+        { h: 'Güvenlik Testleri', p: 'Yılda en az bir kez bağımsız güvenlik firması tarafından sızma testi gerçekleştirilir. Kritik bileşenler sürekli otomatik güvenlik taramasına tabi tutulur. Güvenlik açığı bildirimi için: info@datafors.com — sorumlu ifşa politikamız çerçevesinde 72 saat içinde yanıt verilir.' },
+        { h: 'İş Sürekliliği', p: 'Üretim verisi günlük yedeklenir ve yedekler coğrafi olarak farklı lokasyonlarda saklanır. Felaket kurtarma (DR) planı yılda bir test edilir. Hedef kurtarma süresi (RTO) 4 saat, hedef kurtarma noktası (RPO) 24 saattir.' },
+      ]
+    },
+    cerez: {
+      title: 'Çerez Politikası',
+      updated: '01 Ocak 2025',
+      sections: [
+        { h: 'Çerez Nedir?', p: 'Çerezler, tarayıcınız aracılığıyla cihazınıza yerleştirilen küçük metin dosyalarıdır. Web sitelerinin oturum bilgilerini hatırlamasını, kullanım istatistikleri toplamasını ve işlevselliği kişiselleştirmesini sağlarlar.' },
+        { h: 'Zorunlu Çerezler', p: 'Bu çerezler platformun temel işlevleri için gereklidir ve devre dışı bırakılamazlar. Oturum yönetimi, CSRF koruması ve yük dengeleme gibi güvenlik ve teknik işlevleri yerine getirirler. Kişisel veri içermezler ve oturum bitiminde silinirler.' },
+        { h: 'Tercih Çerezleri', p: 'Dil seçimi, tema tercihi ve arayüz ayarları gibi kullanıcı tercihlerini hatırlamak amacıyla kullanılır. Bu çerezler olmadan platform çalışmaya devam eder; ancak her oturumda tercihlerinizi yeniden belirlemeniz gerekebilir. Saklama süresi 1 yıldır.' },
+        { h: 'Analitik Çerezler', p: 'Web sitesi kullanım istatistiklerinin toplanması amacıyla anonim analitik çerezler kullanılmaktadır. Bu veriler; hangi sayfaların ziyaret edildiğini, ortalama oturum süresini ve kullanıcı akışlarını içerir. Analitik çerezler kişisel kimliğinizle ilişkilendirilmez. İlk ziyarette onayınız alınmadan etkinleştirilmez.' },
+        { h: 'Üçüncü Taraf Çerezleri', p: 'chiefai.com.tr; takvim entegrasyonu (randevu planlama) için sınırlı bir üçüncü taraf hizmetinden faydalanmaktadır. Bu hizmet kendi çerez politikasına tabidir. Chief, üçüncü taraf reklam ağlarının çerezlerini kullanmaz.' },
+        { h: 'Çerezleri Yönetme', p: 'Tarayıcı ayarlarınızdan çerezleri silebilir veya engelleyebilirsiniz. Chrome: Ayarlar > Gizlilik > Çerezler. Firefox: Ayarlar > Gizlilik > Çerezler ve Site Verileri. Safari: Tercihler > Gizlilik. Zorunlu çerezlerin engellenmesi platform oturumunu etkileyebilir.' },
+        { h: 'Politika Güncellemeleri', p: 'Çerez politikası değişikliklerinde site ziyaretçileri bilgilendirme başlığı ile uyarılır. Güncel politika daima bu sayfada yayınlanır.' },
+      ]
+    }
+  };
+
+  var p = pages[slug];
+  if (!p) {
+    var links = [
+      ['#/yasal/kvkk','KVKK'],
+      ['#/yasal/gizlilik','Gizlilik Politikası'],
+      ['#/yasal/guvenlik','Güvenlik'],
+      ['#/yasal/cerez','Çerez Politikası'],
+    ];
+    var h = '<section class="detail-hero"><div class="container">' +
+      crumb(['Yasal']) +
+      '<h1 style="margin-top:16px;max-width:600px">Yasal Belgeler</h1>' +
+      '<p class="lead">Gizlilik, güvenlik ve veri koruma politikalarımız.</p>' +
+      '</div></section><section><div class="container"><div class="cards-grid cols-2">';
+    links.forEach(function(l) {
+      h += '<a href="' + l[0] + '" class="feat-card" style="text-decoration:none"><h4>' + esc(l[1]) + '</h4></a>';
+    });
+    return h + '</div></div></section>';
+  }
+
+  var h = '<section class="detail-hero"><div class="container">' +
+    crumb([{href:'#/yasal', label:'Yasal'}, p.title]) +
+    '<h1 style="margin-top:16px;max-width:760px">' + esc(p.title) + '</h1>' +
+    '<p class="lead" style="color:var(--t-muted);font-size:14px">Son güncelleme: ' + p.updated + '</p>' +
+    '</div></section>';
+
+  h += '<section><div class="container"><div class="prose-col">';
+  p.sections.forEach(function(s) {
+    h += '<h3 style="margin:40px 0 10px;font-size:18px">' + esc(s.h) + '</h3>' +
+         '<p style="line-height:1.8;color:var(--t-body)">' + esc(s.p) + '</p>';
+  });
+  h += '<hr style="border:none;border-top:1px solid var(--border);margin:48px 0">' +
+    '<p style="font-size:14px;color:var(--t-muted)">Sorularınız için: <a href="mailto:info@datafors.com" style="color:var(--clay)">info@datafors.com</a></p>' +
     '</div></div></section>';
 
   return h + finalCTA();

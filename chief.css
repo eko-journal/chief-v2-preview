@@ -503,6 +503,8 @@ section.tight { padding: 68px 0; }
 .mobile-toggle .icon-close { display: none; }
 .mobile-toggle.is-open { opacity: 0; pointer-events: none; }
 
+.prose-col { max-width: 720px; }
+
 /* ===== HAKKIMIZDA ===== */
 .hk-para { font-size: 17px; line-height: 1.85; color: var(--t-body); margin: 0 0 24px; }
 .hk-vision { font-size: 18px; font-style: italic; color: var(--ink); border-left: 3px solid var(--clay); padding-left: 20px; margin-left: 0; }
