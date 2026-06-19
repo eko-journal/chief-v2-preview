@@ -6062,7 +6062,7 @@ function bindCalModal() {
   var overlay = document.getElementById('calOverlay');
   if (!overlay) return;
   document.querySelectorAll('[data-cal="open"]').forEach(function(btn) {
-    btn.addEventListener('click', function(e) { e.preventDefault(); overlay.classList.add('open'); });
+    btn.addEventListener('click', function(e) { e.preventDefault(); overlay.classList.add('open'); var lo = document.getElementById('loginOverlay'); if (lo) lo.classList.remove('open'); });
   });
 }
 
