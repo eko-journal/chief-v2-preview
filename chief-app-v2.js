@@ -274,7 +274,7 @@ function _drawerRoot() {
     '<a class="m-flat" href="#/partnerlik">Partnerlik</a>' +
     '<div style="margin-top:22px;display:flex;flex-direction:column;gap:10px">' +
     '<a href="https://app.chiefai.com.tr" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center">Giriş</a>' +
-    '<a href="#/demo-talep-et" class="btn btn-clay btn-lg" style="width:100%;justify-content:center">Demo Talep Et</a>' +
+    '<a href="#" data-cal="open" class="btn btn-clay btn-lg" style="width:100%;justify-content:center">Demo Talep Et</a>' +
     '</div>';
 }
 
@@ -446,7 +446,7 @@ function finalCTA() {
     '<h2>Bir sonraki adım: keşif görüşmesi.</h2>' +
     '<p class="lead">Operasyonunuzdaki en büyük kaybı anlatın. Hangi akışla nerede başlayabileceğinizi birlikte belirleyelim — satış toplantısı değil, gerçek bir planlama oturumu.</p>' +
     '<div class="cta-row">' +
-    '<a href="#/demo-talep-et" class="btn btn-clay btn-lg">Keşif Görüşmesi Oluştur ' + ico('arrow', 16) + '</a>' +
+    '<a href="#" data-cal="open" class="btn btn-clay btn-lg">Keşif Görüşmesi Oluştur ' + ico('arrow', 16) + '</a>' +
     '<a href="#/platform/nasil-calisir" class="btn btn-ghost btn-lg">Platformu incele</a>' +
     '</div></div></section>';
 }
@@ -2271,7 +2271,7 @@ function renderPlatformV2Listing() {
     '<p class="lead" style="max-width:720px">Chief; e-posta, toplantı notu, WhatsApp, web formu, ERP/CRM kaydı, saha formu ve sistem verilerinden gelen dağınık iş sinyallerini anlayarak bunları yönetilebilir süreçlere, görevlere, onaylara ve karar aksiyonlarına dönüştüren, öğrenen öngörüler üreten, AI tabanlı olarak tasarlanmış bir işletme zekası katmanıdır.</p>' +
     '<div class="cta-row" style="margin-top:28px">' +
     '<a href="#/platform/chief-nasil-calisir" class="btn btn-ghost btn-lg">Chief Nasıl Çalışır?</a>' +
-    '<a href="#/demo-talep-et" class="btn btn-clay btn-lg">Demo Talep Et</a>' +
+    '<a href="#" data-cal="open" class="btn btn-clay btn-lg">Demo Talep Et</a>' +
     '</div></div></section>';
 
   // 4 alt paragraf
@@ -2585,7 +2585,7 @@ function renderFiyatlandirma() {
     '<p style="font-size:14px;color:var(--t-muted);margin:14px 0 0">Teknik token detayına girmeden, aylık iş hacminizi üç basit kategoriyle seçin; yaklaşık aylık toplam fiyatınızı görün.</p>' +
     '<div class="cta-row" style="margin-top:28px">' +
     '<a href="#simRef" class="btn btn-clay btn-lg" onclick="document.getElementById(\'chiefSim\').scrollIntoView({behavior:\'smooth\'});return false;">Kullanımınızı Simüle Edin</a>' +
-    '<a href="#/demo-talep-et" class="btn btn-ghost btn-lg">Randevu Talep Edin</a>' +
+    '<a href="#" data-cal="open" class="btn btn-ghost btn-lg">Randevu Talep Edin</a>' +
     '</div></div></section>';
 
   /* ---- HERO ALTI 3 KART ---- */
@@ -2670,7 +2670,7 @@ function renderFiyatlandirma() {
     '<p class="sim-price-sub" id="simPriceSub">Temel başlangıç bedeli dahildir.</p>' +
     '<div class="sim-segment-wrap"><span class="sim-segment-lbl">Önerilen profil</span><span class="sim-segment" id="simSegment">Mikro İşletme / Girişim</span></div>' +
     '<p class="sim-integ-note" id="simIntegNote">Tek seferlik temel kurulum bedeli ayrıca planlanır.</p>' +
-    '<a href="#/demo-talep-et" class="btn btn-clay btn-lg sim-cta" id="simCTA">Bu kullanımı birlikte doğrulayalım</a>' +
+    '<a href="#" data-cal="open" class="btn btn-clay btn-lg sim-cta" id="simCTA">Bu kullanımı birlikte doğrulayalım</a>' +
     '<p class="sim-disclaimer">Simülasyon ve fiyatlandırma değerleri örnektir; gerçek bedel kurulum kapsamı, entegrasyon ihtiyacı, kullanım hacmi, veri yoğunluğu, güvenlik gereksinimleri ve sözleşme şartlarına göre değişkenlik gösterebilir.</p>' +
     '</div>' +
 
@@ -2679,9 +2679,9 @@ function renderFiyatlandirma() {
   /* ---- SAAS PAKET KARTLARI ---- */
   var saasSegments = [
     { name:'Mikro İşletme / Girişim', fiyatDili:'Başlangıç seviyesinde temel SaaS', kimler:'Freelance, yeni kurulanlar, 1-5 çalışan mikro KOBİ veya ilk süreçlerini Chief\'e taşımak isteyen küçük ekipler.', cta:'Kullanımı Simüle Et', ctaHref:'#chiefSim', featured:false },
-    { name:'Küçük İşletme / KOBİ', fiyatDili:'Kullanıma göre ölçeklenir', kimler:'İşini otutmuş, büyüyen ekipler; 5-20 çalışan yapılar. Düzenli satış, teklif, takip ve temel operasyon akışı olan işletmeler.', cta:'Randevu Talep Et', ctaHref:'#/demo-talep-et', featured:true },
-    { name:'Orta Ölçekli İşletme', fiyatDili:'Ciddi hacim ve çoklu süreç kullanımı', kimler:'20-100 çalışan, satış + operasyon + saha/servis/üretim süreçlerini birlikte yöneten ticari şirketler.', cta:'Sürecinizi Birlikte Modelleyelim', ctaHref:'#/demo-talep-et', featured:false },
-    { name:'Büyük Kurumsal / Grup Şirketleri', fiyatDili:'Kurumsal kullanım ve ileri entegrasyon', kimler:'100+ çalışan, çok lokasyonlu, global yapılar, holdingler veya gelişmiş güvenlik/entegrasyon ihtiyacı olan kurumlar.', cta:'Kurumsal Görüşme Planla', ctaHref:'#/demo-talep-et', featured:false },
+    { name:'Küçük İşletme / KOBİ', fiyatDili:'Kullanıma göre ölçeklenir', kimler:'İşini otutmuş, büyüyen ekipler; 5-20 çalışan yapılar. Düzenli satış, teklif, takip ve temel operasyon akışı olan işletmeler.', cta:'Randevu Talep Et', ctaHref:'#', featured:true },
+    { name:'Orta Ölçekli İşletme', fiyatDili:'Ciddi hacim ve çoklu süreç kullanımı', kimler:'20-100 çalışan, satış + operasyon + saha/servis/üretim süreçlerini birlikte yöneten ticari şirketler.', cta:'Sürecinizi Birlikte Modelleyelim', ctaHref:'#', featured:false },
+    { name:'Büyük Kurumsal / Grup Şirketleri', fiyatDili:'Kurumsal kullanım ve ileri entegrasyon', kimler:'100+ çalışan, çok lokasyonlu, global yapılar, holdingler veya gelişmiş güvenlik/entegrasyon ihtiyacı olan kurumlar.', cta:'Kurumsal Görüşme Planla', ctaHref:'#', featured:false },
   ];
 
   h += '<section style="padding:60px 0"><div class="container">' +
@@ -2693,7 +2693,7 @@ function renderFiyatlandirma() {
         '<h3>' + esc(s.name) + '</h3>' +
         '<p class="fiy-saas-fiyat">' + esc(s.fiyatDili) + '</p>' +
         '<p class="fiy-saas-kimler">' + esc(s.kimler) + '</p>' +
-        '<a href="' + s.ctaHref + '" class="btn ' + (s.featured ? 'btn-clay' : 'btn-ghost') + '" style="width:100%;justify-content:center;margin-top:auto" onclick="if(this.href.indexOf(\'#chiefSim\')>-1){document.getElementById(\'chiefSim\').scrollIntoView({behavior:\'smooth\'});return false;}">' + esc(s.cta) + '</a>' +
+        '<a href="' + s.ctaHref + '" data-cal="open" class="btn ' + (s.featured ? 'btn-clay' : 'btn-ghost') + '" style="width:100%;justify-content:center;margin-top:auto" onclick="if(this.href.indexOf(\'#chiefSim\')>-1){document.getElementById(\'chiefSim\').scrollIntoView({behavior:\'smooth\'});return false;}">' + esc(s.cta) + '</a>' +
         '</div>';
     }).join('') +
     '</div></div></section>';
@@ -2713,7 +2713,7 @@ function renderFiyatlandirma() {
       return '<div class="fiy-integ-item"><strong>' + esc(r[0]) + '</strong><p>' + esc(r[1]) + '</p><span class="fiy-integ-note">' + esc(r[2]) + '</span></div>';
     }).join('') +
     '</div>' +
-    '<div style="margin-top:32px;text-align:center"><a href="#/demo-talep-et" class="btn btn-clay">Entegrasyon Kapsamını Görüşelim</a></div>' +
+    '<div style="margin-top:32px;text-align:center"><a href="#" data-cal="open" class="btn btn-clay">Entegrasyon Kapsamını Görüşelim</a></div>' +
     '</div></section>';
 
   /* ---- ON-PREMISE KARTI ---- */
@@ -2723,7 +2723,7 @@ function renderFiyatlandirma() {
     '<div>' +
     '<h3>Özel güvenlik ve kurum içi kurulum ihtiyacınız mı var?</h3>' +
     '<p>Kamu kurumları, finansal kuruluşlar, büyük kurumsal yapılar, holdingler veya verisini kendi altyapısında tutmak isteyen işletmeler için Chief private cloud, hybrid veya on-premise mimariyle konumlandırılabilir. Bu kurulumlarda fiyat; altyapı, kullanıcı, süreç hacmi, model tercihi, entegrasyon ve bakım kapsamına göre proje bazlı belirlenir.</p>' +
-    '<a href="#/demo-talep-et" class="btn btn-clay" style="margin-top:18px">Özel Kurulum İçin Randevu Talep Et</a>' +
+    '<a href="#" data-cal="open" class="btn btn-clay" style="margin-top:18px">Özel Kurulum İçin Randevu Talep Et</a>' +
     '<p style="font-size:13px;color:var(--t-muted);margin-top:10px">On-premise kurulumlar standart SaaS fiyat simülasyonundan bağımsız değerlendirilir.</p>' +
     '</div></div></div></section>';
 
@@ -2814,8 +2814,8 @@ function renderPartnerler() {
     '<p class="lead" style="max-width:720px">Chief Partner Ağı; teknoloji şirketleri, sistem entegratörleri, danışmanlar, sektör uzmanları ve bölgesel büyüme ortakları için tasarlanmış kurumsal iş ortaklığı modelidir. Chief ile işletmelerin satış, operasyon, üretim, finans, saha ekipleri ve yönetim süreçlerinde yapay zekâ destekli dönüşümüne birlikte katkı sağlayın.</p>' +
     '<p style="font-size:15px;color:var(--t-muted);max-width:680px;margin-top:16px;line-height:1.75">Chief, farklı sistemlerden gelen veriyi yalnızca raporlayan bir araç değildir. Gelen iş sinyallerini anlar, eksik bilgiyi tamamlar, ilgili sürece bağlar, görev ve onay akışları oluşturur, yönetime ölçülebilir aksiyon olarak sunar. Partnerlerimiz bu değeri farklı sektörlere, pazarlara ve müşteri ihtiyaçlarına doğru şekilde taşımamıza yardımcı olur.</p>' +
     '<div class="cta-row" style="margin-top:28px">' +
-    '<a href="#/demo-talep-et" class="btn btn-clay btn-lg">Chief Partneri Olun</a>' +
-    '<a href="#/demo-talep-et" class="btn btn-ghost btn-lg">Partnerlik Başvurusu Yapın</a>' +
+    '<a href="#" data-cal="open" class="btn btn-clay btn-lg">Chief Partneri Olun</a>' +
+    '<a href="#" data-cal="open" class="btn btn-ghost btn-lg">Partnerlik Başvurusu Yapın</a>' +
     '</div></div></section>';
 
   // PARTNERLİK YAKLAŞIMI
@@ -2911,8 +2911,8 @@ function renderPartnerler() {
     '<h2>Chief ile birlikte büyüyün.</h2>' +
     '<p class="lead">Chief ile birlikte işletmelerin yapay zekâ destekli dönüşümünde yer almak, yeni pazarlarda büyümek, mevcut müşteri portföyünüze güçlü bir kurumsal yapay zekâ platformu eklemek ve sürdürülebilir partner geliri oluşturmak için bizimle iletişime geçin.</p>' +
     '<div class="cta-row">' +
-    '<a href="#/demo-talep-et" class="btn btn-clay btn-lg">Chief Partneri Olun ' + ico('arrow',16) + '</a>' +
-    '<a href="#/demo-talep-et" class="btn on-dark-ghost btn-lg">Ekosistemimize Katılın</a>' +
+    '<a href="#" data-cal="open" class="btn btn-clay btn-lg">Chief Partneri Olun ' + ico('arrow',16) + '</a>' +
+    '<a href="#" data-cal="open" class="btn on-dark-ghost btn-lg">Ekosistemimize Katılın</a>' +
     '</div></div></section>';
 
   return h;
@@ -2928,7 +2928,7 @@ function renderKaynaklar() {
     { icon:'chat',   title:'Sık Sorulan Sorular',           desc:'Chief\'in konumlandırması, entegrasyon, fiyatlandırma, güvenlik, on-premise ve kullanım yoğunluğu hakkında yanıtlar.',      href:'#/kaynaklar/sss' },
     { icon:'layers', title:'Dokümanlar',                    desc:'Ürün broşürleri, teknik açıklamalar, entegrasyon notları ve kurulum rehberleri.',                                           href:'#/kaynaklar/dokumanlar' },
     { icon:'shield', title:'Güvenlik ve Veri Yaklaşımı',   desc:'Rol bazlı yetkilendirme, veri erişimi, denetim izi, insan onayı ve özel kurulum yaklaşımı.',                               href:'#/platform/guvenlik-ve-veri-yaklasimi' },
-    { icon:'phone',  title:'İletişim',                     desc:'Chief ekibiyle görüşmek, demo talep etmek veya partnerlik başvurusu yapmak için iletişim.',                                  href:'#/demo-talep-et' },
+    { icon:'phone',  title:'İletişim',                     desc:'Chief ekibiyle görüşmek, demo talep etmek veya partnerlik başvurusu yapmak için iletişim.',                                  href:'#' },
   ];
 
   var h = '<section class="detail-hero"><div class="container">' +
@@ -3708,7 +3708,7 @@ function renderKullanimSenaryolariListing() {
     '<span class="eyebrow">CHIEF KULLANIM SENARYOLARI</span>' +
     '<h1 style="margin-top:16px;max-width:720px">15 hazır iş akışı</h1>' +
     '<p class="lead" style="max-width:660px">Teklif talebinden saha kapanışına, bakım planından tahsilat takibine kadar yaygın iş senaryoları için tasarlanmış akışlarla hızlı başlayın. Her akışı mevcut sistemlerinize, yetki matrisinize ve ekip yapınıza göre uyarlayın.</p>' +
-    '<div class="cta-row" style="margin-top:24px"><a href="#/demo-talep-et" class="btn btn-clay btn-lg">Demo Talep Et</a></div>' +
+    '<div class="cta-row" style="margin-top:24px"><a href="#" data-cal="open" class="btn btn-clay btn-lg">Demo Talep Et</a></div>' +
     '</div></section>';
 
   Object.keys(cats).forEach(function(catName) {
@@ -5600,8 +5600,8 @@ function renderIsSureciListing() {
     '<h1 style="margin-top:16px;max-width:800px">İş Süreçlerinizi Sinyalden Sonuca Yönetin</h1>' +
     '<p class="lead" style="max-width:720px">Chief; yönetim karar süreçlerinden başlayarak satış, teklif, operasyon, üretim, teknik servis, finansal kapanış ve müşteri/çalışan deneyimi süreçlerini tek bir işletme akışında birbirine bağlar. E-posta, WhatsApp, web formu, toplantı notu, ERP/CRM kaydı, saha formu, IoT sinyali veya geri bildirim gibi dağınık iş sinyallerini yakalar; eksik bilgiyi tamamlar, kurallara göre görev ve onay başlatır, süreci izler ve sonucu yönetim seviyesinde sorgulanabilir hale getirir.</p>' +
     '<div class="cta-row" style="margin-top:28px">' +
-    '<a href="#/demo-talep-et" class="btn btn-clay btn-lg">Süreçlerinizi Birlikte Modelleyelim</a>' +
-    '<a href="#/demo-talep-et" class="btn btn-ghost btn-lg">Demo Talep Edin</a>' +
+    '<a href="#" data-cal="open" class="btn btn-clay btn-lg">Süreçlerinizi Birlikte Modelleyelim</a>' +
+    '<a href="#" data-cal="open" class="btn btn-ghost btn-lg">Demo Talep Edin</a>' +
     '</div></div></section>';
 
   // Bölüm 3 + Bölüm 4
@@ -5651,8 +5651,8 @@ function renderIsSureciListing() {
     '<p>Her işletmede talep, teklif, iş emri, üretim, servis, fatura, tahsilat, geri bildirim ve yönetim kararı farklı sistemlerde iz bırakır. Sorun verinin eksik olması değil; bu verinin çoğu zaman sorumluluk, karar, aksiyon ve kapanış kriteriyle bağlanmamasıdır.</p>' +
     '<p>Chief, mevcut sistemlerinizi değiştirmeden bu dağınık yapının üzerinde çalışır. Sinyalleri yakalar, bağlamı anlar, eksik bilgiyi tamamlar, görev ve onayları yürütür, işi kanıtıyla kapatır ve yönetim için doğal dil ile sorgulanabilir, açıklanabilir ve aksiyona dönüşen bir işletme zekasına dönüştürür.</p>' +
     '<div class="cta-row" style="margin-top:32px">' +
-    '<a href="#/demo-talep-et" class="btn btn-clay btn-lg">Sürecinizi Birlikte Modelleyelim</a>' +
-    '<a href="#/demo-talep-et" class="btn on-dark-ghost btn-lg">Demo Talep Edin</a>' +
+    '<a href="#" data-cal="open" class="btn btn-clay btn-lg">Sürecinizi Birlikte Modelleyelim</a>' +
+    '<a href="#" data-cal="open" class="btn on-dark-ghost btn-lg">Demo Talep Edin</a>' +
     '</div></div></div>';
 
   return h;
@@ -5765,7 +5765,7 @@ function renderIsSureciPage(slug) {
   var ctaTitle = d.ctaHeadline || ((d.cardTitle || d.eyebrow || 'Bu süreç') + ' süreçlerinizi Chief ile modellemek için görüşme planlayın.');
   h += '<section class="final-cta"><div class="container">' +
     '<h2>' + esc(ctaTitle) + '</h2>' +
-    '<div class="cta-row"><a href="#/demo-talep-et" class="btn btn-clay btn-lg">Görüşme Planlayın ' + ico('arrow', 16) + '</a>' +
+    '<div class="cta-row"><a href="#" data-cal="open" class="btn btn-clay btn-lg">Görüşme Planlayın ' + ico('arrow', 16) + '</a>' +
     '<a href="#/is-surecleri" class="btn on-dark-ghost btn-lg">Tüm süreçlere dön</a></div>' +
     '</div></section>';
 
