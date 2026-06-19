@@ -300,6 +300,7 @@ function _drawerRoot() {
     '<a class="m-flat" href="#/entegrasyonlar">Entegrasyonlar</a>' +
     '<a class="m-flat" href="#/fiyatlandirma">Fiyatlandırma</a>' +
     '<a class="m-flat" href="#/partnerler">Partnerlik</a>' +
+    '<a class="m-flat" href="#/hakkimizda">Hakkımızda</a>' +
     '</div></div>' +
     '<div class="m-drawer-foot">' +
     '<a href="#" id="mLoginTrigger" class="btn btn-ghost btn-lg" style="width:100%;justify-content:center">Giriş</a>' +
